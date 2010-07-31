@@ -13,12 +13,12 @@ void function() {}
 
 BOOST_AUTO_TEST_CASE(create)
 {
-	Context<void ()> context(function);
+	Context<> context(function);
 }
 
 BOOST_AUTO_TEST_CASE(createWithSpecificStackSize)
 {
-    Context<void (), 1024> context(function);
+    Context<1024> context(function);
 }
 
 struct Functor
@@ -29,5 +29,39 @@ struct Functor
 BOOST_AUTO_TEST_CASE(functor)
 {
 	Functor f;
-    Context<Functor> context(f);
+    Context<> context(f);
+}
+
+struct TestExecution
+{
+	bool executed;
+	TestExecution(): executed(false) {}
+	void operator()() { executed = true; }
+};
+
+BOOST_AUTO_TEST_CASE(execution)
+{
+	TestExecution f;
+    Context<> context(f);
+	context.run();
+	BOOST_CHECK(f.executed);
+}
+
+struct TestYield: TestExecution
+{
+    Context<> context;
+	TestYield(): context(*this) {}
+	void operator()()
+	{
+		TestExecution::operator()();
+		context.yield();
+		BOOST_ERROR("yield passed");
+	}
+};
+
+BOOST_AUTO_TEST_CASE(yield)
+{
+	TestYield test;
+	test.context.run();
+	BOOST_CHECK(test.executed);
 }

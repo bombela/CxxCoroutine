@@ -15,21 +15,24 @@ namespace details {
 namespace posix {
 
 #include <ucontext.h>
+#include <string.h>
+#include <errno.h>
 
 template <typename F>
-inline static void trampoline(F* f)
+inline void trampoline(F* f)
 {
 	(*f)();
 }
 
-template <typename F, size_t STACK_SIZE = SIGSTKSZ>
+template <size_t STACK_SIZE = SIGSTKSZ>
 class Context
 {
 	public:
+		template <typename F>
 		Context(const F& cb)
 		{
 			if (getcontext(&_coroContext) == -1)
-				throw error::System("coroutine::details::ContextBase(): "
+				throw createError("coroutine::details::ContextBase(), "
 						"getcontext failed");
 			_coroContext.uc_link = &_mainContext;
 			_coroContext.uc_stack.ss_sp = &_stack;
@@ -37,11 +40,33 @@ class Context
 			void (*cb_ptr)(F*) = &trampoline<F>;
 			makecontext(&_coroContext, (void (*)())cb_ptr, 1, &cb);
 		}
+
+		void run()
+		{
+			if (swapcontext(&_mainContext, &_coroContext) == -1)
+				throw createError("coroutine::details::ContextBase::run(), "
+						"swapcontext failed");
+		}
+
+		void yield()
+		{
+			if (swapcontext(&_coroContext, &_mainContext) == -1)
+				throw createError("coroutine::details::ContextBase::run(), "
+						"swapcontext failed");
+		}
 		
 	private:
 		ucontext _mainContext;
 		ucontext _coroContext;
 		char     _stack[STACK_SIZE];
+
+		error::System createError(const char* msg)
+		{
+			char buf[256];
+			if (strerror_r(errno, buf, sizeof buf) == 0)
+				return error::System(std::string(msg) + ", " + buf);
+			return error::System(std::string(msg) + ", unknown error");
+		}
 };
 
 } // namespace posix
