@@ -29,7 +29,7 @@ class Context
 {
 	public:
 		template <typename F>
-		Context(const F& cb)
+		Context(F& cb)
 		{
 			if (getcontext(&_coroContext) == -1)
 				throw createError("coroutine::details::ContextBase(), "
