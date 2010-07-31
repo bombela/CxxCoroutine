@@ -4,4 +4,7 @@
 #
 #
 
-coroutine_add_test(createCoroutine.cpp)
+file(GLOB TEST_SRCS "*.cpp")
+foreach(f ${TEST_SRCS})
+	coroutine_add_test(${f})
+endforeach()
