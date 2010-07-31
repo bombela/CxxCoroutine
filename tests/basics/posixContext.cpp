@@ -7,14 +7,27 @@
 #include <test.hpp>
 #include <details/context_posix.hpp>
 
-using namespace details::posix;
+using namespace coroutine::details::posix;
+
+void function() {}
 
 BOOST_AUTO_TEST_CASE(create)
 {
-	Context<> context UNUSED;
+	Context<void ()> context(function);
 }
 
-BOOST_AUTO_TEST_CASE(createWithSpecificSize)
+BOOST_AUTO_TEST_CASE(createWithSpecificStackSize)
 {
-	Context<1024> context UNUSED;
+    Context<void (), 1024> context(function);
+}
+
+struct Functor
+{
+	void operator()() { }
+};
+
+BOOST_AUTO_TEST_CASE(functor)
+{
+	Functor f;
+    Context<Functor> context(f);
 }
