@@ -51,7 +51,7 @@ class Context
 		void yield()
 		{
 			if (swapcontext(&_coroContext, &_mainContext) == -1)
-				throw createError("coroutine::details::ContextBase::run(), "
+				throw createError("coroutine::details::ContextBase::yield(), "
 						"swapcontext failed");
 		}
 		
