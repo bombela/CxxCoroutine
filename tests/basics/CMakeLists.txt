@@ -4,5 +4,4 @@
 #
 #
 
-add_executable(createCoroutine createCoroutine.cpp)
-add_test(createCoroutine createCoroutine)
+coroutine_add_test(createCoroutine.cpp)

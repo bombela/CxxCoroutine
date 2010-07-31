@@ -16,9 +16,7 @@ set(Boost_USE_STATIC_LIBS   OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(BOOST_INCLUDEDIR "/usr/local/include")
 set(Boost_ADDITIONAL_VERSIONS 1.44 1.43 1.42 1.41 1.40 1.39 1.38)
-find_package(Boost 1.38 REQUIRED)
 add_definitions(-DBOOST_ALL_NO_LIB)
-include_directories(${Boost_INCLUDE_DIRS})
 
 ###############################################################################
 # COMPILER FLAGS
@@ -26,7 +24,6 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 	set(CMAKE_CXX_FLAGS "-Wall -Wextra")
-	set(CMAKE_CXX_FLAGS_DEBUG "-g3")
 	
 	set(PROFILING false CACHE BOOL "Use profilling")
 	if (PROFILING)
@@ -69,6 +66,11 @@ if (CMAKE_COMPILER_IS_GNUCXX)
 			-fwhole-program")
 	endif()
 endif(CMAKE_COMPILER_IS_GNUCXX)
+
+###############################################################################
+# COROUTINE CONFIGURATION
+###############################################################################
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 ###############################################################################
 # SUBDIRS

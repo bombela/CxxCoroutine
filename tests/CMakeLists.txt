@@ -4,5 +4,16 @@
 #
 #
 
+find_package(Boost 1.38 REQUIRED system unit_test_framework test_exec_monitor)
+include_directories(${Boost_INCLUDE_DIRS})
 link_libraries(${Boost_LIBRARIES})
+
+macro(coroutine_add_test src)
+	get_filename_component(name ${src} NAME_WE)
+	add_executable(${name} ${src})
+	add_test(${name} ${name})
+endmacro()
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 add_subdirectory(basics)

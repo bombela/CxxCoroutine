@@ -4,10 +4,10 @@
  *
 */
 
-#include <iostream>
+#include <test.hpp>
+#include <coroutine.hpp>
 
-int main()
+BOOST_AUTO_TEST_CASE(create)
 {
-	std::cout << "HELLO" << std::endl;
-	return 1;
+	coroutine::Coroutine coro UNUSED;
 }
