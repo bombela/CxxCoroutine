@@ -19,6 +19,7 @@ inline void trampoline(C* context, F* f)
 	(*f)();
 	std::cout << "awwww" << std::endl;
 	context->swapContext();
+	abort();
 }
 
 template <size_t STACK_SIZE, size_t PTR_SIZE>
@@ -38,14 +39,17 @@ class ContextImpl<STACK_SIZE, 8>
 
 			trampoline_t* cb_ptr = &trampoline<F>;
 			_sp = (void**)_stack + sizeof _stack / sizeof(void*);
+			std::cout << &_stack << ", " << _sp << " - "
+				<< ((char*)_sp - _stack) << std::endl;
 			
 			// red zone begin
-			_sp -= (128 - (8 * 2));     // red zone
-			*--_sp = (void*)this;       // rdi (trampoline arg1)
-			*--_sp = (void*)&cb;        // rsi (trampoline arg2)
+			_sp -= 16;     // red zone
 			// red zone end
 			*--_sp = 0;                 // trampoline return
-			*(_sp - 1) = (void*)cb_ptr; // next instruction addr
+			*--_sp = (void*)cb_ptr;     // next instruction addr
+			*--_sp = (void*)&cb;        // rsi (trampoline arg2)
+			*--_sp = (void*)this;       // rdi (trampoline arg1)
+			--_sp;                      // rbp
 			std::cout << "ctr " << (void*)&cb << " - " << this << std::endl;
 		}
 	
@@ -60,35 +64,39 @@ class ContextImpl<STACK_SIZE, 8>
 		{
 			// backup in red zone
 			asm volatile (
-					// store registers in redzone
-					"mov %%rsi, 8(%%rsp)\n\t"
-					"mov %%rdi, 16(%%rsp)\n\t"
-
 					// store next instruction
-					"movl $1f, -8(%%rsp)\n\t"
+					"push $1f\n\t"
+
+					// store registers
+					"push %%rsi\n\t"
+					"push %%rsi\n\t"
+					"push %%rbp\n\t"
 
 					// switch stack
-					"xchg %[_sp], %%rsp\n\t"
+					"xchg 0(%[_sp]), %%rsp\n\t"
 
 					// restore registers from redzone
-					"mov 16(%%rsp), %%rdi\n\t"
-					"mov 8(%%rsp),  %%rsi\n\t"
+					"pop %%rbp\n\t"
+					"pop %%rdi\n\t"
+					"pop %%rsi\n\t"
 
 					// jump to next instruction
-					"jmp *-8(%%rsp)\n\t"
+					"pop %%rax\n\t"
+					"jmp *%%rax\n\t"
 
 					"1:\n\t"
 
-					: // output
-						[_sp]   "=m" (_sp)
+					: // input/output
+						//[_sp]   "+a" (_sp)
 					: // input
-						[_sp]   "m" (_sp)
+						[_sp]   "a" (&_sp)
 					: // modified
-						"rax",
+						// rax -> integer return value
 						"rbx",
 						"rcx",
 						"rdx",
-						"rbp",
+						// rsp -> manipulated behind the compiler.
+						// rbp -> used in debug mode, manual saving.
 						"r8",
 						"r9",
 						"r10",
@@ -96,7 +104,31 @@ class ContextImpl<STACK_SIZE, 8>
 						"r12",
 						"r13",
 						"r14",
-						"r15"
+						"r15",
+						"xmm0",
+						"xmm1",
+						"xmm2",
+						"xmm3",
+						"xmm4",
+						"xmm5",
+						"xmm6",
+						"xmm7",
+						"xmm8",
+						"xmm9",
+						"xmm10",
+						"xmm11",
+						"xmm12",
+						"xmm13",
+						"xmm14",
+						"xmm15",
+						"%st(1)",
+						"%st(2)",
+						"%st(3)",
+						"%st(4)",
+						"%st(5)",
+						"%st(6)",
+						"%st(7)",
+						"memory"
 					);
 		}
 };

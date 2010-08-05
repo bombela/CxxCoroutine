@@ -30,11 +30,21 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
 		set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
 	endif()
+
+	set(FORCEDEBUG false CACHE BOOL "Force debug -g3")
+	if (FORCEDEBUG)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g3")
+	endif()
 endif()
 
 if (CMAKE_COMPILER_IS_GNUCXX)
 	set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 	set(CMAKE_CXX_FLAGS_DEBUG "-g3 -D_GLIBCXX_DEBUG")
+	
+	set(FORCEDEBUG false CACHE BOOL "Force debug -g3 -D_GLIBCXX_DEBUG")
+	if (FORCEDEBUG)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g3 -D_GLIBCXX_DEBUG")
+	endif()
 	
 	set(PROFILING false CACHE BOOL "Use profilling")
 	if (PROFILING)
