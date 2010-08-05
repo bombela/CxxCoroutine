@@ -38,7 +38,7 @@ struct TestExecution
 	bool executed;
 	TestExecution(): executed(false) { }
 	void operator()() { executed = true;
-		std::cout << "executed!" << std::endl; 
+		std::cout << "executed! " << this << std::endl; 
 	}
 };
 
@@ -46,6 +46,7 @@ BOOST_AUTO_TEST_CASE(execution)
 {
 	TestExecution f;
     Context<> context(f);
+	std::cout << "functor   " << &f << std::endl; 
 	context.run();
 	BOOST_CHECK(f.executed);
 }
