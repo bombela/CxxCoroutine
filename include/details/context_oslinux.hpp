@@ -74,7 +74,7 @@ class ContextImpl<STACK_SIZE, 8>
 					// switch stack
 					"xchg 0(%[_sp]), %%rsp\n\t"
 
-					// restore registers from redzone
+					// restore registers
 					"pop %%rbp\n\t"
 					"pop %%rdi\n\t"
 					"pop %%rsi\n\t"
