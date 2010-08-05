@@ -62,6 +62,31 @@ class ContextImpl<STACK_SIZE, 8>
 
 		void swapContext()
 		{
+			/*
+			 * Optimisation discussion:
+			 * 	Use an array for store register, high probability
+			 * 	for this array to be allocated on the redzon, so, no
+			 * 	need to move the stack pointer. Also, maybe move
+			 * 	are faster than push/move.
+			 * 		- replace push/pop by move.
+			 * 			- replace manual allocation by compiler allocation.
+			 *
+			 * 	Remove the useless push $1f.
+			 * 		- need to preapre the stack little bit longer.
+			 * 	
+			 * 	Using two different call site can help?
+			 * 		- copy/paste two time (maybe macro)
+			 * 		- or use template for copye/paste.
+			 *
+			 * 	So we have 5 flags for optimizations to manage:
+			 * 		- CORO_LINUX_8664_MOVE
+			 * 		- CORO_LINUX_8664_MOVE_REDZONE
+			 * 		- CORO_LINUX_8664_NOJUMP
+			 * 		- CORO_LINUX_8664_2CALLSITE_COPYPASTE
+			 * 		- CORO_LINUX_8664_2CALLSITE_TEMPLATE
+			 *
+			 */
+
 			asm volatile (
 					// store next instruction
 					"push $1f\n\t"
