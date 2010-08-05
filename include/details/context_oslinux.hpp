@@ -88,9 +88,9 @@ class ContextImpl<STACK_SIZE, 8>
 					: // input/output
 						// not used
 					: // input
-						[_sp]   "a" (&_sp)
+						[_sp]   "rax" (&_sp)
 					: // modified
-						// rax -> integer return value
+						// rax -> integer return value & used by input
 						"rbx", "rcx", "rdx",
 						// rsp -> manipulated behind the compiler.
 						// rbp -> can be used by compiler in debug mode,
