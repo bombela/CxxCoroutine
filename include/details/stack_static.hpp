@@ -17,7 +17,6 @@ class Static
 {
 	public:
 		char*  getStack() { return _stack; }
-		size_t getSize()  const { return sizeof _stack; }
 		
 	private:
 		char _stack[STACK_SIZE];

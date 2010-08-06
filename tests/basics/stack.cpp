@@ -21,20 +21,22 @@ void validateStack(S& s)
 
 BOOST_AUTO_TEST_CASE(create)
 {
+	size_t default_size = stack::DEFAULT_SIZE;
+
 	Stack<> a;
-	BOOST_CHECK_EQUAL(a.getSize(), 8192);
+    BOOST_CHECK_EQUAL(a.getSize(), default_size);
 	validateStack(a);
 	
 	Stack<stack::Static> b;
-	BOOST_CHECK_EQUAL(b.getSize(), 8192);
+	BOOST_CHECK_EQUAL(b.getSize(), default_size);
 	validateStack(b);
 
 	Stack<stack::Dynamic> c;
-	BOOST_CHECK_EQUAL(c.getSize(), 8192);
+	BOOST_CHECK_EQUAL(c.getSize(), default_size);
 	validateStack(c);
 
-	Stack<stack::Dynamic, 2048> d;
-	BOOST_CHECK_EQUAL(d.getSize(), 2048);
+	Stack<stack::Dynamic, 1024> d;
+	BOOST_CHECK_EQUAL(d.getSize(), 1024);
 	validateStack(d);
 
 	Stack<stack::Static, 2048> e;

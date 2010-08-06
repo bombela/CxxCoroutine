@@ -9,6 +9,7 @@
 #define CONTEXT_POSIX_H
 
 #include <error.hpp>
+#include <details/stack.hpp>
 
 namespace coroutine {
 namespace details {
@@ -24,9 +25,12 @@ inline void trampoline(F* f)
 	(*f)();
 }
 
-template <size_t STACK_SIZE = SIGSTKSZ>
+template <template <size_t> class StackImpl = stack::Static,
+		 size_t STACK_SIZE = stack::DEFAULT_SIZE>
 class Context
 {
+	typedef Stack<StackImpl, STACK_SIZE> Stack;
+
 	public:
 		template <typename F>
 		Context(F& cb)
@@ -35,8 +39,8 @@ class Context
 				throw createError("coroutine::details::ContextBase(), "
 						"getcontext failed");
 			_coroContext.uc_link = &_mainContext;
-			_coroContext.uc_stack.ss_sp = &_stack;
-			_coroContext.uc_stack.ss_size = sizeof _stack;
+			_coroContext.uc_stack.ss_sp = _stack.getStack();
+			_coroContext.uc_stack.ss_size = Stack::SIZE;
 			void (*cb_ptr)(F*) = &trampoline<F>;
 			makecontext(&_coroContext, (void (*)())cb_ptr, 1, &cb);
 		}
@@ -58,7 +62,7 @@ class Context
 	private:
 		ucontext _mainContext;
 		ucontext _coroContext;
-		char     _stack[STACK_SIZE];
+		Stack    _stack;
 
 		error::System createError(const char* msg)
 		{

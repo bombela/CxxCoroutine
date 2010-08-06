@@ -14,11 +14,11 @@ namespace coroutine {
 namespace details {
 namespace oslinux {
 
-template<size_t STACK_SIZE>
-class ContextImpl<STACK_SIZE, 8>
+template<class Stack>
+class ContextImpl<Stack, 8>
 {
-	template <typename F, typename C>
-		friend inline void trampoline(C* context, F* f);
+	template <typename C, typename F>
+		friend inline void trampoline(C*, F*);
 
 	public:
 		template <typename F>
@@ -26,10 +26,10 @@ class ContextImpl<STACK_SIZE, 8>
 		{
 			typedef void (trampoline_t)(ContextImpl*, F*);
 
-			trampoline_t* cb_ptr = &trampoline<F>;
-			_sp = (void**)_stack + sizeof _stack / sizeof(void*);
+			trampoline_t* cb_ptr = &trampoline<ContextImpl, F>;
+			_sp = (void**)_stack.getStack() + Stack::SIZE / sizeof(void*);
 			std::cout << &_stack << ", " << _sp << " - "
-				<< ((char*)_sp - _stack) << std::endl;
+				<< ((char*)_sp - _stack.getStack()) << std::endl;
 			
 			// red zone begin
 			_sp -= 16;     // red zone
@@ -46,7 +46,7 @@ class ContextImpl<STACK_SIZE, 8>
 		void yield() { swapContext(); }
 
 	private:
-		char   _stack[STACK_SIZE];
+		Stack  _stack;
 		void** _sp;
 
 		void swapContext()
