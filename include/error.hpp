@@ -5,8 +5,8 @@
 */
 
 #pragma once
-#ifndef ERROR_H
-#define ERROR_H
+#ifndef ERROR_COROUTINE_H
+#define ERROR_COROUTINE_H
 
 #include <stdexcept>
 
@@ -22,4 +22,4 @@ class System: public std::runtime_error
 } // namespace error
 } // namespace coroutine
 
-#endif /* ERROR_H */
+#endif /* ERROR_COROUTINE_H */
