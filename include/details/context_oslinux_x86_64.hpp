@@ -28,8 +28,6 @@ class ContextImpl<Stack, 8>
 
 			trampoline_t* cb_ptr = &trampoline<ContextImpl, F>;
 			_sp = (void**)_stack.getStack() + Stack::SIZE / sizeof(void*);
-			std::cout << &_stack << ", " << _sp << " - "
-				<< ((char*)_sp - _stack.getStack()) << std::endl;
 			
 			// red zone begin
 			_sp -= 16;     // red zone
@@ -39,7 +37,6 @@ class ContextImpl<Stack, 8>
 			*--_sp = (void*)&cb;        // rsi (trampoline arg2)
 			*--_sp = (void*)this;       // rdi (trampoline arg1)
 			--_sp;                      // rbp
-			std::cout << "ctr " << (void*)&cb << " - " << this << std::endl;
 		}
 	
 		void run() { swapContext(); }

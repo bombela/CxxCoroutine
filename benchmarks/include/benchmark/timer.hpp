@@ -24,10 +24,10 @@ class Timer
 		{
 			clock::nanos_t diff = clock::time() - _start;
 			std::cout
-				<< "name=" << _name << ", "
-				<< "cnt=" << _cnt << ", "
 				<< "elapsed=" << diff << "nsec, "
-				<< "res=" << clock::res() << "nsec" << std::endl;
+				<< "cnt=" << _cnt << ", "
+				<< "res=" << clock::res() << "nsec, "
+				<< "name=" << _name << std::endl;
 		}
 
 	private:
