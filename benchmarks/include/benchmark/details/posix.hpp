@@ -9,14 +9,13 @@
 #define POSIX_H
 
 #include <error.hpp>
-
+#include <time.h>
+#include <stdint.h>
+#include <iostream>
 namespace benchmark {
 namespace details {
 namespace clock {
 namespace posix {
-
-#include <time.h>
-#include <stdint.h>
 
 typedef int64_t nanos_t;
 
