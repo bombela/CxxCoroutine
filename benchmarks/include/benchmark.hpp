@@ -39,11 +39,13 @@ void runalls()
 
 } // namespace benchmark
 
-#define BENCH(name, cnt) \
+#define BENCH(name, cntpower) \
 struct bench_##name: benchmark::Bench { \
  \
-	void do_bench() const { benchmark::Timer t(#name, cnt); \
-		for (int i = 0; i < cnt; ++i) bench(); }\
+	void do_bench() const { \
+		unsigned cnt = 1u << cntpower; \
+	   	benchmark::Timer t(#name, cnt); \
+		for (;cnt;cnt--) bench(); }\
 	void bench() const; \
 } bench_instance_##name; \
 void bench_##name::bench() const
