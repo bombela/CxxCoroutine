@@ -1,0 +1,1191 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BOOST_COROUTINE_ARGUMENT_PACKER	detail/argument_packer.hpp	41;"	d
+BOOST_COROUTINE_ARGUMENT_PACKER_EX	detail/argument_packer.hpp	55;"	d
+BOOST_COROUTINE_ARGUMENT_PACKER_HPP_20060601	detail/argument_packer.hpp	30;"	d
+BOOST_COROUTINE_ARGUMENT_UNPACKER	detail/argument_unpacker.hpp	45;"	d
+BOOST_COROUTINE_ARGUMENT_UNPACKER_EX	detail/argument_unpacker.hpp	67;"	d
+BOOST_COROUTINE_ARGUMENT_UNPACKER_HPP_20060601	detail/argument_unpacker.hpp	30;"	d
+BOOST_COROUTINE_ARG_MAX	detail/arg_max.hpp	32;"	d
+BOOST_COROUTINE_CONTEXT_IMPL_HPP_20060810	detail/context_base.hpp	30;"	d
+BOOST_COROUTINE_CONTEXT_LINUX_HPP_20060601	detail/context_linux.hpp	30;"	d
+BOOST_COROUTINE_CONTEXT_POSIX_HPP_20060601	detail/context_posix.hpp	30;"	d
+BOOST_COROUTINE_CONTEXT_WINDOWS_HPP_20060625	detail/context_windows.hpp	30;"	d
+BOOST_COROUTINE_COROUTINE_HPP_20060512	coroutine.hpp	30;"	d
+BOOST_COROUTINE_COROUTINE_IMPL_HPP_20060601	detail/coroutine_impl.hpp	30;"	d
+BOOST_COROUTINE_DEDUCED_TYPENAME_DEFAULT	detail/self.hpp	41;"	d
+BOOST_COROUTINE_DEFAULT_CONTEXT_IMPL_HPP_20060601	detail/default_context_impl.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_ARG_MAX_HPP_20060728	detail/arg_max.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_CALL_IMPL_HPP_20060728	detail/call_impl.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_COROUTINE_ACCESSOR_HPP_20060709	detail/coroutine_accessor.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_COROUTINE_TRAITS_HPP_20060613	detail/coroutine_traits.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_FIX_RESULT_HPP_20060709	detail/fix_result.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_FUTURE_IMPL_HPP_20060809	detail/future_impl.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_HAS_SWAP_HPP_20060709	detail/has_swap.hpp	36;"	d
+BOOST_COROUTINE_DETAIL_INDEX_HPP_20060613	detail/index.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_IS_CALLABLE_HPP_20060601	detail/is_callable.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_MAKE_TUPLE_TRAITS_HPP_20060609	detail/make_tuple_traits.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_NORETURN_HPP_20060812	detail/noreturn.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_POSIX_UTILITY_HPP_02012006	detail/posix_utility.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_SELF_HPP_20060809	detail/self.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_SIGNAL_HPP_20060728	detail/signal.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_SIGNATURE_HPP_20060609	detail/signature.hpp	30;"	d
+BOOST_COROUTINE_DETAIL_TEMPLATE_PARAMETERS	detail/argument_packer.hpp	37;"	d
+BOOST_COROUTINE_DETAIL_WAIT_IMPL_HPP_20060728	detail/wait_impl.hpp	31;"	d
+BOOST_COROUTINE_DETAIL_YIELD_RESULT_TYPE_HPP_20060609	detail/yield_result_type.hpp	30;"	d
+BOOST_COROUTINE_EXCEPTION_HPP_20060601	exception.hpp	30;"	d
+BOOST_COROUTINE_FUTURE_HPP_20060728	future.hpp	30;"	d
+BOOST_COROUTINE_GENERATOR_HPP_20060812	generator.hpp	30;"	d
+BOOST_COROUTINE_IMPLICIT_MOVE_CTOR_FOR_COPYABLE_TYPES	move.hpp	82;"	d
+BOOST_COROUTINE_MAKE_TUPLE_TRAITS_GENERATOR	detail/make_tuple_traits.hpp	49;"	d
+BOOST_COROUTINE_MAKE_TUPLE_TRAITS_GENERATOR	detail/make_tuple_traits.hpp	64;"	d
+BOOST_COROUTINE_MOVE_COPY_SWAP_ASSIGN	move.hpp	61;"	d
+BOOST_COROUTINE_MOVE_COPY_SWAP_ASSIGN	move.hpp	89;"	d
+BOOST_COROUTINE_MOVE_HPP_20060703	move.hpp	47;"	d
+BOOST_COROUTINE_NORETURN	detail/context_base.hpp	/^    BOOST_COROUTINE_NORETURN(void exit_self()) {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(void exit_self())
+BOOST_COROUTINE_NORETURN	detail/noreturn.hpp	43;"	d
+BOOST_COROUTINE_NORETURN	detail/noreturn.hpp	49;"	d
+BOOST_COROUTINE_NORETURN	detail/noreturn.hpp	56;"	d
+BOOST_COROUTINE_NORETURN	detail/self.hpp	/^    BOOST_COROUTINE_NORETURN(void exit()) {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(void exit())
+BOOST_COROUTINE_SHARED_COROUTINE_HPP_20060812	shared_coroutine.hpp	30;"	d
+BOOST_COROUTINE_SIGNATURE_GENERATOR	detail/signature.hpp	44;"	d
+BOOST_COROUTINE_SIGNATURE_GENERATOR	detail/signature.hpp	54;"	d
+BOOST_COROUTINE_SWAP_CONTEXT_HPP_20060611	detail/swap_context.hpp	30;"	d
+BOOST_COROUTINE_TUPLE_TRAITS_HPP_20060613	tuple_traits.hpp	30;"	d
+BOOST_COROUTINE_USE_ATOMIC_COUNT	detail/context_base.hpp	39;"	d
+BOOST_COROUTINE_VCPP80_WORKAROUND	detail/self.hpp	47;"	d
+BOOST_COROUTINE_WAIT_MAX	future.hpp	34;"	d
+BOOST_COROUTINE_arg_null_typecr	tuple_traits.hpp	65;"	d
+BOOST_COROUTINE_arg_null_typecr	tuple_traits.hpp	77;"	d
+BOOST_COROUTINE_empty	future.hpp	230;"	d
+BOOST_COROUTINE_empty	future.hpp	271;"	d
+BOOST_COROUTINE_gen_argn_type	detail/call_impl.hpp	76;"	d
+BOOST_COROUTINE_gen_call_overload	future.hpp	209;"	d
+BOOST_COROUTINE_gen_call_overload	future.hpp	274;"	d
+BOOST_COROUTINE_gen_future_assigner	detail/call_impl.hpp	111;"	d
+BOOST_COROUTINE_gen_reference	future.hpp	233;"	d
+BOOST_COROUTINE_gen_reference	future.hpp	272;"	d
+BOOST_COROUTINE_gen_wait	future.hpp	246;"	d
+BOOST_COROUTINE_gen_wait	future.hpp	270;"	d
+BOOST_COROUTINE_gen_wait_non_zero	future.hpp	237;"	d
+BOOST_COROUTINE_gen_wait_non_zero	future.hpp	273;"	d
+BOOST_COROUTINE_generate_argument_n_type	coroutine.hpp	157;"	d
+BOOST_COROUTINE_generate_argument_n_type	coroutine.hpp	175;"	d
+BOOST_COROUTINE_param_typedef	coroutine.hpp	209;"	d
+BOOST_COROUTINE_param_typedef	detail/self.hpp	130;"	d
+BOOST_COROUTINE_param_typedef	detail/self.hpp	162;"	d
+BOOST_COROUTINE_param_with_default	coroutine.hpp	177;"	d
+BOOST_COROUTINE_param_with_default	coroutine.hpp	210;"	d
+BOOST_COROUTINE_param_with_default	detail/call_impl.hpp	87;"	d
+BOOST_COROUTINE_param_with_default	detail/self.hpp	163;"	d
+BOOST_COROUTINE_param_with_default	detail/self.hpp	164;"	d
+BOOST_COROUTINE_param_with_default	detail/self.hpp	203;"	d
+BOOST_COROUTINE_param_with_default	detail/self.hpp	87;"	d
+BOOST_COROUTINE_tuple_param_n	detail/call_impl.hpp	112;"	d
+BOOST_COROUTINE_tuple_param_n	detail/call_impl.hpp	42;"	d
+BOOST_MPL_HAS_XXX_TRAIT_DEF	detail/is_callable.hpp	/^  BOOST_MPL_HAS_XXX_TRAIT_DEF(result);$/;"	p	namespace:boost::coroutines::detail	signature:(result)
+BOOST_MPL_HAS_XXX_TRAIT_DEF	detail/is_callable.hpp	/^  BOOST_MPL_HAS_XXX_TRAIT_DEF(result_type);$/;"	p	namespace:boost::coroutines::detail	signature:(result_type)
+BOOST_PP_ENUM	coroutine.hpp	/^      (BOOST_PP_ENUM$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, arg)
+BOOST_PP_ENUM	detail/call_impl.hpp	/^      (BOOST_PP_ENUM$/;"	f	class:boost::coroutines::detail::callback	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, arg)
+BOOST_PP_ENUM	detail/self.hpp	/^    (BOOST_PP_ENUM$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, BOOST_DEDUCED_TYPENAME yield_traits::arg)
+BOOST_PP_ENUM	detail/self.hpp	/^    (BOOST_PP_ENUM(BOOST_COROUTINE_ARG_MAX,$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, (yield_call_arg , BOOST_COROUTINE_DEDUCED_TYPENAME_DEFAULT coroutine_type::yield_traits::arg))
+BOOST_PP_ENUM	tuple_traits.hpp	/^      (BOOST_PP_ENUM$/;"	f	struct:boost::coroutines::detail::tuple_workaround	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_arg_null_typecr, ~)
+BOOST_PP_ENUM_PARAMS	detail/index.hpp	/^  enum {BOOST_PP_ENUM_PARAMS(BOOST_COROUTINE_ARG_MAX, index_)};$/;"	e	enum:boost::coroutines::detail::__anon1
+BOOST_PP_ENUM_TRAILING	coroutine.hpp	/^       BOOST_PP_ENUM_TRAILING$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, arg)
+BOOST_PP_ENUM_TRAILING	detail/self.hpp	/^     BOOST_PP_ENUM_TRAILING$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, (BOOST_DEDUCED_TYPENAME Target::self::call_arg, BOOST_COROUTINE_DEDUCED_TYPENAME_DEFAULT Target::arg))
+BOOST_PP_ENUM_TRAILING	detail/self.hpp	/^     BOOST_PP_ENUM_TRAILING$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, typename Target::arg)
+BOOST_PP_REPEAT	coroutine.hpp	/^      BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	struct:boost::coroutines::coroutine::yield_traits	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_generate_argument_n_type, result_slot_traits)
+BOOST_PP_REPEAT	coroutine.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	class:boost::coroutines::coroutine	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_generate_argument_n_type, arg_slot_traits)
+BOOST_PP_REPEAT	detail/argument_unpacker.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_ARGUMENT_UNPACKER, ~)
+BOOST_PP_REPEAT	detail/argument_unpacker.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_ARGUMENT_UNPACKER_EX, ~)
+BOOST_PP_REPEAT	detail/call_impl.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	class:boost::coroutines::detail::callback	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_gen_argn_type, ~)
+BOOST_PP_REPEAT	detail/make_tuple_traits.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_MAKE_TUPLE_TRAITS_GENERATOR, ~)
+BOOST_PP_REPEAT	detail/self.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_typedef, (BOOST_DEDUCED_TYPENAME coroutine_type::yield_traits::arg, yield_call_arg))
+BOOST_PP_REPEAT	detail/self.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_typedef, (BOOST_DEDUCED_TYPENAME coroutine_type::arg, call_arg))
+BOOST_PP_REPEAT	detail/signature.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_SIGNATURE_GENERATOR, ~);$/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_SIGNATURE_GENERATOR, ~)
+BOOST_PP_REPEAT	future.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	namespace:boost::coroutines	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_gen_call_overload, ~)
+BOOST_PP_REPEAT	future.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_WAIT_MAX,$/;"	p	namespace:boost::coroutines	signature:(BOOST_COROUTINE_WAIT_MAX, BOOST_COROUTINE_gen_wait, wait)
+BOOST_PP_REPEAT	future.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_WAIT_MAX,$/;"	p	namespace:boost::coroutines	signature:(BOOST_COROUTINE_WAIT_MAX, BOOST_COROUTINE_gen_wait, wait_all)
+BOOST_STATIC_CONSTANT	detail/has_swap.hpp	/^      BOOST_STATIC_CONSTANT(bool, value = sizeof(swap(x,x),'x') == 1);$/;"	p	struct:boost::coroutines::has_swap_::has_swap_impl	access:public	signature:(bool, value = sizeof(swap(x,x),Ã) == 1)
+__attribute	detail/context_linux.hpp	/^  __attribute((regparm(2)));$/;"	t
+abnormal_exit	exception.hpp	/^    abnormal_exit(std::type_info const& e) :$/;"	f	class:boost::coroutines::abnormal_exit	access:public	signature:(std::type_info const& e)
+abnormal_exit	exception.hpp	/^  class abnormal_exit : public std::exception {$/;"	c	namespace:boost::coroutines	inherits:std::exception
+acquire	coroutine.hpp	/^    void acquire() {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+acquire	detail/context_base.hpp	/^    void acquire() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+acquire	detail/coroutine_accessor.hpp	/^    void acquire(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+alloc_stack	detail/posix_utility.hpp	/^  void* alloc_stack(std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(std::size_t size)
+alloc_stack_mmap	detail/posix_utility.hpp	/^  alloc_stack_mmap(std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(std::size_t size)
+anything	detail/has_swap.hpp	/^  struct anything { template <class T> anything(T const&); };$/;"	p	struct:boost::coroutines::has_swap_::anything	access:public	signature:(T const&)
+anything	detail/has_swap.hpp	/^  struct anything { template <class T> anything(T const&); };$/;"	s	namespace:boost::coroutines::has_swap_
+apply	detail/coroutine_accessor.hpp	/^      void apply(void * memory) const {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor::in_place_assign	access:public	signature:(void * memory) const
+arg_slot_traits	coroutine.hpp	/^    ::arg_slot_traits arg_slot_traits;$/;"	t	class:boost::coroutines::coroutine	access:public
+arg_slot_traits	detail/coroutine_traits.hpp	/^    ::type arg_slot_traits;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+arg_slot_traits	detail/self.hpp	/^    ::arg_slot_traits arg_slot_traits;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+arg_slot_type	coroutine.hpp	/^    ::arg_slot_type arg_slot_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+arg_slot_type	detail/coroutine_impl.hpp	/^    typedef typename coroutine_type::arg_slot_type arg_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+arg_slot_type	detail/coroutine_traits.hpp	/^    ::as_tuple arg_slot_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+arg_slot_type	detail/self.hpp	/^    ::arg_slot_type arg_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+args	detail/coroutine_impl.hpp	/^    arg_slot_type * args() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+arity	coroutine.hpp	/^      static const int arity = result_slot_traits::length;$/;"	m	struct:boost::coroutines::coroutine::yield_traits	access:public
+arity	coroutine.hpp	/^    static const int arity = arg_slot_traits::length;$/;"	m	class:boost::coroutines::coroutine	access:public
+as_tuple	detail/coroutine_traits.hpp	/^  struct as_tuple {$/;"	s	namespace:boost::coroutines::detail
+assign	detail/future_impl.hpp	/^    void assign(const T& val) {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(const T& val)
+assign	generator.hpp	/^    optional_type assign(detail::tag<T>) {$/;"	f	class:boost::coroutines::generator	access:private	signature:(detail::tag<T>)
+assign	generator.hpp	/^    optional_type assign(detail::tag<void>) {$/;"	f	class:boost::coroutines::generator	access:private	signature:(detail::tag<void>)
+bind_args	detail/coroutine_impl.hpp	/^    void bind_args(arg_slot_type* arg) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(arg_slot_type* arg)
+bind_result	detail/coroutine_impl.hpp	/^    void bind_result(result_slot_type* res) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(result_slot_type* res)
+bind_result_pointer	detail/coroutine_impl.hpp	/^    void bind_result_pointer(result_slot_type** resp) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(result_slot_type** resp)
+bool_type	coroutine.hpp	/^    typedef void(coroutine::*bool_type)();$/;"	t	class:boost::coroutines::coroutine	access:public
+bool_type_f	coroutine.hpp	/^    void bool_type_f() {}$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+boost	coroutine.hpp	/^namespace boost { namespace coroutines {$/;"	n
+boost	detail/argument_packer.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/argument_unpacker.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/call_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/context_base.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/context_linux.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/context_posix.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/context_windows.hpp	/^namespace boost {namespace coroutines {namespace detail{$/;"	n
+boost	detail/coroutine_accessor.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/coroutine_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/coroutine_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/default_context_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/fix_result.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/future_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/has_swap.hpp	/^namespace boost { namespace coroutines {$/;"	n
+boost	detail/index.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/is_callable.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/make_tuple_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/posix_utility.hpp	/^namespace boost { namespace coroutines { namespace detail { namespace posix {$/;"	n
+boost	detail/self.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/signal.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/signature.hpp	/^namespace boost{ namespace coroutines{ namespace detail{$/;"	n
+boost	detail/swap_context.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n
+boost	detail/wait_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n
+boost	detail/yield_result_type.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n
+boost	exception.hpp	/^namespace boost { namespace coroutines {$/;"	n
+boost	future.hpp	/^namespace boost { namespace coroutines {$/;"	n
+boost	generator.hpp	/^namespace boost { namespace coroutines {$/;"	n
+boost	move.hpp	/^namespace boost { namespace coroutines { $/;"	n
+boost	shared_coroutine.hpp	/^namespace boost { namespace coroutines {$/;"	n
+boost	tuple_traits.hpp	/^namespace boost { namespace coroutines {$/;"	n
+boost::coroutines	coroutine.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+boost::coroutines	detail/argument_packer.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/argument_unpacker.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/call_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/context_base.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/context_linux.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/context_posix.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/context_windows.hpp	/^namespace boost {namespace coroutines {namespace detail{$/;"	n	namespace:boost
+boost::coroutines	detail/coroutine_accessor.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/coroutine_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/coroutine_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/default_context_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/fix_result.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/future_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/has_swap.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+boost::coroutines	detail/index.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/is_callable.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/make_tuple_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/posix_utility.hpp	/^namespace boost { namespace coroutines { namespace detail { namespace posix {$/;"	n	namespace:boost
+boost::coroutines	detail/self.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/signal.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/signature.hpp	/^namespace boost{ namespace coroutines{ namespace detail{$/;"	n	namespace:boost
+boost::coroutines	detail/swap_context.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/wait_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	detail/yield_result_type.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost
+boost::coroutines	exception.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+boost::coroutines	future.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+boost::coroutines	generator.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+boost::coroutines	move.hpp	/^namespace boost { namespace coroutines { $/;"	n	namespace:boost
+boost::coroutines	shared_coroutine.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+boost::coroutines	tuple_traits.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+boost::coroutines::BOOST_PP_REPEAT	future.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	namespace:boost::coroutines	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_gen_call_overload, ~)
+boost::coroutines::BOOST_PP_REPEAT	future.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_WAIT_MAX,$/;"	p	namespace:boost::coroutines	signature:(BOOST_COROUTINE_WAIT_MAX, BOOST_COROUTINE_gen_wait, wait)
+boost::coroutines::BOOST_PP_REPEAT	future.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_WAIT_MAX,$/;"	p	namespace:boost::coroutines	signature:(BOOST_COROUTINE_WAIT_MAX, BOOST_COROUTINE_gen_wait, wait_all)
+boost::coroutines::abnormal_exit	exception.hpp	/^  class abnormal_exit : public std::exception {$/;"	c	namespace:boost::coroutines	inherits:std::exception
+boost::coroutines::abnormal_exit::abnormal_exit	exception.hpp	/^    abnormal_exit(std::type_info const& e) :$/;"	f	class:boost::coroutines::abnormal_exit	access:public	signature:(std::type_info const& e)
+boost::coroutines::abnormal_exit::std::m_e	exception.hpp	/^    std::type_info const& m_e;$/;"	m	class:boost::coroutines::abnormal_exit::std	access:private
+boost::coroutines::abnormal_exit::std::type	exception.hpp	/^    std::type_info const& type() const throw() {$/;"	f	class:boost::coroutines::abnormal_exit::std	access:public	signature:() const
+boost::coroutines::abnormal_exit::what	exception.hpp	/^    const char* what() const throw() {$/;"	f	class:boost::coroutines::abnormal_exit	access:public	signature:() const
+boost::coroutines::const_lvalue	move.hpp	/^struct const_lvalue$/;"	s	namespace:boost::coroutines
+boost::coroutines::const_lvalue::const_lvalue	move.hpp	/^    explicit const_lvalue(X const* p)$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:(X const* p)
+boost::coroutines::const_lvalue::copy_source	move.hpp	/^    friend inline X const& copy_source(const_lvalue<X> x) { return *x; }$/;"	f	struct:boost::coroutines::const_lvalue	access:friend	signature:(const_lvalue<X> x)
+boost::coroutines::const_lvalue::operator *	move.hpp	/^    X const& operator*() const { return *p; }$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:() const
+boost::coroutines::const_lvalue::operator ->	move.hpp	/^    X const* operator->() const { return p; }$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:() const
+boost::coroutines::const_lvalue::operator X const&	move.hpp	/^    operator X const&() const { return **this; }$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:() const
+boost::coroutines::const_lvalue::p	move.hpp	/^    X const* p; \/\/ this pointer will refer to the object from which to move$/;"	m	struct:boost::coroutines::const_lvalue	access:protected
+boost::coroutines::const_lvalue::~const_lvalue	move.hpp	/^    ~const_lvalue()$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:()
+boost::coroutines::copy_source	move.hpp	/^inline T const& copy_source(T& x) { return x; }$/;"	f	namespace:boost::coroutines	signature:(T& x)
+boost::coroutines::coroutine	coroutine.hpp	/^  class coroutine : public movable<coroutine<Signature, ContextImpl> > {$/;"	c	namespace:boost::coroutines	inherits:movable
+boost::coroutines::coroutine::BOOST_PP_ENUM	coroutine.hpp	/^      (BOOST_PP_ENUM$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, arg)
+boost::coroutines::coroutine::BOOST_PP_ENUM_TRAILING	coroutine.hpp	/^       BOOST_PP_ENUM_TRAILING$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, arg)
+boost::coroutines::coroutine::BOOST_PP_REPEAT	coroutine.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	class:boost::coroutines::coroutine	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_generate_argument_n_type, arg_slot_traits)
+boost::coroutines::coroutine::acquire	coroutine.hpp	/^    void acquire() {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+boost::coroutines::coroutine::arg_slot_traits	coroutine.hpp	/^    ::arg_slot_traits arg_slot_traits;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::arg_slot_type	coroutine.hpp	/^    ::arg_slot_type arg_slot_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::arity	coroutine.hpp	/^    static const int arity = arg_slot_traits::length;$/;"	m	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::bool_type	coroutine.hpp	/^    typedef void(coroutine::*bool_type)();$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::bool_type_f	coroutine.hpp	/^    void bool_type_f() {}$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+boost::coroutines::coroutine::call_impl	coroutine.hpp	/^    result_type call_impl(arg_slot_type args) {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:(arg_slot_type args)
+boost::coroutines::coroutine::call_impl_nothrow	coroutine.hpp	/^    call_impl_nothrow(arg_slot_type args) {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:(arg_slot_type args)
+boost::coroutines::coroutine::context_impl	coroutine.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::coroutine	coroutine.hpp	/^    coroutine (Functor f, $/;"	f	class:boost::coroutines::coroutine	access:public	signature:(Functor f, std::ptrdiff_t stack_size = detail::default_stack_size, BOOST_DEDUCED_TYPENAME boost::enable_if< boost::mpl::and_< detail::is_callable<Functor>, boost::mpl::not_<is_coroutine<Functor> > > > ::type * = 0 )
+boost::coroutines::coroutine::coroutine	coroutine.hpp	/^    coroutine() : m_pimpl(0) {}$/;"	f	class:boost::coroutines::coroutine	access:public	signature:()
+boost::coroutines::coroutine::coroutine	coroutine.hpp	/^    coroutine(impl_type * pimpl, detail::init_from_impl_tag) :$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:(impl_type * pimpl, detail::init_from_impl_tag)
+boost::coroutines::coroutine::coroutine	coroutine.hpp	/^    coroutine(move_from<coroutine> src) $/;"	f	class:boost::coroutines::coroutine	access:public	signature:(move_from<coroutine> src)
+boost::coroutines::coroutine::count	coroutine.hpp	/^    count() const {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:() const
+boost::coroutines::coroutine::empty	coroutine.hpp	/^    bool empty() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+boost::coroutines::coroutine::exit	coroutine.hpp	/^    void exit() {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:()
+boost::coroutines::coroutine::exited	coroutine.hpp	/^    bool exited() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+boost::coroutines::coroutine::get_impl	coroutine.hpp	/^    impl_ptr get_impl() {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+boost::coroutines::coroutine::good	coroutine.hpp	/^    bool good() const  {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:() const
+boost::coroutines::coroutine::impl_ptr	coroutine.hpp	/^    typedef BOOST_DEDUCED_TYPENAME  impl_type::pointer impl_ptr;  $/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::impl_type	coroutine.hpp	/^    typedef detail::coroutine_impl<type, context_impl> impl_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::m_pimpl	coroutine.hpp	/^    impl_ptr m_pimpl;$/;"	m	class:boost::coroutines::coroutine	access:protected
+boost::coroutines::coroutine::operator =	coroutine.hpp	/^    coroutine& operator=(move_from<coroutine> src) {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(move_from<coroutine> src)
+boost::coroutines::coroutine::operator ==	coroutine.hpp	/^    bool operator==(const coroutine& rhs) {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(const coroutine& rhs)
+boost::coroutines::coroutine::operator bool_type	coroutine.hpp	/^    operator bool_type() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+boost::coroutines::coroutine::pending	coroutine.hpp	/^    bool pending() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+boost::coroutines::coroutine::release	coroutine.hpp	/^    void release() {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+boost::coroutines::coroutine::result_slot_traits	coroutine.hpp	/^    ::result_slot_traits result_slot_traits;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::result_slot_type	coroutine.hpp	/^    ::result_slot_type result_slot_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::result_type	coroutine.hpp	/^    ::result_type result_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::self	coroutine.hpp	/^    typedef detail::coroutine_self<type> self;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::signature_type	coroutine.hpp	/^    typedef Signature signature_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::swap	coroutine.hpp	/^    coroutine& swap(coroutine& rhs) {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(coroutine& rhs)
+boost::coroutines::coroutine::swap	coroutine.hpp	/^    void swap(coroutine& lhs, coroutine& rhs) {$/;"	f	class:boost::coroutines::coroutine	access:friend	signature:(coroutine& lhs, coroutine& rhs)
+boost::coroutines::coroutine::type	coroutine.hpp	/^    typedef coroutine<Signature, ContextImpl> type;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::waiting	coroutine.hpp	/^    bool waiting() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+boost::coroutines::coroutine::yield_result_type	coroutine.hpp	/^    ::yield_result_type yield_result_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::yield_traits	coroutine.hpp	/^    struct yield_traits {$/;"	s	class:boost::coroutines::coroutine	access:public
+boost::coroutines::coroutine::yield_traits::BOOST_PP_REPEAT	coroutine.hpp	/^      BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	struct:boost::coroutines::coroutine::yield_traits	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_generate_argument_n_type, result_slot_traits)
+boost::coroutines::coroutine::yield_traits::arity	coroutine.hpp	/^      static const int arity = result_slot_traits::length;$/;"	m	struct:boost::coroutines::coroutine::yield_traits	access:public
+boost::coroutines::coroutine_exited	exception.hpp	/^  class coroutine_exited: public exception_base {};  $/;"	c	namespace:boost::coroutines	inherits:exception_base
+boost::coroutines::detail	coroutine.hpp	/^  namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/argument_packer.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/argument_unpacker.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/call_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/context_base.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/context_linux.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/context_posix.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/context_windows.hpp	/^namespace boost {namespace coroutines {namespace detail{$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/coroutine_accessor.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/coroutine_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/coroutine_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/default_context_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/fix_result.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/future_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/index.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/is_callable.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/make_tuple_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/posix_utility.hpp	/^namespace boost { namespace coroutines { namespace detail { namespace posix {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/self.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/signal.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/signature.hpp	/^namespace boost{ namespace coroutines{ namespace detail{$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/swap_context.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/wait_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	detail/yield_result_type.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	generator.hpp	/^  namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail	tuple_traits.hpp	/^  namespace detail {$/;"	n	namespace:boost::coroutines
+boost::coroutines::detail::BOOST_MPL_HAS_XXX_TRAIT_DEF	detail/is_callable.hpp	/^  BOOST_MPL_HAS_XXX_TRAIT_DEF(result);$/;"	p	namespace:boost::coroutines::detail	signature:(result)
+boost::coroutines::detail::BOOST_MPL_HAS_XXX_TRAIT_DEF	detail/is_callable.hpp	/^  BOOST_MPL_HAS_XXX_TRAIT_DEF(result_type);$/;"	p	namespace:boost::coroutines::detail	signature:(result_type)
+boost::coroutines::detail::BOOST_PP_ENUM_PARAMS	detail/index.hpp	/^  enum {BOOST_PP_ENUM_PARAMS(BOOST_COROUTINE_ARG_MAX, index_)};$/;"	e	enum:boost::coroutines::detail::__anon1
+boost::coroutines::detail::BOOST_PP_REPEAT	detail/argument_unpacker.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_ARGUMENT_UNPACKER, ~)
+boost::coroutines::detail::BOOST_PP_REPEAT	detail/argument_unpacker.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_ARGUMENT_UNPACKER_EX, ~)
+boost::coroutines::detail::BOOST_PP_REPEAT	detail/make_tuple_traits.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_MAKE_TUPLE_TRAITS_GENERATOR, ~)
+boost::coroutines::detail::BOOST_PP_REPEAT	detail/signature.hpp	/^  BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_SIGNATURE_GENERATOR, ~);$/;"	p	namespace:boost::coroutines::detail	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_SIGNATURE_GENERATOR, ~)
+boost::coroutines::detail::as_tuple	detail/coroutine_traits.hpp	/^  struct as_tuple {$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::as_tuple::type	detail/coroutine_traits.hpp	/^    typedef typename T::as_tuple type;$/;"	t	struct:boost::coroutines::detail::as_tuple	access:public
+boost::coroutines::detail::call_impl	detail/call_impl.hpp	/^  Future call_impl(Functor fun, const CoroutineSelf& coro_self) {$/;"	f	namespace:boost::coroutines::detail	signature:(Functor fun, const CoroutineSelf& coro_self)
+boost::coroutines::detail::callback	detail/call_impl.hpp	/^  class callback {$/;"	c	namespace:boost::coroutines::detail
+boost::coroutines::detail::callback::BOOST_PP_ENUM	detail/call_impl.hpp	/^      (BOOST_PP_ENUM$/;"	f	class:boost::coroutines::detail::callback	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, arg)
+boost::coroutines::detail::callback::BOOST_PP_REPEAT	detail/call_impl.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	class:boost::coroutines::detail::callback	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_gen_argn_type, ~)
+boost::coroutines::detail::callback::callback	detail/call_impl.hpp	/^    callback(Future& future) :$/;"	f	class:boost::coroutines::detail::callback	access:public	signature:(Future& future)
+boost::coroutines::detail::callback::m_future_pimpl	detail/call_impl.hpp	/^    m_future_pimpl;$/;"	m	class:boost::coroutines::detail::callback	access:private
+boost::coroutines::detail::callback::result_type	detail/call_impl.hpp	/^    typedef void result_type;$/;"	t	class:boost::coroutines::detail::callback	access:public
+boost::coroutines::detail::callback::revive	detail/call_impl.hpp	/^    void revive() {$/;"	f	class:boost::coroutines::detail::callback	access:public	signature:()
+boost::coroutines::detail::callback::tuple_traits_type	detail/call_impl.hpp	/^    Future::tuple_traits_type tuple_traits_type;              $/;"	t	class:boost::coroutines::detail::callback	access:public
+boost::coroutines::detail::callback::tuple_type	detail/call_impl.hpp	/^    Future::tuple_type tuple_type;              $/;"	t	class:boost::coroutines::detail::callback	access:public
+boost::coroutines::detail::context_base	detail/context_base.hpp	/^  class context_base : public ContextImpl {$/;"	c	namespace:boost::coroutines::detail	inherits:ContextImpl
+boost::coroutines::detail::context_base::BOOST_COROUTINE_NORETURN	detail/context_base.hpp	/^    BOOST_COROUTINE_NORETURN(void exit_self()) {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(void exit_self())
+boost::coroutines::detail::context_base::acquire	detail/context_base.hpp	/^    void acquire() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::check_exit_state	detail/context_base.hpp	/^    void check_exit_state() {$/;"	f	class:boost::coroutines::detail::context_base	access:protected	signature:()
+boost::coroutines::detail::context_base::context_base	detail/context_base.hpp	/^	context_base(Derived& derived, $/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(Derived& derived, std::ptrdiff_t stack_size)
+boost::coroutines::detail::context_base::context_exit_state	detail/context_base.hpp	/^    enum context_exit_state {$/;"	g	class:boost::coroutines::detail::context_base	access:protected
+boost::coroutines::detail::context_base::context_exit_status	detail/context_base.hpp	/^    enum context_exit_status {$/;"	g	class:boost::coroutines::detail::context_base	access:protected
+boost::coroutines::detail::context_base::context_impl	detail/context_base.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::detail::context_base	access:public
+boost::coroutines::detail::context_base::context_state	detail/context_base.hpp	/^    enum context_state {$/;"	g	class:boost::coroutines::detail::context_base	access:protected
+boost::coroutines::detail::context_base::count	detail/context_base.hpp	/^    std::size_t count() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::count_down	detail/context_base.hpp	/^    void count_down() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::context_base::count_up	detail/context_base.hpp	/^    void count_up() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::context_base::ctx_exit_not_requested	detail/context_base.hpp	/^      ctx_exit_not_requested,  \/\/ exit not requested.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_state
+boost::coroutines::detail::context_base::ctx_exit_pending	detail/context_base.hpp	/^      ctx_exit_pending,   \/\/ exit requested.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_state
+boost::coroutines::detail::context_base::ctx_exit_signaled	detail/context_base.hpp	/^      ctx_exit_signaled,  \/\/ exit request delivered.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_state
+boost::coroutines::detail::context_base::ctx_exited	detail/context_base.hpp	/^      ctx_exited    \/\/ context is finished.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+boost::coroutines::detail::context_base::ctx_exited_abnormally	detail/context_base.hpp	/^      ctx_exited_abnormally \/\/ process exited uncleanly.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+boost::coroutines::detail::context_base::ctx_exited_exit	detail/context_base.hpp	/^      ctx_exited_exit,    \/\/ process exited by exit().$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+boost::coroutines::detail::context_base::ctx_exited_return	detail/context_base.hpp	/^      ctx_exited_return,  \/\/ process exited by return.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+boost::coroutines::detail::context_base::ctx_not_exited	detail/context_base.hpp	/^      ctx_not_exited,$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+boost::coroutines::detail::context_base::ctx_ready	detail/context_base.hpp	/^      ctx_ready,    \/\/ context at yield point.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+boost::coroutines::detail::context_base::ctx_running	detail/context_base.hpp	/^      ctx_running,  \/\/ context running.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+boost::coroutines::detail::context_base::ctx_type	detail/context_base.hpp	/^    typedef typename context_impl::context_impl_base ctx_type;$/;"	t	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::ctx_waiting	detail/context_base.hpp	/^      ctx_waiting,     \/\/ context waiting for events.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+boost::coroutines::detail::context_base::deleter	detail/context_base.hpp	/^    static void deleter (const type* ctx){$/;"	f	class:boost::coroutines::detail::context_base	access:private	signature:(const type* ctx)
+boost::coroutines::detail::context_base::deleter_type	detail/context_base.hpp	/^    typedef void deleter_type(const type*);$/;"	t	class:boost::coroutines::detail::context_base	access:public
+boost::coroutines::detail::context_base::do_invoke	detail/context_base.hpp	/^    void do_invoke() throw (){$/;"	f	class:boost::coroutines::detail::context_base	access:private	signature:()
+boost::coroutines::detail::context_base::do_return	detail/context_base.hpp	/^    void do_return(context_exit_status status, std::type_info const* info) throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:protected	signature:(context_exit_status status, std::type_info const* info)
+boost::coroutines::detail::context_base::do_yield	detail/context_base.hpp	/^    void do_yield() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:private	signature:()
+boost::coroutines::detail::context_base::exit	detail/context_base.hpp	/^    void exit() throw(){$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::context_base::exited	detail/context_base.hpp	/^    bool exited() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::intrusive_ptr_add_ref	detail/context_base.hpp	/^    void intrusive_ptr_add_ref(type * ctx) {$/;"	f	class:boost::coroutines::detail::context_base	access:friend	signature:(type * ctx)
+boost::coroutines::detail::context_base::intrusive_ptr_release	detail/context_base.hpp	/^    void intrusive_ptr_release(type * ctx) {$/;"	f	class:boost::coroutines::detail::context_base	access:friend	signature:(type * ctx)
+boost::coroutines::detail::context_base::invoke	detail/context_base.hpp	/^    void invoke() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::context_base::m_caller	detail/context_base.hpp	/^    ctx_type m_caller;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::m_counter	detail/context_base.hpp	/^    m_counter;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::m_deleter	detail/context_base.hpp	/^    deleter_type * m_deleter;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::m_exit_state	detail/context_base.hpp	/^    context_exit_state m_exit_state;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::m_exit_status	detail/context_base.hpp	/^    context_exit_status m_exit_status;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::m_operation_counter	detail/context_base.hpp	/^    int m_operation_counter;    $/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::m_state	detail/context_base.hpp	/^    context_state m_state;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::m_wait_counter	detail/context_base.hpp	/^    int m_wait_counter;   $/;"	m	class:boost::coroutines::detail::context_base	access:private
+boost::coroutines::detail::context_base::pending	detail/context_base.hpp	/^    int pending() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::pointer	detail/context_base.hpp	/^    typedef boost::intrusive_ptr<type> pointer;$/;"	t	class:boost::coroutines::detail::context_base	access:public
+boost::coroutines::detail::context_base::ready	detail/context_base.hpp	/^    bool ready() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::release	detail/context_base.hpp	/^    void release() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::running	detail/context_base.hpp	/^    bool running() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::signal	detail/context_base.hpp	/^    bool signal () throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::context_base::std::m_type_info	detail/context_base.hpp	/^    std::type_info const* m_type_info;$/;"	m	class:boost::coroutines::detail::context_base::std	access:private
+boost::coroutines::detail::context_base::type	detail/context_base.hpp	/^    typedef context_base<context_impl> type;$/;"	t	class:boost::coroutines::detail::context_base	access:public
+boost::coroutines::detail::context_base::unique	detail/context_base.hpp	/^    bool unique() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::wait	detail/context_base.hpp	/^    void wait(int n) {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(int n)
+boost::coroutines::detail::context_base::waiting	detail/context_base.hpp	/^    bool waiting() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+boost::coroutines::detail::context_base::wake_up	detail/context_base.hpp	/^    bool wake_up() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::context_base::yield	detail/context_base.hpp	/^    void yield() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::context_base::yield_to	detail/context_base.hpp	/^    void yield_to(context_base& to) {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(context_base& to)
+boost::coroutines::detail::context_base::~context_base	detail/context_base.hpp	/^    ~context_base() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+boost::coroutines::detail::coroutine_accessor	detail/coroutine_accessor.hpp	/^  struct coroutine_accessor {$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::coroutine_accessor::acquire	detail/coroutine_accessor.hpp	/^    void acquire(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+boost::coroutines::detail::coroutine_accessor::construct	detail/coroutine_accessor.hpp	/^    void construct(Ctx * src, void * address) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Ctx * src, void * address)
+boost::coroutines::detail::coroutine_accessor::count	detail/coroutine_accessor.hpp	/^    count(const Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(const Coroutine& x)
+boost::coroutines::detail::coroutine_accessor::get_impl	detail/coroutine_accessor.hpp	/^    get_impl(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+boost::coroutines::detail::coroutine_accessor::in_place	detail/coroutine_accessor.hpp	/^    in_place(Ctx * ctx) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Ctx * ctx)
+boost::coroutines::detail::coroutine_accessor::in_place_assign	detail/coroutine_accessor.hpp	/^    struct in_place_assign : boost::in_place_factory_base {$/;"	s	struct:boost::coroutines::detail::coroutine_accessor	inherits:boost::in_place_factory_base	access:public
+boost::coroutines::detail::coroutine_accessor::in_place_assign::apply	detail/coroutine_accessor.hpp	/^      void apply(void * memory) const {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor::in_place_assign	access:public	signature:(void * memory) const
+boost::coroutines::detail::coroutine_accessor::in_place_assign::in_place_assign	detail/coroutine_accessor.hpp	/^      in_place_assign(Ctx * ctx) :$/;"	f	struct:boost::coroutines::detail::coroutine_accessor::in_place_assign	access:public	signature:(Ctx * ctx)
+boost::coroutines::detail::coroutine_accessor::in_place_assign::m_ctx	detail/coroutine_accessor.hpp	/^      Ctx * m_ctx;$/;"	m	struct:boost::coroutines::detail::coroutine_accessor::in_place_assign	access:public
+boost::coroutines::detail::coroutine_accessor::pilfer_impl	detail/coroutine_accessor.hpp	/^    pilfer_impl(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+boost::coroutines::detail::coroutine_accessor::release	detail/coroutine_accessor.hpp	/^    void release(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+boost::coroutines::detail::coroutine_impl	detail/coroutine_impl.hpp	/^  class coroutine_impl:$/;"	c	namespace:boost::coroutines::detail	inherits:context_base
+boost::coroutines::detail::coroutine_impl::arg_slot_type	detail/coroutine_impl.hpp	/^    typedef typename coroutine_type::arg_slot_type arg_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl::args	detail/coroutine_impl.hpp	/^    arg_slot_type * args() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+boost::coroutines::detail::coroutine_impl::bind_args	detail/coroutine_impl.hpp	/^    void bind_args(arg_slot_type* arg) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(arg_slot_type* arg)
+boost::coroutines::detail::coroutine_impl::bind_result	detail/coroutine_impl.hpp	/^    void bind_result(result_slot_type* res) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(result_slot_type* res)
+boost::coroutines::detail::coroutine_impl::bind_result_pointer	detail/coroutine_impl.hpp	/^    void bind_result_pointer(result_slot_type** resp) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(result_slot_type** resp)
+boost::coroutines::detail::coroutine_impl::context_base	detail/coroutine_impl.hpp	/^    typedef context_base<context_impl> context_base;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl::context_impl	detail/coroutine_impl.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl::coroutine_impl	detail/coroutine_impl.hpp	/^	coroutine_impl(DerivedType * this_, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(DerivedType * this_, std::ptrdiff_t stack_size)
+boost::coroutines::detail::coroutine_impl::coroutine_type	detail/coroutine_impl.hpp	/^    typedef CoroutineType coroutine_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl::create	detail/coroutine_impl.hpp	/^	pointer create(Functor, std::ptrdiff_t);$/;"	p	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(Functor, std::ptrdiff_t)
+boost::coroutines::detail::coroutine_impl::create	detail/coroutine_impl.hpp	/^  create(Functor f, std::ptrdiff_t stack_size = default_stack_size) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	signature:(Functor f, std::ptrdiff_t stack_size = default_stack_size)
+boost::coroutines::detail::coroutine_impl::m_arg	detail/coroutine_impl.hpp	/^    arg_slot_type * m_arg;$/;"	m	class:boost::coroutines::detail::coroutine_impl	access:private
+boost::coroutines::detail::coroutine_impl::m_result	detail/coroutine_impl.hpp	/^    result_slot_type ** m_result;$/;"	m	class:boost::coroutines::detail::coroutine_impl	access:private
+boost::coroutines::detail::coroutine_impl::m_result_last	detail/coroutine_impl.hpp	/^    boost::optional<result_slot_type>  m_result_last;$/;"	m	class:boost::coroutines::detail::coroutine_impl	access:protected
+boost::coroutines::detail::coroutine_impl::pointer	detail/coroutine_impl.hpp	/^    typedef boost::intrusive_ptr<type> pointer;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl::result	detail/coroutine_impl.hpp	/^    result_slot_type * result() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+boost::coroutines::detail::coroutine_impl::result_pointer	detail/coroutine_impl.hpp	/^    result_slot_type** result_pointer() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+boost::coroutines::detail::coroutine_impl::result_slot_type	detail/coroutine_impl.hpp	/^    typedef typename coroutine_type::result_slot_type result_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl::result_type	detail/coroutine_impl.hpp	/^    typedef typename coroutine_type::result_type result_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl::run	detail/coroutine_impl.hpp	/^    void run() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+boost::coroutines::detail::coroutine_impl::type	detail/coroutine_impl.hpp	/^    typedef coroutine_impl<coroutine_type, context_impl> type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+boost::coroutines::detail::coroutine_impl_wrapper	detail/coroutine_impl.hpp	/^  class coroutine_impl_wrapper :$/;"	c	namespace:boost::coroutines::detail	inherits:coroutine_impl
+boost::coroutines::detail::coroutine_impl_wrapper::coroutine_impl_wrapper	detail/coroutine_impl.hpp	/^	coroutine_impl_wrapper(functor_type f, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:(functor_type f, std::ptrdiff_t stack_size)
+boost::coroutines::detail::coroutine_impl_wrapper::coroutine_type	detail/coroutine_impl.hpp	/^    typedef CoroutineType coroutine_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+boost::coroutines::detail::coroutine_impl_wrapper::do_call	detail/coroutine_impl.hpp	/^    do_call(dummy<0> = 0) {$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:(dummy<0> = 0)
+boost::coroutines::detail::coroutine_impl_wrapper::do_call	detail/coroutine_impl.hpp	/^    do_call(dummy<1> = 1) {$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:(dummy<1> = 1)
+boost::coroutines::detail::coroutine_impl_wrapper::dummy	detail/coroutine_impl.hpp	/^    template <int> struct dummy { dummy(int) {} };$/;"	s	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+boost::coroutines::detail::coroutine_impl_wrapper::dummy::dummy	detail/coroutine_impl.hpp	/^    template <int> struct dummy { dummy(int) {} };$/;"	f	struct:boost::coroutines::detail::coroutine_impl_wrapper::dummy	access:public	signature:(int)
+boost::coroutines::detail::coroutine_impl_wrapper::functor_type	detail/coroutine_impl.hpp	/^    typedef FunctorType functor_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+boost::coroutines::detail::coroutine_impl_wrapper::m_fun	detail/coroutine_impl.hpp	/^    FunctorType m_fun;$/;"	m	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+boost::coroutines::detail::coroutine_impl_wrapper::operator ()	detail/coroutine_impl.hpp	/^    void operator()() {$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:()
+boost::coroutines::detail::coroutine_impl_wrapper::result_type	detail/coroutine_impl.hpp	/^    typedef typename CoroutineType::result_type result_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+boost::coroutines::detail::coroutine_impl_wrapper::super_type	detail/coroutine_impl.hpp	/^    typedef coroutine_impl<CoroutineType, ContextImpl> super_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+boost::coroutines::detail::coroutine_impl_wrapper::type	detail/coroutine_impl.hpp	/^    type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+boost::coroutines::detail::coroutine_self	detail/self.hpp	/^  class coroutine_self :boost::noncopyable {$/;"	c	namespace:boost::coroutines::detail	inherits:boost::noncopyable
+boost::coroutines::detail::coroutine_self::BOOST_COROUTINE_NORETURN	detail/self.hpp	/^    BOOST_COROUTINE_NORETURN(void exit()) {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(void exit())
+boost::coroutines::detail::coroutine_self::BOOST_PP_ENUM	detail/self.hpp	/^    (BOOST_PP_ENUM$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, BOOST_DEDUCED_TYPENAME yield_traits::arg)
+boost::coroutines::detail::coroutine_self::BOOST_PP_ENUM	detail/self.hpp	/^    (BOOST_PP_ENUM(BOOST_COROUTINE_ARG_MAX,$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, (yield_call_arg , BOOST_COROUTINE_DEDUCED_TYPENAME_DEFAULT coroutine_type::yield_traits::arg))
+boost::coroutines::detail::coroutine_self::BOOST_PP_ENUM_TRAILING	detail/self.hpp	/^     BOOST_PP_ENUM_TRAILING$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, (BOOST_DEDUCED_TYPENAME Target::self::call_arg, BOOST_COROUTINE_DEDUCED_TYPENAME_DEFAULT Target::arg))
+boost::coroutines::detail::coroutine_self::BOOST_PP_ENUM_TRAILING	detail/self.hpp	/^     BOOST_PP_ENUM_TRAILING$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_with_default, typename Target::arg)
+boost::coroutines::detail::coroutine_self::BOOST_PP_REPEAT	detail/self.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX, $/;"	p	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_typedef, (BOOST_DEDUCED_TYPENAME coroutine_type::yield_traits::arg, yield_call_arg))
+boost::coroutines::detail::coroutine_self::BOOST_PP_REPEAT	detail/self.hpp	/^    BOOST_PP_REPEAT(BOOST_COROUTINE_ARG_MAX,$/;"	p	class:boost::coroutines::detail::coroutine_self	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_param_typedef, (BOOST_DEDUCED_TYPENAME coroutine_type::arg, call_arg))
+boost::coroutines::detail::coroutine_self::arg_slot_traits	detail/self.hpp	/^    ::arg_slot_traits arg_slot_traits;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::arg_slot_type	detail/self.hpp	/^    ::arg_slot_type arg_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::coroutine_self	detail/self.hpp	/^    coroutine_self(impl_type * pimpl, detail::init_from_impl_tag) :$/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:(impl_type * pimpl, detail::init_from_impl_tag)
+boost::coroutines::detail::coroutine_self::coroutine_type	detail/self.hpp	/^    typedef Coroutine coroutine_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::get_impl	detail/self.hpp	/^    impl_ptr get_impl() {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:()
+boost::coroutines::detail::coroutine_self::impl_ptr	detail/self.hpp	/^    typedef impl_type * impl_ptr;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::impl_type	detail/self.hpp	/^    ::impl_type impl_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::m_pimpl	detail/self.hpp	/^    impl_ptr m_pimpl;$/;"	m	class:boost::coroutines::detail::coroutine_self	access:private
+boost::coroutines::detail::coroutine_self::pending	detail/self.hpp	/^    bool pending() const {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:() const
+boost::coroutines::detail::coroutine_self::result	detail/self.hpp	/^    yield_result_type result() {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:()
+boost::coroutines::detail::coroutine_self::result_slot_traits	detail/self.hpp	/^    ::result_slot_traits result_slot_traits;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::result_slot_type	detail/self.hpp	/^    ::result_slot_type result_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::result_type	detail/self.hpp	/^    ::result_type result_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::type	detail/self.hpp	/^    typedef coroutine_self<coroutine_type> type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::yield_impl	detail/self.hpp	/^    yield_result_type yield_impl(BOOST_DEDUCED_TYPENAME $/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:(BOOST_DEDUCED_TYPENAME coroutine_type::result_slot_type result)
+boost::coroutines::detail::coroutine_self::yield_result_type	detail/self.hpp	/^    ::yield_result_type yield_result_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_self::yield_to_impl	detail/self.hpp	/^    yield_result_type yield_to_impl(TargetCoroutine& target, $/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:(TargetCoroutine& target, BOOST_DEDUCED_TYPENAME TargetCoroutine ::arg_slot_type args)
+boost::coroutines::detail::coroutine_self::yield_traits	detail/self.hpp	/^    ::yield_traits yield_traits;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+boost::coroutines::detail::coroutine_traits	detail/coroutine_traits.hpp	/^  struct coroutine_traits {    $/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::coroutine_traits::arg_slot_traits	detail/coroutine_traits.hpp	/^    ::type arg_slot_traits;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+boost::coroutines::detail::coroutine_traits::arg_slot_type	detail/coroutine_traits.hpp	/^    ::as_tuple arg_slot_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+boost::coroutines::detail::coroutine_traits::result_slot_traits	detail/coroutine_traits.hpp	/^    ::type result_slot_traits;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+boost::coroutines::detail::coroutine_traits::result_slot_type	detail/coroutine_traits.hpp	/^    ::as_tuple result_slot_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+boost::coroutines::detail::coroutine_traits::result_type	detail/coroutine_traits.hpp	/^    ::type result_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+boost::coroutines::detail::coroutine_traits::signature_result_type	detail/coroutine_traits.hpp	/^    signature_result_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:private
+boost::coroutines::detail::coroutine_traits::yield_result_type	detail/coroutine_traits.hpp	/^    ::as_result yield_result_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+boost::coroutines::detail::default_context_impl	detail/default_context_impl.hpp	/^  typedef oslinux::context_impl default_context_impl;$/;"	t	namespace:boost::coroutines::detail
+boost::coroutines::detail::default_hint	detail/swap_context.hpp	/^  class default_hint {};$/;"	c	namespace:boost::coroutines::detail
+boost::coroutines::detail::default_stack_size	detail/context_base.hpp	/^  const std::ptrdiff_t default_stack_size = -1;$/;"	m	namespace:boost::coroutines::detail
+boost::coroutines::detail::empty	generator.hpp	/^    class empty {};$/;"	c	namespace:boost::coroutines::detail
+boost::coroutines::detail::fix_result	detail/fix_result.hpp	/^    fix_result(const typename Traits::as_tuple& x, $/;"	f	namespace:boost::coroutines::detail	signature:(const typename Traits::as_tuple& x, typename boost::enable_if_c<(Traits::length > 1)>::type* =0)
+boost::coroutines::detail::fix_result	detail/fix_result.hpp	/^    fix_result(const typename Traits::as_tuple& x, $/;"	f	namespace:boost::coroutines::detail	signature:(const typename Traits::as_tuple& x, typename boost::enable_if_c<Traits::length == 1>::type * = 0)
+boost::coroutines::detail::fix_result	detail/fix_result.hpp	/^    fix_result(const typename Traits::as_tuple&, $/;"	f	namespace:boost::coroutines::detail	signature:(const typename Traits::as_tuple&, typename boost::enable_if_c<Traits::length == 0>::type * = 0)
+boost::coroutines::detail::future_impl	detail/future_impl.hpp	/^  class future_impl : boost::noncopyable  {$/;"	c	namespace:boost::coroutines::detail	inherits:boost::noncopyable
+boost::coroutines::detail::future_impl::assign	detail/future_impl.hpp	/^    void assign(const T& val) {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(const T& val)
+boost::coroutines::detail::future_impl::context	detail/future_impl.hpp	/^    context_pointer context() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+boost::coroutines::detail::future_impl::context_pointer	detail/future_impl.hpp	/^    context_pointer;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+boost::coroutines::detail::future_impl::context_weak_pointer	detail/future_impl.hpp	/^    context_weak_pointer;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+boost::coroutines::detail::future_impl::future_impl	detail/future_impl.hpp	/^    future_impl(CoroutineSelf& self) :$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(CoroutineSelf& self)
+boost::coroutines::detail::future_impl::get	detail/future_impl.hpp	/^    get() const{$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:() const
+boost::coroutines::detail::future_impl::get	detail/future_impl.hpp	/^    get() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+boost::coroutines::detail::future_impl::m_coro_impl	detail/future_impl.hpp	/^    context_pointer m_coro_impl;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+boost::coroutines::detail::future_impl::m_coro_impl_weak	detail/future_impl.hpp	/^    context_weak_pointer m_coro_impl_weak;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+boost::coroutines::detail::future_impl::m_optional	detail/future_impl.hpp	/^    boost::optional<value_type> m_optional;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+boost::coroutines::detail::future_impl::m_waited	detail/future_impl.hpp	/^    bool m_waited;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+boost::coroutines::detail::future_impl::mark_pending	detail/future_impl.hpp	/^    void mark_pending() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+boost::coroutines::detail::future_impl::mark_wait	detail/future_impl.hpp	/^    void mark_wait(bool how) {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(bool how)
+boost::coroutines::detail::future_impl::pending	detail/future_impl.hpp	/^    bool pending() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+boost::coroutines::detail::future_impl::pointer	detail/future_impl.hpp	/^    typedef boost::optional<value_type> pointer;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+boost::coroutines::detail::future_impl::value	detail/future_impl.hpp	/^    value() const{$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:() const
+boost::coroutines::detail::future_impl::value	detail/future_impl.hpp	/^    value() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+boost::coroutines::detail::future_impl::value_type	detail/future_impl.hpp	/^    typedef ValueType value_type;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+boost::coroutines::detail::future_impl::wait	detail/future_impl.hpp	/^    void wait() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+boost::coroutines::detail::future_impl::wait	detail/future_impl.hpp	/^    void wait(int n) {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(int n)
+boost::coroutines::detail::future_impl::waited	detail/future_impl.hpp	/^    bool waited() const {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:() const
+boost::coroutines::detail::init_from_impl_tag	detail/coroutine_accessor.hpp	/^  struct init_from_impl_tag{};$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::invoke_hint	detail/swap_context.hpp	/^  class invoke_hint: public default_hint {};$/;"	c	namespace:boost::coroutines::detail	inherits:default_hint
+boost::coroutines::detail::is_callable	detail/is_callable.hpp	/^  struct is_callable : boost::mpl::or_<$/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::or_::type
+boost::coroutines::detail::is_callable::type	detail/is_callable.hpp	/^    typedef is_callable<T> type;$/;"	t	struct:boost::coroutines::detail::is_callable	access:public
+boost::coroutines::detail::is_function_pointer	detail/is_callable.hpp	/^  struct is_function_pointer : $/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::and_
+boost::coroutines::detail::is_function_pointer::type	detail/is_callable.hpp	/^    typedef is_function_pointer<T> type;$/;"	t	struct:boost::coroutines::detail::is_function_pointer	access:public
+boost::coroutines::detail::is_functor	detail/is_callable.hpp	/^  struct is_functor : $/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::or_
+boost::coroutines::detail::is_functor::type	detail/is_callable.hpp	/^    typedef is_functor<T> type;$/;"	t	struct:boost::coroutines::detail::is_functor	access:public
+boost::coroutines::detail::make_std_iterator	generator.hpp	/^    struct make_std_iterator {$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::make_std_iterator::type	generator.hpp	/^			    > type;$/;"	t	struct:boost::coroutines::detail::make_std_iterator	access:public
+boost::coroutines::detail::marker	detail/wait_impl.hpp	/^  struct marker {$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::marker	detail/wait_impl.hpp	/^  struct marker<0> {$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::marker::mark	detail/wait_impl.hpp	/^    static int mark(Tuple& t, bool how) {$/;"	f	struct:boost::coroutines::detail::marker	access:public	signature:(Tuple& t, bool how)
+boost::coroutines::detail::marker::mark	detail/wait_impl.hpp	/^    static int mark(Tuple&, bool) { return 0;}$/;"	f	struct:boost::coroutines::detail::marker	access:public	signature:(Tuple&, bool)
+boost::coroutines::detail::optional_result	coroutine.hpp	/^    optional_result() {$/;"	f	namespace:boost::coroutines::detail	signature:()
+boost::coroutines::detail::optional_result	coroutine.hpp	/^    optional_result() {}$/;"	f	namespace:boost::coroutines::detail	signature:()
+boost::coroutines::detail::optional_result_type	coroutine.hpp	/^    struct optional_result_type : $/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::if_
+boost::coroutines::detail::oslinux	detail/context_linux.hpp	/^  namespace oslinux {$/;"	n	namespace:boost::coroutines::detail
+boost::coroutines::detail::oslinux::context_impl	detail/context_linux.hpp	/^    typedef ia32_gcc_context_impl context_impl;$/;"	t	namespace:boost::coroutines::detail::oslinux
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl	detail/context_linux.hpp	/^    class ia32_gcc_context_impl  : public ia32_gcc_context_impl_base{$/;"	c	namespace:boost::coroutines::detail::oslinux	inherits:ia32_gcc_context_impl_base
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl::context_impl_base	detail/context_linux.hpp	/^      typedef ia32_gcc_context_impl_base context_impl_base;$/;"	t	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl::default_stack_size	detail/context_linux.hpp	/^      enum {default_stack_size = 8192};$/;"	e	enum:boost::coroutines::detail::oslinux::ia32_gcc_context_impl::__anon4
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl::ia32_gcc_context_impl	detail/context_linux.hpp	/^	  ia32_gcc_context_impl(Functor& cb, std::ptrdiff_t stack_size = -1) :$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public	signature:(Functor& cb, std::ptrdiff_t stack_size = -1)
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl::ia32_gcc_context_impl	detail/context_linux.hpp	/^      ia32_gcc_context_impl() :$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public	signature:()
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl::m_stack	detail/context_linux.hpp	/^      void * m_stack;$/;"	m	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:private
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl::m_stack_size	detail/context_linux.hpp	/^	  std::ptrdiff_t m_stack_size;$/;"	m	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:private
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl::~ia32_gcc_context_impl	detail/context_linux.hpp	/^      ~ia32_gcc_context_impl() {$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public	signature:()
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	detail/context_linux.hpp	/^    class ia32_gcc_context_impl_base {$/;"	c	namespace:boost::coroutines::detail::oslinux
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base::ia32_gcc_context_impl_base	detail/context_linux.hpp	/^      ia32_gcc_context_impl_base() {};$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:public	signature:()
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base::m_sp	detail/context_linux.hpp	/^      void ** m_sp;$/;"	m	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:protected
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base::prefetch	detail/context_linux.hpp	/^      void prefetch() const {$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:public	signature:() const
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base::swap_context	detail/context_linux.hpp	/^      swap_context(ia32_gcc_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:friend	signature:(ia32_gcc_context_impl_base& from, ia32_gcc_context_impl_base const& to, default_hint)
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base::swap_context	detail/context_linux.hpp	/^      swap_context(ia32_gcc_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:friend	signature:(ia32_gcc_context_impl_base& from, ia32_gcc_context_impl_base const& to, yield_hint)
+boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base::swap_context	detail/context_linux.hpp	/^      swap_context(ia32_gcc_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:friend	signature:(ia32_gcc_context_impl_base& from, ia32_gcc_context_impl_base const& to, yield_to_hint)
+boost::coroutines::detail::oslinux::trampoline	detail/context_linux.hpp	/^    trampoline(T * fun) { $/;"	f	namespace:boost::coroutines::detail::oslinux	signature:(T * fun)
+boost::coroutines::detail::oslinux::trampoline	detail/context_linux.hpp	/^    void trampoline(T* fun);$/;"	p	namespace:boost::coroutines::detail::oslinux	signature:(T* fun)
+boost::coroutines::detail::posix	detail/context_posix.hpp	/^  namespace posix {$/;"	n	namespace:boost::coroutines::detail
+boost::coroutines::detail::posix	detail/posix_utility.hpp	/^namespace boost { namespace coroutines { namespace detail { namespace posix {$/;"	n	namespace:boost::coroutines::detail
+boost::coroutines::detail::posix::alloc_stack	detail/posix_utility.hpp	/^  void* alloc_stack(std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(std::size_t size)
+boost::coroutines::detail::posix::alloc_stack_mmap	detail/posix_utility.hpp	/^  alloc_stack_mmap(std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(std::size_t size)
+boost::coroutines::detail::posix::context_impl	detail/context_posix.hpp	/^    typedef ucontext_context_impl context_impl;$/;"	t	namespace:boost::coroutines::detail::posix
+boost::coroutines::detail::posix::free_stack	detail/posix_utility.hpp	/^  void free_stack(void* stack, std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(void* stack, std::size_t size)
+boost::coroutines::detail::posix::free_stack_mmap	detail/posix_utility.hpp	/^  void free_stack_mmap(void* stack, std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(void* stack, std::size_t size)
+boost::coroutines::detail::posix::splitter	detail/posix_utility.hpp	/^  union splitter {$/;"	u	namespace:boost::coroutines::detail::posix
+boost::coroutines::detail::posix::splitter::first	detail/posix_utility.hpp	/^    int first() {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:()
+boost::coroutines::detail::posix::splitter::int_	detail/posix_utility.hpp	/^    int int_[2];$/;"	m	union:boost::coroutines::detail::posix::splitter	access:public
+boost::coroutines::detail::posix::splitter::operator ()	detail/posix_utility.hpp	/^    void operator()() {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:()
+boost::coroutines::detail::posix::splitter::ptr	detail/posix_utility.hpp	/^    T* ptr;$/;"	m	union:boost::coroutines::detail::posix::splitter	access:public
+boost::coroutines::detail::posix::splitter::second	detail/posix_utility.hpp	/^    int second() {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:()
+boost::coroutines::detail::posix::splitter::splitter	detail/posix_utility.hpp	/^    splitter(T* ptr) :ptr(ptr) {}$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:(T* ptr)
+boost::coroutines::detail::posix::splitter::splitter	detail/posix_utility.hpp	/^    splitter(int first, int second) {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:(int first, int second)
+boost::coroutines::detail::posix::stack_aligner	detail/posix_utility.hpp	/^  struct stack_aligner {$/;"	s	namespace:boost::coroutines::detail::posix
+boost::coroutines::detail::posix::stack_aligner::dummy	detail/posix_utility.hpp	/^    boost::type_with_alignment<stack_alignment>::type dummy;$/;"	m	struct:boost::coroutines::detail::posix::stack_aligner	access:public
+boost::coroutines::detail::posix::stack_alignment	detail/posix_utility.hpp	/^  static const std::size_t stack_alignment = sizeof(void*) > 16? sizeof(void*): 16;$/;"	m	namespace:boost::coroutines::detail::posix
+boost::coroutines::detail::posix::trampoline	detail/posix_utility.hpp	/^  trampoline(T * fun) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(T * fun)
+boost::coroutines::detail::posix::trampoline_split	detail/posix_utility.hpp	/^  trampoline_split(int first, int second) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(int first, int second)
+boost::coroutines::detail::posix::ucontext_context_impl	detail/context_posix.hpp	/^    class ucontext_context_impl :$/;"	c	namespace:boost::coroutines::detail::posix	inherits:ucontext_context_impl_base,boost::noncopyable
+boost::coroutines::detail::posix::ucontext_context_impl::context_impl_base	detail/context_posix.hpp	/^      typedef ucontext_context_impl_base context_impl_base;$/;"	t	class:boost::coroutines::detail::posix::ucontext_context_impl	access:public
+boost::coroutines::detail::posix::ucontext_context_impl::default_stack_size	detail/context_posix.hpp	/^      enum {default_stack_size = 8192};$/;"	e	enum:boost::coroutines::detail::posix::ucontext_context_impl::__anon3
+boost::coroutines::detail::posix::ucontext_context_impl::m_stack	detail/context_posix.hpp	/^      void * m_stack;$/;"	m	class:boost::coroutines::detail::posix::ucontext_context_impl	access:private
+boost::coroutines::detail::posix::ucontext_context_impl::ucontext_context_impl	detail/context_posix.hpp	/^	ucontext_context_impl(Functor& cb, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::posix::ucontext_context_impl	access:public	signature:(Functor& cb, std::ptrdiff_t stack_size)
+boost::coroutines::detail::posix::ucontext_context_impl::~ucontext_context_impl	detail/context_posix.hpp	/^      ~ucontext_context_impl() {$/;"	f	class:boost::coroutines::detail::posix::ucontext_context_impl	access:public	signature:()
+boost::coroutines::detail::posix::ucontext_context_impl_base	detail/context_posix.hpp	/^    class ucontext_context_impl_base {$/;"	c	namespace:boost::coroutines::detail::posix
+boost::coroutines::detail::posix::ucontext_context_impl_base::m_ctx	detail/context_posix.hpp	/^      ::ucontext_t m_ctx;$/;"	m	class:boost::coroutines::detail::posix::ucontext_context_impl_base	access:protected
+boost::coroutines::detail::posix::ucontext_context_impl_base::swap_context	detail/context_posix.hpp	/^      swap_context(ucontext_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::posix::ucontext_context_impl_base	access:friend	signature:(ucontext_context_impl_base& from, const ucontext_context_impl_base& to, default_hint)
+boost::coroutines::detail::tag	generator.hpp	/^    class tag {};$/;"	c	namespace:boost::coroutines::detail
+boost::coroutines::detail::trait_tag	detail/argument_unpacker.hpp	/^  struct trait_tag {};$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::tuple_workaround	tuple_traits.hpp	/^    struct tuple_workaround : boost::tuple<> {$/;"	s	namespace:boost::coroutines::detail	inherits:boost::tuple
+boost::coroutines::detail::tuple_workaround::BOOST_PP_ENUM	tuple_traits.hpp	/^      (BOOST_PP_ENUM$/;"	f	struct:boost::coroutines::detail::tuple_workaround	access:public	signature:(BOOST_COROUTINE_ARG_MAX, BOOST_COROUTINE_arg_null_typecr, ~)
+boost::coroutines::detail::tuple_workaround::tuple_workaround	tuple_traits.hpp	/^      tuple_workaround() {}$/;"	f	struct:boost::coroutines::detail::tuple_workaround	access:public	signature:()
+boost::coroutines::detail::tuple_workaround::tuple_workaround	tuple_traits.hpp	/^      tuple_workaround(const tuple_workaround&) {}$/;"	f	struct:boost::coroutines::detail::tuple_workaround	access:public	signature:(const tuple_workaround&)
+boost::coroutines::detail::unpack	detail/argument_unpacker.hpp	/^  unpack(Functor f, Tuple& parms, trait_tag<Traits>) {$/;"	f	namespace:boost::coroutines::detail	signature:(Functor f, Tuple& parms, trait_tag<Traits>)
+boost::coroutines::detail::unpack_ex	detail/argument_unpacker.hpp	/^  unpack_ex(Functor f, First& arg0, Tuple& parms, trait_tag<Traits>) {$/;"	f	namespace:boost::coroutines::detail	signature:(Functor f, First& arg0, Tuple& parms, trait_tag<Traits>)
+boost::coroutines::detail::wait_all_impl	detail/wait_impl.hpp	/^  void wait_all_impl(Tuple wt) {$/;"	f	namespace:boost::coroutines::detail	signature:(Tuple wt)
+boost::coroutines::detail::wait_gateway	detail/signal.hpp	/^  struct wait_gateway {$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::wait_gateway::get_impl	detail/signal.hpp	/^    get_impl(Future& f) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(Future& f)
+boost::coroutines::detail::wait_gateway::mark_wait	detail/signal.hpp	/^    void mark_wait(Future& f, bool how) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(Future& f, bool how)
+boost::coroutines::detail::wait_gateway::wait	detail/signal.hpp	/^    static void wait(Future& f, int n) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(Future& f, int n)
+boost::coroutines::detail::wait_gateway::waited	detail/signal.hpp	/^    bool waited(const Future& f) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(const Future& f)
+boost::coroutines::detail::wait_impl	detail/wait_impl.hpp	/^  void wait_impl(Tuple wt) {$/;"	f	namespace:boost::coroutines::detail	signature:(Tuple wt)
+boost::coroutines::detail::wait_n	detail/wait_impl.hpp	/^  void wait_n(const Tuple& t, int n) {$/;"	f	namespace:boost::coroutines::detail	signature:(const Tuple& t, int n)
+boost::coroutines::detail::windows	detail/context_windows.hpp	/^  namespace windows {$/;"	n	namespace:boost::coroutines::detail
+boost::coroutines::detail::windows::context_impl	detail/context_windows.hpp	/^    typedef fibers_context_impl context_impl;$/;"	t	namespace:boost::coroutines::detail::windows
+boost::coroutines::detail::windows::fiber_magic	detail/context_windows.hpp	/^    fiber_ptr fiber_magic = reinterpret_cast<fiber_ptr>(0x1E00);$/;"	m	namespace:boost::coroutines::detail::windows
+boost::coroutines::detail::windows::fiber_ptr	detail/context_windows.hpp	/^    typedef LPVOID fiber_ptr;$/;"	t	namespace:boost::coroutines::detail::windows
+boost::coroutines::detail::windows::fibers_context_impl	detail/context_windows.hpp	/^    class fibers_context_impl :$/;"	c	namespace:boost::coroutines::detail::windows	inherits:fibers_context_impl_base,boost::noncopyable
+boost::coroutines::detail::windows::fibers_context_impl::context_impl_base	detail/context_windows.hpp	/^      typedef fibers_context_impl_base context_impl_base;$/;"	t	class:boost::coroutines::detail::windows::fibers_context_impl	access:public
+boost::coroutines::detail::windows::fibers_context_impl::default_stack_size	detail/context_windows.hpp	/^      enum {default_stack_size = 8192};$/;"	e	enum:boost::coroutines::detail::windows::fibers_context_impl::__anon2
+boost::coroutines::detail::windows::fibers_context_impl::fibers_context_impl	detail/context_windows.hpp	/^      fibers_context_impl(Functor& cb, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl	access:public	signature:(Functor& cb, std::ptrdiff_t stack_size)
+boost::coroutines::detail::windows::fibers_context_impl::~fibers_context_impl	detail/context_windows.hpp	/^      ~fibers_context_impl() {$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl	access:public	signature:()
+boost::coroutines::detail::windows::fibers_context_impl_base	detail/context_windows.hpp	/^    class fibers_context_impl_base {$/;"	c	namespace:boost::coroutines::detail::windows
+boost::coroutines::detail::windows::fibers_context_impl_base::fibers_context_impl_base	detail/context_windows.hpp	/^      fibers_context_impl_base() :$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:public	signature:()
+boost::coroutines::detail::windows::fibers_context_impl_base::fibers_context_impl_base	detail/context_windows.hpp	/^      fibers_context_impl_base(fiber_ptr ctx) :$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:protected	signature:(fiber_ptr ctx)
+boost::coroutines::detail::windows::fibers_context_impl_base::m_ctx	detail/context_windows.hpp	/^      fiber_ptr m_ctx;$/;"	m	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:protected
+boost::coroutines::detail::windows::fibers_context_impl_base::swap_context	detail/context_windows.hpp	/^      swap_context(fibers_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:friend	signature:(fibers_context_impl_base& from, const fibers_context_impl_base& to, default_hint)
+boost::coroutines::detail::windows::fibers_context_impl_base::~fibers_context_impl_base	detail/context_windows.hpp	/^      ~fibers_context_impl_base() {}$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:public	signature:()
+boost::coroutines::detail::windows::is_fiber	detail/context_windows.hpp	/^    bool is_fiber() {$/;"	f	namespace:boost::coroutines::detail::windows	signature:()
+boost::coroutines::detail::windows::trampoline	detail/context_windows.hpp	/^    trampoline(LPVOID pv) {$/;"	f	namespace:boost::coroutines::detail::windows	signature:(LPVOID pv)
+boost::coroutines::detail::yield_hint	detail/swap_context.hpp	/^  class yield_hint: public default_hint {};$/;"	c	namespace:boost::coroutines::detail	inherits:default_hint
+boost::coroutines::detail::yield_result_type	detail/yield_result_type.hpp	/^    struct yield_result_type <boost::mpl::vector0<> >{$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::yield_result_type	detail/yield_result_type.hpp	/^    struct yield_result_type <boost::mpl::vector1<T> >{$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::yield_result_type	detail/yield_result_type.hpp	/^    struct yield_result_type {$/;"	s	namespace:boost::coroutines::detail
+boost::coroutines::detail::yield_result_type::type	detail/yield_result_type.hpp	/^      typedef T type;$/;"	t	struct:boost::coroutines::detail::yield_result_type	access:public
+boost::coroutines::detail::yield_result_type::type	detail/yield_result_type.hpp	/^      typedef typename make_tuple_traits<TypeList>::type type;$/;"	t	struct:boost::coroutines::detail::yield_result_type	access:public
+boost::coroutines::detail::yield_result_type::type	detail/yield_result_type.hpp	/^      typedef void type;$/;"	t	struct:boost::coroutines::detail::yield_result_type	access:public
+boost::coroutines::detail::yield_to_hint	detail/swap_context.hpp	/^  class yield_to_hint: public default_hint {};$/;"	c	namespace:boost::coroutines::detail	inherits:default_hint
+boost::coroutines::exception_base	exception.hpp	/^  class exception_base : public std::exception {};$/;"	c	namespace:boost::coroutines	inherits:std::exception
+boost::coroutines::exit_exception	exception.hpp	/^  class exit_exception:  public exception_base {};$/;"	c	namespace:boost::coroutines	inherits:exception_base
+boost::coroutines::future	future.hpp	/^  class future : $/;"	c	namespace:boost::coroutines	inherits:movable
+boost::coroutines::future::context_impl	future.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::future	access:public
+boost::coroutines::future::future	future.hpp	/^      future(CoroutineSelf& self) :$/;"	f	class:boost::coroutines::future	access:public	signature:(CoroutineSelf& self)
+boost::coroutines::future::future	future.hpp	/^    future(move_from<future> rhs) :$/;"	f	class:boost::coroutines::future	access:public	signature:(move_from<future> rhs)
+boost::coroutines::future::future_impl	future.hpp	/^    typedef detail::future_impl<tuple_type, context_impl> future_impl;$/;"	t	class:boost::coroutines::future	access:public
+boost::coroutines::future::future_impl::operator ->	future.hpp	/^      operator ->() const {$/;"	f	class:boost::coroutines::future::future_impl	access:public	signature:() const
+boost::coroutines::future::impl_pointer	future.hpp	/^    typedef future_impl * impl_pointer;$/;"	t	class:boost::coroutines::future	access:public
+boost::coroutines::future::is_singular	future.hpp	/^      is_singular;$/;"	t	class:boost::coroutines::future	access:public
+boost::coroutines::future::m_ptr	future.hpp	/^    impl_pointer m_ptr;    $/;"	m	class:boost::coroutines::future	access:private
+boost::coroutines::future::mark_wait	future.hpp	/^    void mark_wait(bool how) {$/;"	f	class:boost::coroutines::future	access:private	signature:(bool how)
+boost::coroutines::future::operator *	future.hpp	/^    const value_type& operator *() const{$/;"	f	class:boost::coroutines::future	access:public	signature:() const
+boost::coroutines::future::operator *	future.hpp	/^    value_type& operator *() {$/;"	f	class:boost::coroutines::future	access:public	signature:()
+boost::coroutines::future::operator ->	future.hpp	/^      operator ->() {$/;"	f	class:boost::coroutines::future	access:public	signature:()
+boost::coroutines::future::operator =	future.hpp	/^    future& operator=(const value_type& rhs) {$/;"	f	class:boost::coroutines::future	access:public	signature:(const value_type& rhs)
+boost::coroutines::future::operator =	future.hpp	/^    future& operator=(move_from<future> rhs) {$/;"	f	class:boost::coroutines::future	access:public	signature:(move_from<future> rhs)
+boost::coroutines::future::operator =	future.hpp	/^    future& operator=(none_t) {$/;"	f	class:boost::coroutines::future	access:public	signature:(none_t)
+boost::coroutines::future::operator safe_bool	future.hpp	/^    operator safe_bool() const {    $/;"	f	class:boost::coroutines::future	access:public	signature:() const
+boost::coroutines::future::pending	future.hpp	/^    bool pending() const {$/;"	f	class:boost::coroutines::future	access:public	signature:() const
+boost::coroutines::future::pilfer	future.hpp	/^    impl_pointer pilfer() {$/;"	f	class:boost::coroutines::future	access:private	signature:()
+boost::coroutines::future::remove_tuple	future.hpp	/^      value_type& remove_tuple(T& x, boost::mpl::false_) {$/;"	f	class:boost::coroutines::future	access:private	signature:(T& x, boost::mpl::false_)
+boost::coroutines::future::remove_tuple	future.hpp	/^      value_type& remove_tuple(T& x, boost::mpl::true_) {$/;"	f	class:boost::coroutines::future	access:private	signature:(T& x, boost::mpl::true_)
+boost::coroutines::future::safe_bool	future.hpp	/^    typedef void (future::*safe_bool)();           $/;"	t	class:boost::coroutines::future	access:private
+boost::coroutines::future::safe_bool_true	future.hpp	/^    void safe_bool_true() {}                       $/;"	f	class:boost::coroutines::future	access:private	signature:()
+boost::coroutines::future::swap	future.hpp	/^    friend void swap(future& lhs, future& rhs) {$/;"	f	class:boost::coroutines::future	access:friend	signature:(future& lhs, future& rhs)
+boost::coroutines::future::tuple_traits_type	future.hpp	/^      > tuple_traits_type;$/;"	t	class:boost::coroutines::future	access:public
+boost::coroutines::future::tuple_type	future.hpp	/^    typedef BOOST_DEDUCED_TYPENAME tuple_traits_type::as_tuple tuple_type;$/;"	t	class:boost::coroutines::future	access:public
+boost::coroutines::future::value_type	future.hpp	/^      >::type  value_type;$/;"	t	class:boost::coroutines::future	access:public
+boost::coroutines::future::wait	future.hpp	/^    void wait() {$/;"	f	class:boost::coroutines::future	access:private	signature:()
+boost::coroutines::future::wait	future.hpp	/^    void wait(int n) {$/;"	f	class:boost::coroutines::future	access:private	signature:(int n)
+boost::coroutines::future::waited	future.hpp	/^    bool waited() const {$/;"	f	class:boost::coroutines::future	access:private	signature:() const
+boost::coroutines::future::~future	future.hpp	/^    ~future() {$/;"	f	class:boost::coroutines::future	access:public	signature:()
+boost::coroutines::generator	generator.hpp	/^  class generator : public boost::mpl::eval_if<boost::is_same<ValueType, void>,$/;"	c	namespace:boost::coroutines	inherits:boost::mpl::eval_if::type
+boost::coroutines::generator::assign	generator.hpp	/^    optional_type assign(detail::tag<T>) {$/;"	f	class:boost::coroutines::generator	access:private	signature:(detail::tag<T>)
+boost::coroutines::generator::assign	generator.hpp	/^    optional_type assign(detail::tag<void>) {$/;"	f	class:boost::coroutines::generator	access:private	signature:(detail::tag<void>)
+boost::coroutines::generator::coroutine_type	generator.hpp	/^    typedef Coroutine coroutine_type;$/;"	t	class:boost::coroutines::generator	access:public
+boost::coroutines::generator::generator	generator.hpp	/^    generator() {}$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+boost::coroutines::generator::generator	generator.hpp	/^    generator(Functor f) :$/;"	f	class:boost::coroutines::generator	access:public	signature:(Functor f)
+boost::coroutines::generator::generator	generator.hpp	/^    generator(const generator& rhs) :$/;"	f	class:boost::coroutines::generator	access:public	signature:(const generator& rhs)
+boost::coroutines::generator::internal_value_type	generator.hpp	/^    typedef ValueType internal_value_type;$/;"	t	class:boost::coroutines::generator	access:private
+boost::coroutines::generator::m_coro	generator.hpp	/^    coroutine_type m_coro;$/;"	m	class:boost::coroutines::generator	access:private
+boost::coroutines::generator::m_val	generator.hpp	/^    optional_type m_val;$/;"	m	class:boost::coroutines::generator	access:private
+boost::coroutines::generator::operator !=	generator.hpp	/^    bool operator != (const generator& lhs, const generator & rhs) {$/;"	f	class:boost::coroutines::generator	access:friend	signature:(const generator& lhs, const generator & rhs)
+boost::coroutines::generator::operator ()	generator.hpp	/^    value_type operator()() {$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+boost::coroutines::generator::operator *	generator.hpp	/^    value_type operator*() {$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+boost::coroutines::generator::operator ++	generator.hpp	/^    generator operator++(int) {$/;"	f	class:boost::coroutines::generator	access:public	signature:(int)
+boost::coroutines::generator::operator ++	generator.hpp	/^    generator& operator++() {$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+boost::coroutines::generator::operator ==	generator.hpp	/^    bool operator==(const generator& lhs, const generator& rhs) {$/;"	f	class:boost::coroutines::generator	access:friend	signature:(const generator& lhs, const generator& rhs)
+boost::coroutines::generator::operator safe_bool	generator.hpp	/^    operator safe_bool () const {$/;"	f	class:boost::coroutines::generator	access:public	signature:() const
+boost::coroutines::generator::optional_type	generator.hpp	/^		    boost::optional<value_type> >::type optional_type;$/;"	t	class:boost::coroutines::generator	access:private
+boost::coroutines::generator::optional_void	generator.hpp	/^    struct optional_void {$/;"	s	class:boost::coroutines::generator	access:private
+boost::coroutines::generator::optional_void::m_result	generator.hpp	/^      bool m_result;$/;"	m	struct:boost::coroutines::generator::optional_void	access:public
+boost::coroutines::generator::optional_void::operator *	generator.hpp	/^      void operator*() const {}$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:() const
+boost::coroutines::generator::optional_void::operator bool	generator.hpp	/^      operator bool() const { return m_result; };$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:() const
+boost::coroutines::generator::optional_void::optional_void	generator.hpp	/^      optional_void() : m_result(true) {}$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:()
+boost::coroutines::generator::optional_void::optional_void	generator.hpp	/^      optional_void(boost::none_t) : m_result(false) {}$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:(boost::none_t)
+boost::coroutines::generator::result_type	generator.hpp	/^    coroutine_type::result_type result_type;$/;"	t	class:boost::coroutines::generator	access:public
+boost::coroutines::generator::safe_bool	generator.hpp	/^    typedef void(generator::*safe_bool)();$/;"	t	class:boost::coroutines::generator	access:private
+boost::coroutines::generator::safe_bool_true	generator.hpp	/^    void safe_bool_true () {};$/;"	f	class:boost::coroutines::generator	access:private	signature:()
+boost::coroutines::generator::self	generator.hpp	/^    typedef BOOST_DEDUCED_TYPENAME coroutine_type::self self;$/;"	t	class:boost::coroutines::generator	access:public
+boost::coroutines::generator::value_type	generator.hpp	/^    typedef result_type value_type;$/;"	t	class:boost::coroutines::generator	access:public
+boost::coroutines::get_length	tuple_traits.hpp	/^  struct get_length {$/;"	s	namespace:boost::coroutines
+boost::coroutines::get_length::length	tuple_traits.hpp	/^   enum { length = T::length };$/;"	e	enum:boost::coroutines::get_length::__anon5
+boost::coroutines::has_swap	detail/has_swap.hpp	/^struct has_swap$/;"	s	namespace:boost::coroutines	inherits:has_swap_::has_swap_impl::type
+boost::coroutines::has_swap_	detail/has_swap.hpp	/^namespace has_swap_$/;"	n	namespace:boost::coroutines
+boost::coroutines::has_swap_::anything	detail/has_swap.hpp	/^  struct anything { template <class T> anything(T const&); };$/;"	s	namespace:boost::coroutines::has_swap_
+boost::coroutines::has_swap_::anything::anything	detail/has_swap.hpp	/^  struct anything { template <class T> anything(T const&); };$/;"	p	struct:boost::coroutines::has_swap_::anything	access:public	signature:(T const&)
+boost::coroutines::has_swap_::has_swap_impl	detail/has_swap.hpp	/^  struct has_swap_impl$/;"	s	namespace:boost::coroutines::has_swap_
+boost::coroutines::has_swap_::has_swap_impl::BOOST_STATIC_CONSTANT	detail/has_swap.hpp	/^      BOOST_STATIC_CONSTANT(bool, value = sizeof(swap(x,x),'x') == 1);$/;"	p	struct:boost::coroutines::has_swap_::has_swap_impl	access:public	signature:(bool, value = sizeof(swap(x,x),Ã) == 1)
+boost::coroutines::has_swap_::has_swap_impl::type	detail/has_swap.hpp	/^      typedef boost::mpl::bool_<has_swap_impl<T>::value> type;$/;"	t	struct:boost::coroutines::has_swap_::has_swap_impl	access:public
+boost::coroutines::has_swap_::has_swap_impl::type	detail/has_swap.hpp	/^      typedef boost::mpl::bool_<value> type;$/;"	t	struct:boost::coroutines::has_swap_::has_swap_impl	access:public
+boost::coroutines::has_swap_::has_swap_impl::x	detail/has_swap.hpp	/^      static T& x;$/;"	m	struct:boost::coroutines::has_swap_::has_swap_impl	access:public
+boost::coroutines::has_swap_::no_swap	detail/has_swap.hpp	/^  struct no_swap$/;"	s	namespace:boost::coroutines::has_swap_
+boost::coroutines::has_swap_::swap	detail/has_swap.hpp	/^  no_swap swap(anything,anything);$/;"	p	namespace:boost::coroutines::has_swap_	signature:(anything,anything)
+boost::coroutines::is_coroutine	coroutine.hpp	/^  struct is_coroutine : boost::mpl::false_{};$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::false_
+boost::coroutines::is_coroutine	coroutine.hpp	/^  struct is_coroutine<coroutine<Sig, Con> > : boost::mpl::true_{};$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::true_
+boost::coroutines::is_movable	move.hpp	/^struct is_movable$/;"	s	namespace:boost::coroutines	inherits:boost::is_convertible
+boost::coroutines::is_nullary	tuple_traits.hpp	/^  struct is_nullary :  boost::mpl::bool_<boost::tuples::length<T>::value == 0> {  };$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::bool_
+boost::coroutines::is_singular	tuple_traits.hpp	/^  struct is_singular : boost::mpl::bool_<boost::tuples::length<T>::value == 1> {  };$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::bool_
+boost::coroutines::make_as_tuple	tuple_traits.hpp	/^  struct make_as_tuple :$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::if_
+boost::coroutines::make_callback	future.hpp	/^  make_callback(Future& future) {$/;"	f	namespace:boost::coroutines	signature:(Future& future)
+boost::coroutines::make_callback_result	future.hpp	/^  struct make_callback_result {$/;"	s	namespace:boost::coroutines
+boost::coroutines::make_callback_result::type	future.hpp	/^    typedef detail::callback<Future> type;$/;"	t	struct:boost::coroutines::make_callback_result	access:public
+boost::coroutines::make_result_type	tuple_traits.hpp	/^  struct make_result_type :$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::eval_if
+boost::coroutines::movable	move.hpp	/^struct movable$/;"	s	namespace:boost::coroutines
+boost::coroutines::movable::movable	move.hpp	/^    movable() {}$/;"	f	struct:boost::coroutines::movable	access:protected	signature:()
+boost::coroutines::movable::movable	move.hpp	/^    movable(movable&);$/;"	p	struct:boost::coroutines::movable	access:private	signature:(movable&)
+boost::coroutines::movable::operator =	move.hpp	/^    movable& operator=(movable&);$/;"	p	struct:boost::coroutines::movable	access:private	signature:(movable&)
+boost::coroutines::movable::operator const_lvalue<Derived>	move.hpp	/^    operator const_lvalue<Derived>() const$/;"	f	struct:boost::coroutines::movable	access:public	signature:() const
+boost::coroutines::movable::operator move_from<Derived>	move.hpp	/^    operator move_from<Derived>()$/;"	f	struct:boost::coroutines::movable	access:public	signature:()
+boost::coroutines::move	move.hpp	/^move(InputIterator first, InputIterator last, OutputIterator result)$/;"	f	namespace:boost::coroutines	signature:(InputIterator first, InputIterator last, OutputIterator result)
+boost::coroutines::move	move.hpp	/^move(T& x)$/;"	f	namespace:boost::coroutines	signature:(T& x)
+boost::coroutines::move_	move.hpp	/^namespace move_$/;"	n	namespace:boost::coroutines
+boost::coroutines::move_::move_result	move.hpp	/^  struct move_result$/;"	s	namespace:boost::coroutines::move_	inherits:mpl::if_
+boost::coroutines::move_::swap	move.hpp	/^  swap(T& a, T& b)$/;"	f	namespace:boost::coroutines::move_	signature:(T& a, T& b)
+boost::coroutines::move_backward	move.hpp	/^move_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,$/;"	f	namespace:boost::coroutines	signature:(BidirectionalIterator1 first, BidirectionalIterator1 last, BidirectionalIterator2 result)
+boost::coroutines::move_from	move.hpp	/^struct move_from : const_lvalue<X>$/;"	s	namespace:boost::coroutines	inherits:const_lvalue
+boost::coroutines::move_from::move_from	move.hpp	/^    explicit move_from(X& x)$/;"	f	struct:boost::coroutines::move_from	access:public	signature:(X& x)
+boost::coroutines::move_from::move_from	move.hpp	/^    explicit move_from(X* p)$/;"	f	struct:boost::coroutines::move_from	access:public	signature:(X* p)
+boost::coroutines::move_from::operator *	move.hpp	/^    X& operator*() const { return *const_cast<X*>(this->p); }$/;"	f	struct:boost::coroutines::move_from	access:public	signature:() const
+boost::coroutines::move_from::operator ->	move.hpp	/^    X* operator->() const { return const_cast<X*>(this->p); }$/;"	f	struct:boost::coroutines::move_from	access:public	signature:() const
+boost::coroutines::move_from::operator X&	move.hpp	/^    operator X&() const { return **this; }$/;"	f	struct:boost::coroutines::move_from	access:public	signature:() const
+boost::coroutines::move_swap_	move.hpp	/^namespace move_swap_$/;"	n	namespace:boost::coroutines
+boost::coroutines::move_swap_::move_swap	move.hpp	/^  move_swap(T& a, T& b)$/;"	f	namespace:boost::coroutines::move_swap_	signature:(T& a, T& b)
+boost::coroutines::move_swap_::move_swap	move.hpp	/^  move_swap(T& a, T& b, mpl::false_)$/;"	f	namespace:boost::coroutines::move_swap_	signature:(T& a, T& b, mpl::false_)
+boost::coroutines::move_swap_::move_swap	move.hpp	/^  move_swap(T& a, T& b, mpl::true_)$/;"	f	namespace:boost::coroutines::move_swap_	signature:(T& a, T& b, mpl::true_)
+boost::coroutines::shared_coroutine	shared_coroutine.hpp	/^  class shared_coroutine : public coroutine<Signature, ContextImpl> {$/;"	c	namespace:boost::coroutines	inherits:coroutine
+boost::coroutines::shared_coroutine::coroutine_type	shared_coroutine.hpp	/^    typedef coroutine<Signature, ContextImpl> coroutine_type;$/;"	t	class:boost::coroutines::shared_coroutine	access:public
+boost::coroutines::shared_coroutine::operator =	shared_coroutine.hpp	/^    shared_coroutine& operator=(const shared_coroutine& rhs) {$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(const shared_coroutine& rhs)
+boost::coroutines::shared_coroutine::operator =	shared_coroutine.hpp	/^    shared_coroutine& operator=(move_from<coroutine_type> src) {$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(move_from<coroutine_type> src)
+boost::coroutines::shared_coroutine::shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine() {}$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:()
+boost::coroutines::shared_coroutine::shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine(Functor f, $/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(Functor f, std::ptrdiff_t stack_size = detail::default_stack_size)
+boost::coroutines::shared_coroutine::shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine(const shared_coroutine& rhs) :$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(const shared_coroutine& rhs)
+boost::coroutines::shared_coroutine::shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine(move_from<coroutine_type> src):$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(move_from<coroutine_type> src)
+boost::coroutines::step_2	tuple_traits.hpp	/^  struct step_2 :$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::eval_if
+boost::coroutines::tuple_traits	tuple_traits.hpp	/^  struct tuple_traits : tuple_traits_tag {$/;"	s	namespace:boost::coroutines	inherits:tuple_traits_tag
+boost::coroutines::tuple_traits::internal_tuple_type	tuple_traits.hpp	/^    (BOOST_COROUTINE_ARG_MAX, T)> internal_tuple_type;$/;"	t	struct:boost::coroutines::tuple_traits	access:public
+boost::coroutines::tuple_traits::length	tuple_traits.hpp	/^    enum {length = boost::tuples::length<internal_tuple_type>::value};$/;"	e	enum:boost::coroutines::tuple_traits::__anon6
+boost::coroutines::tuple_traits::null_type	tuple_traits.hpp	/^    typedef boost::tuples::null_type null_type;$/;"	t	struct:boost::coroutines::tuple_traits	access:public
+boost::coroutines::tuple_traits_tag	tuple_traits.hpp	/^  struct tuple_traits_tag {};$/;"	s	namespace:boost::coroutines
+boost::coroutines::unknown_exception_tag	exception.hpp	/^  class unknown_exception_tag {};$/;"	c	namespace:boost::coroutines
+boost::coroutines::waiting	exception.hpp	/^  class waiting : public exception_base {};$/;"	c	namespace:boost::coroutines	inherits:exception_base
+call_impl	coroutine.hpp	/^    result_type call_impl(arg_slot_type args) {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:(arg_slot_type args)
+call_impl	detail/call_impl.hpp	/^  Future call_impl(Functor fun, const CoroutineSelf& coro_self) {$/;"	f	namespace:boost::coroutines::detail	signature:(Functor fun, const CoroutineSelf& coro_self)
+call_impl_nothrow	coroutine.hpp	/^    call_impl_nothrow(arg_slot_type args) {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:(arg_slot_type args)
+callback	detail/call_impl.hpp	/^    callback(Future& future) :$/;"	f	class:boost::coroutines::detail::callback	access:public	signature:(Future& future)
+callback	detail/call_impl.hpp	/^  class callback {$/;"	c	namespace:boost::coroutines::detail
+check_exit_state	detail/context_base.hpp	/^    void check_exit_state() {$/;"	f	class:boost::coroutines::detail::context_base	access:protected	signature:()
+const_lvalue	move.hpp	/^    explicit const_lvalue(X const* p)$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:(X const* p)
+const_lvalue	move.hpp	/^struct const_lvalue$/;"	s	namespace:boost::coroutines
+construct	detail/coroutine_accessor.hpp	/^    void construct(Ctx * src, void * address) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Ctx * src, void * address)
+context	detail/future_impl.hpp	/^    context_pointer context() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+context_base	detail/context_base.hpp	/^	context_base(Derived& derived, $/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(Derived& derived, std::ptrdiff_t stack_size)
+context_base	detail/context_base.hpp	/^  class context_base : public ContextImpl {$/;"	c	namespace:boost::coroutines::detail	inherits:ContextImpl
+context_base	detail/coroutine_impl.hpp	/^    typedef context_base<context_impl> context_base;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+context_exit_state	detail/context_base.hpp	/^    enum context_exit_state {$/;"	g	class:boost::coroutines::detail::context_base	access:protected
+context_exit_status	detail/context_base.hpp	/^    enum context_exit_status {$/;"	g	class:boost::coroutines::detail::context_base	access:protected
+context_impl	coroutine.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::coroutine	access:public
+context_impl	detail/context_base.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::detail::context_base	access:public
+context_impl	detail/context_linux.hpp	/^    typedef ia32_gcc_context_impl context_impl;$/;"	t	namespace:boost::coroutines::detail::oslinux
+context_impl	detail/context_posix.hpp	/^    typedef ucontext_context_impl context_impl;$/;"	t	namespace:boost::coroutines::detail::posix
+context_impl	detail/context_windows.hpp	/^    typedef fibers_context_impl context_impl;$/;"	t	namespace:boost::coroutines::detail::windows
+context_impl	detail/coroutine_impl.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+context_impl	future.hpp	/^    typedef ContextImpl context_impl;$/;"	t	class:boost::coroutines::future	access:public
+context_impl_base	detail/context_linux.hpp	/^      typedef ia32_gcc_context_impl_base context_impl_base;$/;"	t	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public
+context_impl_base	detail/context_posix.hpp	/^      typedef ucontext_context_impl_base context_impl_base;$/;"	t	class:boost::coroutines::detail::posix::ucontext_context_impl	access:public
+context_impl_base	detail/context_windows.hpp	/^      typedef fibers_context_impl_base context_impl_base;$/;"	t	class:boost::coroutines::detail::windows::fibers_context_impl	access:public
+context_pointer	detail/future_impl.hpp	/^    context_pointer;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+context_state	detail/context_base.hpp	/^    enum context_state {$/;"	g	class:boost::coroutines::detail::context_base	access:protected
+context_weak_pointer	detail/future_impl.hpp	/^    context_weak_pointer;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+copy_source	move.hpp	/^    friend inline X const& copy_source(const_lvalue<X> x) { return *x; }$/;"	f	struct:boost::coroutines::const_lvalue	access:friend	signature:(const_lvalue<X> x)
+copy_source	move.hpp	/^inline T const& copy_source(T& x) { return x; }$/;"	f	namespace:boost::coroutines	signature:(T& x)
+coroutine	coroutine.hpp	/^    coroutine (Functor f, $/;"	f	class:boost::coroutines::coroutine	access:public	signature:(Functor f, std::ptrdiff_t stack_size = detail::default_stack_size, BOOST_DEDUCED_TYPENAME boost::enable_if< boost::mpl::and_< detail::is_callable<Functor>, boost::mpl::not_<is_coroutine<Functor> > > > ::type * = 0 )
+coroutine	coroutine.hpp	/^    coroutine() : m_pimpl(0) {}$/;"	f	class:boost::coroutines::coroutine	access:public	signature:()
+coroutine	coroutine.hpp	/^    coroutine(impl_type * pimpl, detail::init_from_impl_tag) :$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:(impl_type * pimpl, detail::init_from_impl_tag)
+coroutine	coroutine.hpp	/^    coroutine(move_from<coroutine> src) $/;"	f	class:boost::coroutines::coroutine	access:public	signature:(move_from<coroutine> src)
+coroutine	coroutine.hpp	/^  class coroutine : public movable<coroutine<Signature, ContextImpl> > {$/;"	c	namespace:boost::coroutines	inherits:movable
+coroutine_accessor	detail/coroutine_accessor.hpp	/^  struct coroutine_accessor {$/;"	s	namespace:boost::coroutines::detail
+coroutine_exited	exception.hpp	/^  class coroutine_exited: public exception_base {};  $/;"	c	namespace:boost::coroutines	inherits:exception_base
+coroutine_impl	detail/coroutine_impl.hpp	/^	coroutine_impl(DerivedType * this_, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(DerivedType * this_, std::ptrdiff_t stack_size)
+coroutine_impl	detail/coroutine_impl.hpp	/^  class coroutine_impl:$/;"	c	namespace:boost::coroutines::detail	inherits:context_base
+coroutine_impl_wrapper	detail/coroutine_impl.hpp	/^	coroutine_impl_wrapper(functor_type f, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:(functor_type f, std::ptrdiff_t stack_size)
+coroutine_impl_wrapper	detail/coroutine_impl.hpp	/^  class coroutine_impl_wrapper :$/;"	c	namespace:boost::coroutines::detail	inherits:coroutine_impl
+coroutine_self	detail/self.hpp	/^    coroutine_self(impl_type * pimpl, detail::init_from_impl_tag) :$/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:(impl_type * pimpl, detail::init_from_impl_tag)
+coroutine_self	detail/self.hpp	/^  class coroutine_self :boost::noncopyable {$/;"	c	namespace:boost::coroutines::detail	inherits:boost::noncopyable
+coroutine_traits	detail/coroutine_traits.hpp	/^  struct coroutine_traits {    $/;"	s	namespace:boost::coroutines::detail
+coroutine_type	detail/coroutine_impl.hpp	/^    typedef CoroutineType coroutine_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+coroutine_type	detail/coroutine_impl.hpp	/^    typedef CoroutineType coroutine_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+coroutine_type	detail/self.hpp	/^    typedef Coroutine coroutine_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+coroutine_type	generator.hpp	/^    typedef Coroutine coroutine_type;$/;"	t	class:boost::coroutines::generator	access:public
+coroutine_type	shared_coroutine.hpp	/^    typedef coroutine<Signature, ContextImpl> coroutine_type;$/;"	t	class:boost::coroutines::shared_coroutine	access:public
+coroutines	coroutine.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+coroutines	detail/argument_packer.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/argument_unpacker.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/call_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/context_base.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/context_linux.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/context_posix.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/context_windows.hpp	/^namespace boost {namespace coroutines {namespace detail{$/;"	n	namespace:boost
+coroutines	detail/coroutine_accessor.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/coroutine_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/coroutine_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/default_context_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/fix_result.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/future_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/has_swap.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+coroutines	detail/index.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/is_callable.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/make_tuple_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/posix_utility.hpp	/^namespace boost { namespace coroutines { namespace detail { namespace posix {$/;"	n	namespace:boost
+coroutines	detail/self.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/signal.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/signature.hpp	/^namespace boost{ namespace coroutines{ namespace detail{$/;"	n	namespace:boost
+coroutines	detail/swap_context.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/wait_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	detail/yield_result_type.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost
+coroutines	exception.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+coroutines	future.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+coroutines	generator.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+coroutines	move.hpp	/^namespace boost { namespace coroutines { $/;"	n	namespace:boost
+coroutines	shared_coroutine.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+coroutines	tuple_traits.hpp	/^namespace boost { namespace coroutines {$/;"	n	namespace:boost
+count	coroutine.hpp	/^    count() const {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:() const
+count	detail/context_base.hpp	/^    std::size_t count() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+count	detail/coroutine_accessor.hpp	/^    count(const Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(const Coroutine& x)
+count_down	detail/context_base.hpp	/^    void count_down() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+count_up	detail/context_base.hpp	/^    void count_up() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+create	detail/coroutine_impl.hpp	/^	pointer create(Functor, std::ptrdiff_t);$/;"	p	class:boost::coroutines::detail::coroutine_impl	access:public	signature:(Functor, std::ptrdiff_t)
+create	detail/coroutine_impl.hpp	/^  create(Functor f, std::ptrdiff_t stack_size = default_stack_size) {$/;"	f	class:boost::coroutines::detail::coroutine_impl	signature:(Functor f, std::ptrdiff_t stack_size = default_stack_size)
+ctx_exit_not_requested	detail/context_base.hpp	/^      ctx_exit_not_requested,  \/\/ exit not requested.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_state
+ctx_exit_pending	detail/context_base.hpp	/^      ctx_exit_pending,   \/\/ exit requested.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_state
+ctx_exit_signaled	detail/context_base.hpp	/^      ctx_exit_signaled,  \/\/ exit request delivered.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_state
+ctx_exited	detail/context_base.hpp	/^      ctx_exited    \/\/ context is finished.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+ctx_exited_abnormally	detail/context_base.hpp	/^      ctx_exited_abnormally \/\/ process exited uncleanly.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+ctx_exited_exit	detail/context_base.hpp	/^      ctx_exited_exit,    \/\/ process exited by exit().$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+ctx_exited_return	detail/context_base.hpp	/^      ctx_exited_return,  \/\/ process exited by return.$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+ctx_not_exited	detail/context_base.hpp	/^      ctx_not_exited,$/;"	e	enum:boost::coroutines::detail::context_base::context_exit_status
+ctx_ready	detail/context_base.hpp	/^      ctx_ready,    \/\/ context at yield point.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+ctx_running	detail/context_base.hpp	/^      ctx_running,  \/\/ context running.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+ctx_type	detail/context_base.hpp	/^    typedef typename context_impl::context_impl_base ctx_type;$/;"	t	class:boost::coroutines::detail::context_base	access:private
+ctx_waiting	detail/context_base.hpp	/^      ctx_waiting,     \/\/ context waiting for events.$/;"	e	enum:boost::coroutines::detail::context_base::context_state
+default_context_impl	detail/default_context_impl.hpp	/^  typedef oslinux::context_impl default_context_impl;$/;"	t	namespace:boost::coroutines::detail
+default_hint	detail/swap_context.hpp	/^  class default_hint {};$/;"	c	namespace:boost::coroutines::detail
+default_stack_size	detail/context_base.hpp	/^  const std::ptrdiff_t default_stack_size = -1;$/;"	m	namespace:boost::coroutines::detail
+default_stack_size	detail/context_linux.hpp	/^      enum {default_stack_size = 8192};$/;"	e	enum:boost::coroutines::detail::oslinux::ia32_gcc_context_impl::__anon4
+default_stack_size	detail/context_posix.hpp	/^      enum {default_stack_size = 8192};$/;"	e	enum:boost::coroutines::detail::posix::ucontext_context_impl::__anon3
+default_stack_size	detail/context_windows.hpp	/^      enum {default_stack_size = 8192};$/;"	e	enum:boost::coroutines::detail::windows::fibers_context_impl::__anon2
+deleter	detail/context_base.hpp	/^    static void deleter (const type* ctx){$/;"	f	class:boost::coroutines::detail::context_base	access:private	signature:(const type* ctx)
+deleter_type	detail/context_base.hpp	/^    typedef void deleter_type(const type*);$/;"	t	class:boost::coroutines::detail::context_base	access:public
+detail	coroutine.hpp	/^  namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/argument_packer.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/argument_unpacker.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/call_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/context_base.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/context_linux.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/context_posix.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/context_windows.hpp	/^namespace boost {namespace coroutines {namespace detail{$/;"	n	namespace:boost::coroutines
+detail	detail/coroutine_accessor.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/coroutine_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/coroutine_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/default_context_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/fix_result.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/future_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/index.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/is_callable.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/make_tuple_traits.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/posix_utility.hpp	/^namespace boost { namespace coroutines { namespace detail { namespace posix {$/;"	n	namespace:boost::coroutines
+detail	detail/self.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/signal.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/signature.hpp	/^namespace boost{ namespace coroutines{ namespace detail{$/;"	n	namespace:boost::coroutines
+detail	detail/swap_context.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/wait_impl.hpp	/^namespace boost { namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	detail/yield_result_type.hpp	/^namespace boost{ namespace coroutines { namespace detail {$/;"	n	namespace:boost::coroutines
+detail	generator.hpp	/^  namespace detail {$/;"	n	namespace:boost::coroutines
+detail	tuple_traits.hpp	/^  namespace detail {$/;"	n	namespace:boost::coroutines
+do_call	detail/coroutine_impl.hpp	/^    do_call(dummy<0> = 0) {$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:(dummy<0> = 0)
+do_call	detail/coroutine_impl.hpp	/^    do_call(dummy<1> = 1) {$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:(dummy<1> = 1)
+do_invoke	detail/context_base.hpp	/^    void do_invoke() throw (){$/;"	f	class:boost::coroutines::detail::context_base	access:private	signature:()
+do_return	detail/context_base.hpp	/^    void do_return(context_exit_status status, std::type_info const* info) throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:protected	signature:(context_exit_status status, std::type_info const* info)
+do_yield	detail/context_base.hpp	/^    void do_yield() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:private	signature:()
+dummy	detail/coroutine_impl.hpp	/^    template <int> struct dummy { dummy(int) {} };$/;"	f	struct:boost::coroutines::detail::coroutine_impl_wrapper::dummy	access:public	signature:(int)
+dummy	detail/coroutine_impl.hpp	/^    template <int> struct dummy { dummy(int) {} };$/;"	s	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+dummy	detail/posix_utility.hpp	/^    boost::type_with_alignment<stack_alignment>::type dummy;$/;"	m	struct:boost::coroutines::detail::posix::stack_aligner	access:public
+empty	coroutine.hpp	/^    bool empty() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+empty	generator.hpp	/^    class empty {};$/;"	c	namespace:boost::coroutines::detail
+exception_base	exception.hpp	/^  class exception_base : public std::exception {};$/;"	c	namespace:boost::coroutines	inherits:std::exception
+exit	coroutine.hpp	/^    void exit() {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:()
+exit	detail/context_base.hpp	/^    void exit() throw(){$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+exit_exception	exception.hpp	/^  class exit_exception:  public exception_base {};$/;"	c	namespace:boost::coroutines	inherits:exception_base
+exited	coroutine.hpp	/^    bool exited() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+exited	detail/context_base.hpp	/^    bool exited() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+fiber_magic	detail/context_windows.hpp	/^    fiber_ptr fiber_magic = reinterpret_cast<fiber_ptr>(0x1E00);$/;"	m	namespace:boost::coroutines::detail::windows
+fiber_ptr	detail/context_windows.hpp	/^    typedef LPVOID fiber_ptr;$/;"	t	namespace:boost::coroutines::detail::windows
+fibers_context_impl	detail/context_windows.hpp	/^      fibers_context_impl(Functor& cb, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl	access:public	signature:(Functor& cb, std::ptrdiff_t stack_size)
+fibers_context_impl	detail/context_windows.hpp	/^    class fibers_context_impl :$/;"	c	namespace:boost::coroutines::detail::windows	inherits:fibers_context_impl_base,boost::noncopyable
+fibers_context_impl_base	detail/context_windows.hpp	/^      fibers_context_impl_base() :$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:public	signature:()
+fibers_context_impl_base	detail/context_windows.hpp	/^      fibers_context_impl_base(fiber_ptr ctx) :$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:protected	signature:(fiber_ptr ctx)
+fibers_context_impl_base	detail/context_windows.hpp	/^    class fibers_context_impl_base {$/;"	c	namespace:boost::coroutines::detail::windows
+first	detail/posix_utility.hpp	/^    int first() {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:()
+fix_result	detail/fix_result.hpp	/^    fix_result(const typename Traits::as_tuple& x, $/;"	f	namespace:boost::coroutines::detail	signature:(const typename Traits::as_tuple& x, typename boost::enable_if_c<(Traits::length > 1)>::type* =0)
+fix_result	detail/fix_result.hpp	/^    fix_result(const typename Traits::as_tuple& x, $/;"	f	namespace:boost::coroutines::detail	signature:(const typename Traits::as_tuple& x, typename boost::enable_if_c<Traits::length == 1>::type * = 0)
+fix_result	detail/fix_result.hpp	/^    fix_result(const typename Traits::as_tuple&, $/;"	f	namespace:boost::coroutines::detail	signature:(const typename Traits::as_tuple&, typename boost::enable_if_c<Traits::length == 0>::type * = 0)
+free_stack	detail/posix_utility.hpp	/^  void free_stack(void* stack, std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(void* stack, std::size_t size)
+free_stack_mmap	detail/posix_utility.hpp	/^  void free_stack_mmap(void* stack, std::size_t size) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(void* stack, std::size_t size)
+functor_type	detail/coroutine_impl.hpp	/^    typedef FunctorType functor_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+future	future.hpp	/^      future(CoroutineSelf& self) :$/;"	f	class:boost::coroutines::future	access:public	signature:(CoroutineSelf& self)
+future	future.hpp	/^    future(move_from<future> rhs) :$/;"	f	class:boost::coroutines::future	access:public	signature:(move_from<future> rhs)
+future	future.hpp	/^  class future : $/;"	c	namespace:boost::coroutines	inherits:movable
+future_impl	detail/future_impl.hpp	/^    future_impl(CoroutineSelf& self) :$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(CoroutineSelf& self)
+future_impl	detail/future_impl.hpp	/^  class future_impl : boost::noncopyable  {$/;"	c	namespace:boost::coroutines::detail	inherits:boost::noncopyable
+future_impl	future.hpp	/^    typedef detail::future_impl<tuple_type, context_impl> future_impl;$/;"	t	class:boost::coroutines::future	access:public
+generator	generator.hpp	/^    generator() {}$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+generator	generator.hpp	/^    generator(Functor f) :$/;"	f	class:boost::coroutines::generator	access:public	signature:(Functor f)
+generator	generator.hpp	/^    generator(const generator& rhs) :$/;"	f	class:boost::coroutines::generator	access:public	signature:(const generator& rhs)
+generator	generator.hpp	/^  class generator : public boost::mpl::eval_if<boost::is_same<ValueType, void>,$/;"	c	namespace:boost::coroutines	inherits:boost::mpl::eval_if::type
+get	detail/future_impl.hpp	/^    get() const{$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:() const
+get	detail/future_impl.hpp	/^    get() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+get_impl	coroutine.hpp	/^    impl_ptr get_impl() {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+get_impl	detail/coroutine_accessor.hpp	/^    get_impl(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+get_impl	detail/self.hpp	/^    impl_ptr get_impl() {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:()
+get_impl	detail/signal.hpp	/^    get_impl(Future& f) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(Future& f)
+get_length	tuple_traits.hpp	/^  struct get_length {$/;"	s	namespace:boost::coroutines
+get_swapper	detail/context_linux.hpp	/^fun_type get_swapper();\/\/  __attribute__((pure));$/;"	p	signature:()
+get_swapper	detail/context_linux.hpp	/^fun_type get_swapper(){$/;"	f	signature:()
+good	coroutine.hpp	/^    bool good() const  {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:() const
+has_swap	detail/has_swap.hpp	/^struct has_swap$/;"	s	namespace:boost::coroutines	inherits:has_swap_::has_swap_impl::type
+has_swap_	detail/has_swap.hpp	/^namespace has_swap_$/;"	n	namespace:boost::coroutines
+has_swap_impl	detail/has_swap.hpp	/^  struct has_swap_impl$/;"	s	namespace:boost::coroutines::has_swap_
+ia32_gcc_context_impl	detail/context_linux.hpp	/^	  ia32_gcc_context_impl(Functor& cb, std::ptrdiff_t stack_size = -1) :$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public	signature:(Functor& cb, std::ptrdiff_t stack_size = -1)
+ia32_gcc_context_impl	detail/context_linux.hpp	/^      ia32_gcc_context_impl() :$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public	signature:()
+ia32_gcc_context_impl	detail/context_linux.hpp	/^    class ia32_gcc_context_impl  : public ia32_gcc_context_impl_base{$/;"	c	namespace:boost::coroutines::detail::oslinux	inherits:ia32_gcc_context_impl_base
+ia32_gcc_context_impl_base	detail/context_linux.hpp	/^      ia32_gcc_context_impl_base() {};$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:public	signature:()
+ia32_gcc_context_impl_base	detail/context_linux.hpp	/^    class ia32_gcc_context_impl_base {$/;"	c	namespace:boost::coroutines::detail::oslinux
+impl_pointer	future.hpp	/^    typedef future_impl * impl_pointer;$/;"	t	class:boost::coroutines::future	access:public
+impl_ptr	coroutine.hpp	/^    typedef BOOST_DEDUCED_TYPENAME  impl_type::pointer impl_ptr;  $/;"	t	class:boost::coroutines::coroutine	access:public
+impl_ptr	detail/self.hpp	/^    typedef impl_type * impl_ptr;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+impl_type	coroutine.hpp	/^    typedef detail::coroutine_impl<type, context_impl> impl_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+impl_type	detail/self.hpp	/^    ::impl_type impl_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+in_place	detail/coroutine_accessor.hpp	/^    in_place(Ctx * ctx) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Ctx * ctx)
+in_place_assign	detail/coroutine_accessor.hpp	/^      in_place_assign(Ctx * ctx) :$/;"	f	struct:boost::coroutines::detail::coroutine_accessor::in_place_assign	access:public	signature:(Ctx * ctx)
+in_place_assign	detail/coroutine_accessor.hpp	/^    struct in_place_assign : boost::in_place_factory_base {$/;"	s	struct:boost::coroutines::detail::coroutine_accessor	inherits:boost::in_place_factory_base	access:public
+init_from_impl_tag	detail/coroutine_accessor.hpp	/^  struct init_from_impl_tag{};$/;"	s	namespace:boost::coroutines::detail
+int_	detail/posix_utility.hpp	/^    int int_[2];$/;"	m	union:boost::coroutines::detail::posix::splitter	access:public
+internal_tuple_type	tuple_traits.hpp	/^    (BOOST_COROUTINE_ARG_MAX, T)> internal_tuple_type;$/;"	t	struct:boost::coroutines::tuple_traits	access:public
+internal_value_type	generator.hpp	/^    typedef ValueType internal_value_type;$/;"	t	class:boost::coroutines::generator	access:private
+intrusive_ptr_add_ref	detail/context_base.hpp	/^    void intrusive_ptr_add_ref(type * ctx) {$/;"	f	class:boost::coroutines::detail::context_base	access:friend	signature:(type * ctx)
+intrusive_ptr_release	detail/context_base.hpp	/^    void intrusive_ptr_release(type * ctx) {$/;"	f	class:boost::coroutines::detail::context_base	access:friend	signature:(type * ctx)
+invoke	detail/context_base.hpp	/^    void invoke() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+invoke_hint	detail/swap_context.hpp	/^  class invoke_hint: public default_hint {};$/;"	c	namespace:boost::coroutines::detail	inherits:default_hint
+is_callable	detail/is_callable.hpp	/^  struct is_callable : boost::mpl::or_<$/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::or_::type
+is_coroutine	coroutine.hpp	/^  struct is_coroutine : boost::mpl::false_{};$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::false_
+is_coroutine	coroutine.hpp	/^  struct is_coroutine<coroutine<Sig, Con> > : boost::mpl::true_{};$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::true_
+is_fiber	detail/context_windows.hpp	/^    bool is_fiber() {$/;"	f	namespace:boost::coroutines::detail::windows	signature:()
+is_function_pointer	detail/is_callable.hpp	/^  struct is_function_pointer : $/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::and_
+is_functor	detail/is_callable.hpp	/^  struct is_functor : $/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::or_
+is_movable	move.hpp	/^struct is_movable$/;"	s	namespace:boost::coroutines	inherits:boost::is_convertible
+is_nullary	tuple_traits.hpp	/^  struct is_nullary :  boost::mpl::bool_<boost::tuples::length<T>::value == 0> {  };$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::bool_
+is_singular	future.hpp	/^      is_singular;$/;"	t	class:boost::coroutines::future	access:public
+is_singular	tuple_traits.hpp	/^  struct is_singular : boost::mpl::bool_<boost::tuples::length<T>::value == 1> {  };$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::bool_
+length	tuple_traits.hpp	/^    enum {length = boost::tuples::length<internal_tuple_type>::value};$/;"	e	enum:boost::coroutines::tuple_traits::__anon6
+length	tuple_traits.hpp	/^   enum { length = T::length };$/;"	e	enum:boost::coroutines::get_length::__anon5
+m_arg	detail/coroutine_impl.hpp	/^    arg_slot_type * m_arg;$/;"	m	class:boost::coroutines::detail::coroutine_impl	access:private
+m_caller	detail/context_base.hpp	/^    ctx_type m_caller;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_coro	generator.hpp	/^    coroutine_type m_coro;$/;"	m	class:boost::coroutines::generator	access:private
+m_coro_impl	detail/future_impl.hpp	/^    context_pointer m_coro_impl;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+m_coro_impl_weak	detail/future_impl.hpp	/^    context_weak_pointer m_coro_impl_weak;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+m_counter	detail/context_base.hpp	/^    m_counter;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_ctx	detail/context_posix.hpp	/^      ::ucontext_t m_ctx;$/;"	m	class:boost::coroutines::detail::posix::ucontext_context_impl_base	access:protected
+m_ctx	detail/context_windows.hpp	/^      fiber_ptr m_ctx;$/;"	m	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:protected
+m_ctx	detail/coroutine_accessor.hpp	/^      Ctx * m_ctx;$/;"	m	struct:boost::coroutines::detail::coroutine_accessor::in_place_assign	access:public
+m_deleter	detail/context_base.hpp	/^    deleter_type * m_deleter;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_e	exception.hpp	/^    std::type_info const& m_e;$/;"	m	class:boost::coroutines::abnormal_exit::std	access:private
+m_exit_state	detail/context_base.hpp	/^    context_exit_state m_exit_state;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_exit_status	detail/context_base.hpp	/^    context_exit_status m_exit_status;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_fun	detail/coroutine_impl.hpp	/^    FunctorType m_fun;$/;"	m	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+m_future_pimpl	detail/call_impl.hpp	/^    m_future_pimpl;$/;"	m	class:boost::coroutines::detail::callback	access:private
+m_operation_counter	detail/context_base.hpp	/^    int m_operation_counter;    $/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_optional	detail/future_impl.hpp	/^    boost::optional<value_type> m_optional;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+m_pimpl	coroutine.hpp	/^    impl_ptr m_pimpl;$/;"	m	class:boost::coroutines::coroutine	access:protected
+m_pimpl	detail/self.hpp	/^    impl_ptr m_pimpl;$/;"	m	class:boost::coroutines::detail::coroutine_self	access:private
+m_ptr	future.hpp	/^    impl_pointer m_ptr;    $/;"	m	class:boost::coroutines::future	access:private
+m_result	detail/coroutine_impl.hpp	/^    result_slot_type ** m_result;$/;"	m	class:boost::coroutines::detail::coroutine_impl	access:private
+m_result	generator.hpp	/^      bool m_result;$/;"	m	struct:boost::coroutines::generator::optional_void	access:public
+m_result_last	detail/coroutine_impl.hpp	/^    boost::optional<result_slot_type>  m_result_last;$/;"	m	class:boost::coroutines::detail::coroutine_impl	access:protected
+m_sp	detail/context_linux.hpp	/^      void ** m_sp;$/;"	m	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:protected
+m_stack	detail/context_linux.hpp	/^      void * m_stack;$/;"	m	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:private
+m_stack	detail/context_posix.hpp	/^      void * m_stack;$/;"	m	class:boost::coroutines::detail::posix::ucontext_context_impl	access:private
+m_stack_size	detail/context_linux.hpp	/^	  std::ptrdiff_t m_stack_size;$/;"	m	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:private
+m_state	detail/context_base.hpp	/^    context_state m_state;$/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_type_info	detail/context_base.hpp	/^    std::type_info const* m_type_info;$/;"	m	class:boost::coroutines::detail::context_base::std	access:private
+m_val	generator.hpp	/^    optional_type m_val;$/;"	m	class:boost::coroutines::generator	access:private
+m_wait_counter	detail/context_base.hpp	/^    int m_wait_counter;   $/;"	m	class:boost::coroutines::detail::context_base	access:private
+m_waited	detail/future_impl.hpp	/^    bool m_waited;$/;"	m	class:boost::coroutines::detail::future_impl	access:private
+make_as_tuple	tuple_traits.hpp	/^  struct make_as_tuple :$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::if_
+make_callback	future.hpp	/^  make_callback(Future& future) {$/;"	f	namespace:boost::coroutines	signature:(Future& future)
+make_callback_result	future.hpp	/^  struct make_callback_result {$/;"	s	namespace:boost::coroutines
+make_result_type	tuple_traits.hpp	/^  struct make_result_type :$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::eval_if
+make_std_iterator	generator.hpp	/^    struct make_std_iterator {$/;"	s	namespace:boost::coroutines::detail
+mark	detail/wait_impl.hpp	/^    static int mark(Tuple& t, bool how) {$/;"	f	struct:boost::coroutines::detail::marker	access:public	signature:(Tuple& t, bool how)
+mark	detail/wait_impl.hpp	/^    static int mark(Tuple&, bool) { return 0;}$/;"	f	struct:boost::coroutines::detail::marker	access:public	signature:(Tuple&, bool)
+mark_pending	detail/future_impl.hpp	/^    void mark_pending() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+mark_wait	detail/future_impl.hpp	/^    void mark_wait(bool how) {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(bool how)
+mark_wait	detail/signal.hpp	/^    void mark_wait(Future& f, bool how) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(Future& f, bool how)
+mark_wait	future.hpp	/^    void mark_wait(bool how) {$/;"	f	class:boost::coroutines::future	access:private	signature:(bool how)
+marker	detail/wait_impl.hpp	/^  struct marker {$/;"	s	namespace:boost::coroutines::detail
+marker	detail/wait_impl.hpp	/^  struct marker<0> {$/;"	s	namespace:boost::coroutines::detail
+movable	move.hpp	/^    movable() {}$/;"	f	struct:boost::coroutines::movable	access:protected	signature:()
+movable	move.hpp	/^    movable(movable&);$/;"	p	struct:boost::coroutines::movable	access:private	signature:(movable&)
+movable	move.hpp	/^struct movable$/;"	s	namespace:boost::coroutines
+move	move.hpp	/^move(InputIterator first, InputIterator last, OutputIterator result)$/;"	f	namespace:boost::coroutines	signature:(InputIterator first, InputIterator last, OutputIterator result)
+move	move.hpp	/^move(T& x)$/;"	f	namespace:boost::coroutines	signature:(T& x)
+move_	move.hpp	/^namespace move_$/;"	n	namespace:boost::coroutines
+move_backward	move.hpp	/^move_backward(BidirectionalIterator1 first, BidirectionalIterator1 last,$/;"	f	namespace:boost::coroutines	signature:(BidirectionalIterator1 first, BidirectionalIterator1 last, BidirectionalIterator2 result)
+move_from	move.hpp	/^    explicit move_from(X& x)$/;"	f	struct:boost::coroutines::move_from	access:public	signature:(X& x)
+move_from	move.hpp	/^    explicit move_from(X* p)$/;"	f	struct:boost::coroutines::move_from	access:public	signature:(X* p)
+move_from	move.hpp	/^struct move_from : const_lvalue<X>$/;"	s	namespace:boost::coroutines	inherits:const_lvalue
+move_result	move.hpp	/^  struct move_result$/;"	s	namespace:boost::coroutines::move_	inherits:mpl::if_
+move_swap	move.hpp	/^  move_swap(T& a, T& b)$/;"	f	namespace:boost::coroutines::move_swap_	signature:(T& a, T& b)
+move_swap	move.hpp	/^  move_swap(T& a, T& b, mpl::false_)$/;"	f	namespace:boost::coroutines::move_swap_	signature:(T& a, T& b, mpl::false_)
+move_swap	move.hpp	/^  move_swap(T& a, T& b, mpl::true_)$/;"	f	namespace:boost::coroutines::move_swap_	signature:(T& a, T& b, mpl::true_)
+move_swap_	move.hpp	/^namespace move_swap_$/;"	n	namespace:boost::coroutines
+no_swap	detail/has_swap.hpp	/^  struct no_swap$/;"	s	namespace:boost::coroutines::has_swap_
+null_type	tuple_traits.hpp	/^    typedef boost::tuples::null_type null_type;$/;"	t	struct:boost::coroutines::tuple_traits	access:public
+operator !=	generator.hpp	/^    bool operator != (const generator& lhs, const generator & rhs) {$/;"	f	class:boost::coroutines::generator	access:friend	signature:(const generator& lhs, const generator & rhs)
+operator ()	detail/coroutine_impl.hpp	/^    void operator()() {$/;"	f	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public	signature:()
+operator ()	detail/posix_utility.hpp	/^    void operator()() {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:()
+operator ()	generator.hpp	/^    value_type operator()() {$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+operator *	future.hpp	/^    const value_type& operator *() const{$/;"	f	class:boost::coroutines::future	access:public	signature:() const
+operator *	future.hpp	/^    value_type& operator *() {$/;"	f	class:boost::coroutines::future	access:public	signature:()
+operator *	generator.hpp	/^      void operator*() const {}$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:() const
+operator *	generator.hpp	/^    value_type operator*() {$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+operator *	move.hpp	/^    X const& operator*() const { return *p; }$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:() const
+operator *	move.hpp	/^    X& operator*() const { return *const_cast<X*>(this->p); }$/;"	f	struct:boost::coroutines::move_from	access:public	signature:() const
+operator ++	generator.hpp	/^    generator operator++(int) {$/;"	f	class:boost::coroutines::generator	access:public	signature:(int)
+operator ++	generator.hpp	/^    generator& operator++() {$/;"	f	class:boost::coroutines::generator	access:public	signature:()
+operator ->	future.hpp	/^      operator ->() const {$/;"	f	class:boost::coroutines::future::future_impl	access:public	signature:() const
+operator ->	future.hpp	/^      operator ->() {$/;"	f	class:boost::coroutines::future	access:public	signature:()
+operator ->	move.hpp	/^    X const* operator->() const { return p; }$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:() const
+operator ->	move.hpp	/^    X* operator->() const { return const_cast<X*>(this->p); }$/;"	f	struct:boost::coroutines::move_from	access:public	signature:() const
+operator =	coroutine.hpp	/^    coroutine& operator=(move_from<coroutine> src) {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(move_from<coroutine> src)
+operator =	future.hpp	/^    future& operator=(const value_type& rhs) {$/;"	f	class:boost::coroutines::future	access:public	signature:(const value_type& rhs)
+operator =	future.hpp	/^    future& operator=(move_from<future> rhs) {$/;"	f	class:boost::coroutines::future	access:public	signature:(move_from<future> rhs)
+operator =	future.hpp	/^    future& operator=(none_t) {$/;"	f	class:boost::coroutines::future	access:public	signature:(none_t)
+operator =	move.hpp	/^    movable& operator=(movable&);$/;"	p	struct:boost::coroutines::movable	access:private	signature:(movable&)
+operator =	shared_coroutine.hpp	/^    shared_coroutine& operator=(const shared_coroutine& rhs) {$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(const shared_coroutine& rhs)
+operator =	shared_coroutine.hpp	/^    shared_coroutine& operator=(move_from<coroutine_type> src) {$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(move_from<coroutine_type> src)
+operator ==	coroutine.hpp	/^    bool operator==(const coroutine& rhs) {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(const coroutine& rhs)
+operator ==	generator.hpp	/^    bool operator==(const generator& lhs, const generator& rhs) {$/;"	f	class:boost::coroutines::generator	access:friend	signature:(const generator& lhs, const generator& rhs)
+operator X const&	move.hpp	/^    operator X const&() const { return **this; }$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:() const
+operator X&	move.hpp	/^    operator X&() const { return **this; }$/;"	f	struct:boost::coroutines::move_from	access:public	signature:() const
+operator bool	generator.hpp	/^      operator bool() const { return m_result; };$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:() const
+operator bool_type	coroutine.hpp	/^    operator bool_type() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+operator const_lvalue<Derived>	move.hpp	/^    operator const_lvalue<Derived>() const$/;"	f	struct:boost::coroutines::movable	access:public	signature:() const
+operator move_from<Derived>	move.hpp	/^    operator move_from<Derived>()$/;"	f	struct:boost::coroutines::movable	access:public	signature:()
+operator safe_bool	future.hpp	/^    operator safe_bool() const {    $/;"	f	class:boost::coroutines::future	access:public	signature:() const
+operator safe_bool	generator.hpp	/^    operator safe_bool () const {$/;"	f	class:boost::coroutines::generator	access:public	signature:() const
+optional_result	coroutine.hpp	/^    optional_result() {$/;"	f	namespace:boost::coroutines::detail	signature:()
+optional_result	coroutine.hpp	/^    optional_result() {}$/;"	f	namespace:boost::coroutines::detail	signature:()
+optional_result_type	coroutine.hpp	/^    struct optional_result_type : $/;"	s	namespace:boost::coroutines::detail	inherits:boost::mpl::if_
+optional_type	generator.hpp	/^		    boost::optional<value_type> >::type optional_type;$/;"	t	class:boost::coroutines::generator	access:private
+optional_void	generator.hpp	/^      optional_void() : m_result(true) {}$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:()
+optional_void	generator.hpp	/^      optional_void(boost::none_t) : m_result(false) {}$/;"	f	struct:boost::coroutines::generator::optional_void	access:public	signature:(boost::none_t)
+optional_void	generator.hpp	/^    struct optional_void {$/;"	s	class:boost::coroutines::generator	access:private
+oslinux	detail/context_linux.hpp	/^  namespace oslinux {$/;"	n	namespace:boost::coroutines::detail
+p	move.hpp	/^    X const* p; \/\/ this pointer will refer to the object from which to move$/;"	m	struct:boost::coroutines::const_lvalue	access:protected
+pending	coroutine.hpp	/^    bool pending() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+pending	detail/context_base.hpp	/^    int pending() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+pending	detail/future_impl.hpp	/^    bool pending() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+pending	detail/self.hpp	/^    bool pending() const {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:() const
+pending	future.hpp	/^    bool pending() const {$/;"	f	class:boost::coroutines::future	access:public	signature:() const
+pilfer	future.hpp	/^    impl_pointer pilfer() {$/;"	f	class:boost::coroutines::future	access:private	signature:()
+pilfer_impl	detail/coroutine_accessor.hpp	/^    pilfer_impl(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+pointer	detail/context_base.hpp	/^    typedef boost::intrusive_ptr<type> pointer;$/;"	t	class:boost::coroutines::detail::context_base	access:public
+pointer	detail/coroutine_impl.hpp	/^    typedef boost::intrusive_ptr<type> pointer;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+pointer	detail/future_impl.hpp	/^    typedef boost::optional<value_type> pointer;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+posix	detail/context_posix.hpp	/^  namespace posix {$/;"	n	namespace:boost::coroutines::detail
+posix	detail/posix_utility.hpp	/^namespace boost { namespace coroutines { namespace detail { namespace posix {$/;"	n	namespace:boost::coroutines::detail
+prefetch	detail/context_linux.hpp	/^      void prefetch() const {$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:public	signature:() const
+ptr	detail/posix_utility.hpp	/^    T* ptr;$/;"	m	union:boost::coroutines::detail::posix::splitter	access:public
+ready	detail/context_base.hpp	/^    bool ready() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+release	coroutine.hpp	/^    void release() {$/;"	f	class:boost::coroutines::coroutine	access:protected	signature:()
+release	detail/context_base.hpp	/^    void release() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+release	detail/coroutine_accessor.hpp	/^    void release(Coroutine& x) {$/;"	f	struct:boost::coroutines::detail::coroutine_accessor	access:public	signature:(Coroutine& x)
+remove_tuple	future.hpp	/^      value_type& remove_tuple(T& x, boost::mpl::false_) {$/;"	f	class:boost::coroutines::future	access:private	signature:(T& x, boost::mpl::false_)
+remove_tuple	future.hpp	/^      value_type& remove_tuple(T& x, boost::mpl::true_) {$/;"	f	class:boost::coroutines::future	access:private	signature:(T& x, boost::mpl::true_)
+result	detail/coroutine_impl.hpp	/^    result_slot_type * result() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+result	detail/self.hpp	/^    yield_result_type result() {$/;"	f	class:boost::coroutines::detail::coroutine_self	access:public	signature:()
+result_pointer	detail/coroutine_impl.hpp	/^    result_slot_type** result_pointer() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+result_slot_traits	coroutine.hpp	/^    ::result_slot_traits result_slot_traits;$/;"	t	class:boost::coroutines::coroutine	access:public
+result_slot_traits	detail/coroutine_traits.hpp	/^    ::type result_slot_traits;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+result_slot_traits	detail/self.hpp	/^    ::result_slot_traits result_slot_traits;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+result_slot_type	coroutine.hpp	/^    ::result_slot_type result_slot_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+result_slot_type	detail/coroutine_impl.hpp	/^    typedef typename coroutine_type::result_slot_type result_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+result_slot_type	detail/coroutine_traits.hpp	/^    ::as_tuple result_slot_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+result_slot_type	detail/self.hpp	/^    ::result_slot_type result_slot_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+result_type	coroutine.hpp	/^    ::result_type result_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+result_type	detail/call_impl.hpp	/^    typedef void result_type;$/;"	t	class:boost::coroutines::detail::callback	access:public
+result_type	detail/coroutine_impl.hpp	/^    typedef typename CoroutineType::result_type result_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+result_type	detail/coroutine_impl.hpp	/^    typedef typename coroutine_type::result_type result_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+result_type	detail/coroutine_traits.hpp	/^    ::type result_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+result_type	detail/self.hpp	/^    ::result_type result_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+result_type	generator.hpp	/^    coroutine_type::result_type result_type;$/;"	t	class:boost::coroutines::generator	access:public
+revive	detail/call_impl.hpp	/^    void revive() {$/;"	f	class:boost::coroutines::detail::callback	access:public	signature:()
+run	detail/coroutine_impl.hpp	/^    void run() {$/;"	f	class:boost::coroutines::detail::coroutine_impl	access:public	signature:()
+running	detail/context_base.hpp	/^    bool running() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+safe_bool	future.hpp	/^    typedef void (future::*safe_bool)();           $/;"	t	class:boost::coroutines::future	access:private
+safe_bool	generator.hpp	/^    typedef void(generator::*safe_bool)();$/;"	t	class:boost::coroutines::generator	access:private
+safe_bool_true	future.hpp	/^    void safe_bool_true() {}                       $/;"	f	class:boost::coroutines::future	access:private	signature:()
+safe_bool_true	generator.hpp	/^    void safe_bool_true () {};$/;"	f	class:boost::coroutines::generator	access:private	signature:()
+second	detail/posix_utility.hpp	/^    int second() {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:()
+self	coroutine.hpp	/^    typedef detail::coroutine_self<type> self;$/;"	t	class:boost::coroutines::coroutine	access:public
+self	generator.hpp	/^    typedef BOOST_DEDUCED_TYPENAME coroutine_type::self self;$/;"	t	class:boost::coroutines::generator	access:public
+shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine() {}$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:()
+shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine(Functor f, $/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(Functor f, std::ptrdiff_t stack_size = detail::default_stack_size)
+shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine(const shared_coroutine& rhs) :$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(const shared_coroutine& rhs)
+shared_coroutine	shared_coroutine.hpp	/^    shared_coroutine(move_from<coroutine_type> src):$/;"	f	class:boost::coroutines::shared_coroutine	access:public	signature:(move_from<coroutine_type> src)
+shared_coroutine	shared_coroutine.hpp	/^  class shared_coroutine : public coroutine<Signature, ContextImpl> {$/;"	c	namespace:boost::coroutines	inherits:coroutine
+signal	detail/context_base.hpp	/^    bool signal () throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+signature_result_type	detail/coroutine_traits.hpp	/^    signature_result_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:private
+signature_type	coroutine.hpp	/^    typedef Signature signature_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+splitter	detail/posix_utility.hpp	/^    splitter(T* ptr) :ptr(ptr) {}$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:(T* ptr)
+splitter	detail/posix_utility.hpp	/^    splitter(int first, int second) {$/;"	f	union:boost::coroutines::detail::posix::splitter	access:public	signature:(int first, int second)
+splitter	detail/posix_utility.hpp	/^  union splitter {$/;"	u	namespace:boost::coroutines::detail::posix
+stack_aligner	detail/posix_utility.hpp	/^  struct stack_aligner {$/;"	s	namespace:boost::coroutines::detail::posix
+stack_alignment	detail/posix_utility.hpp	/^  static const std::size_t stack_alignment = sizeof(void*) > 16? sizeof(void*): 16;$/;"	m	namespace:boost::coroutines::detail::posix
+step_2	tuple_traits.hpp	/^  struct step_2 :$/;"	s	namespace:boost::coroutines	inherits:boost::mpl::eval_if
+super_type	detail/coroutine_impl.hpp	/^    typedef coroutine_impl<CoroutineType, ContextImpl> super_type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+swap	coroutine.hpp	/^    coroutine& swap(coroutine& rhs) {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:(coroutine& rhs)
+swap	coroutine.hpp	/^    void swap(coroutine& lhs, coroutine& rhs) {$/;"	f	class:boost::coroutines::coroutine	access:friend	signature:(coroutine& lhs, coroutine& rhs)
+swap	detail/has_swap.hpp	/^  no_swap swap(anything,anything);$/;"	p	namespace:boost::coroutines::has_swap_	signature:(anything,anything)
+swap	future.hpp	/^    friend void swap(future& lhs, future& rhs) {$/;"	f	class:boost::coroutines::future	access:friend	signature:(future& lhs, future& rhs)
+swap	move.hpp	/^  swap(T& a, T& b)$/;"	f	namespace:boost::coroutines::move_	signature:(T& a, T& b)
+swap_context	detail/context_linux.hpp	/^      swap_context(ia32_gcc_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:friend	signature:(ia32_gcc_context_impl_base& from, ia32_gcc_context_impl_base const& to, default_hint)
+swap_context	detail/context_linux.hpp	/^      swap_context(ia32_gcc_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:friend	signature:(ia32_gcc_context_impl_base& from, ia32_gcc_context_impl_base const& to, yield_hint)
+swap_context	detail/context_linux.hpp	/^      swap_context(ia32_gcc_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl_base	access:friend	signature:(ia32_gcc_context_impl_base& from, ia32_gcc_context_impl_base const& to, yield_to_hint)
+swap_context	detail/context_posix.hpp	/^      swap_context(ucontext_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::posix::ucontext_context_impl_base	access:friend	signature:(ucontext_context_impl_base& from, const ucontext_context_impl_base& to, default_hint)
+swap_context	detail/context_windows.hpp	/^      swap_context(fibers_context_impl_base& from, $/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:friend	signature:(fibers_context_impl_base& from, const fibers_context_impl_base& to, default_hint)
+swapcontext_stack	detail/context_linux.hpp	/^swapcontext_stack(void***from_sp, void**to_sp) throw() {$/;"	f	signature:(void***from_sp, void**to_sp)
+swapcontext_stack2	detail/context_linux.hpp	/^swapcontext_stack2(void***from_sp, void**to_sp) throw() {$/;"	f	signature:(void***from_sp, void**to_sp)
+tag	generator.hpp	/^    class tag {};$/;"	c	namespace:boost::coroutines::detail
+trait_tag	detail/argument_unpacker.hpp	/^  struct trait_tag {};$/;"	s	namespace:boost::coroutines::detail
+trampoline	detail/context_linux.hpp	/^    trampoline(T * fun) { $/;"	f	namespace:boost::coroutines::detail::oslinux	signature:(T * fun)
+trampoline	detail/context_linux.hpp	/^    void trampoline(T* fun);$/;"	p	namespace:boost::coroutines::detail::oslinux	signature:(T* fun)
+trampoline	detail/context_windows.hpp	/^    trampoline(LPVOID pv) {$/;"	f	namespace:boost::coroutines::detail::windows	signature:(LPVOID pv)
+trampoline	detail/posix_utility.hpp	/^  trampoline(T * fun) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(T * fun)
+trampoline_split	detail/posix_utility.hpp	/^  trampoline_split(int first, int second) {$/;"	f	namespace:boost::coroutines::detail::posix	signature:(int first, int second)
+tuple_traits	tuple_traits.hpp	/^  struct tuple_traits : tuple_traits_tag {$/;"	s	namespace:boost::coroutines	inherits:tuple_traits_tag
+tuple_traits_tag	tuple_traits.hpp	/^  struct tuple_traits_tag {};$/;"	s	namespace:boost::coroutines
+tuple_traits_type	detail/call_impl.hpp	/^    Future::tuple_traits_type tuple_traits_type;              $/;"	t	class:boost::coroutines::detail::callback	access:public
+tuple_traits_type	future.hpp	/^      > tuple_traits_type;$/;"	t	class:boost::coroutines::future	access:public
+tuple_type	detail/call_impl.hpp	/^    Future::tuple_type tuple_type;              $/;"	t	class:boost::coroutines::detail::callback	access:public
+tuple_type	future.hpp	/^    typedef BOOST_DEDUCED_TYPENAME tuple_traits_type::as_tuple tuple_type;$/;"	t	class:boost::coroutines::future	access:public
+tuple_workaround	tuple_traits.hpp	/^      tuple_workaround() {}$/;"	f	struct:boost::coroutines::detail::tuple_workaround	access:public	signature:()
+tuple_workaround	tuple_traits.hpp	/^      tuple_workaround(const tuple_workaround&) {}$/;"	f	struct:boost::coroutines::detail::tuple_workaround	access:public	signature:(const tuple_workaround&)
+tuple_workaround	tuple_traits.hpp	/^    struct tuple_workaround : boost::tuple<> {$/;"	s	namespace:boost::coroutines::detail	inherits:boost::tuple
+type	coroutine.hpp	/^    typedef coroutine<Signature, ContextImpl> type;$/;"	t	class:boost::coroutines::coroutine	access:public
+type	detail/context_base.hpp	/^    typedef context_base<context_impl> type;$/;"	t	class:boost::coroutines::detail::context_base	access:public
+type	detail/coroutine_impl.hpp	/^    type;$/;"	t	class:boost::coroutines::detail::coroutine_impl_wrapper	access:public
+type	detail/coroutine_impl.hpp	/^    typedef coroutine_impl<coroutine_type, context_impl> type;$/;"	t	class:boost::coroutines::detail::coroutine_impl	access:public
+type	detail/coroutine_traits.hpp	/^    typedef typename T::as_tuple type;$/;"	t	struct:boost::coroutines::detail::as_tuple	access:public
+type	detail/has_swap.hpp	/^      typedef boost::mpl::bool_<has_swap_impl<T>::value> type;$/;"	t	struct:boost::coroutines::has_swap_::has_swap_impl	access:public
+type	detail/has_swap.hpp	/^      typedef boost::mpl::bool_<value> type;$/;"	t	struct:boost::coroutines::has_swap_::has_swap_impl	access:public
+type	detail/is_callable.hpp	/^    typedef is_callable<T> type;$/;"	t	struct:boost::coroutines::detail::is_callable	access:public
+type	detail/is_callable.hpp	/^    typedef is_function_pointer<T> type;$/;"	t	struct:boost::coroutines::detail::is_function_pointer	access:public
+type	detail/is_callable.hpp	/^    typedef is_functor<T> type;$/;"	t	struct:boost::coroutines::detail::is_functor	access:public
+type	detail/self.hpp	/^    typedef coroutine_self<coroutine_type> type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+type	detail/yield_result_type.hpp	/^      typedef T type;$/;"	t	struct:boost::coroutines::detail::yield_result_type	access:public
+type	detail/yield_result_type.hpp	/^      typedef typename make_tuple_traits<TypeList>::type type;$/;"	t	struct:boost::coroutines::detail::yield_result_type	access:public
+type	detail/yield_result_type.hpp	/^      typedef void type;$/;"	t	struct:boost::coroutines::detail::yield_result_type	access:public
+type	exception.hpp	/^    std::type_info const& type() const throw() {$/;"	f	class:boost::coroutines::abnormal_exit::std	access:public	signature:() const
+type	future.hpp	/^    typedef detail::callback<Future> type;$/;"	t	struct:boost::coroutines::make_callback_result	access:public
+type	generator.hpp	/^			    > type;$/;"	t	struct:boost::coroutines::detail::make_std_iterator	access:public
+ucontext_context_impl	detail/context_posix.hpp	/^	ucontext_context_impl(Functor& cb, std::ptrdiff_t stack_size) :$/;"	f	class:boost::coroutines::detail::posix::ucontext_context_impl	access:public	signature:(Functor& cb, std::ptrdiff_t stack_size)
+ucontext_context_impl	detail/context_posix.hpp	/^    class ucontext_context_impl :$/;"	c	namespace:boost::coroutines::detail::posix	inherits:ucontext_context_impl_base,boost::noncopyable
+ucontext_context_impl_base	detail/context_posix.hpp	/^    class ucontext_context_impl_base {$/;"	c	namespace:boost::coroutines::detail::posix
+unique	detail/context_base.hpp	/^    bool unique() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+unknown_exception_tag	exception.hpp	/^  class unknown_exception_tag {};$/;"	c	namespace:boost::coroutines
+unpack	detail/argument_unpacker.hpp	/^  unpack(Functor f, Tuple& parms, trait_tag<Traits>) {$/;"	f	namespace:boost::coroutines::detail	signature:(Functor f, Tuple& parms, trait_tag<Traits>)
+unpack_ex	detail/argument_unpacker.hpp	/^  unpack_ex(Functor f, First& arg0, Tuple& parms, trait_tag<Traits>) {$/;"	f	namespace:boost::coroutines::detail	signature:(Functor f, First& arg0, Tuple& parms, trait_tag<Traits>)
+value	detail/future_impl.hpp	/^    value() const{$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:() const
+value	detail/future_impl.hpp	/^    value() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+value_type	detail/future_impl.hpp	/^    typedef ValueType value_type;$/;"	t	class:boost::coroutines::detail::future_impl	access:public
+value_type	future.hpp	/^      >::type  value_type;$/;"	t	class:boost::coroutines::future	access:public
+value_type	generator.hpp	/^    typedef result_type value_type;$/;"	t	class:boost::coroutines::generator	access:public
+wait	detail/context_base.hpp	/^    void wait(int n) {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(int n)
+wait	detail/future_impl.hpp	/^    void wait() {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:()
+wait	detail/future_impl.hpp	/^    void wait(int n) {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:(int n)
+wait	detail/signal.hpp	/^    static void wait(Future& f, int n) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(Future& f, int n)
+wait	future.hpp	/^    void wait() {$/;"	f	class:boost::coroutines::future	access:private	signature:()
+wait	future.hpp	/^    void wait(int n) {$/;"	f	class:boost::coroutines::future	access:private	signature:(int n)
+wait_all_impl	detail/wait_impl.hpp	/^  void wait_all_impl(Tuple wt) {$/;"	f	namespace:boost::coroutines::detail	signature:(Tuple wt)
+wait_gateway	detail/signal.hpp	/^  struct wait_gateway {$/;"	s	namespace:boost::coroutines::detail
+wait_impl	detail/wait_impl.hpp	/^  void wait_impl(Tuple wt) {$/;"	f	namespace:boost::coroutines::detail	signature:(Tuple wt)
+wait_n	detail/wait_impl.hpp	/^  void wait_n(const Tuple& t, int n) {$/;"	f	namespace:boost::coroutines::detail	signature:(const Tuple& t, int n)
+waited	detail/future_impl.hpp	/^    bool waited() const {$/;"	f	class:boost::coroutines::detail::future_impl	access:public	signature:() const
+waited	detail/signal.hpp	/^    bool waited(const Future& f) {$/;"	f	struct:boost::coroutines::detail::wait_gateway	access:public	signature:(const Future& f)
+waited	future.hpp	/^    bool waited() const {$/;"	f	class:boost::coroutines::future	access:private	signature:() const
+waiting	coroutine.hpp	/^    bool waiting() const {$/;"	f	class:boost::coroutines::coroutine	access:public	signature:() const
+waiting	detail/context_base.hpp	/^    bool waiting() const {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:() const
+waiting	exception.hpp	/^  class waiting : public exception_base {};$/;"	c	namespace:boost::coroutines	inherits:exception_base
+wake_up	detail/context_base.hpp	/^    bool wake_up() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+what	exception.hpp	/^    const char* what() const throw() {$/;"	f	class:boost::coroutines::abnormal_exit	access:public	signature:() const
+windows	detail/context_windows.hpp	/^  namespace windows {$/;"	n	namespace:boost::coroutines::detail
+x	detail/has_swap.hpp	/^      static T& x;$/;"	m	struct:boost::coroutines::has_swap_::has_swap_impl	access:public
+yield	detail/context_base.hpp	/^    void yield() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+yield_hint	detail/swap_context.hpp	/^  class yield_hint: public default_hint {};$/;"	c	namespace:boost::coroutines::detail	inherits:default_hint
+yield_impl	detail/self.hpp	/^    yield_result_type yield_impl(BOOST_DEDUCED_TYPENAME $/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:(BOOST_DEDUCED_TYPENAME coroutine_type::result_slot_type result)
+yield_result_type	coroutine.hpp	/^    ::yield_result_type yield_result_type;$/;"	t	class:boost::coroutines::coroutine	access:public
+yield_result_type	detail/coroutine_traits.hpp	/^    ::as_result yield_result_type;$/;"	t	struct:boost::coroutines::detail::coroutine_traits	access:public
+yield_result_type	detail/self.hpp	/^    ::yield_result_type yield_result_type;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+yield_result_type	detail/yield_result_type.hpp	/^    struct yield_result_type <boost::mpl::vector0<> >{$/;"	s	namespace:boost::coroutines::detail
+yield_result_type	detail/yield_result_type.hpp	/^    struct yield_result_type <boost::mpl::vector1<T> >{$/;"	s	namespace:boost::coroutines::detail
+yield_result_type	detail/yield_result_type.hpp	/^    struct yield_result_type {$/;"	s	namespace:boost::coroutines::detail
+yield_to	detail/context_base.hpp	/^    void yield_to(context_base& to) {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:(context_base& to)
+yield_to_hint	detail/swap_context.hpp	/^  class yield_to_hint: public default_hint {};$/;"	c	namespace:boost::coroutines::detail	inherits:default_hint
+yield_to_impl	detail/self.hpp	/^    yield_result_type yield_to_impl(TargetCoroutine& target, $/;"	f	class:boost::coroutines::detail::coroutine_self	access:private	signature:(TargetCoroutine& target, BOOST_DEDUCED_TYPENAME TargetCoroutine ::arg_slot_type args)
+yield_traits	coroutine.hpp	/^    struct yield_traits {$/;"	s	class:boost::coroutines::coroutine	access:public
+yield_traits	detail/self.hpp	/^    ::yield_traits yield_traits;$/;"	t	class:boost::coroutines::detail::coroutine_self	access:public
+~const_lvalue	move.hpp	/^    ~const_lvalue()$/;"	f	struct:boost::coroutines::const_lvalue	access:public	signature:()
+~context_base	detail/context_base.hpp	/^    ~context_base() throw() {$/;"	f	class:boost::coroutines::detail::context_base	access:public	signature:()
+~fibers_context_impl	detail/context_windows.hpp	/^      ~fibers_context_impl() {$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl	access:public	signature:()
+~fibers_context_impl_base	detail/context_windows.hpp	/^      ~fibers_context_impl_base() {}$/;"	f	class:boost::coroutines::detail::windows::fibers_context_impl_base	access:public	signature:()
+~future	future.hpp	/^    ~future() {$/;"	f	class:boost::coroutines::future	access:public	signature:()
+~ia32_gcc_context_impl	detail/context_linux.hpp	/^      ~ia32_gcc_context_impl() {$/;"	f	class:boost::coroutines::detail::oslinux::ia32_gcc_context_impl	access:public	signature:()
+~ucontext_context_impl	detail/context_posix.hpp	/^      ~ucontext_context_impl() {$/;"	f	class:boost::coroutines::detail::posix::ucontext_context_impl	access:public	signature:()
