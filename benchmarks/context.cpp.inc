@@ -4,40 +4,36 @@
  *
 */
 
-#ifndef INCLUDED
+#ifndef BENCH_TYPE
 
-#define CAT(a, b) a##b
+#define BENCH_NAME(n) BENCH_CAT(BENCH_ARCH, BENCH_CAT(BENCH_TYPE, n))
 
-#define INCLUDED _static_
-#define __BENCH(n, p) _BENCH(staticStack_##n, p)
+#define BENCH_TYPE _static_
 #define CONTEXT Context<stack::Static>
 #include "context.cpp.inc"
 #undef CONTEXT
-#undef __BENCH
-#undef INCLUDED
+#undef BENCH_TYPE
 
-#define INCLUDED _dynamic
-#define __BENCH(n, p) _BENCH(dynamicStack_##n, p)
+#define BENCH_TYPE _dynamic_
 #define CONTEXT Context<stack::Dynamic>
 #include "context.cpp.inc"
 #undef CONTEXT
-#undef __BENCH
-#undef INCLUDED
+#undef BENCH_TYPE
 
 #else
 
 #include <benchmark.hpp>
 
-namespace INCLUDED {
+namespace BENCH_TYPE {
 
 void function() {}
 
-__BENCH(createContext, 23)
+BENCH(BENCH_NAME(createContext), 5)//23)
 {
 	UNUSED CONTEXT context(function);
 }
 
-__BENCH(execContext, 23)
+BENCH(BENCH_NAME(execContext), 5, BENCH_NAME(createContext))//23)
 {
 	UNUSED CONTEXT context(function);
 	context.run();

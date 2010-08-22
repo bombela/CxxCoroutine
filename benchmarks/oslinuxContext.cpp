@@ -10,7 +10,7 @@
 using namespace coroutine::details;
 using namespace coroutine::details::oslinux;
 
-#define _BENCH(n, p) BENCH(oslinux_##n, p)
+#define BENCH_ARCH oslinux
 #include "context.cpp.inc"
 
 BENCH_MAIN(context)
