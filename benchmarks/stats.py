@@ -36,7 +36,7 @@ for line in fd:
 fd.close()
 
 for pkg, records in pkgs.items():
-	print "Summarizing %s benchmarks..." % (pkg)
+	print "Sorting %s benchmarks..." % (pkg)
 	pkg_sum = {}
 	for record in records:
 		name = record['name']
@@ -45,4 +45,30 @@ for pkg, records in pkgs.items():
 			pkg_sum[name].append(record)
 		else:
 			pkg_sum[name] = [record]
-	pp(pkg_sum)
+	pkgs[pkg] = pkg_sum
+
+for pkg, records in pkgs.items():
+	print "Computing average time for %s benchmarks..." % (pkg)
+	for name, record in records.items():
+		relto = record[0]['relto']
+		elapsed = sum([r['elapsed'] for r in record]) / len(record)
+		records[name] = { 'elapsed': elapsed, 'relto': relto }
+
+pp(pkgs)
+
+def remove_rel_time(records, key):
+	if 'elapsed_abs' in records[key]:
+		return
+	relto = records[key]['relto']
+	if key == relto:
+		records[key]['elapsed_abs'] = records[key]['elapsed']
+		return
+	remove_rel_time(records, relto)
+	records[key]['elapsed_abs'] = records[key]['elapsed'] - records[relto]['elapsed_abs']
+
+for pkg, records in pkgs.items():
+	print "Removing relative time for %s benchmarks..." % (pkg)
+	for name, record in records.items():
+		print name, record
+		remove_rel_time(records, name)
+pp(pkgs)
