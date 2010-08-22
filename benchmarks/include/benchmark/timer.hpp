@@ -10,6 +10,8 @@
 
 #include <benchmark/clock.hpp>
 #include <iostream>
+#include <sstream>
+#include <fstream>
 
 namespace benchmark {
 
@@ -28,14 +30,18 @@ class Timer
 		~Timer()
 		{
 			clock::nanos_t diff = clock::time() - _start;
-			std::cout
+			std::ostringstream os;
+			os
 				<< "elapsed=" << diff << "nsec, "
 				<< "cnt=" << _cnt << ", "
 				<< "res=" << clock::res() << "nsec, "
 				<< "pkg=" << _pkg << ", "
 				<< "name=" << _name << ", "
-				<< "relto=" << _relto
-				<< std::endl;
+				<< "relto=" << _relto;
+			const std::string& record = os.str();
+			std::cout << record << std::endl;
+			std::ofstream of("bench.log", std::ios_base::app);
+			of << record << std::endl;
 		}
 
 	private:
