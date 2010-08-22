@@ -13,4 +13,4 @@ using namespace coroutine::details::oslinux;
 #define _BENCH(n, p) BENCH(oslinux_##n, p)
 #include "context.cpp.inc"
 
-BENCH_MAIN()
+BENCH_MAIN(context)

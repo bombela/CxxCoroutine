@@ -13,4 +13,4 @@ using namespace coroutine::details::posix;
 #define _BENCH(n, p) BENCH(posix_##n, p)
 #include "context.cpp.inc"
 
-BENCH_MAIN()
+BENCH_MAIN(context)

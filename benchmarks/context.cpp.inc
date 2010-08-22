@@ -8,16 +8,16 @@
 
 #define CAT(a, b) a##b
 
-#define INCLUDED static_
-#define __BENCH(n, p) _BENCH(static_##n, p)
+#define INCLUDED _static_
+#define __BENCH(n, p) _BENCH(staticStack_##n, p)
 #define CONTEXT Context<stack::Static>
 #include "context.cpp.inc"
 #undef CONTEXT
 #undef __BENCH
 #undef INCLUDED
 
-#define INCLUDED dynamic_
-#define __BENCH(n, p) _BENCH(dynamic_##n, p)
+#define INCLUDED _dynamic
+#define __BENCH(n, p) _BENCH(dynamicStack_##n, p)
 #define CONTEXT Context<stack::Dynamic>
 #include "context.cpp.inc"
 #undef CONTEXT
@@ -29,10 +29,6 @@
 #include <benchmark.hpp>
 
 namespace INCLUDED {
-
-__BENCH(nothing, 23)
-{
-}
 
 void function() {}
 

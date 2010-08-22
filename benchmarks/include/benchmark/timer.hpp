@@ -16,7 +16,8 @@ namespace benchmark {
 class Timer
 {
 	public:
-		Timer(const char* name, int cnt):
+		Timer(const char* pkg, const char* name, int cnt):
+			_pkg(pkg),
 			_name(name),
 			_cnt(cnt),
 			_start(clock::time()) { }
@@ -27,10 +28,13 @@ class Timer
 				<< "elapsed=" << diff << "nsec, "
 				<< "cnt=" << _cnt << ", "
 				<< "res=" << clock::res() << "nsec, "
-				<< "name=" << _name << std::endl;
+				<< "pkg=" << _pkg << ", "
+				<< "name=" << _name
+				<< std::endl;
 		}
 
 	private:
+		const char*    _pkg;
 		const char*    _name;
 		int            _cnt;
 		clock::nanos_t _start;
