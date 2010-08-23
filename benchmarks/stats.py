@@ -57,9 +57,10 @@ for pkg, records in pkgs.items():
 pp(pkgs)
 
 def remove_rel_time(records, key):
-	if 'elapsed_abs' in records[key]:
+	if 'relto' not in records[key]:
 		return
 	relto = records[key]['relto']
+	#del records[key]['relto']
 	if key == relto:
 		records[key]['elapsed_abs'] = records[key]['elapsed']
 		return
