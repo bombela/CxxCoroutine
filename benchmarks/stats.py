@@ -2,6 +2,9 @@
 
 import sys
 import pprint
+import matplotlib.pyplot as plt
+import numpy as np
+import math
 
 pp = pprint.pprint
 
@@ -73,3 +76,45 @@ for pkg, records in pkgs.items():
 		print name, record
 		remove_rel_time(records, name)
 pp(pkgs)
+
+
+def computeSubplotColAndRow(nbsubfig):
+	size = int(math.sqrt(nbsubfig - 1)) + 1
+	nbrow = size
+	nbcol = size
+	empty = (nbrow * nbcol) - nbsubfig
+	if empty >= size:
+		nbcol -= (empty / size)
+	return (nbrow, nbcol)
+
+subrow, subcol = computeSubplotColAndRow(len(pkgs))
+subIdx = 1
+
+colors = ('b', 'g', 'y', 'r')
+colorIdx = 0
+
+for pkg, records in pkgs.items():
+	print "Plotting %s benchmarks..." % (pkg)
+
+	records_keys = sorted(records.keys())
+
+	plt.subplot(subrow * 100 + subcol * 10 + subIdx)
+	pos = np.arange(len(records))+.5
+	plt.barh(pos, [records[k]['elapsed'] for k in records_keys],
+			align='center', color='y', alpha=0.15,
+			label='total elapsed time')
+
+	plt.barh(pos, [records[k]['elapsed_abs'] for k in records_keys],
+			align='center', color='b', alpha=0.75,
+			label='absolute elapsed time')
+
+	plt.yticks(pos, records_keys)
+
+	plt.xlabel('time in nanoseconds, shorter is better')
+
+	plt.legend();
+	colorIdx += 1
+	subIdx += 1
+
+print "Rendering..."
+plt.show()

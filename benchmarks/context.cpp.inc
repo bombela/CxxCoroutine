@@ -6,7 +6,7 @@
 
 #ifndef BENCH_TYPE
 
-#define BENCH_NAME(n) BENCH_CAT(BENCH_ARCH, BENCH_CAT(BENCH_TYPE, n))
+#define BENCH_NAME(n) BENCH_CAT(n, BENCH_CAT(BENCH_TYPE, BENCH_ARCH))
 
 #define BENCH_TYPE _static_
 #define CONTEXT Context<stack::Static>
@@ -28,12 +28,12 @@ namespace BENCH_TYPE {
 
 void function() {}
 
-BENCH(BENCH_NAME(createContext), 5)//23)
+BENCH(BENCH_NAME(createContext), 23)
 {
 	UNUSED CONTEXT context(function);
 }
 
-BENCH(BENCH_NAME(execContext), 5, BENCH_NAME(createContext))//23)
+BENCH(BENCH_NAME(execContext), 23, BENCH_NAME(createContext))
 {
 	UNUSED CONTEXT context(function);
 	context.run();
