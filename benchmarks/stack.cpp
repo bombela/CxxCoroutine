@@ -9,14 +9,14 @@
 
 using namespace coroutine::details;
 
-BENCH(createStaticStack, 5)//24)
+BENCH(createStack_static, 23)
 {
 	UNUSED Stack<stack::Static> stack;
 }
 
-BENCH(createDynamicStack, 5)//24)
+BENCH(createStack_dynamic, 23)
 {
 	UNUSED Stack<stack::Dynamic> stack;
 }
 
-BENCH_MAIN(stack)
+BENCH_MAIN(fullbench)

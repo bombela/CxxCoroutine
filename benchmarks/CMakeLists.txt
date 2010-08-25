@@ -10,6 +10,10 @@ link_libraries(${Boost_LIBRARIES})
 
 add_custom_target(bench)
 
+add_custom_target(stat
+	${CMAKE_CURRENT_SOURCE_DIR}/stats.py ${CMAKE_CURRENT_BINARY_DIR}/bench.log
+	)
+
 macro(coroutine_add_bench src)
 	get_filename_component(name ${src} NAME_WE)
 	set(name "bench_${name}")

@@ -68,7 +68,7 @@ def remove_rel_time(records, key):
 		records[key]['elapsed_abs'] = records[key]['elapsed']
 		return
 	remove_rel_time(records, relto)
-	records[key]['elapsed_abs'] = records[key]['elapsed'] - records[relto]['elapsed_abs']
+	records[key]['elapsed_abs'] = records[key]['elapsed'] - records[relto]['elapsed']
 
 for pkg, records in pkgs.items():
 	print "Removing relative time for %s benchmarks..." % (pkg)

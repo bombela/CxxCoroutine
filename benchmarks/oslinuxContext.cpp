@@ -13,4 +13,4 @@ using namespace coroutine::details::oslinux;
 #define BENCH_ARCH oslinux
 #include "context.cpp.inc"
 
-BENCH_MAIN(context)
+BENCH_MAIN(fullbench)

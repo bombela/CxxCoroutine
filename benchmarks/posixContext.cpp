@@ -13,4 +13,4 @@ using namespace coroutine::details::posix;
 #define BENCH_ARCH posix
 #include "context.cpp.inc"
 
-BENCH_MAIN(context)
+BENCH_MAIN(fullbench)

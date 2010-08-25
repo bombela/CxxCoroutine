@@ -29,7 +29,7 @@ template <template <size_t> class StackImpl = stack::Static,
 		 size_t STACK_SIZE = stack::DEFAULT_SIZE>
 class Context
 {
-	typedef Stack<StackImpl, STACK_SIZE> Stack;
+	typedef Stack<StackImpl, STACK_SIZE> stack_t;
 
 	public:
 		template <typename F>
@@ -40,7 +40,7 @@ class Context
 						"getcontext failed");
 			_coroContext.uc_link = &_mainContext;
 			_coroContext.uc_stack.ss_sp = _stack.getStack();
-			_coroContext.uc_stack.ss_size = Stack::SIZE;
+			_coroContext.uc_stack.ss_size = stack_t::SIZE;
 			void (*cb_ptr)(F*) = &trampoline<F>;
 			makecontext(&_coroContext, (void (*)())cb_ptr, 1, &cb);
 		}
@@ -62,7 +62,7 @@ class Context
 	private:
 		ucontext _mainContext;
 		ucontext _coroContext;
-		Stack    _stack;
+		stack_t  _stack;
 
 		error::System createError(const char* msg)
 		{
