@@ -10,6 +10,11 @@ link_libraries(${Boost_LIBRARIES})
 
 add_custom_target(bench)
 
+add_custom_target(cleanbench
+	COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_CURRENT_BINARY_DIR}/bench.log
+	VERBATIM
+	)
+
 add_custom_target(stat
 	${CMAKE_CURRENT_SOURCE_DIR}/stats.py ${CMAKE_CURRENT_BINARY_DIR}/bench.log
 	)
@@ -21,7 +26,9 @@ macro(coroutine_add_bench src)
 	set(runname "${name}.run")
 	add_custom_target(${runname}
 		echo "Benchmarking ${name}..."
-		COMMAND ${name})
+		COMMAND ${name}
+		VERBATIM
+		)
 	add_dependencies(bench ${runname})
 endmacro()
 
