@@ -49,7 +49,7 @@ class ContextImpl<Stack, 8>
 		void swapContext()
 		{
 			/*
-			 * Optimisation discussion:
+			 * Optimization discussion:
 			 * 	Use an array for store register, high probability
 			 * 	for this array to be allocated on the redzon, so, no
 			 * 	need to move the stack pointer. Also, maybe move
@@ -72,17 +72,19 @@ class ContextImpl<Stack, 8>
 			 * 		- CORO_LINUX_8664_2CALLSITE_COPYPASTE
 			 * 		- CORO_LINUX_8664_2CALLSITE_TEMPLATE
 			 *
+			 * 	Maybe better to copy past the all code, 
+			 * 	and make different templated version...
+			 * 	Maybe more readable and easier to debug.
+			 *
 			 */
 
 			asm volatile (
-#ifndef CORO_LINUX_8664_NOJUMP
 					// store next instruction
 					"push $1f\n\t"
-#endif
 
 					// store registers
 					"push %%rsi\n\t"
-					"push %%rsi\n\t"
+					"push %%rdi\n\t"
 					"push %%rbp\n\t"
 
 					// switch stack
@@ -93,13 +95,11 @@ class ContextImpl<Stack, 8>
 					"pop %%rdi\n\t"
 					"pop %%rsi\n\t"
 
-#ifndef CORO_LINUX_8664_NOJUMP
 					// jump to next instruction
 					"pop %%rax\n\t"
 					"jmp *%%rax\n\t"
 
 					"1:\n\t"
-#endif
 
 					: // input/output
 						// not used
