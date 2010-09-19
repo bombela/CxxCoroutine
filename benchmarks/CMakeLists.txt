@@ -4,7 +4,7 @@
 #
 #
 
-find_package(Boost 1.38 REQUIRED system unit_test_framework test_exec_monitor)
+find_package(Boost 1.38 REQUIRED system)
 include_directories(${Boost_INCLUDE_DIRS})
 link_libraries(${Boost_LIBRARIES})
 
