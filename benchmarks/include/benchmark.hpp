@@ -51,10 +51,10 @@ struct BENCH_CAT(bench_, name): benchmark::Bench { \
 		unsigned cnt = 1u << cntpower; \
 	   	benchmark::Timer t(pkg, BENCH_STR(name), \
 				relatedTo(BENCH_STR(__VA_ARGS__)), cnt);\
-		for (;cnt;cnt--) bench(); }\
-	void bench() const; \
+		for (;cnt;cnt--) bench_impl(); }\
+	void bench_impl() const; \
 } BENCH_CAT(bench_instance_, name); \
-void BENCH_CAT(bench_, name)::bench() const
+void BENCH_CAT(bench_, name)::bench_impl() const
 
 #define BENCH_MAIN(pkg) \
 BENCH(nop, 24) {} \
