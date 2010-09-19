@@ -43,6 +43,11 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 	if (FORCEDEBUG)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g3")
 	endif()
+	
+	set(OMIT_FRAME_POINTER true CACHE BOOL "Omit frame pointer")
+	if (OMIT_FRAME_POINTER)
+		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fomit-frame-pointer")
+	endif()
 endif()
 
 if (CMAKE_COMPILER_IS_GNUCXX)
