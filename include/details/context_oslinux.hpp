@@ -17,6 +17,7 @@ namespace oslinux {
 template <class Stack, size_t PTR_SIZE>
 class ContextImpl;
 
+// TODO Only use one ptr to the trampoline
 template <typename C, typename F>
 inline void trampoline(C* context, F* f)
 {
