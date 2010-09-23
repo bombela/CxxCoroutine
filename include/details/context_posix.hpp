@@ -30,10 +30,33 @@ template <template <size_t> class StackImpl = stack::Static,
 class Context
 {
 	typedef Stack<StackImpl, STACK_SIZE> stack_t;
+	typedef void (callback_t)();
 
 	public:
 		template <typename F>
-		Context(F& cb)
+		Context(F& cb):
+			_cbptr( (void (*)()) (void (*)(F*)) &trampoline<F>),
+			_funcptr( (void*) &cb)
+		{
+			reset();
+		}
+
+		Context(const Context& from):
+			_cbptr(from._cbptr),
+			_funcptr(from._funcptr)
+		{
+			reset();
+		}
+
+		Context& operator=(const Context& from)
+		{
+			_cbptr = from._cbptr;
+			_funcptr = from._funcptr;
+			reset();
+			return *this;
+		}
+		
+		void reset()
 		{
 			if (getcontext(&_coroContext) == -1)
 				throw createError("coroutine::details::ContextBase(), "
@@ -41,8 +64,7 @@ class Context
 			_coroContext.uc_link = &_mainContext;
 			_coroContext.uc_stack.ss_sp = _stack.getStack();
 			_coroContext.uc_stack.ss_size = stack_t::SIZE;
-			void (*cb_ptr)(F*) = &trampoline<F>;
-			makecontext(&_coroContext, (void (*)())cb_ptr, 1, &cb);
+			makecontext(&_coroContext, _cbptr, 1, _funcptr);
 		}
 
 		void run()
@@ -60,9 +82,11 @@ class Context
 		}
 		
 	private:
-		ucontext _mainContext;
-		ucontext _coroContext;
-		stack_t  _stack;
+		ucontext    _mainContext;
+		ucontext    _coroContext;
+		callback_t* _cbptr;
+		void*       _funcptr;
+		stack_t     _stack;
 
 		error::System createError(const char* msg)
 		{
