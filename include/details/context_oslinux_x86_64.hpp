@@ -19,34 +19,57 @@ class ContextImpl<Stack, 8>
 {
 	template <typename C, typename F>
 		friend inline void trampoline(C*, F*);
+	
+	typedef void (callback_t)();
 
 	public:
 		template <typename F>
-		ContextImpl(F& cb)
+		ContextImpl(F& cb):
+			_cbptr( (callback_t*)
+					(void (*)(ContextImpl*, F*)) &trampoline<ContextImpl, F>),
+			_funcptr( (void*) &cb)
 		{
-			typedef void (trampoline_t)(ContextImpl*, F*);
+			reset();
+		}
 
-			trampoline_t* cb_ptr = &trampoline<ContextImpl, F>;
+		ContextImpl(const ContextImpl& from):
+			_cbptr(from._cbptr),
+			_funcptr(from._funcptr)
+		{
+			reset();
+		}
+
+		ContextImpl& operator=(const ContextImpl& from)
+		{
+			_cbptr = from._cbptr;
+			_funcptr = from._funcptr;
+			reset();
+			return *this;
+		}
+
+		void reset()
+		{
 			_sp = (void**)_stack.getStack() + Stack::SIZE / sizeof(void*);
 			
 			// red zone begin
 			_sp -= 16;     // red zone
 			// red zone end
-			*--_sp = 0;                 // trampoline return
-			*--_sp = (void*)cb_ptr;     // next instruction addr
-			*--_sp = (void*)&cb;        // rsi (trampoline arg2)
-			*--_sp = (void*)this;       // rdi (trampoline arg1)
-			--_sp;                      // rbp
+			*--_sp = 0;           // trampoline return
+			*--_sp = (void*) _cbptr;      // next instruction addr
+			*--_sp = _funcptr;    // rsi (trampoline arg2)
+			*--_sp = (void*)this; // rdi (trampoline arg1)
+			--_sp;                // rbp
 		}
 	
 		void run() { swapContext(); }
 		void yield() { swapContext(); }
 
 	private:
-		Stack  _stack;
-		void** _sp;
+		callback_t* _cbptr;
+		void*       _funcptr;
+		void**      _sp;
+		Stack       _stack;
 
-		//__attribute__ ((noinline))
 		void swapContext()
 		{
 			/*
