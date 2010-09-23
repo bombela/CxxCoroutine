@@ -131,7 +131,6 @@ class ContextImpl<Stack, 8>
 					: // input
 						[_sp]   "d" (&_sp)
 					: // modified
-						// rax -> integer return value & used by input
 						"rax", "rbx", "rcx",
 						// rdx -> used as input
 						// rsp -> manipulated behind the compiler.
