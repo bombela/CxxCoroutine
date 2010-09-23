@@ -5,7 +5,6 @@
 */
 
 #include <test.hpp>
-#include <iostream>
 #include <details/context_oslinux.hpp>
 
 using namespace coroutine::details::oslinux;

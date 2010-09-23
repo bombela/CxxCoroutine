@@ -36,16 +36,13 @@ struct TestExecution
 {
 	bool executed;
 	TestExecution(): executed(false) { }
-	void operator()() { executed = true;
-		std::cout << "executed! " << this << std::endl; 
-	}
+	void operator()() { executed = true; }
 };
 
 BOOST_AUTO_TEST_CASE(execution)
 {
 	TestExecution f;
     Context<> context(f);
-	std::cout << "functor   " << &f << std::endl; 
 	context.run();
 	BOOST_CHECK(f.executed);
 }
@@ -57,7 +54,6 @@ struct TestYield: TestExecution
 	TestYield(): context(*this) {}
 	void operator()()
 	{
-		std::cout << "reached!" << std::endl;
 		TestExecution::operator()();
 		context.yield();
 		BOOST_ERROR("yield passed");

@@ -46,6 +46,7 @@ class ContextImpl<Stack, 8>
 		Stack  _stack;
 		void** _sp;
 
+		//__attribute__ ((noinline))
 		void swapContext()
 		{
 			/*
@@ -59,7 +60,8 @@ class ContextImpl<Stack, 8>
 			 * 			  Problem: how we can deal with the booststrap?
 			 *
 			 * 	Remove the useless push $1f.
-			 * 		- need to preapre the stack little bit longer.
+			 * 		- need to prepare the stack little bit longer.
+			 * 		- 
 			 * 	
 			 * 	Using two different call site can help?
 			 * 		- copy/paste two time (maybe macro)
@@ -78,7 +80,7 @@ class ContextImpl<Stack, 8>
 			 *
 			 */
 
-			asm volatile (
+			asm (
 					// store next instruction
 					"push $1f\n\t"
 
@@ -88,7 +90,7 @@ class ContextImpl<Stack, 8>
 					"push %%rbp\n\t"
 
 					// switch stack
-					"xchg 0(%[_sp]), %%rsp\n\t"
+					"xchg (%[_sp]), %%rsp\n\t"
 
 					// restore registers
 					"pop %%rbp\n\t"
@@ -101,10 +103,10 @@ class ContextImpl<Stack, 8>
 
 					"1:\n\t"
 
-					: // input/output
+					: // output
 						// not used
 					: // input
-						[_sp]   "rax" (&_sp)
+						[_sp]   "a" (&_sp)
 					: // modified
 						// rax -> integer return value & used by input
 						"rbx", "rcx", "rdx",
@@ -113,6 +115,8 @@ class ContextImpl<Stack, 8>
 						//        so we saving it manually.
 						//        - GCC in -O0 mode reserve *bp.
 						//        - LLVM doesn't seem to have this caveat.
+						// rsi -> used as trampoline first arg
+						// rdi -> used as trampoline second arg
 						"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
 						"%st(1)", "%st(2)", "%st(3)", "%st(4)", "%st(5)",
 						"%st(6)", "%st(7)",
