@@ -42,9 +42,10 @@ template <template <size_t> class StackImpl = stack::Static,
 class Context: public ContextImpl<Stack<StackImpl, STACK_SIZE>, sizeof(void*)>
 {
 	public:
+		typedef ContextImpl<Stack<StackImpl, STACK_SIZE>, sizeof(void*)> impl_t;
+
 		template <typename F>
-		Context(F& cb):
-			ContextImpl<Stack<StackImpl, STACK_SIZE>, sizeof(void*)>(cb) {}
+		Context(F& cb): impl_t(cb) {}
 };
 
 } // namespace oslinux

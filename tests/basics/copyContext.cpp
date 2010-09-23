@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(copyOsLinuxContext)
 
 	oslinux::Context<stack::Static> a(tester);
 	tester.test(a);
-	
+
 	oslinux::Context<stack::Static> b = a;
 	tester.test(b);
 
