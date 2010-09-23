@@ -35,7 +35,7 @@ class Context
 	public:
 		template <typename F>
 		Context(F& cb):
-			_cbptr( (void (*)()) (void (*)(F*)) &trampoline<F>),
+			_cbptr( (callback_t*) (void (*)(F*)) &trampoline<F>),
 			_funcptr( (void*) &cb)
 		{
 			reset();
