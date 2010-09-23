@@ -80,7 +80,7 @@ class ContextImpl<Stack, 8>
 			 *
 			 */
 
-			asm (
+			asm volatile (
 					// store next instruction
 					"push $1f\n\t"
 
@@ -106,10 +106,11 @@ class ContextImpl<Stack, 8>
 					: // output
 						// not used
 					: // input
-						[_sp]   "a" (&_sp)
+						[_sp]   "d" (&_sp)
 					: // modified
 						// rax -> integer return value & used by input
-						"rbx", "rcx", "rdx",
+						"rax", "rbx", "rcx",
+						// rdx -> used as input
 						// rsp -> manipulated behind the compiler.
 						// rbp -> can be used by compiler in debug mode,
 						//        so we saving it manually.

@@ -26,7 +26,7 @@
 
 namespace BENCH_TYPE {
 
-void function() {}
+void function() { }
 
 BENCH(BENCH_NAME(createContext), 23, BENCH_CAT(createStack, BENCH_TYPE))
 {

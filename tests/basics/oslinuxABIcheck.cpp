@@ -10,7 +10,6 @@
 using namespace coroutine::details::oslinux;
 using namespace coroutine::details;
 
-
 template <size_t ARCH_SIZE>
 void doABIConsistencyCheck();
 
