@@ -12,5 +12,6 @@
 #include <boost/test/unit_test.hpp>
 
 #define UNUSED __attribute__ ((unused))
+#define NOINLINE __attribute__ ((noinline))
 
 #endif /* TEST_H */
