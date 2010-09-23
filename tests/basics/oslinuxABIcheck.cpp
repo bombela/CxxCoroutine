@@ -11,35 +11,60 @@ using namespace coroutine::details::oslinux;
 using namespace coroutine::details;
 
 template <size_t ARCH_SIZE>
-void doABIConsistencyCheck();
+struct ABIConsistencyCheck;
 
 template <>
-void doABIConsistencyCheck<8>()
+struct ABIConsistencyCheck<8>
 {
-	asm (
-			"mov $0x42, %%rax\n\t"
-			"mov $0x43, %%rbx\n\t"
-			"mov $0x44, %%rcx\n\t"
-			"mov $0x45, %%rdx\n\t"
-			"mov $0x46, %%r8\n\t"
-			"mov $0x47, %%r9\n\t"
-			"mov $0x48, %%r10\n\t"
-			"mov $0x49, %%r11\n\t"
-			"mov $0x4a, %%r12\n\t"
-			"mov $0x4b, %%r13\n\t"
-			"mov $0x4c, %%r14\n\t"
-			"mov $0x4d, %%r15\n\t"
-			"mov $0x4e, %%rsi\n\t"
-			"mov $0x4f, %%rdi\n\t"
-			: // output
-			// not used
-			: // input
-			// not used
-			: // modified
+	static void check()
+	{
+		asm (
+				"mov $0x42, %%rax\n\t"
+				"mov $0x43, %%rbx\n\t"
+				"mov $0x44, %%rcx\n\t"
+				"mov $0x45, %%rdx\n\t"
+				"mov $0x46, %%r8\n\t"
+				"mov $0x47, %%r9\n\t"
+				"mov $0x48, %%r10\n\t"
+				"mov $0x49, %%r11\n\t"
+				"mov $0x4a, %%r12\n\t"
+				"mov $0x4b, %%r13\n\t"
+				"mov $0x4c, %%r14\n\t"
+				"mov $0x4d, %%r15\n\t"
+				"mov $0x4e, %%rsi\n\t"
+				"mov $0x4f, %%rdi\n\t"
+				: // output
+				// not used
+				: // input
+				// not used
+				: // modified
 				"rax", "rbx", "rcx", "rdx", "rdi", "rsi",
-				"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"
-				 );
-}
+			"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"
+				);
+	}
+};
+
+template <>
+struct ABIConsistencyCheck<4>
+{
+	static void check()
+	{
+		asm (
+				"mov $0x42, %%eax\n\t"
+				"mov $0x43, %%ebx\n\t"
+				"mov $0x44, %%ecx\n\t"
+				"mov $0x45, %%edx\n\t"
+				"mov $0x4e, %%esi\n\t"
+				"mov $0x4f, %%edi\n\t"
+				: // output
+				// not used
+				: // input
+				// not used
+				: // modified
+				"eax", "ebx", "ecx", "edx", "edi", "esi"
+				);
+	}
+};
 
 struct TestExecution
 {
@@ -56,7 +81,7 @@ struct TestYield: TestExecution
 	void operator()()
 	{
 		TestExecution::operator()();
-		doABIConsistencyCheck<sizeof (void*)>();
+		ABIConsistencyCheck<sizeof (void*)>::check();
 		context.yield();
 		BOOST_ERROR("yield passed");
 	}

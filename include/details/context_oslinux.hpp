@@ -31,6 +31,7 @@ inline void trampoline(C* context, F* f)
 } // namespace coroutine
 
 #include <details/context_oslinux_x86_64.hpp>
+#include <details/context_oslinux_x86_32.hpp>
 
 namespace coroutine {
 namespace details {
