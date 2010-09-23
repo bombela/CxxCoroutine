@@ -26,7 +26,7 @@ inline nanos_t res()
 	if (clock_getres(CLOCK_PROCESS_CPUTIME_ID, &res) != 0)
 		throw coroutine::error::System("clock_getres");
 
-	return res.tv_sec * 1000000000 + res.tv_nsec;
+	return (nanos_t)res.tv_sec * 1000000000 + res.tv_nsec;
 }
 
 inline nanos_t time()
@@ -36,7 +36,7 @@ inline nanos_t time()
 	if (clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts) != 0)
 		throw coroutine::error::System("clock_gettime");
 
-	return ts.tv_sec * 1000000000 + ts.tv_nsec;
+	return (nanos_t)ts.tv_sec * 1000000000 + ts.tv_nsec;
 }
 
 } // namespace posix
