@@ -52,13 +52,13 @@ class ContextImpl<Stack, 8>
 			_sp = (void**)_stack.getStack() + Stack::SIZE / sizeof(void*);
 			
 			// red zone begin
-			_sp -= 16;     // red zone
+			_sp -= 16; :             // red zone
 			// red zone end
-			*--_sp = 0;           // trampoline return
-			*--_sp = (void*) _cbptr;      // next instruction addr
-			*--_sp = _funcptr;    // rsi (trampoline arg2)
-			*--_sp = (void*)this; // rdi (trampoline arg1)
-			--_sp;                // rbp
+			*--_sp = 0;              // trampoline return
+			*--_sp = (void*) _cbptr; // next instruction addr
+			*--_sp = _funcptr;       // rsi (trampoline arg2)
+			*--_sp = (void*)this;    // rdi (trampoline arg1)
+			--_sp;                   // rbp
 		}
 	
 		void run() { swapContext(); }
