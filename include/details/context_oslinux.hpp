@@ -19,7 +19,7 @@ class ContextImpl;
 
 // TODO Only use one ptr to the trampoline
 template <typename C, typename F>
-inline void trampoline(C* context, F* f)
+inline void trampoline(C* context, F f)
 {
 	(*f)();
 	context->swapContext();
@@ -45,7 +45,7 @@ class Context: public ContextImpl<Stack<StackImpl, STACK_SIZE>, sizeof(void*)>
 		typedef ContextImpl<Stack<StackImpl, STACK_SIZE>, sizeof(void*)> impl_t;
 
 		template <typename F>
-		Context(F& cb): impl_t(cb) {}
+		Context(F cb): impl_t(cb) {}
 };
 
 } // namespace oslinux

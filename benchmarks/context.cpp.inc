@@ -30,12 +30,12 @@ void function() { }
 
 BENCH(BENCH_NAME(createContext), 23, BENCH_CAT(createStack, BENCH_TYPE))
 {
-	UNUSED Context<STACK> context(function);
+	UNUSED Context<STACK> context(&function);
 }
 
 BENCH(BENCH_NAME(runContext), 23, BENCH_NAME(createContext))
 {
-	UNUSED Context<STACK> context(function);
+	UNUSED Context<STACK> context(&function);
 	context.run();
 }
 

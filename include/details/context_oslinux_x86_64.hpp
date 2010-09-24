@@ -18,16 +18,16 @@ template<class Stack>
 class ContextImpl<Stack, 8>
 {
 	template <typename C, typename F>
-		friend inline void trampoline(C*, F*);
+		friend inline void trampoline(C*, F);
 	
 	typedef void (callback_t)();
 
 	public:
 		template <typename F>
-		ContextImpl(F& cb):
+		ContextImpl(F cb):
 			_cbptr( (callback_t*)
-					(void (*)(ContextImpl*, F*)) &trampoline<ContextImpl, F>),
-			_funcptr( (void*) &cb)
+					(void (*)(ContextImpl*, F)) &trampoline<ContextImpl, F>),
+			_funcptr( (void*) cb)
 		{
 			reset();
 		}

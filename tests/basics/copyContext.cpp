@@ -38,7 +38,7 @@ BOOST_AUTO_TEST_CASE(copyPosixContext)
 {
 	ContextTester< posix::Context<stack::Static> > tester;
 
-	posix::Context<stack::Static> a(tester);
+	posix::Context<stack::Static> a(&tester);
 	tester.test(a);
 	
 	posix::Context<stack::Static> b = a;
@@ -52,7 +52,7 @@ BOOST_AUTO_TEST_CASE(copyOsLinuxContext)
 {
 	ContextTester< oslinux::Context<stack::Static> > tester;
 
-	oslinux::Context<stack::Static> a(tester);
+	oslinux::Context<stack::Static> a(&tester);
 	tester.test(a);
 
 	oslinux::Context<stack::Static> b = a;

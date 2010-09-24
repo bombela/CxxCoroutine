@@ -20,7 +20,7 @@ namespace posix {
 #include <errno.h>
 
 template <typename F>
-inline void trampoline(F* f)
+inline void trampoline(F f)
 {
 	(*f)();
 }
@@ -34,9 +34,9 @@ class Context
 
 	public:
 		template <typename F>
-		Context(F& cb):
-			_cbptr( (callback_t*) (void (*)(F*)) &trampoline<F>),
-			_funcptr( (void*) &cb)
+		Context(F cb):
+			_cbptr( (callback_t*) (void (*)(F)) &trampoline<F>),
+			_funcptr( (void*) cb)
 		{
 			reset();
 		}

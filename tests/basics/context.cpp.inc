@@ -13,12 +13,12 @@ void function() {}
 
 BOOST_AUTO_TEST_CASE(create)
 {
-	Context<> context(function);
+	Context<> context(&function);
 }
 
 BOOST_AUTO_TEST_CASE(createWithSpecificStackSize)
 {
-    Context<stack::Static, 1024> context(function);
+    Context<stack::Static, 1024> context(&function);
 }
 
 struct Functor
@@ -29,7 +29,7 @@ struct Functor
 BOOST_AUTO_TEST_CASE(functor)
 {
 	Functor f;
-    Context<> context(f);
+    Context<> context(&f);
 }
 
 struct TestExecution
@@ -42,7 +42,7 @@ struct TestExecution
 BOOST_AUTO_TEST_CASE(execution)
 {
 	TestExecution f;
-    Context<> context(f);
+    Context<> context(&f);
 	context.run();
 	BOOST_CHECK(f.executed);
 }
@@ -51,7 +51,7 @@ template <typename Context>
 struct TestYield: TestExecution
 {
     Context context;
-	TestYield(): context(*this) {}
+	TestYield(): context(this) {}
 	void operator()()
 	{
 		TestExecution::operator()();
@@ -87,7 +87,7 @@ struct LotOfStack: TestExecution
 BOOST_AUTO_TEST_CASE(uselotofstack)
 {
 	LotOfStack test;
-    Context<stack::Dynamic, 1024*41> context(test);
+    Context<stack::Dynamic, 1024*41> context(&test);
 	context.run();
 	BOOST_CHECK(test.executed);
 }

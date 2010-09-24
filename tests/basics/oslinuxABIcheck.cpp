@@ -77,7 +77,7 @@ template <typename Context>
 struct TestYield: TestExecution
 {
     Context context;
-	TestYield(): context(*this) {}
+	TestYield(): context(this) {}
 	void operator()()
 	{
 		TestExecution::operator()();
