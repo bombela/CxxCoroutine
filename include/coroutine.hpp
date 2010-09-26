@@ -8,8 +8,12 @@
 #ifndef COROUTINE_H
 #define COROUTINE_H
 
+#include <context.hpp>
+#include <yielder.hpp>
+
 namespace coroutine {
 
+template <typename T>
 class Coroutine
 {
 	public:

@@ -10,10 +10,13 @@
 
 namespace coroutine {
 
-template <typename C, typename T>
+template <typename T>
 class Yielder
 {
 	public:
+		void operator()(T value)
+		{
+		}
 
 	private:
 		Yielder(const Yielder& from); // disabled
