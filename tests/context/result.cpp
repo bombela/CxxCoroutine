@@ -5,3 +5,7 @@
 */
 
 #include <test.hpp>
+
+BOOST_AUTO_TEST_CASE(value)
+{
+}

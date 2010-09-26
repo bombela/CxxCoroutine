@@ -10,7 +10,6 @@
 
 using namespace coroutine;
 
-/*
 void function() {}
 
 BOOST_AUTO_TEST_CASE(create)
@@ -93,4 +92,3 @@ BOOST_AUTO_TEST_CASE(uselotofstack)
 	context.run();
 	BOOST_CHECK(test.executed);
 }
-*/
