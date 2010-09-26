@@ -12,7 +12,7 @@
  * Enabled, will enabme trampoline parameters passing
  * by the stack rather than registers like specified in the ABI.
  */
-#define CORO_LINUX_8664_BOOTSTRAP_ARGS
+//#define CORO_LINUX_8664_BOOTSTRAP_ARGS
 
 namespace coroutine {
 namespace details {

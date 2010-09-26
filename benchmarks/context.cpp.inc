@@ -39,6 +39,32 @@ BENCH(BENCH_NAME(runContext), 23, BENCH_NAME(createContext))
 	context.run();
 }
 
+struct LoopTester
+{
+	static const long int LOOP_SIZE = 1 << 14;
+
+	typedef Context<STACK> context_t;
+	
+	context_t* context;
+	void setContext(context_t* c) { context = c; }
+
+	void operator()()
+	{
+		for (int i = 0; i < LOOP_SIZE; ++i)
+		context->yield();
+	}
+};
+
+BENCH(BENCH_NAME(runContextLoop), 14, BENCH_NAME(createContext))
+{
+	LoopTester functor;
+	Context<STACK> context(&functor);
+	functor.setContext(&context);
+
+	for (int i = 0; i < LoopTester::LOOP_SIZE; ++i)
+		context.run();
+}
+
 } // namespace 
 
 #endif
