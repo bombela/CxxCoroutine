@@ -15,9 +15,10 @@
 //#define CORO_LINUX_8664_BOOTSTRAP_STACK
 
 /*
- * Enabled, will 
+ * Enabled, will use a copy paste of the code
+ * (implemented trough template).
  */
-//#define CORO_LINUX_8664_2CALLSITE
+//#define CORO_LINUX_8664_2SWAPSITE
 
 namespace coroutine {
 namespace details {
