@@ -5,7 +5,6 @@
 */
 
 #include <benchmark.hpp>
-#include <details/stack.hpp>
 
 namespace {
 

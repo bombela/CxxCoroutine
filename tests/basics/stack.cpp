@@ -5,9 +5,9 @@
 */
 
 #include <test.hpp>
-#include <details/stack.hpp>
+#include <stack.hpp>
 
-using namespace coroutine::details;
+using namespace coroutine;
 
 template <typename S>
 void validateStack(S& s)

@@ -9,7 +9,7 @@
 #define CONTEXT_POSIX_H
 
 #include <error.hpp>
-#include <details/stack.hpp>
+#include <stack.hpp>
 
 namespace coroutine {
 namespace details {
@@ -26,7 +26,7 @@ inline void trampoline(F f)
 }
 
 template <template <size_t> class StackImpl = stack::Static,
-		 size_t STACK_SIZE = stack::DEFAULT_SIZE>
+		 size_t STACK_SIZE = coroutine::stack::DEFAULT_SIZE>
 class Context
 {
 	typedef Stack<StackImpl, STACK_SIZE> stack_t;

@@ -8,7 +8,7 @@
 #ifndef CONTEXT_OSLINUX_H
 #define CONTEXT_OSLINUX_H
 
-#include <details/stack.hpp>
+#include <stack.hpp>
 
 namespace coroutine {
 namespace details {
@@ -28,8 +28,8 @@ namespace coroutine {
 namespace details {
 namespace oslinux {
 
-template <template <size_t> class StackImpl = stack::Static,
-		 size_t STACK_SIZE = stack::DEFAULT_SIZE>
+template <template <size_t> class StackImpl = coroutine::stack::Static,
+		 size_t STACK_SIZE = coroutine::stack::DEFAULT_SIZE>
 class Context: public ContextImpl<Stack<StackImpl, STACK_SIZE>, sizeof(void*)>
 {
 	public:

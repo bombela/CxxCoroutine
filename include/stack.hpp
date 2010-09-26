@@ -12,11 +12,13 @@
 #include <details/stack_dynamic.hpp>
 
 namespace coroutine {
-namespace details {
 
 namespace stack {
 
 enum { DEFAULT_SIZE = 2048 };
+
+using details::stack::Static;
+using details::stack::Dynamic;
 
 } // namespace stack
 
@@ -29,7 +31,6 @@ class Stack: public StackImpl<STACK_SIZE>
 		size_t getSize()  const { return STACK_SIZE; }
 };
 
-} // namespace details
-} // namespace coro
+} // namespace coroutine
 
 #endif /* STACK_H */

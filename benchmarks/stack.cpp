@@ -5,9 +5,9 @@
 */
 
 #include <benchmark.hpp>
-#include <details/stack.hpp>
+#include <stack.hpp>
 
-using namespace coroutine::details;
+using namespace coroutine;
 
 BENCH(createStack_static, 23)
 {
