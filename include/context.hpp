@@ -15,11 +15,9 @@
 	} // namespace coroutine
 #elif defined(__USE_POSIX)
 #	include <details/context_posix.hpp>
-namespace coroutine {
 	namespace coroutine {
 		using details::posix::Context;
 	} // namespace coroutine
-} // namespace coroutine
 #else
 #	error Non posix system not yet supported!
 #endif
