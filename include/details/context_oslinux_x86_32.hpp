@@ -8,6 +8,14 @@
 #ifndef CONTEXT_OSLINUX_X86_32_H
 #define CONTEXT_OSLINUX_X86_32_H
 
+/*
+ * Enabled, will use a copy paste of the code
+ * (implemented trough template).
+ */
+#ifndef NO_CORO_LINUX_8632_2SWAPSITE
+#	define CORO_LINUX_8632_2SWAPSITE
+#endif
+
 namespace coroutine {
 namespace details {
 namespace oslinux {
@@ -53,8 +61,22 @@ class ContextImpl<Stack, 4>
 			--_sp;                  // rbp
 		}
 	
-		void run() { swapContext(); }
-		void yield() { swapContext(); }
+		void run()
+		{
+#ifdef    CORO_LINUX_8632_2SWAPSITE
+			swapContext<1>();
+#else  // !CORO_LINUX_8632_2SWAPSITE
+			swapContext();
+#endif // CORO_LINUX_8632_2SWAPSITE
+		}
+		void yield()
+		{
+#ifdef    CORO_LINUX_8632_2SWAPSITE
+			swapContext<1>();
+#else  // !CORO_LINUX_8632_2SWAPSITE
+			swapContext();
+#endif // CORO_LINUX_8632_2SWAPSITE
+		}
 		
 		static const char* getImplName() { return "linux x86_32"; }
 
@@ -72,6 +94,9 @@ class ContextImpl<Stack, 4>
 			abort();
 		}
 
+#ifdef    CORO_LINUX_8632_2SWAPSITE
+		template <int>
+#endif // CORO_LINUX_8632_2SWAPSITE
 		void swapContext()
 		{
 			asm volatile (

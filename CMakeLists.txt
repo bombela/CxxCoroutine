@@ -99,6 +99,12 @@ if (NOT LINUX_8664_2SWAPSITE)
 	add_definitions(-DNO_CORO_LINUX_8664_2SWAPSITE)
 endif()
 
+set(LINUX_8632_2SWAPSITE true CACHE BOOL
+	"Linux x86_32: swapContext copy pasted for help CPU prediction")
+if (NOT LINUX_8632_2SWAPSITE)
+	add_definitions(-DNO_CORO_LINUX_8632_2SWAPSITE)
+endif()
+
 ###############################################################################
 # SUBDIRS
 ###############################################################################
