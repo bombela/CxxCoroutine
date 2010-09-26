@@ -19,7 +19,7 @@
 		using details::posix::Context;
 	} // namespace coroutine
 #else
-#	error Non posix system not yet supported!
+#	error System not yet supported!
 #endif
 
 #endif /* CONTEXT_H */

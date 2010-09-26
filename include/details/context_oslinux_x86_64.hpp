@@ -98,6 +98,8 @@ class ContextImpl<Stack, 8>
 			swapContext();
 #endif // CORO_LINUX_8664_2SWAPSITE
 		}
+		
+		static const char* getImplName() { return "linux x86_64"; }
 
 	private:
 		callback_t* _cbptr;

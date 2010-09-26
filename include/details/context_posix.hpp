@@ -80,6 +80,8 @@ class Context
 				throw createError("coroutine::details::ContextBase::yield(), "
 						"swapcontext failed");
 		}
+
+		static const char* getImplName() { return "posix"; }
 		
 	private:
 		ucontext    _mainContext;

@@ -55,6 +55,8 @@ class ContextImpl<Stack, 4>
 	
 		void run() { swapContext(); }
 		void yield() { swapContext(); }
+		
+		static const char* getImplName() { return "linux x86_32"; }
 
 	private:
 		callback_t* _cbptr;

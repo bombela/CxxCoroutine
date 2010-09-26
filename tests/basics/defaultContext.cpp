@@ -7,6 +7,7 @@
 #include <test.hpp>
 #include <context.hpp>
 #include <stack.hpp>
+#include <iostream>
 
 using namespace coroutine;
 
@@ -75,20 +76,8 @@ BOOST_AUTO_TEST_CASE(yieldWithDynamicStack)
 	BOOST_CHECK(test.executed);
 }
 
-struct LotOfStack: TestExecution
+BOOST_AUTO_TEST_CASE(printImpl)
 {
-	void operator()() __attribute__ ((noinline))
-	{
-		TestExecution::operator()();
-		char data[1024*40];
-		data[0] = 42;
-	}
-};
-
-BOOST_AUTO_TEST_CASE(uselotofstack)
-{
-	LotOfStack test;
-    Context<stack::Dynamic, 1024*41> context(&test);
-	context.run();
-	BOOST_CHECK(test.executed);
+	std::cout << "Default implemention selected: "
+		<< Context<>::getImplName() << std::endl;
 }
