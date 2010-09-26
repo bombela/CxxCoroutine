@@ -93,6 +93,12 @@ if (LINUX_8664_BOOTSTRAP_STACK)
 	add_definitions(-DCORO_LINUX_8664_BOOTSTRAP_STACK)
 endif()
 
+set(LINUX_8664_2SWAPSITE true CACHE BOOL
+	"Linux x86_64: swapContext copy pasted for help CPU prediction")
+if (LINUX_8664_2SWAPSITE)
+	add_definitions(-DCORO_LINUX_8664_2SWAPSITE)
+endif()
+
 ###############################################################################
 # SUBDIRS
 ###############################################################################

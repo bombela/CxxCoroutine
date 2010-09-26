@@ -81,8 +81,23 @@ class ContextImpl<Stack, 8>
 			--_sp;                   // rbp
 		}
 	
-		void run() { swapContext(); }
-		void yield() { swapContext(); }
+		void run()
+		{
+#ifdef    CORO_LINUX_8664_2SWAPSITE
+			swapContext<1>();
+#else  // !CORO_LINUX_8664_2SWAPSITE
+			swapContext();
+#endif // CORO_LINUX_8664_2SWAPSITE
+		}
+
+		void yield()
+		{
+#ifdef    CORO_LINUX_8664_2SWAPSITE
+			swapContext<2>();
+#else  // !CORO_LINUX_8664_2SWAPSITE
+			swapContext();
+#endif // CORO_LINUX_8664_2SWAPSITE
+		}
 
 	private:
 		callback_t* _cbptr;
@@ -104,6 +119,9 @@ class ContextImpl<Stack, 8>
 			abort();
 		}
 
+#ifdef    CORO_LINUX_8664_2SWAPSITE
+		template <int>
+#endif // CORO_LINUX_8664_2SWAPSITE
 		void swapContext()
 		{
 			/*
