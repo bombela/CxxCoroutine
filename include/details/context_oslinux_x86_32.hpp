@@ -66,7 +66,7 @@ class ContextImpl<Stack, 4>
 		static void trampoline(C* context, F f)
 		{
 			(*f)();
-			context->swapContext();
+			context->yield();
 			abort();
 		}
 
