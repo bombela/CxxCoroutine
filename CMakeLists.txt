@@ -87,10 +87,10 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 ###############################################################################
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-set(LINUX_8664_BOOTSTRAP_ARGS true CACHE BOOL
+set(LINUX_8664_BOOTSTRAP_STACK true CACHE BOOL
 	"Linux x86_64 custom asm: trampoline boostraped by stack rather than registers")
-if (LINUX_8664_BOOTSTRAP_ARGS)
-	add_definitions(-DCORO_LINUX_8664_BOOTSTRAP_ARGS)
+if (LINUX_8664_BOOTSTRAP_STACK)
+	add_definitions(-DCORO_LINUX_8664_BOOTSTRAP_STACK)
 endif()
 
 ###############################################################################

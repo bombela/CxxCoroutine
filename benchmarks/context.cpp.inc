@@ -55,7 +55,13 @@ struct LoopTester
 	}
 };
 
-BENCH(BENCH_NAME(runContextLoop), 14, BENCH_NAME(createContext))
+#ifdef BENCH_ARCH_POSIX
+#	define RUN_CONTEXT_LOOP_CNT 10
+#else
+#	define RUN_CONTEXT_LOOP_CNT 14
+#endif
+
+BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT, BENCH_NAME(createContext))
 {
 	LoopTester functor;
 	Context<STACK> context(&functor);

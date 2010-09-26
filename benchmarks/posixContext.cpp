@@ -11,6 +11,7 @@ using namespace coroutine::details;
 using namespace coroutine::details::posix;
 
 #define BENCH_ARCH posix
+#define BENCH_ARCH_POSIX
 #include "context.cpp.inc"
 
 BENCH_MAIN(fullbench)

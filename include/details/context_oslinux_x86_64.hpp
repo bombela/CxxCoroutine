@@ -9,10 +9,15 @@
 #define CONTEXT_OSLINUX_X86_64_H
 
 /*
- * Enabled, will enabme trampoline parameters passing
- * by the stack rather than registers like specified in the ABI.
+ * Enabled, will use trampoline parameters passing
+ * by the stack rather than registers.
  */
-//#define CORO_LINUX_8664_BOOTSTRAP_ARGS
+//#define CORO_LINUX_8664_BOOTSTRAP_STACK
+
+/*
+ * Enabled, will 
+ */
+//#define CORO_LINUX_8664_2CALLSITE
 
 namespace coroutine {
 namespace details {
@@ -26,14 +31,14 @@ class ContextImpl<Stack, 8>
 	public:
 		template <typename F>
 		ContextImpl(F cb):
-#ifdef    CORO_LINUX_8664_BOOTSTRAP_ARGS
+#ifdef    CORO_LINUX_8664_BOOTSTRAP_STACK
 			_cbptr( (callback_t*)
 					(void (*)(int, int, int, int, int, int, ContextImpl*, F))
 					&trampoline<F>),
-#else // !CORO_LINUX_8664_BOOTSTRAP_ARGS
+#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
 			_cbptr( (callback_t*) (void (*)(ContextImpl*, F))
 					&trampoline<F>),
-#endif // CORO_LINUX_8664_BOOTSTRAP_ARGS
+#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 			_funcptr( (void*) cb)
 		{
 			reset();
@@ -61,17 +66,17 @@ class ContextImpl<Stack, 8>
 			// red zone begin
 			_sp -= 16;               // red zone
 			// red zone end
-#ifdef   CORO_LINUX_8664_BOOTSTRAP_ARGS
+#ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
 			*--_sp = _funcptr;       // rsi (trampoline arg2)
 			*--_sp = (void*)this;    // rdi (trampoline arg1)
 			*--_sp = 0;              // trampoline return
 			*--_sp = (void*) _cbptr; // next instruction addr
-#else // !CORO_LINUX_8664_BOOTSTRAP_ARGS
+#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
 			*--_sp = 0;              // trampoline return
 			*--_sp = (void*) _cbptr; // next instruction addr
 			*--_sp = _funcptr;       // rsi (trampoline arg2)
 			*--_sp = (void*)this;    // rdi (trampoline arg1)
-#endif // CORO_LINUX_8664_BOOTSTRAP_ARGS
+#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 			--_sp;                   // rbp
 		}
 	
@@ -86,10 +91,10 @@ class ContextImpl<Stack, 8>
 
 		template <typename F>
 		static void trampoline(
-#ifdef   CORO_LINUX_8664_BOOTSTRAP_ARGS
+#ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
 				int, int, int, int, int, int, // fill reg passing,
 				// so everything else will by passed trough the stack.
-#endif // CORO_LINUX_8664_BOOTSTRAP_ARGS
+#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 				ContextImpl* context, F f
 				)
 		{
@@ -136,10 +141,10 @@ class ContextImpl<Stack, 8>
 					"push $1f\n\t"
 
 					// store registers
-#ifndef   CORO_LINUX_8664_BOOTSTRAP_ARGS
+#ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
 					"push %%rsi\n\t"
 					"push %%rdi\n\t"
-#endif // CORO_LINUX_8664_BOOTSTRAP_ARGS
+#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 					"push %%rbp\n\t"
 
 					// switch stack
@@ -147,10 +152,10 @@ class ContextImpl<Stack, 8>
 
 					// restore registers
 					"pop %%rbp\n\t"
-#ifndef   CORO_LINUX_8664_BOOTSTRAP_ARGS
+#ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
 					"pop %%rdi\n\t"
 					"pop %%rsi\n\t"
-#endif // CORO_LINUX_8664_BOOTSTRAP_ARGS
+#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 
 					// jump to next instruction
 					"pop %%rax\n\t"
@@ -170,12 +175,12 @@ class ContextImpl<Stack, 8>
 						//        so we saving it manually.
 						//        - GCC in -O0 mode reserve *bp.
 						//        - LLVM doesn't seem to have this caveat.
-#ifdef    CORO_LINUX_8664_BOOTSTRAP_ARGS
+#ifdef    CORO_LINUX_8664_BOOTSTRAP_STACK
 						"rsi", "rdi",
-#else // !CORO_LINUX_8664_BOOTSTRAP_ARGS
+#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
 						// rsi -> used as trampoline first arg
 						// rdi -> used as trampoline second arg
-#endif // CORO_LINUX_8664_BOOTSTRAP_ARGS
+#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 						"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
 						"%st(1)", "%st(2)", "%st(3)", "%st(4)", "%st(5)",
 						"%st(6)", "%st(7)",
