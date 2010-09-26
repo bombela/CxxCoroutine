@@ -17,16 +17,13 @@ namespace oslinux {
 template<class Stack>
 class ContextImpl<Stack, 8>
 {
-	template <typename C, typename F>
-		friend inline void trampoline(C*, F);
-	
 	typedef void (callback_t)();
 
 	public:
 		template <typename F>
 		ContextImpl(F cb):
 			_cbptr( (callback_t*)
-					(void (*)(ContextImpl*, F)) &trampoline<ContextImpl, F>),
+					(void (*)(ContextImpl*, F)) &trampoline<F>),
 			_funcptr( (void*) cb)
 		{
 			reset();
@@ -69,6 +66,14 @@ class ContextImpl<Stack, 8>
 		void*       _funcptr;
 		void**      _sp;
 		Stack       _stack;
+
+		template <typename F>
+		static void trampoline(ContextImpl* context, F f)
+		{
+			(*f)();
+			context->swapContext();
+			abort();
+		}
 
 		void swapContext()
 		{
