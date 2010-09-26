@@ -12,13 +12,17 @@
  * Enabled, will use trampoline parameters passing
  * by the stack rather than registers.
  */
-//#define CORO_LINUX_8664_BOOTSTRAP_STACK
+#ifndef NO_CORO_LINUX_8664_BOOTSTRAP_STACK
+#	define CORO_LINUX_8664_BOOTSTRAP_STACK
+#endif
 
 /*
  * Enabled, will use a copy paste of the code
  * (implemented trough template).
  */
-//#define CORO_LINUX_8664_2SWAPSITE
+#ifndef NO_CORO_LINUX_8664_2SWAPSITE
+#	define CORO_LINUX_8664_2SWAPSITE
+#endif
 
 namespace coroutine {
 namespace details {
