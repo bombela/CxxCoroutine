@@ -115,7 +115,7 @@ class ContextImpl<Stack, 8>
 				)
 		{
 			(*f)();
-			context->swapContext();
+			context->yield();
 			abort();
 		}
 
