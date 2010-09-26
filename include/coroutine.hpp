@@ -22,6 +22,11 @@ class Coroutine
 {
 	public:
 		typedef C context_t;
+
+		template <typename F>
+		Coroutine(F f)
+		{
+		}
 		
 	private:
 };

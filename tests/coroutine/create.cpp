@@ -10,27 +10,29 @@
 
 using namespace coroutine;
 
+void function(Yielder<int>& yield) {}
+
 BOOST_AUTO_TEST_CASE(defvoid)
 {
-	Coroutine<void> coro UNUSED;
+	Coroutine<void> coro(&function);
 }
 
 BOOST_AUTO_TEST_CASE(defint)
 {
-	Coroutine<int> coro UNUSED;
+	Coroutine<int> coro(&function);
 }
 
 BOOST_AUTO_TEST_CASE(customStack)
 {
-	Coroutine<int, Context<stack::Dynamic> > coro UNUSED;
+	Coroutine<int, Context<stack::Dynamic> > coro(&function);
 }
 
 BOOST_AUTO_TEST_CASE(customStackSize)
 {
-	Coroutine<int, Context<stack::Static, 2048> > coro UNUSED;
+	Coroutine<int, Context<stack::Static, 2048> > coro(&function);
 }
 
 BOOST_AUTO_TEST_CASE(customContext)
 {
-	Coroutine<int, details::posix::Context<> > coro UNUSED;
+	Coroutine<int, details::posix::Context<> > coro(&function);
 }
