@@ -13,10 +13,15 @@
 
 namespace coroutine {
 
-template <typename T>
+template <typename T, class C = Context<> >
+		 /*
+		 template <size_t> class StackImpl = stack::Static,
+		 size_t STACK_SIZE = coroutine::stack::DEFAULT_SIZE,
+		 template <template <size_t > class, size_t> class C = Context>*/
 class Coroutine
 {
 	public:
+		typedef C context_t;
 		
 	private:
 };
