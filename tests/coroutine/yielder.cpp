@@ -6,10 +6,9 @@
 
 #include <test.hpp>
 #include <coroutine.hpp>
-#include <yielder.hpp>
 
 using namespace coroutine;
-/*
+
 void function(Yielder<int>& yield)
 {
 	yield(42);
@@ -20,4 +19,4 @@ void function(Yielder<int>& yield)
 BOOST_AUTO_TEST_CASE(returnInt)
 {
 	Coroutine<int> coro(&function);
-}*/
+}
