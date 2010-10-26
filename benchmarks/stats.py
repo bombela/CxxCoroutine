@@ -54,7 +54,7 @@ for pkg, records in pkgs.items():
 	print "Computing average time for %s benchmarks..." % (pkg)
 	for name, record in records.items():
 		relto = record[0]['relto']
-		elapsed = sum([r['elapsed'] for r in record]) / len(record)
+		elapsed = int(sum([r['elapsed'] for r in record]) / len(record))
 		records[name] = { 'elapsed': elapsed, 'relto': relto }
 
 pp(pkgs)
@@ -68,7 +68,7 @@ def remove_rel_time(records, key):
 		records[key]['elapsed_abs'] = records[key]['elapsed']
 		return
 	remove_rel_time(records, relto)
-	records[key]['elapsed_abs'] = records[key]['elapsed'] - records[relto]['elapsed']
+	records[key]['elapsed_abs'] = int(records[key]['elapsed'] - records[relto]['elapsed'])
 
 for pkg, records in pkgs.items():
 	print "Removing relative time for %s benchmarks..." % (pkg)
