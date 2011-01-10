@@ -10,13 +10,13 @@
 
 #define BENCH_TYPE _static
 #define STACK stack::Static
-#include "context.cpp.inc"
+#include "context_loop.cpp.inc"
 #undef STACK
 #undef BENCH_TYPE
 
 #define BENCH_TYPE _dynamic
 #define STACK stack::Dynamic
-#include "context.cpp.inc"
+#include "context_loop.cpp.inc"
 #undef STACK
 #undef BENCH_TYPE
 

@@ -57,8 +57,6 @@ for pkg, records in pkgs.items():
 		elapsed = int(sum([r['elapsed'] for r in record]) / len(record))
 		records[name] = { 'elapsed': elapsed, 'relto': relto }
 
-pp(pkgs)
-
 def remove_rel_time(records, key):
 	if 'relto' not in records[key]:
 		return
@@ -67,16 +65,25 @@ def remove_rel_time(records, key):
 	if key == relto:
 		records[key]['elapsed_abs'] = records[key]['elapsed']
 		return
-	remove_rel_time(records, relto)
-	records[key]['elapsed_abs'] = int(records[key]['elapsed'] - records[relto]['elapsed'])
+
+	if relto in records:
+		remove_rel_time(records, relto)
+		rel_records = records
+	else:
+		for p_name, p_records in pkgs.items():
+			if relto in p_records:
+				remove_rel_time(p_records, relto)
+				rel_records = p_records
+				break
+
+	records[key]['elapsed_abs'] = int(records[key]['elapsed']
+			- rel_records[relto]['elapsed'])
 
 for pkg, records in pkgs.items():
 	print "Removing relative time for %s benchmarks..." % (pkg)
 	for name, record in records.items():
 		print name, record
 		remove_rel_time(records, name)
-pp(pkgs)
-
 
 def computeSubplotColAndRow(nbsubfig):
 	size = int(math.sqrt(nbsubfig - 1)) + 1

@@ -13,4 +13,4 @@ using namespace coroutine::details::oslinux;
 #define BENCH_ARCH oslinux
 #include "context_loop.cpp.inc"
 
-BENCH_MAIN(loop)
+BENCH_MAIN(loope)
