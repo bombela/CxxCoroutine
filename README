@@ -1,0 +1,18 @@
+Need cmake and boost to build.
+
+configure:
+	mkdir build
+	cd build
+	cmake -DCMAKE_BUILD_TYPE=Release ..
+
+build:
+	make
+
+run test:
+	make test
+
+run benchmarks:
+	make bench
+
+show nice benchmarks stats (need python and plotlib for python):
+	make stat
