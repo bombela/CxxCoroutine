@@ -16,7 +16,8 @@ template <size_t STACK_SIZE>
 class Static
 {
 	public:
-		char*  getStack() { return _stack; }
+		size_t getSize()   const { return STACK_SIZE; }
+		char*  getStackPointer() { return _stack; }
 		
 	private:
 		char _stack[STACK_SIZE];

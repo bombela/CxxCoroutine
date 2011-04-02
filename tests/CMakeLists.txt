@@ -17,5 +17,6 @@ endmacro()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-add_subdirectory(basics)
+add_subdirectory(stack)
+add_subdirectory(context)
 add_subdirectory(coroutine)

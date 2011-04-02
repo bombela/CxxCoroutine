@@ -5,6 +5,7 @@
 #
 
 set(TEST_SRCS
+	stack.cpp
 )
 
 foreach(f ${TEST_SRCS})

@@ -52,7 +52,8 @@ class ContextImpl<Stack, 4>
 
 		void reset()
 		{
-			_sp = (void**)_stack.getStack() + Stack::SIZE / sizeof(void*);
+			_sp = reinterpret_cast<void**>(_stack.getStackPointer())
+				+ Stack::SIZE / sizeof(void*);
 			
 			*--_sp = _funcptr;      // (trampoline arg2)
 			*--_sp = (void*)this;   // (trampoline arg1)

@@ -41,3 +41,15 @@ BOOST_AUTO_TEST_CASE(customContext)
 	Coroutine<int, void (*)(Yielder<int>&),
 		details::posix::Context<> > coro(&function);
 }
+
+struct Functor {
+	void operator()(Yielder<int>&) {
+		
+	}
+};
+
+BOOST_AUTO_TEST_CASE(functor)
+{
+	Functor f;
+	Coroutine<int, Functor> coro(f);
+}

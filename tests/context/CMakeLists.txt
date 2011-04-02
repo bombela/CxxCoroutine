@@ -4,7 +4,13 @@
 #
 #
 
-file(GLOB TEST_SRCS "*.cpp")
+set(TEST_SRCS
+	#posixContext.cpp
+	#oslinuxContext.cpp
+	#oslinuxABIcheck.cpp
+	#defaultContext.cpp
+)
+
 foreach(f ${TEST_SRCS})
 	coroutine_add_test(${f})
 endforeach()

@@ -66,7 +66,8 @@ class ContextImpl<Stack, 8>
 
 		void reset()
 		{
-			_sp = (void**)_stack.getStack() + Stack::SIZE / sizeof(void*);
+			_sp = reinterpret_cast<void**>(_stack.getStackPointer())
+				+ (Stack::SIZE / sizeof(void*));
 			
 			// red zone begin
 			_sp -= 16;               // red zone

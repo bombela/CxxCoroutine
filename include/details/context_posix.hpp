@@ -25,33 +25,26 @@ inline void trampoline(F f)
 	(*f)();
 }
 
-template <template <size_t> class StackImpl = stack::Static,
-		 size_t STACK_SIZE = coroutine::stack::DEFAULT_SIZE>
+template <class Stack>
 class Context
 {
-	typedef Stack<StackImpl, STACK_SIZE> stack_t;
-	typedef void (callback_t)();
-
 	public:
-		template <typename F>
-		Context(F cb):
-			_cbptr( (callback_t*) (void (*)(F)) &trampoline<F>),
-			_funcptr( (void*) cb)
+		Context(void (*f)(void*), void* arg):
+			_f(f), _arg(arg)
 		{
 			reset();
 		}
 
 		Context(const Context& from):
-			_cbptr(from._cbptr),
-			_funcptr(from._funcptr)
+			_f(from.f), _arg(from.arg)
 		{
 			reset();
 		}
 
 		Context& operator=(const Context& from)
 		{
-			_cbptr = from._cbptr;
-			_funcptr = from._funcptr;
+			_f   = from._f;
+			_arg = from._arg;
 			reset();
 			return *this;
 		}
@@ -59,36 +52,36 @@ class Context
 		void reset()
 		{
 			if (getcontext(&_coroContext) == -1)
-				throw createError("coroutine::details::ContextBase(), "
+				throw createError(__PRETTY_FUNCTION__
 						"getcontext failed");
-			_coroContext.uc_link = &_mainContext;
-			_coroContext.uc_stack.ss_sp = _stack.getStack();
-			_coroContext.uc_stack.ss_size = stack_t::SIZE;
+			_coroContext.uc_link          = &_mainContext;
+			_coroContext.uc_stack.ss_sp   = _stack.getStackPointer();
+			_coroContext.uc_stack.ss_size = Stack::SIZE;
 			makecontext(&_coroContext, _cbptr, 1, _funcptr);
 		}
 
-		void run()
+		void enter()
 		{
 			if (swapcontext(&_mainContext, &_coroContext) == -1)
-				throw createError("coroutine::details::ContextBase::run(), "
+				throw createError(__PRETTY_FUNCTION__
 						"swapcontext failed");
 		}
 
-		void yield()
+		void enter()
 		{
 			if (swapcontext(&_coroContext, &_mainContext) == -1)
-				throw createError("coroutine::details::ContextBase::yield(), "
+				throw createError(__PRETTY_FUNCTION__
 						"swapcontext failed");
 		}
 
 		static const char* getImplName() { return "posix"; }
 		
 	private:
-		ucontext    _mainContext;
-		ucontext    _coroContext;
-		callback_t* _cbptr;
-		void*       _funcptr;
-		stack_t     _stack;
+		ucontext          _mainContext;
+		ucontext          _coroContext;
+		void (*_f)(void*) _f;
+		void             *_arg;
+		Stack             _stack;
 
 		error::System createError(const char* msg)
 		{

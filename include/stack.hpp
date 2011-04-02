@@ -12,25 +12,20 @@
 #include <details/stack_dynamic.hpp>
 
 namespace coroutine {
-
 namespace stack {
 
-enum { DEFAULT_SIZE = 2048 };
+static const size_t default_size = 2048;
 
-using details::stack::Static;
-using details::stack::Dynamic;
+template <size_t SIZE = default_size>
+struct Static:  public details::stack::Static<SIZE> {};
+
+template <size_t SIZE = default_size>
+struct Dynamic: public details::stack::Dynamic<SIZE> {};
+
+template <size_t SIZE = default_size>
+struct Default: public Static<SIZE> {};
 
 } // namespace stack
-
-template <template <size_t> class StackImpl = stack::Static,
-		 size_t STACK_SIZE = stack::DEFAULT_SIZE>
-class Stack: public StackImpl<STACK_SIZE>
-{
-	public:
-		enum { SIZE = STACK_SIZE };
-		size_t getSize()  const { return STACK_SIZE; }
-};
-
 } // namespace coroutine
 
 #endif /* STACK_H */
