@@ -5,7 +5,7 @@
 #
 
 set(TEST_SRCS
-	#posixContext.cpp
+	posixContext.cpp
 	#oslinuxContext.cpp
 	#oslinuxABIcheck.cpp
 	#defaultContext.cpp

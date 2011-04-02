@@ -7,6 +7,6 @@
 #include <test.hpp>
 #include <details/context_posix.hpp>
 
-using namespace coroutine::details::posix;
+using coroutine::details::posix::Context;
 
 #include "context.cpp.inc"

@@ -8,7 +8,7 @@
 #ifndef CONTEXT_POSIX_H
 #define CONTEXT_POSIX_H
 
-#include <error.hpp>
+#include <stdexcept>
 #include <stack.hpp>
 
 namespace coroutine {
@@ -25,18 +25,20 @@ inline void trampoline(F f)
 	(*f)();
 }
 
-template <class Stack>
+template <class Stack = coroutine::stack::Default<> >
 class Context
 {
 	public:
-		Context(void (*f)(void*), void* arg):
+		typedef void (function_t)(void*);
+
+		Context(function_t* f, void* arg):
 			_f(f), _arg(arg)
 		{
 			reset();
 		}
 
 		Context(const Context& from):
-			_f(from.f), _arg(from.arg)
+			_f(from._f), _arg(from._arg)
 		{
 			reset();
 		}
@@ -52,43 +54,45 @@ class Context
 		void reset()
 		{
 			if (getcontext(&_coroContext) == -1)
-				throw createError(__PRETTY_FUNCTION__
-						"getcontext failed");
+				error(__PRETTY_FUNCTION__, "getcontext failed");
 			_coroContext.uc_link          = &_mainContext;
 			_coroContext.uc_stack.ss_sp   = _stack.getStackPointer();
-			_coroContext.uc_stack.ss_size = Stack::SIZE;
-			makecontext(&_coroContext, _cbptr, 1, _funcptr);
+			_coroContext.uc_stack.ss_size = _stack.getSize();
+			makecontext(&_coroContext, (void (*)()) _f, 1, _arg);
 		}
 
 		void enter()
 		{
 			if (swapcontext(&_mainContext, &_coroContext) == -1)
-				throw createError(__PRETTY_FUNCTION__
-						"swapcontext failed");
+				error(__PRETTY_FUNCTION__, "swapcontext failed");
 		}
 
-		void enter()
+		void leave()
 		{
 			if (swapcontext(&_coroContext, &_mainContext) == -1)
-				throw createError(__PRETTY_FUNCTION__
-						"swapcontext failed");
+				error(__PRETTY_FUNCTION__, "swapcontext failed");
 		}
 
 		static const char* getImplName() { return "posix"; }
 		
 	private:
-		ucontext          _mainContext;
-		ucontext          _coroContext;
-		void (*_f)(void*) _f;
-		void             *_arg;
-		Stack             _stack;
+		ucontext    _mainContext;
+		ucontext    _coroContext;
+		function_t* _f;
+		void*       _arg;
+		Stack       _stack;
 
-		error::System createError(const char* msg)
+		void error(const char* fname, const char* msg)
 		{
 			char buf[256];
+			std::string errmsg = std::string(fname) + ": " + msg + ", ";
+
 			if (strerror_r(errno, buf, sizeof buf) == 0)
-				return error::System(std::string(msg) + ", " + buf);
-			return error::System(std::string(msg) + ", unknown error");
+			   errmsg += buf;
+			else
+			   errmsg += "unknown error";
+
+			throw std::runtime_error(errmsg);
 		}
 };
 

@@ -7,6 +7,6 @@
 #include <test.hpp>
 #include <details/context_oslinux.hpp>
 
-using namespace coroutine::details::oslinux;
+using coroutine::details::oslinux::Context;
 
 #include "context.cpp.inc"
