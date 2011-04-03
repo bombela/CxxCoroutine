@@ -19,12 +19,6 @@ namespace posix {
 #include <string.h>
 #include <errno.h>
 
-template <typename F>
-inline void trampoline(F f)
-{
-	(*f)();
-}
-
 template <class Stack = coroutine::stack::Default<> >
 class Context
 {

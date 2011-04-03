@@ -71,13 +71,17 @@ struct TestExecution
 	bool executed;
 	TestExecution(): executed(false) { }
 	void operator()() { executed = true; }
+	
+	static void dotest(void* te) {
+		(*(TestExecution*)(te))();
+	}
 };
 
 template <typename Context>
 struct TestYield: TestExecution
 {
     Context context;
-	TestYield(): context(this) {}
+	TestYield(): context(&TestYield::dotest, this) {}
 	void operator()()
 	{
 		TestExecution::operator()();
@@ -92,7 +96,7 @@ BOOST_AUTO_TEST_CASE(checkABIconsistency)
 	for (int i = 0; i < 500; ++i)
 	{
 		TestYield<Context<> > test;
-		test.context.run();
+		test.context.enter();
 		BOOST_CHECK(test.executed);
 	}
 }

@@ -4,6 +4,8 @@
  *
 */
 
+#include "stack.hpp"
+
 #pragma once
 #ifndef CONTEXT_OSLINUX_X86_64_H
 #define CONTEXT_OSLINUX_X86_64_H
@@ -28,38 +30,28 @@ namespace coroutine {
 namespace details {
 namespace oslinux {
 
-template<class Stack>
-class ContextImpl<Stack, 8>
+template<class Stack = coroutine::stack::Default<> >
+class Context
 {
-	typedef void (callback_t)();
+	typedef void (function_t)(void*);
 
 	public:
-		template <typename F>
-		ContextImpl(F cb):
-#ifdef    CORO_LINUX_8664_BOOTSTRAP_STACK
-			_cbptr( (callback_t*)
-					(void (*)(int, int, int, int, int, int, ContextImpl*, F))
-					&trampoline<F>),
-#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
-			_cbptr( (callback_t*) (void (*)(ContextImpl*, F))
-					&trampoline<F>),
-#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
-			_funcptr( (void*) cb)
+		Context(function_t* f, void* arg):
+			_f(f), _arg(arg)
 		{
 			reset();
 		}
 
-		ContextImpl(const ContextImpl& from):
-			_cbptr(from._cbptr),
-			_funcptr(from._funcptr)
+		Context(const Context& from):
+			_f(from._f), _arg(from._arg)
 		{
 			reset();
 		}
 
-		ContextImpl& operator=(const ContextImpl& from)
+		Context& operator=(const Context& from)
 		{
-			_cbptr = from._cbptr;
-			_funcptr = from._funcptr;
+			_f   = from._f;
+			_arg = from._arg;
 			reset();
 			return *this;
 		}
@@ -67,26 +59,24 @@ class ContextImpl<Stack, 8>
 		void reset()
 		{
 			_sp = reinterpret_cast<void**>(_stack.getStackPointer())
-				+ (Stack::SIZE / sizeof(void*));
+				+ (_stack.getSize() / sizeof(void*));
 			
 			// red zone begin
-			_sp -= 16;               // red zone
+			_sp -= 16;                   // red zone
 			// red zone end
 #ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
-			*--_sp = _funcptr;       // rsi (trampoline arg2)
-			*--_sp = (void*)this;    // rdi (trampoline arg1)
-			*--_sp = 0;              // trampoline return
-			*--_sp = (void*) _cbptr; // next instruction addr
+			*--_sp = (void*)this;        // rdi (trampoline arg1)
+			*--_sp = 0;                  // trampoline return
+			*--_sp = (void*)&trampoline; // next instruction addr
 #else // !CORO_LINUX_8664_BOOTSTRAP_STACK
-			*--_sp = 0;              // trampoline return
-			*--_sp = (void*) _cbptr; // next instruction addr
-			*--_sp = _funcptr;       // rsi (trampoline arg2)
-			*--_sp = (void*)this;    // rdi (trampoline arg1)
+			*--_sp = 0;                  // trampoline return
+			*--_sp = (void*)&trampoline; // next instruction addr
+			*--_sp = (void*)this;        // rdi (trampoline arg1)
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
-			--_sp;                   // rbp
+			--_sp;                       // rbp
 		}
 	
-		void run()
+		void enter()
 		{
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 			swapContext<1>();
@@ -95,7 +85,7 @@ class ContextImpl<Stack, 8>
 #endif // CORO_LINUX_8664_2SWAPSITE
 		}
 
-		void yield()
+		void leave()
 		{
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 			swapContext<2>();
@@ -107,29 +97,28 @@ class ContextImpl<Stack, 8>
 		static const char* getImplName() { return "linux x86_64"; }
 
 	private:
-		callback_t* _cbptr;
-		void*       _funcptr;
+		function_t* _f;
+		void*       _arg;
 		void**      _sp;
 		Stack       _stack;
 
-		template <typename F>
-		static void trampoline(
+		static inline void trampoline(
 #ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
 				int, int, int, int, int, int, // fill reg passing,
-				// so everything else will by passed trough the stack.
+				// so everything else will by passed on stack.
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
-				ContextImpl* context, F f
+				Context* context
 				)
 		{
-			(*f)();
-			context->yield();
+			context->_f(context->_arg);
+			context->leave();
 			abort();
 		}
 
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 		template <int>
 #endif // CORO_LINUX_8664_2SWAPSITE
-		void swapContext()
+		inline void swapContext()
 		{
 			/*
 			 * Optimization discussion:
@@ -145,20 +134,10 @@ class ContextImpl<Stack, 8>
 			 * 		- need to prepare the stack little bit longer.
 			 * 		- 
 			 * 	
-			 * 	Using two different call site can help?
-			 * 		- copy/paste two time (maybe macro)
-			 * 		- or use template for copye/paste.
-			 *
-			 * 	So we have 5 flags for optimizations to manage:
+			 * 	So we have some optimizations flags to add:
 			 * 		- CORO_LINUX_8664_MOVE
 			 * 		- CORO_LINUX_8664_MOVE_REDZONE
 			 * 		- CORO_LINUX_8664_NOJUMP
-			 * 		- CORO_LINUX_8664_2CALLSITE_COPYPASTE
-			 * 		- CORO_LINUX_8664_2CALLSITE_TEMPLATE
-			 *
-			 * 	Maybe better to copy past the all code, 
-			 * 	and make different templated version...
-			 * 	Maybe more readable and easier to debug.
 			 *
 			 */
 
@@ -169,7 +148,6 @@ class ContextImpl<Stack, 8>
 					// store registers
 #ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
 					"push %%rsi\n\t"
-					"push %%rdi\n\t"
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 					"push %%rbp\n\t"
 
@@ -179,7 +157,6 @@ class ContextImpl<Stack, 8>
 					// restore registers
 					"pop %%rbp\n\t"
 #ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
-					"pop %%rdi\n\t"
 					"pop %%rsi\n\t"
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 
@@ -202,11 +179,11 @@ class ContextImpl<Stack, 8>
 						//        - GCC in -O0 mode reserve *bp.
 						//        - LLVM doesn't seem to have this caveat.
 #ifdef    CORO_LINUX_8664_BOOTSTRAP_STACK
-						"rsi", "rdi",
+						"rsi",
 #else // !CORO_LINUX_8664_BOOTSTRAP_STACK
 						// rsi -> used as trampoline first arg
-						// rdi -> used as trampoline second arg
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
+						"rdi",
 						"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
 						"%st(1)", "%st(2)", "%st(3)", "%st(4)", "%st(5)",
 						"%st(6)", "%st(7)",
