@@ -70,7 +70,7 @@ struct TestExecution
 {
 	bool executed;
 	TestExecution(): executed(false) { }
-	void operator()() { executed = true; }
+	virtual void operator()() { executed = true; }
 	
 	static void dotest(void* te) {
 		(*(TestExecution*)(te))();
@@ -86,7 +86,7 @@ struct TestYield: TestExecution
 	{
 		TestExecution::operator()();
 		ABIConsistencyCheck<sizeof (void*)>::check();
-		context.yield();
+		context.leave();
 		BOOST_ERROR("yield passed");
 	}
 };

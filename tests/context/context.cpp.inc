@@ -25,7 +25,7 @@ struct TestExecution
 {
 	bool executed;
 	TestExecution(): executed(false) { }
-	void operator()() { executed = true; }
+	virtual void operator()() { executed = true; }
 
 	static void dotest(void* te) {
 		(*(TestExecution*)(te))();
@@ -48,7 +48,7 @@ struct TestYield: TestExecution
 	void operator()()
 	{
 		TestExecution::operator()();
-		context.yield();
+		context.leave();
 		BOOST_ERROR("yield passed");
 	}
 };

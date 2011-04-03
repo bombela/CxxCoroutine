@@ -11,41 +11,34 @@
 
 using namespace coroutine;
 
-void function() {}
+void function(void*) {}
 
 BOOST_AUTO_TEST_CASE(create)
 {
-	Context<> context(&function);
+	Context<> context(&function, 0);
 }
 
 BOOST_AUTO_TEST_CASE(createWithSpecificStackSize)
 {
-    Context<stack::Static, 1024> context(&function);
-}
-
-struct Functor
-{
-	void operator()() { }
-};
-
-BOOST_AUTO_TEST_CASE(functor)
-{
-	Functor f;
-    Context<> context(&f);
+    Context< stack::Static<1024> > context(&function, 0);
 }
 
 struct TestExecution
 {
 	bool executed;
 	TestExecution(): executed(false) { }
-	void operator()() { executed = true; }
+	virtual void operator()() { executed = true; }
+	
+	static void dotest(void* te) {
+		(*(TestExecution*)(te))();
+	}
 };
 
 BOOST_AUTO_TEST_CASE(execution)
 {
 	TestExecution f;
-    Context<> context(&f);
-	context.run();
+    Context<> context(&TestExecution::dotest, &f);
+	context.enter();
 	BOOST_CHECK(f.executed);
 }
 
@@ -53,11 +46,11 @@ template <typename Context>
 struct TestYield: TestExecution
 {
     Context context;
-	TestYield(): context(this) {}
+	TestYield(): context(&TestYield::dotest, this) {}
 	void operator()()
 	{
 		TestExecution::operator()();
-		context.yield();
+		context.leave();
 		BOOST_ERROR("yield passed");
 	}
 };
@@ -65,14 +58,14 @@ struct TestYield: TestExecution
 BOOST_AUTO_TEST_CASE(yield)
 {
 	TestYield<Context<> > test;
-	test.context.run();
+	test.context.enter();
 	BOOST_CHECK(test.executed);
 }
 
 BOOST_AUTO_TEST_CASE(yieldWithDynamicStack)
 {
-	TestYield<Context<stack::Dynamic> > test;
-	test.context.run();
+	TestYield< Context<stack::Dynamic<> > > test;
+	test.context.enter();
 	BOOST_CHECK(test.executed);
 }
 
