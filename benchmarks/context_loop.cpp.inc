@@ -1,4 +1,4 @@
-/*
+/* vim: ft=cpp
  * posixContext.cpp
  * Copyright © 2010 François-Xavier 'Bombela' Bourlet <bombela@gmail.com>
  *
@@ -24,6 +24,8 @@
 
 #include <benchmark.hpp>
 
+using namespace coroutine;
+
 namespace BENCH_TYPE {
 
 void function() { }
@@ -32,15 +34,21 @@ struct LoopTester
 {
 	static const long int LOOP_SIZE = 1 << 14;
 
-	typedef Context<STACK> context_t;
+	typedef Context<STACK<> > context_t;
 	
 	context_t* context;
 	void setContext(context_t* c) { context = c; }
 
 	void operator()()
 	{
-		for (int i = 0; i < LOOP_SIZE; ++i)
-		context->yield();
+		for (int i = 0; i < LOOP_SIZE; ++i) {
+			context->leave();
+		}
+	}
+
+	static void dotest(void* self)
+	{
+		(*(LoopTester*)self)();
 	}
 };
 
@@ -50,14 +58,20 @@ struct LoopTester
 #	define RUN_CONTEXT_LOOP_CNT 14
 #endif
 
-BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT)
-{
+__attribute__((noinline)) void dothebench() {
 	LoopTester functor;
-	Context<STACK> context(&functor);
+
+	Context<STACK<> > context(&LoopTester::dotest, &functor);
 	functor.setContext(&context);
 
-	for (int i = 0; i < LoopTester::LOOP_SIZE; ++i)
-		context.run();
+	for (int i = 0; i < LoopTester::LOOP_SIZE; ++i) {
+		context.enter();
+	}
+}
+
+BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT)
+{
+	dothebench();
 }
 
 } // namespace 

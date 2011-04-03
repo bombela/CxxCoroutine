@@ -34,7 +34,15 @@ endmacro()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-file(GLOB BENCH_SRCS "*.cpp")
-#foreach(f ${BENCH_SRCS})
-#	coroutine_add_bench(${f})
-#endforeach()
+set(BENCH_SRCS
+	virtcall.cpp
+	stack.cpp
+	posixContext.cpp
+	posixContextLoop.cpp
+	oslinuxContext.cpp
+	oslinuxContextLoop.cpp
+)
+
+foreach(f ${BENCH_SRCS})
+	coroutine_add_bench(${f})
+endforeach()

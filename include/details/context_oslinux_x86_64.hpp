@@ -60,16 +60,16 @@ class Context
 		{
 			_sp = reinterpret_cast<void**>(_stack.getStackPointer())
 				+ (_stack.getSize() / sizeof(void*));
-			
+
 			// red zone begin
 			_sp -= 16;                   // red zone
 			// red zone end
 #ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
-			*--_sp = (void*)this;        // rdi (trampoline arg1)
-			*--_sp = 0;                  // trampoline return
+			*--_sp = (void*)this;        // trampoline arg1
+			*--_sp = 0;                  // never return
 			*--_sp = (void*)&trampoline; // next instruction addr
 #else // !CORO_LINUX_8664_BOOTSTRAP_STACK
-			*--_sp = 0;                  // trampoline return
+			*--_sp = 0;                  // never return
 			*--_sp = (void*)&trampoline; // next instruction addr
 			*--_sp = (void*)this;        // rdi (trampoline arg1)
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
@@ -102,11 +102,12 @@ class Context
 		void**      _sp;
 		Stack       _stack;
 
-		static inline void trampoline(
+		static void trampoline(
 #ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
 				int, int, int, int, int, int, // fill reg passing,
 				// so everything else will by passed on stack.
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
+
 				Context* context
 				)
 		{
@@ -118,7 +119,7 @@ class Context
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 		template <int>
 #endif // CORO_LINUX_8664_2SWAPSITE
-		inline void swapContext()
+		void swapContext()
 		{
 			/*
 			 * Optimization discussion:
@@ -147,7 +148,7 @@ class Context
 
 					// store registers
 #ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
-					"push %%rsi\n\t"
+					"push %%rdi\n\t"
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 					"push %%rbp\n\t"
 
@@ -157,7 +158,7 @@ class Context
 					// restore registers
 					"pop %%rbp\n\t"
 #ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
-					"pop %%rsi\n\t"
+					"pop %%rdi\n\t"
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 
 					// jump to next instruction
@@ -179,11 +180,11 @@ class Context
 						//        - GCC in -O0 mode reserve *bp.
 						//        - LLVM doesn't seem to have this caveat.
 #ifdef    CORO_LINUX_8664_BOOTSTRAP_STACK
-						"rsi",
-#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
-						// rsi -> used as trampoline first arg
-#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 						"rdi",
+#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
+						// rdi -> used as trampoline first arg
+#endif // CORO_LINUX_8664_BOOTSTRAP_STACK,
+						"rsi",
 						"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
 						"%st(1)", "%st(2)", "%st(3)", "%st(4)", "%st(5)",
 						"%st(6)", "%st(7)",

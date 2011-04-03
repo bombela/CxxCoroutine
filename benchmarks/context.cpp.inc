@@ -1,4 +1,4 @@
-/*
+/* vim: ft=cpp
  * posixContext.cpp
  * Copyright © 2010 François-Xavier 'Bombela' Bourlet <bombela@gmail.com>
  *
@@ -24,19 +24,21 @@
 
 #include <benchmark.hpp>
 
+using namespace coroutine;
+
 namespace BENCH_TYPE {
 
-void function() { }
+void function(void*) { }
 
 BENCH(BENCH_NAME(createContext), 23, BENCH_CAT(createStack, BENCH_TYPE))
 {
-	UNUSED Context<STACK> context(&function);
+	UNUSED Context<STACK<> > context(&function, 0);
 }
 
 BENCH(BENCH_NAME(runContext), 23, BENCH_NAME(createContext))
 {
-	UNUSED Context<STACK> context(&function);
-	context.run();
+	UNUSED Context<STACK<> > context(&function, 0);
+	context.enter();
 }
 
 } // namespace 

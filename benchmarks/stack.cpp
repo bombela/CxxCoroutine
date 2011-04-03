@@ -11,12 +11,12 @@ using namespace coroutine;
 
 BENCH(createStack_static, 23)
 {
-	UNUSED Stack<stack::Static> stack;
+	UNUSED stack::Static<> stack;
 }
 
 BENCH(createStack_dynamic, 23)
 {
-	UNUSED Stack<stack::Dynamic> stack;
+	UNUSED stack::Dynamic<> stack;
 }
 
 BENCH_MAIN(fullbench)

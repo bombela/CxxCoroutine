@@ -7,7 +7,6 @@
 #include <benchmark.hpp>
 #include <details/context_oslinux.hpp>
 
-using namespace coroutine::details;
 using namespace coroutine::details::oslinux;
 
 #define BENCH_ARCH oslinux
