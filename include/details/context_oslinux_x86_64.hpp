@@ -97,10 +97,12 @@ class Context
 		static const char* getImplName() { return "linux x86_64"; }
 
 	private:
-		function_t* _f;
-		void*       _arg;
-		void**      _sp;
-		Stack       _stack;
+		function_t*      _f;
+		void*            _arg;
+		void ** volatile _sp; // TODO only
+		// swapContext() should see the volatile there
+		// reset() get shity asm with volatile here.
+		Stack            _stack;
 
 		static void trampoline(
 #ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
@@ -153,7 +155,7 @@ class Context
 					"push %%rbp\n\t"
 
 					// switch stack
-					"xchg (%[_sp]), %%rsp\n\t"
+					"xchg (%[sp]), %%rsp\n\t"
 
 					// restore registers
 					"pop %%rbp\n\t"
@@ -170,9 +172,10 @@ class Context
 					: // output
 						// not used
 					: // input
-						[_sp]   "d" (&_sp)
+						[sp] "d" (&_sp)
 					: // modified
-						"rax", "rbx", "rcx",
+						"rax",
+						"rbx", "rcx",
 						// rdx -> used as input
 						// rsp -> manipulated behind the compiler.
 						// rbp -> can be used by compiler in debug mode,

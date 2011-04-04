@@ -19,6 +19,7 @@ struct ABIConsistencyCheck<8>
 	static void check()
 	{
 		asm (
+				"push $42\n\t"
 				"mov $0x42, %%rax\n\t"
 				"mov $0x43, %%rbx\n\t"
 				"mov $0x44, %%rcx\n\t"
@@ -33,13 +34,16 @@ struct ABIConsistencyCheck<8>
 				"mov $0x4d, %%r15\n\t"
 				"mov $0x4e, %%rsi\n\t"
 				"mov $0x4f, %%rdi\n\t"
+				"mov $0x50, %%rbp\n\t"
+				"pop %%rax\n\t"
 				: // output
 				// not used
 				: // input
 				// not used
 				: // modified
 				"rax", "rbx", "rcx", "rdx", "rdi", "rsi",
-			"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"
+				"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
+				"rbp"
 				);
 	}
 };
@@ -50,18 +54,21 @@ struct ABIConsistencyCheck<4>
 	static void check()
 	{
 		asm (
+				"push $42\n\t"
 				"mov $0x42, %%eax\n\t"
 				"mov $0x43, %%ebx\n\t"
 				"mov $0x44, %%ecx\n\t"
 				"mov $0x45, %%edx\n\t"
 				"mov $0x4e, %%esi\n\t"
 				"mov $0x4f, %%edi\n\t"
+				"mov $0x50, %%ebp\n\t"
+				"pop %%eax\n\t"
 				: // output
 				// not used
 				: // input
 				// not used
 				: // modified
-				"eax", "ebx", "ecx", "edx", "edi", "esi"
+				"eax", "ebx", "ecx", "edx", "edi", "esi", "ebp"
 				);
 	}
 };
