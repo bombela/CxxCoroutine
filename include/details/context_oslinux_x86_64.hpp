@@ -67,9 +67,11 @@ class Context
 #ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
 			*--_sp = (void*)this;        // trampoline arg1
 			*--_sp = 0;                  // never return
+			_sp -= 16;                   // local red zone
 			*--_sp = (void*)&trampoline; // next instruction addr
 #else // !CORO_LINUX_8664_BOOTSTRAP_STACK
 			*--_sp = 0;                  // never return
+			_sp -= 16;                   // local red zone
 			*--_sp = (void*)&trampoline; // next instruction addr
 			*--_sp = (void*)this;        // rdi (trampoline arg1)
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
@@ -99,9 +101,7 @@ class Context
 	private:
 		function_t*      _f;
 		void*            _arg;
-		void ** volatile _sp; // TODO only
-		// swapContext() should see the volatile there
-		// reset() get shity asm with volatile here.
+		void**           _sp;
 		Stack            _stack;
 
 		static void trampoline(
@@ -144,7 +144,12 @@ class Context
 			 *
 			 */
 
+			//void*** volatile spp = &_sp;
+
 			asm volatile (
+					// allocate local red zone
+					"sub $128, %%rsp\n\t"
+					
 					// store next instruction
 					"push $1f\n\t"
 
@@ -165,6 +170,10 @@ class Context
 
 					// jump to next instruction
 					"pop %%rax\n\t"
+
+					// free local redzone
+					"add $128, %%rsp\n\t"
+
 					"jmp *%%rax\n\t"
 
 					"1:\n\t"

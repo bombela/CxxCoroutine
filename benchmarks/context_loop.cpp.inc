@@ -32,7 +32,7 @@ void function() { }
 
 struct LoopTester
 {
-	static const long int LOOP_SIZE = 100; //1 << 14;
+	static const long int LOOP_SIZE = 1 << 14;
 
 	typedef Context<STACK<> > context_t;
 	
@@ -59,7 +59,8 @@ struct LoopTester
 #	define RUN_CONTEXT_LOOP_CNT 14
 #endif
 
-__attribute__((noinline)) void dothebench() {
+BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT)
+{
 	LoopTester functor;
 
 	Context<STACK<> > context(&LoopTester::dotest, &functor);
@@ -69,13 +70,6 @@ __attribute__((noinline)) void dothebench() {
 		//printf("m %i\n",i);
 		context.enter();
 	}
-}
-
-#define RUN_CONTEXT_LOOP_CNT 1
-
-BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT)
-{
-	dothebench();
 }
 
 } // namespace 
