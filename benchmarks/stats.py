@@ -100,6 +100,8 @@ subIdx = 1
 colors = ('b', 'g', 'y', 'r')
 colorIdx = 0
 
+plt.suptitle(logpath)
+
 for pkg, records in pkgs.items():
 	print "Plotting %s benchmarks..." % (pkg)
 

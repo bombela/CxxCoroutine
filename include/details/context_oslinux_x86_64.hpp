@@ -11,14 +11,6 @@
 #define CONTEXT_OSLINUX_X86_64_H
 
 /*
- * Enabled, will use trampoline parameters passing
- * by the stack rather than registers.
- */
-#ifndef NO_CORO_LINUX_8664_BOOTSTRAP_STACK
-#	define CORO_LINUX_8664_BOOTSTRAP_STACK
-#endif
-
-/*
  * Enabled, will use a copy paste of the code
  * (implemented trough template).
  */
@@ -64,17 +56,11 @@ class Context
 			// red zone begin
 			_sp -= 16;                   // red zone
 			// red zone end
-#ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
+			
 			*--_sp = (void*)this;        // trampoline arg1
 			*--_sp = 0;                  // never return
 			_sp -= 16;                   // hack space
 			*--_sp = (void*)&trampoline; // next instruction addr
-#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
-			*--_sp = 0;                  // never return
-			_sp -= 16;                   // hack space
-			*--_sp = (void*)&trampoline; // next instruction addr
-			*--_sp = (void*)this;        // rdi (trampoline arg1)
-#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 			--_sp;                       // rbp
 		}
 	
@@ -105,11 +91,8 @@ class Context
 		Stack            _stack;
 
 		static void trampoline(
-#ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
 				int, int, int, int, int, int, // fill reg passing,
 				// so everything else will by passed on stack.
-#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
-
 				Context* context
 				)
 		{
@@ -144,8 +127,6 @@ class Context
 			 *
 			 */
 
-			//void*** volatile spp = &_sp;
-
 			asm volatile (
 					// allocate some space... just because
 					// compilers seem to use the stack under rsp
@@ -156,9 +137,6 @@ class Context
 					"push $1f\n\t"
 
 					// store registers
-#ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
-					"push %%rdi\n\t"
-#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 					"push %%rbp\n\t"
 
 					// switch stack
@@ -166,9 +144,6 @@ class Context
 
 					// restore registers
 					"pop %%rbp\n\t"
-#ifndef   CORO_LINUX_8664_BOOTSTRAP_STACK
-					"pop %%rdi\n\t"
-#endif // CORO_LINUX_8664_BOOTSTRAP_STACK
 
 					// jump to next instruction
 					"pop %%rax\n\t"
@@ -193,12 +168,7 @@ class Context
 						//        so we saving it manually.
 						//        - GCC in -O0 mode reserve *bp.
 						//        - LLVM doesn't seem to have this caveat.
-#ifdef    CORO_LINUX_8664_BOOTSTRAP_STACK
-						"rdi",
-#else // !CORO_LINUX_8664_BOOTSTRAP_STACK
-						// rdi -> used as trampoline first arg
-#endif // CORO_LINUX_8664_BOOTSTRAP_STACK,
-						"rsi",
+						"rdi", "rsi",
 						"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
 						"%st(1)", "%st(2)", "%st(3)", "%st(4)", "%st(5)",
 						"%st(6)", "%st(7)",
@@ -207,7 +177,9 @@ class Context
 						"xmm7", "xmm8", "xmm9", "xmm10", "xmm11", "xmm12",
 						"xmm13", "xmm14", "xmm15",
 						"memory"
+					//: end
 					);
+			//end:
 		}
 };
 

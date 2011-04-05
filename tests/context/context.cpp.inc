@@ -72,7 +72,7 @@ struct LotOfStack: TestExecution
 	void operator()() __attribute__ ((noinline))
 	{
 		TestExecution::operator()();
-		char data[1024*40];
+		UNUSED char data[1024*40];
 		data[0] = 42;
 	}
 };

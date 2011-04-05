@@ -87,12 +87,6 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 ###############################################################################
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-set(LINUX_8664_BOOTSTRAP_STACK true CACHE BOOL
-	"Linux x86_64 custom asm: trampoline boostraped by stack rather than registers")
-if (NOT LINUX_8664_BOOTSTRAP_STACK)
-	add_definitions(-DNO_CORO_LINUX_8664_BOOTSTRAP_STACK)
-endif()
-
 set(LINUX_8664_2SWAPSITE true CACHE BOOL
 	"Linux x86_64: swapContext copy pasted for help CPU prediction")
 if (NOT LINUX_8664_2SWAPSITE)

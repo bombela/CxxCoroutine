@@ -59,7 +59,7 @@ struct LoopTester
 #	define RUN_CONTEXT_LOOP_CNT 14
 #endif
 
-BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT)
+__attribute__((noinline)) void dothebench()
 {
 	LoopTester functor;
 
@@ -70,6 +70,11 @@ BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT)
 		//printf("m %i\n",i);
 		context.enter();
 	}
+}
+
+BENCH(BENCH_NAME(runContextLoop), RUN_CONTEXT_LOOP_CNT)
+{
+	dothebench();
 }
 
 } // namespace 

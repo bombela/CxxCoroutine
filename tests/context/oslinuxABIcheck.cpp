@@ -34,7 +34,6 @@ struct ABIConsistencyCheck<8>
 				"mov $0x4d, %%r15\n\t"
 				"mov $0x4e, %%rsi\n\t"
 				"mov $0x4f, %%rdi\n\t"
-				"mov $0x50, %%rbp\n\t"
 				"pop %%rax\n\t"
 				: // output
 				// not used
@@ -42,8 +41,7 @@ struct ABIConsistencyCheck<8>
 				// not used
 				: // modified
 				"rax", "rbx", "rcx", "rdx", "rdi", "rsi",
-				"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15",
-				"rbp"
+				"r8", "r9", "r10", "r11", "r12", "r13", "r14", "r15"
 				);
 	}
 };
