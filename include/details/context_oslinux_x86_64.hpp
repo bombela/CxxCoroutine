@@ -67,11 +67,11 @@ class Context
 #ifdef   CORO_LINUX_8664_BOOTSTRAP_STACK
 			*--_sp = (void*)this;        // trampoline arg1
 			*--_sp = 0;                  // never return
-			_sp -= 16;                   // local red zone
+			_sp -= 16;                   // hack space
 			*--_sp = (void*)&trampoline; // next instruction addr
 #else // !CORO_LINUX_8664_BOOTSTRAP_STACK
 			*--_sp = 0;                  // never return
-			_sp -= 16;                   // local red zone
+			_sp -= 16;                   // hack space
 			*--_sp = (void*)&trampoline; // next instruction addr
 			*--_sp = (void*)this;        // rdi (trampoline arg1)
 #endif // CORO_LINUX_8664_BOOTSTRAP_STACK
@@ -147,7 +147,9 @@ class Context
 			//void*** volatile spp = &_sp;
 
 			asm volatile (
-					// allocate local red zone
+					// allocate some space... just because
+					// compilers seem to use the stack under rsp
+					// without carrying about my code.
 					"sub $128, %%rsp\n\t"
 					
 					// store next instruction
@@ -171,7 +173,7 @@ class Context
 					// jump to next instruction
 					"pop %%rax\n\t"
 
-					// free local redzone
+					// release the little space.
 					"add $128, %%rsp\n\t"
 
 					"jmp *%%rax\n\t"
