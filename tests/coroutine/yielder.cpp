@@ -4,19 +4,70 @@
  *
 */
 
+#define YIELDER_TEST_MODE
+
 #include <test.hpp>
 #include <coroutine.hpp>
 
 using namespace coroutine;
 
-void function(Yielder<int>& yield)
+BOOST_AUTO_TEST_CASE(create)
 {
-	yield(42);
-	yield(21);
-	yield(32);
+	Yielder<> y1(0, 0);
+	Yielder<int> y2(0, 0);
+	Yielder<double, float> y3(0, 0);
 }
 
-BOOST_AUTO_TEST_CASE(returnInt)
+int someobj;
+
+void cb_voidcall(void* a)
 {
-	Coroutine<int> coro(&function);
+	BOOST_CHECK_EQUAL(a, &someobj);
+}
+
+BOOST_AUTO_TEST_CASE(voidcall)
+{
+	Yielder<> y(&cb_voidcall, &someobj);
+
+	y();
+}
+
+void cb_argcall(void* a, int b)
+{
+	BOOST_CHECK_EQUAL(a, &someobj);
+	BOOST_CHECK_EQUAL(b, 42);
+}
+
+BOOST_AUTO_TEST_CASE(argcall)
+{
+	Yielder<int> y(&cb_argcall, &someobj);
+
+	y(42);
+}
+
+int cb_voidcall_return(void* a)
+{
+	BOOST_CHECK_EQUAL(a, &someobj);
+	return 99;
+}
+
+BOOST_AUTO_TEST_CASE(voidcall_return)
+{
+    Yielder<void, int> y(&cb_voidcall_return, &someobj);
+
+	BOOST_CHECK_EQUAL(y(), 99);
+}
+
+float cb_argcall_return(void* a, int b)
+{
+	BOOST_CHECK_EQUAL(a, &someobj);
+	BOOST_CHECK_EQUAL(b, 45);
+	return 98;
+}
+
+BOOST_AUTO_TEST_CASE(argcall_return)
+{
+	Yielder<int, float> y(&cb_argcall_return, &someobj);
+
+	BOOST_CHECK_EQUAL(y(45), 98);
 }

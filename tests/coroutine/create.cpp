@@ -14,9 +14,9 @@ void functionVoid(Yielder<void>&) {}
 
 BOOST_AUTO_TEST_CASE(defvoid)
 {
-	Coroutine<void> coro(&functionVoid);
+	//Coroutine<void> coro(&functionVoid);
 }
-
+/*
 void function(Yielder<int>&) {}
 
 BOOST_AUTO_TEST_CASE(defint)
@@ -53,3 +53,4 @@ BOOST_AUTO_TEST_CASE(functor)
 	Functor f;
 	Coroutine<int, Functor> coro(f);
 }
+*/

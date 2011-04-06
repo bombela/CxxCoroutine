@@ -5,6 +5,8 @@
 #
 
 set(TEST_SRCS
+	yielder.cpp
+	create.cpp
 )
 
 foreach(f ${TEST_SRCS})
