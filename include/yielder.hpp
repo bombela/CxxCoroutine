@@ -10,6 +10,16 @@
 
 namespace coroutine {
 
+	/*
+template<
+	typename                R,
+	typename                F,
+	size_t                  SSIZE,
+	template <size_t> class S,
+	template <class>  class C
+	>
+class Coroutine; */
+
 namespace details {
 	
 template <typename T, typename R>
@@ -26,15 +36,17 @@ class YielderBase
 	public:
 		typedef typename details::cb_type<T, R>::type cb_t;
 
-#ifndef    YIELDER_TEST_MODE
-	private:
-#endif //! YIELDER_TEST_MODE
+		YielderBase(const YielderBase& from): _cb(from._cb), _ptr(from._ptr) {}
+
+	protected:
 		cb_t  _cb;
 		void* _ptr;
 
-		YielderBase(const YielderBase& from); // disabled
+#ifndef    YIELDER_TEST_MODE
+	private:
+#endif //! YIELDER_TEST_MODE
 		YielderBase& operator=(const YielderBase& from); // disabled
-	
+		
 		YielderBase(cb_t cb, void* ptr): _cb(cb), _ptr(ptr) { }
 };
 

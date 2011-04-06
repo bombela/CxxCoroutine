@@ -4,53 +4,31 @@
  *
 */
 
+#define YIELDER_TEST_MODE
+
 #include <test.hpp>
 #include <coroutine.hpp>
 #include <details/context_posix.hpp>
 
+#include<iostream>
+
 using namespace coroutine;
 
-void functionVoid(Yielder<void>&) {}
-
-BOOST_AUTO_TEST_CASE(defvoid)
+int def2_c(Yielder<int, float> yield, float v)
 {
-	//Coroutine<void> coro(&functionVoid);
-}
-/*
-void function(Yielder<int>&) {}
-
-BOOST_AUTO_TEST_CASE(defint)
-{
-	Coroutine<int> coro(&function);
+	std::cout << "v=" << v << std::endl;
+	float a = yield(42);
+	std::cout << "a=" << a << std::endl;
+	return 84;
 }
 
-BOOST_AUTO_TEST_CASE(customStack)
+BOOST_AUTO_TEST_CASE(def2)
 {
-	Coroutine<int, void (*)(Yielder<int>&),
-		Context<stack::Dynamic> > coro(&function);
-}
+	Coroutine<int, float, int (*)(Yielder<int, float>, float),
+		4096, stack::Default, details::oslinux::Context> c(&def2_c);
 
-BOOST_AUTO_TEST_CASE(customStackSize)
-{
-	Coroutine<int, void (*)(Yielder<int>&),
-		Context<stack::Static, 2048> > coro(&function);
+	int r1 = c(2.2f);
+	std::cout << "r1=" << r1 << std::endl;
+	int r2 = c(99.f);
+	std::cout << "r2=" << r2 << std::endl;
 }
-
-BOOST_AUTO_TEST_CASE(customContext)
-{
-	Coroutine<int, void (*)(Yielder<int>&),
-		details::posix::Context<> > coro(&function);
-}
-
-struct Functor {
-	void operator()(Yielder<int>&) {
-		
-	}
-};
-
-BOOST_AUTO_TEST_CASE(functor)
-{
-	Functor f;
-	Coroutine<int, Functor> coro(f);
-}
-*/
