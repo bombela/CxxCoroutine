@@ -32,7 +32,7 @@ class Coroutine
 	typedef C<stack_t> context_t;
 
 	public:
-		Coroutine(func_t f): _context(&trampoline, this), _func(f) {}
+		Coroutine(func_t f): _context(&execute_trampoline, this), _func(f) {}
 
 		R operator()(T value)
 		{
@@ -47,17 +47,17 @@ class Coroutine
 		T*        _send_arg;
 		R*        _back_arg;
 
-		static void trampoline(void* self) {
-			((Coroutine*)self)->bootstrap();
+		static void execute_trampoline(void* self) {
+			((Coroutine*)self)->execute();
 		}
 	
-		static T yield_cb(void* self, R value) {
+		static T yield_trampoline(void* self, R value) {
 			return ((Coroutine*)self)->yield(value);
 		}
 
-		void bootstrap()
+		void execute()
 		{
-			Yielder<R, T> y(&yield_cb, this);
+			Yielder<R, T> y(&yield_trampoline, this);
 			yield(_func(y, *_send_arg));
 		}
 		
