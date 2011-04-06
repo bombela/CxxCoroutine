@@ -7,7 +7,7 @@
 #define YIELDER_TEST_MODE
 
 #include <test.hpp>
-#include <coroutine.hpp>
+#include <yielder.hpp>
 
 using namespace coroutine;
 
