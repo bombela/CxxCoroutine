@@ -13,9 +13,10 @@ using namespace coroutine;
 
 BOOST_AUTO_TEST_CASE(create)
 {
-	Yielder<> y1(0, 0);
-	Yielder<int> y2(0, 0);
-	Yielder<double, float> y3(0, 0);
+	Yielder<double, float> y1(0, 0); // double f(float)
+	Yielder<int> y2(0, 0); // int f()
+	Yielder<void, long> y3(0, 0); // void f(long)
+	Yielder<> y4(0, 0); // void f()
 }
 
 int someobj;

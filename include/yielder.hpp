@@ -20,66 +20,109 @@ template<
 	>
 class Coroutine; */
 
-namespace details {
-	
-template <typename T, typename R>
-struct cb_type { typedef R (*type)(void*, T); };
+/*
+ * FV stand for Feed Value, the value feeded to the coroutine for each iteration.
+ * RV stand for Return Value, the value that the coroutine return for each iteration.
+ */
 
-template <typename R>
-struct cb_type<void, R> { typedef R (*type)(void*); };
+namespace details {
+
+template <typename RV, typename FV>
+struct cb_type { typedef FV (*type)(void*, RV); };
+
+template <typename FV>
+struct cb_type<void, FV> { typedef FV (*type)(void*); };
 
 } // namespace details
 
-template <typename T, typename R>
+template <typename RV, typename FV>
 class YielderBase
 {
 	public:
-		typedef typename details::cb_type<T, R>::type cb_t;
+		typedef typename details::cb_type<RV, FV>::type cb_t;
 
-		YielderBase(const YielderBase& from): _cb(from._cb), _ptr(from._ptr) {}
+		YielderBase(const YielderBase& from):
+			_cb(from._cb), _ptr(from._ptr) {}
 
 	protected:
 		cb_t  _cb;
 		void* _ptr;
-
-#ifndef    YIELDER_TEST_MODE
-	private:
-#endif //! YIELDER_TEST_MODE
-		YielderBase& operator=(const YielderBase& from); // disabled
 		
-		YielderBase(cb_t cb, void* ptr): _cb(cb), _ptr(ptr) { }
+		YielderBase(cb_t cb, void* ptr):
+			_cb(cb), _ptr(ptr) { }
+	
+	private:
+		YielderBase& operator=(const YielderBase& from); // disabled
 };
 
-template <typename T = void, typename R = void>
-class Yielder: public YielderBase<T, R>
+// RV f(FV feedValue)
+template <typename RV = void, typename FV = void>
+class Yielder: public YielderBase<RV, FV>
 {
-	typedef YielderBase<T, R>     base_t;
+	typedef YielderBase<RV, FV>   base_t;
 	typedef typename base_t::cb_t cb_t;
 
 	public:
-		R operator()(T value) const {
+		FV operator()(RV value) const {
 			return this->_cb(this->_ptr, value);
 		}
 		
 #ifndef    YIELDER_TEST_MODE
-	private:
+	protected:
 #endif //! YIELDER_TEST_MODE
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 
-template <typename R>
-class Yielder<void, R>: public YielderBase<void, R>
+// RV f()
+template <typename RV>
+class Yielder<RV, void>: public YielderBase<RV, void>
 {
-	typedef YielderBase<void, R>  base_t;
+	typedef YielderBase<RV, void> base_t;
 	typedef typename base_t::cb_t cb_t;
 
 	public:
-		R operator()() const {
+		void operator()(RV value) const {
+			this->_cb(this->_ptr, value);
+		}
+		
+#ifndef    YIELDER_TEST_MODE
+	protected:
+#endif //! YIELDER_TEST_MODE
+		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
+};
+
+// void f(FV feedValue)
+template <typename FV>
+class Yielder<void, FV>: public YielderBase<void, FV>
+{
+	typedef YielderBase<void, FV> base_t;
+	typedef typename base_t::cb_t cb_t;
+
+	public:
+		FV operator()() const {
 			return this->_cb(this->_ptr);
 		}
 		
 #ifndef    YIELDER_TEST_MODE
-	private:
+	protected:
+#endif //! YIELDER_TEST_MODE
+		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
+};
+
+// void f()
+template <>
+class Yielder<void, void>: public YielderBase<void, void>
+{
+	typedef YielderBase<void, void> base_t;
+	typedef typename base_t::cb_t   cb_t;
+
+	public:
+		void operator()() const {
+			this->_cb(this->_ptr);
+		}
+		
+#ifndef    YIELDER_TEST_MODE
+	protected:
 #endif //! YIELDER_TEST_MODE
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
