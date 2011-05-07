@@ -16,6 +16,154 @@
 
 namespace coroutine {
 
+// RV f(FV feedValue)
+template <typename RV, typename FV, typename IMPL>
+class CoroutineBase
+{
+	public:
+		RV operator ()(FV fval)
+		{
+			_fv = &fval;
+			static_cast<IMPL>(this)->_context.enter();
+			return *_rv;
+		}
+
+	protected:
+		static void bootstrap_trampoline(void* self) {
+			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
+		}
+		
+	private:
+		RV* _rv;
+		FV* _fv;
+
+		void bootstrap()
+		{
+			Yielder<RV, FV> yielder(&yield_trampoline, this);
+			yield(static_cast<IMPL>(this)->_func(yielder, *_fv));
+			abort();
+		}
+	
+		static FV yield_trampoline(void* self, RV value) {
+			return reinterpret_cast<CoroutineBase*>(self)->yield(value);
+		}
+		
+		FV yield(RV value)
+		{
+			_rv = &value;
+			static_cast<IMPL>(this)->_context.leave();
+			return *_fv;
+		}
+};
+
+// RV f()
+template <typename RV, typename IMPL>
+class CoroutineBase<RV, void, IMPL>
+{
+	public:
+		RV operator ()()
+		{
+			static_cast<IMPL>(this)->_context.enter();
+			return *_rv;
+		}
+
+	protected:
+		static void bootstrap_trampoline(void* self) {
+			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
+		}
+		
+	private:
+		RV* _rv;
+
+		void bootstrap()
+		{
+			Yielder<RV, void> yielder(&yield_trampoline, this);
+			yield(static_cast<IMPL>(this)->_func(yielder));
+			abort();
+		}
+	
+		static void yield_trampoline(void* self, RV value) {
+			reinterpret_cast<CoroutineBase*>(self)->yield(value);
+		}
+		
+		void yield(RV value)
+		{
+			_rv = &value;
+			static_cast<IMPL>(this)->_context.leave();
+		}
+};
+
+// void f(FV feedValue)
+template <typename FV, typename IMPL>
+class CoroutineBase<void, FV, IMPL>
+{
+	public:
+		void operator ()(FV fval)
+		{
+			_fv = &fval;
+			static_cast<IMPL>(this)->_context.enter();
+		}
+
+	protected:
+		static void bootstrap_trampoline(void* self) {
+			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
+		}
+		
+	private:
+		FV* _fv;
+
+		void bootstrap()
+		{
+			Yielder<void, FV> yielder(&yield_trampoline, this);
+			yield(static_cast<IMPL>(this)->_func(yielder, *_fv));
+			abort();
+		}
+	
+		static FV yield_trampoline(void* self) {
+			return reinterpret_cast<CoroutineBase*>(self)->yield();
+		}
+		
+		FV yield()
+		{
+			static_cast<IMPL>(this)->_context.leave();
+			return *_fv;
+		}
+};
+
+// void f()
+template <typename IMPL>
+class CoroutineBase<void, void, IMPL>
+{
+	public:
+		void operator ()()
+		{
+			static_cast<IMPL>(this)->_context.enter();
+		}
+
+	protected:
+		static void bootstrap_trampoline(void* self) {
+			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
+		}
+		
+	private:
+
+		void bootstrap()
+		{
+			Yielder<void, void> yielder(&yield_trampoline, this);
+			yield(static_cast<IMPL>(this)->_func(yielder));
+			abort();
+		}
+	
+		static void yield_trampoline(void* self) {
+			reinterpret_cast<CoroutineBase*>(self)->yield();
+		}
+		
+		void yield()
+		{
+			static_cast<IMPL>(this)->_context.leave();
+		}
+};
+
 template<
 	typename                R     = void,
 	typename                T     = void,

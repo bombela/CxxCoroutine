@@ -10,16 +10,6 @@
 
 namespace coroutine {
 
-	/*
-template<
-	typename                R,
-	typename                F,
-	size_t                  SSIZE,
-	template <size_t> class S,
-	template <class>  class C
-	>
-class Coroutine; */
-
 /*
  * FV stand for Feed Value, the value feeded to the coroutine for each iteration.
  * RV stand for Return Value, the value that the coroutine return for each iteration.

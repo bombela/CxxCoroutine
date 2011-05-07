@@ -48,6 +48,12 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 	if (OMIT_FRAME_POINTER)
 		set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fomit-frame-pointer")
 	endif()
+
+	# ugly temparary hack
+	include_directories(
+		"/usr/include/x86_64-linux-gnu/"
+		"/usr/include/i386-linux-gnu/"
+		)
 endif()
 
 if (CMAKE_COMPILER_IS_GNUCXX)
