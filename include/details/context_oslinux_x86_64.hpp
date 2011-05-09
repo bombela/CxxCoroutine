@@ -66,7 +66,7 @@ class Context
 			*--_sp = (void*)this;        // trampoline arg1 is aligned.
 			*--_sp = 0;                  // and trampoline return addr is not.
 			
-			_sp -= 16;                   // hack space
+			_sp -= 2;                    // hack space
 			*--_sp = (void*)&trampoline; // next instruction addr
 			--_sp;                       // rbp
 		}
@@ -142,7 +142,7 @@ class Context
 					// with an aligned stack or not,
 					// but since I want keep the stack with the same
 					// alignement as given, I am reserving 16 bytes.
-					"sub $128, %%rsp\n\t"
+					"sub $16, %%rsp\n\t"
 					
 					// store next instruction
 					"push $1f\n\t"
@@ -160,7 +160,7 @@ class Context
 					"pop %%rax\n\t"
 
 					// release the little space.
-					"add $128, %%rsp\n\t"
+					"add $16, %%rsp\n\t"
 
 					// jump to next instruction
 					"jmp *%%rax\n\t"

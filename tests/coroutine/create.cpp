@@ -30,7 +30,6 @@ BOOST_AUTO_TEST_CASE(ret_feed)
 	coro_t c(&f_ret_feed);
 
 	int r1 = c(2.2f);
-	return;
 	std::cout << "r1=" << r1 << std::endl;
 	int r2 = c(99.f);
 	std::cout << "r2=" << r2 << std::endl;
