@@ -64,7 +64,7 @@ BOOST_AUTO_TEST_CASE(yield)
 
 BOOST_AUTO_TEST_CASE(yieldWithDynamicStack)
 {
-	TestYield< Context<stack::Dynamic<> > > test;
+	TestYield< Context<stack::Dynamic<1024*8> > > test;
 	test.context.enter();
 	BOOST_CHECK(test.executed);
 }

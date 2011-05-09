@@ -24,13 +24,16 @@ int f_ret_feed(Yielder<int, float> yield, float v)
 
 BOOST_AUTO_TEST_CASE(ret_feed)
 {
-	Coroutine<int, float, int (*)(Yielder<int, float>, float),
-		4096, stack::Default, details::oslinux::Context> c(&f_ret_feed);
+	typedef Coroutine<int, float, int (*)(Yielder<int, float>, float),
+		1024*8, stack::Default, Context> coro_t;
+
+	coro_t c(&f_ret_feed);
 
 	int r1 = c(2.2f);
-	//std::cout << "r1=" << r1 << std::endl;
-	//int r2 = c(99.f);
-	//std::cout << "r2=" << r2 << std::endl;
+	return;
+	std::cout << "r1=" << r1 << std::endl;
+	int r2 = c(99.f);
+	std::cout << "r2=" << r2 << std::endl;
 }
 
 #if 0

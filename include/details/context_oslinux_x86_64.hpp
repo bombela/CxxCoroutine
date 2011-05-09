@@ -4,11 +4,12 @@
  *
 */
 
-#include "stack.hpp"
-
 #pragma once
 #ifndef CONTEXT_OSLINUX_X86_64_H
 #define CONTEXT_OSLINUX_X86_64_H
+
+#include "stack.hpp"
+#include <stdint.h>
 
 /*
  * Enabled, will use a copy paste of the code
@@ -50,15 +51,21 @@ class Context
 
 		void reset()
 		{
-			_sp = reinterpret_cast<void**>(_stack.getStackPointer())
-				+ (_stack.getSize() / sizeof(void*));
+			_sp = reinterpret_cast<void**>(
+					// 16 bytes aligned
+					reinterpret_cast<uintptr_t>(
+						_stack.getStackPointer() + _stack.getSize()
+						) & static_cast<uintptr_t>(~15)
+					);
 
 			// red zone begin
 			_sp -= 16;                   // red zone
 			// red zone end
 			
-			*--_sp = (void*)this;        // trampoline arg1
-			*--_sp = 0;                  // never return
+			--_sp;                       // break 16 bytes boundary alignment so:
+			*--_sp = (void*)this;        // trampoline arg1 is aligned.
+			*--_sp = 0;                  // and trampoline return addr is not.
+			
 			_sp -= 16;                   // hack space
 			*--_sp = (void*)&trampoline; // next instruction addr
 			--_sp;                       // rbp
@@ -130,7 +137,11 @@ class Context
 			asm volatile (
 					// allocate some space... just because
 					// compilers seem to use the stack under rsp
-					// without carrying about my code.
+					// when rsp is not aligned.
+					// Since I cant know if I am playing
+					// with an aligned stack or not,
+					// but since I want keep the stack with the same
+					// alignement as given, I am reserving 16 bytes.
 					"sub $128, %%rsp\n\t"
 					
 					// store next instruction
@@ -145,12 +156,13 @@ class Context
 					// restore registers
 					"pop %%rbp\n\t"
 
-					// jump to next instruction
+					// retrieve next instruction addr
 					"pop %%rax\n\t"
 
 					// release the little space.
 					"add $128, %%rsp\n\t"
 
+					// jump to next instruction
 					"jmp *%%rax\n\t"
 
 					"1:\n\t"

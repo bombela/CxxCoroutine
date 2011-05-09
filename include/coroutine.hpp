@@ -24,7 +24,8 @@ class CoroutineBase
 		RV operator ()(FV fval)
 		{
 			_fv = &fval;
-			static_cast<IMPL*>(this)->_context.enter();
+			IMPL* impl = static_cast<IMPL*>(this);
+			impl->_context.enter();
 			return *_rv;
 		}
 
@@ -51,7 +52,8 @@ class CoroutineBase
 		FV yield(RV value)
 		{
 			_rv = &value;
-			static_cast<IMPL*>(this)->_context.leave();
+			IMPL* impl = static_cast<IMPL*>(this);
+			impl->_context.leave();
 			return *_fv;
 		}
 };

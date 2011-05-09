@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_CASE(yield)
 
 BOOST_AUTO_TEST_CASE(yieldWithDynamicStack)
 {
-	TestYield< Context< stack::Dynamic<> > > test;
+	TestYield< Context< stack::Dynamic<1024*8> > > test;
 	test.context.enter();
 	BOOST_CHECK(test.executed);
 }
@@ -87,14 +87,16 @@ BOOST_AUTO_TEST_CASE(uselotofstack)
 
 BOOST_AUTO_TEST_CASE(copyContext)
 {
+	const size_t ssize = 1024*8;
+
 	TestExecution tester;
 
-	Context< stack::Static<> > a(&TestExecution::dotest, &tester);
+	Context< stack::Static<ssize> > a(&TestExecution::dotest, &tester);
 	tester.executed = false;
 	a.enter();
 	BOOST_CHECK(tester.executed);
 	
-	Context< stack::Static<> > b = a;
+	Context< stack::Static<ssize> > b = a;
 	tester.executed = false;
 	b.enter();
 	BOOST_CHECK(tester.executed);
