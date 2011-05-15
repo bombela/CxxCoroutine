@@ -6,7 +6,8 @@
 
 set(TEST_SRCS
 	yielder.cpp
-	create.cpp
+	coroutine.cpp
+	builder.cpp
 )
 
 foreach(f ${TEST_SRCS})

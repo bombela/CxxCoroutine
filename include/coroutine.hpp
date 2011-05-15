@@ -216,16 +216,6 @@ class Coroutine: public CoroutineBase<RV, FV, Coroutine<RV, FV, F, SSIZE, S, C> 
 		func_t    _func;
 };
 
-/*
-
-   Coroutine<>::function<int, double>
-   Coroutine<>::functor<F>
-
-   Coroutine<CONTEXT>::Stack<>::function<int, double>
-   Coroutine<>::functor<F>
-
- */
-
 } // namespace coroutine
 
 #endif /* COROUTINE_H */
