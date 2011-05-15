@@ -117,7 +117,8 @@ class CoroutineBase<void, FV, IMPL>
 		void bootstrap()
 		{
 			Yielder<void, FV> yielder(&yield_trampoline, this);
-			yield(static_cast<IMPL*>(this)->_func(yielder, *_fv));
+			static_cast<IMPL*>(this)->_func(yielder, *_fv);
+			yield();
 			abort();
 		}
 	
