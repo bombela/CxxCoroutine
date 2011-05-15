@@ -4,8 +4,6 @@
  *
 */
 
-#define YIELDER_TEST_MODE
-
 #include <test.hpp>
 #include <yielder.hpp>
 

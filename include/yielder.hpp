@@ -10,6 +10,12 @@
 
 namespace coroutine {
 
+namespace details {
+
+	class CoroutineFriendWithYielder;
+
+} // namespace details
+
 /*
  * FV stand for Feed Value, the value feeded to the coroutine for each iteration.
  * RV stand for Return Value, the value that the coroutine return for each iteration.
@@ -28,6 +34,8 @@ struct cb_type<void, FV> { typedef FV (*type)(void*); };
 template <typename RV, typename FV>
 class YielderBase
 {
+	friend class CoroutineFriendWithYielder;
+
 	public:
 		typedef typename details::cb_type<RV, FV>::type cb_t;
 
@@ -57,9 +65,6 @@ class Yielder: public YielderBase<RV, FV>
 			return this->_cb(this->_ptr, value);
 		}
 		
-#ifndef    YIELDER_TEST_MODE
-	protected:
-#endif //! YIELDER_TEST_MODE
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 
@@ -75,9 +80,6 @@ class Yielder<RV, void>: public YielderBase<RV, void>
 			this->_cb(this->_ptr, value);
 		}
 		
-#ifndef    YIELDER_TEST_MODE
-	protected:
-#endif //! YIELDER_TEST_MODE
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 
@@ -93,9 +95,6 @@ class Yielder<void, FV>: public YielderBase<void, FV>
 			return this->_cb(this->_ptr);
 		}
 		
-#ifndef    YIELDER_TEST_MODE
-	protected:
-#endif //! YIELDER_TEST_MODE
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 
@@ -111,9 +110,6 @@ class Yielder<void, void>: public YielderBase<void, void>
 			this->_cb(this->_ptr);
 		}
 		
-#ifndef    YIELDER_TEST_MODE
-	protected:
-#endif //! YIELDER_TEST_MODE
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 

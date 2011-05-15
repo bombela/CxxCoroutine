@@ -4,8 +4,6 @@
  *
 */
 
-#define YIELDER_TEST_MODE
-
 #include <test.hpp>
 #include <coroutine.hpp>
 #include <details/context_posix.hpp>
