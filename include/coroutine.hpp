@@ -33,7 +33,7 @@ class CoroutineBase
 		static void bootstrap_trampoline(void* self) {
 			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
 		}
-		
+
 	private:
 		RV* _rv;
 		FV* _fv;
@@ -44,11 +44,11 @@ class CoroutineBase
 			yield(static_cast<IMPL*>(this)->_func(yielder, *_fv));
 			abort();
 		}
-	
+
 		static FV yield_trampoline(void* self, RV value) {
 			return reinterpret_cast<CoroutineBase*>(self)->yield(value);
 		}
-		
+
 		FV yield(RV value)
 		{
 			_rv = &value;
@@ -73,7 +73,7 @@ class CoroutineBase<RV, void, IMPL>
 		static void bootstrap_trampoline(void* self) {
 			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
 		}
-		
+
 	private:
 		RV* _rv;
 
@@ -83,11 +83,11 @@ class CoroutineBase<RV, void, IMPL>
 			yield(static_cast<IMPL*>(this)->_func(yielder));
 			abort();
 		}
-	
+
 		static void yield_trampoline(void* self, RV value) {
 			reinterpret_cast<CoroutineBase*>(self)->yield(value);
 		}
-		
+
 		void yield(RV value)
 		{
 			_rv = &value;
@@ -110,7 +110,7 @@ class CoroutineBase<void, FV, IMPL>
 		static void bootstrap_trampoline(void* self) {
 			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
 		}
-		
+
 	private:
 		FV* _fv;
 
@@ -121,11 +121,11 @@ class CoroutineBase<void, FV, IMPL>
 			yield();
 			abort();
 		}
-	
+
 		static FV yield_trampoline(void* self) {
 			return reinterpret_cast<CoroutineBase*>(self)->yield();
 		}
-		
+
 		FV yield()
 		{
 			static_cast<IMPL*>(this)->_context.leave();
@@ -147,20 +147,21 @@ class CoroutineBase<void, void, IMPL>
 		static void bootstrap_trampoline(void* self) {
 			reinterpret_cast<CoroutineBase*>(self)->bootstrap();
 		}
-		
+
 	private:
 
 		void bootstrap()
 		{
 			Yielder<void, void> yielder(&yield_trampoline, this);
-			yield(static_cast<IMPL*>(this)->_func(yielder));
+			static_cast<IMPL*>(this)->_func(yielder);
+			yield();
 			abort();
 		}
-	
+
 		static void yield_trampoline(void* self) {
 			reinterpret_cast<CoroutineBase*>(self)->yield();
 		}
-		
+
 		void yield()
 		{
 			static_cast<IMPL*>(this)->_context.leave();
@@ -176,14 +177,6 @@ template <typename RV>
 struct func_type<RV, void> { typedef RV (*type)(Yielder<RV, void>); };
 
 } // namespace details
-
-namespace arg {
-
-	template <typename> struct stack {};
-	template <size_t>   struct stack_size {};
-	template <typename> struct context {};
-
-} // namespace arg
 
 template<
 	typename                RV    = void,
@@ -215,6 +208,69 @@ class Coroutine: public CoroutineBase<RV, FV, Coroutine<RV, FV, F, SSIZE, S, C> 
 		context_t _context;
 		func_t    _func;
 };
+
+#if 0
+template<
+	typename                F     = void (),
+	size_t                  SSIZE = stack::default_size,
+	template <size_t> class S     = stack::Default,
+	template <class>  class C     = Context
+	>
+class Coroutine2: public CoroutineBase<RV, FV, Coroutine<RV, FV, F, SSIZE, S, C> >
+{
+	friend class CoroutineBase<RV, FV, Coroutine2<RV, FV, F, SSIZE, S, C> >;
+
+	public:
+		typedef RV         return_t;
+		typedef FV         feedval_t;
+		typedef F          func_t;
+		typedef S<SSIZE>   stack_t;
+		typedef C<stack_t> context_t;
+		typedef CoroutineBase<RV, FV,
+				Coroutine<RV, FV, F, SSIZE, S, C> > parent_t;
+
+		Coroutine2(func_t f):
+			_context(&parent_t::bootstrap_trampoline, this),
+			_func(f)
+		{}
+
+	private:
+		context_t _context;
+		func_t    _func;
+};
+
+template<
+	typename                RV    = void,
+	typename                FV    = void,
+	typename                F     = typename details::func_type<RV, FV>::type,
+	size_t                  SSIZE = stack::default_size,
+	template <size_t> class S     = stack::Default,
+	template <class>  class C     = Context
+	>
+class Coroutine2<RV (FV)>:
+	public CoroutineBase<RV, FV, Coroutine<RV, FV, F, SSIZE, S, C> >
+{
+	friend class CoroutineBase<RV, FV, Coroutine2<RV, FV, F, SSIZE, S, C> >;
+
+	public:
+		typedef RV         return_t;
+		typedef FV         feedval_t;
+		typedef F          func_t;
+		typedef S<SSIZE>   stack_t;
+		typedef C<stack_t> context_t;
+		typedef CoroutineBase<RV, FV,
+				Coroutine<RV, FV, F, SSIZE, S, C> > parent_t;
+
+		Coroutine2(func_t f):
+			_context(&parent_t::bootstrap_trampoline, this),
+			_func(f)
+		{}
+
+	private:
+		context_t _context;
+		func_t    _func;
+};
+#endif
 
 } // namespace coroutine
 
