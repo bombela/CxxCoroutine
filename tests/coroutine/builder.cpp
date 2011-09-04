@@ -17,7 +17,7 @@ struct F { int operator()() const { return 42; } };
 
 BOOST_AUTO_TEST_CASE(try_to_compile)
 {
-	auto c = build<int ()>(F());
+	auto c1 = build<int ()>(F());
 	auto c2 = build<int (),
 		 stack::size<16>::kilo_bytes
 			 >(F());
@@ -27,7 +27,7 @@ BOOST_AUTO_TEST_CASE(try_to_compile)
 		 stack::dynamic
 			 >(F());
 
-	std::cout << stack::is_size< stack::size<14>::bytes >::value << std::endl;
+	std::cout << c1.s() << std::endl;
 
 //    typedef builder<
 //        conf::rval<int>

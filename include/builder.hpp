@@ -287,19 +287,74 @@ namespace coroutine {
 
 	} // namespace context
 
+
+	namespace details {
+
+
+		template <template <template <typename...> class> class P,
+			template <typename...> class HEAD,
+			template <typename...> class... ITEMS>
+				struct find {
+
+					template <bool,
+						template <typename...> class HEAD,
+						template <typename...> class... ITEMS>
+							struct finder;
+
+					template <
+						template <typename...> class HEAD,
+						template <typename...> class... ITEMS>
+							struct finder<true, HEAD, ITEMS...> {
+
+								template <typename... ARGS>
+									struct apply {
+										typedef HEAD<ARGS...> type;
+									};
+
+							};
+
+					template <
+						template <typename...> class HEAD,
+						template <typename...> class NEXT,
+						template <typename...> class... ITEMS>
+							struct finder<false, HEAD, NEXT, ITEMS...>:
+								finder< P<NEXT>::value, NEXT, ITEMS... > {};
+
+					typedef
+						finder< P<HEAD>::value, HEAD, ITEMS... > type_builder;
+
+					template <typename... ARGS>
+						struct apply {
+							typedef typename type_builder::template apply<
+								ARGS...>::type type;
+						};
+				 };
+
+	} // namespace details
+
+	template <typename T>
 	struct some_coroutine {
 		template <typename F>
 			some_coroutine(F) {};
+
+		int s() { return T::value; }
 	};
 
 	template <typename S, typename F,
 			 template <typename...> class... CONFIGS>
 		struct builder {
 
-			typedef some_coroutine coro;
+			typedef typename
+				details::find<stack::is_size,  CONFIGS...,
+					stack::size<0>::bytes >
+				stack_size_builder;
+			typedef typename
+				stack_size_builder::template apply<>::type
+				stack_size;
+			typedef some_coroutine<stack_size> coro;
 		};
 
-	template <typename T>
+	template <typename T = void>
 	struct default_config;
 
 	template <typename S,
