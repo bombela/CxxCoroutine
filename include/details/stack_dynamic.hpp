@@ -18,8 +18,8 @@ class Dynamic
 	public:
 		Dynamic(): _stack(new char [STACK_SIZE]) {}
 		~Dynamic() { delete[] _stack; }
-		
-		size_t getSize()   const { return STACK_SIZE; }
+
+		static size_t getSize()  { return STACK_SIZE; }
 		char*  getStackPointer() { return _stack; }
 
 	private:

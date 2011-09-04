@@ -9,17 +9,23 @@
 
 #include<iostream>
 
-namespace coro = coroutine::builder;
+using namespace coroutine;
 
-int f(coro::Yielder<int>) { return 42; }
-void f2(coro::Yielder<>) { }
-struct F { int operator()() const { return 42; } };
+int f(Yielder<int>) { return 42; }
+//void f2(coro::Yielder<>) { }
+//struct F { int operator()() const { return 42; } };
 
 BOOST_AUTO_TEST_CASE(try_to_compile)
 {
-	{ coro::Coro<int ()> c(&f); }
-	{ coro::Coro<void ()> c(&f2); }
-	//{ coro::Coro<F> c(F()); }
+	typedef builder<
+		conf::rval<int>
+		,conf::ssize_m<1>
+        ,conf::stack<stack::Dynamic>
+		>::coro coro_t;
+
+	coro_t c(&f);
+	std::cout << coro_t::context_t::stack_t::getSize() << std::endl;
+	BOOST_CHECK(c() == 42);
 }
 
 #if 0

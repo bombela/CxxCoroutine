@@ -45,10 +45,10 @@ class YielderBase
 	protected:
 		cb_t  _cb;
 		void* _ptr;
-		
+
 		YielderBase(cb_t cb, void* ptr):
 			_cb(cb), _ptr(ptr) { }
-	
+
 	private:
 		YielderBase& operator=(const YielderBase& from); // disabled
 };
@@ -64,7 +64,7 @@ class Yielder: public YielderBase<RV, FV>
 		FV operator()(RV value) const {
 			return this->_cb(this->_ptr, value);
 		}
-		
+
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 
@@ -79,7 +79,7 @@ class Yielder<RV, void>: public YielderBase<RV, void>
 		void operator()(RV value) const {
 			this->_cb(this->_ptr, value);
 		}
-		
+
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 
@@ -94,7 +94,7 @@ class Yielder<void, FV>: public YielderBase<void, FV>
 		FV operator()() const {
 			return this->_cb(this->_ptr);
 		}
-		
+
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 
@@ -109,7 +109,7 @@ class Yielder<void, void>: public YielderBase<void, void>
 		void operator()() const {
 			this->_cb(this->_ptr);
 		}
-		
+
 		Yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 };
 

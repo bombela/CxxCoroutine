@@ -44,7 +44,7 @@ class Context
 			reset();
 			return *this;
 		}
-		
+
 		void reset()
 		{
 			if (getcontext(&_coroContext) == -1)
@@ -68,7 +68,7 @@ class Context
 		}
 
 		static const char* getImplName() { return "posix"; }
-		
+
 	private:
 		ucontext    _mainContext;
 		ucontext    _coroContext;

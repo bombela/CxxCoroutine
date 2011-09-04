@@ -29,6 +29,8 @@ class Context
 	typedef void (function_t)(void*);
 
 	public:
+		typedef Stack stack_t;
+
 		Context(function_t* f, void* arg):
 			_f(f), _arg(arg)
 		{
@@ -61,16 +63,16 @@ class Context
 			// red zone begin
 			_sp -= 16;                   // red zone
 			// red zone end
-			
+
 			--_sp;                       // break 16 bytes boundary alignment so:
 			*--_sp = (void*)this;        // trampoline arg1 is aligned.
 			*--_sp = 0;                  // and trampoline return addr is not.
-			
+
 			_sp -= 2;                    // hack space
 			*--_sp = (void*)&trampoline; // next instruction addr
 			--_sp;                       // rbp
 		}
-	
+
 		void enter()
 		{
 #ifdef    CORO_LINUX_8664_2SWAPSITE
@@ -88,7 +90,7 @@ class Context
 			swapContext();
 #endif // CORO_LINUX_8664_2SWAPSITE
 		}
-		
+
 		static const char* getImplName() { return "linux x86_64"; }
 
 	private:
@@ -143,7 +145,7 @@ class Context
 					// but since I want keep the stack with the same
 					// alignement as given, I am reserving 16 bytes.
 					"sub $16, %%rsp\n\t"
-					
+
 					// store next instruction
 					"push $1f\n\t"
 
