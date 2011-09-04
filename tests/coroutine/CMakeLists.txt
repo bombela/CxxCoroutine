@@ -5,10 +5,10 @@
 #
 
 set(TEST_SRCS
-	yielder.cpp
-	coroutine.cpp
+	#	yielder.cpp
+	#coroutine.cpp
 	builder.cpp
-	functor_signature.cpp
+	#functor_signature.cpp
 )
 
 foreach(f ${TEST_SRCS})

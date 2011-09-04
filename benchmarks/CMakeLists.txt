@@ -42,6 +42,7 @@ set(BENCH_SRCS
 	oslinuxContext.cpp
 	oslinuxContextLoop.cpp
 )
+set(BENCH_SRCS )
 
 foreach(f ${BENCH_SRCS})
 	coroutine_add_bench(${f})
