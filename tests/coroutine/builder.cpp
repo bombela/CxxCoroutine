@@ -11,12 +11,24 @@
 
 using namespace coroutine;
 
-//int f(Yielder<int>) { return 42; }
+int f(Yielder<int>) { return 42; }
 //void f2(coro::Yielder<>) { }
-//struct F { int operator()() const { return 42; } };
+struct F { int operator()() const { return 42; } };
 
 BOOST_AUTO_TEST_CASE(try_to_compile)
 {
+	auto c = build<int ()>(F());
+	auto c2 = build<int (),
+		 stack::size<16>::kilo_bytes
+			 >(F());
+	auto c3 = build<int (),
+		 stack::size<16>::kilo_bytes,
+		 context::posix,
+		 stack::dynamic
+			 >(F());
+
+	std::cout << stack::is_size< stack::size<14>::bytes >::value << std::endl;
+
 //    typedef builder<
 //        conf::rval<int>
 //        ,conf::ssize_m<1>

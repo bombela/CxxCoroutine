@@ -12,6 +12,7 @@
 #include <yielder.hpp>
 
 namespace coroutine {
+/*
 	namespace details {
 
 		struct nil {};
@@ -25,13 +26,15 @@ namespace coroutine {
 		template <template <typename> class P, typename D>
 			struct find_type< P, D, nil > { typedef D type; };
 
-		template <typename T, template <typename> class P, typename D, typename TAIL>
+		template <typename T, template <typename> class P, typename D,
+				 typename TAIL>
 			struct find_type< P, D, type_list< P<T>, TAIL> >
 			{
 				typedef typename P<T>::type type;
 			};
 
-		template <template <typename> class P, typename D, typename HEAD, typename TAIL>
+		template <template <typename> class P, typename D, typename HEAD,
+				 typename TAIL>
 			struct find_type< P, D, type_list<HEAD, TAIL> >:
 			find_type< P, D, TAIL > {};
 
@@ -44,7 +47,8 @@ namespace coroutine {
 				static const C value = D;
 			};
 
-		template <typename C, template <C> class P, C D, typename HEAD, typename TAIL>
+		template <typename C, template <C> class P, C D, typename HEAD,
+				 typename TAIL>
 			struct extract_value_or_continue:
 				find_value< C, P, D, TAIL > {};
 
@@ -54,7 +58,8 @@ namespace coroutine {
 				static const C value = P<V>::value;
 			};
 
-		template <typename C, template <C> class P, C D, typename HEAD, typename TAIL>
+		template <typename C, template <C> class P, C D, typename HEAD,
+				 typename TAIL>
 			struct find_value< C, P, D, type_list<HEAD, TAIL> >:
 			extract_value_or_continue< C, P, D, HEAD, TAIL > {};
 
@@ -65,7 +70,8 @@ namespace coroutine {
 		template <typename C, typename VL, C D, typename L>
 			struct find_multiple_value;
 
-		template <typename C, template <C> class HEAD, typename TAIL, C D, typename L>
+		template <typename C, template <C> class HEAD, typename TAIL, C D,
+				 typename L>
 			struct find_multiple_value< C, value_list< C, HEAD, TAIL >, D, L >
 			{
 				static const C found_value = find_value<C, HEAD, D, L>::value;
@@ -95,7 +101,8 @@ namespace coroutine {
 		template <typename C, template <C> class T,
 				 template < template <C> class > class P,
 				 template <C> class D, typename TAIL>
-					 struct find_type_ctemplate< C, P, D, type_list< P<T>, TAIL> >
+					 struct find_type_ctemplate<
+					 C, P, D, type_list< P<T>, TAIL> >
 					 {
 						 template <C V>
 							 struct apply {
@@ -105,7 +112,8 @@ namespace coroutine {
 
 		template <typename C, template < template <C> class > class P,
 				 template <C> class D, typename HEAD, typename TAIL>
-					 struct find_type_ctemplate< C, P, D, type_list<HEAD, TAIL> >:
+					 struct find_type_ctemplate<
+					 C, P, D, type_list<HEAD, TAIL> >:
 					 find_type_ctemplate< C, P, D, TAIL > {};
 
 	} // namespace details
@@ -189,15 +197,129 @@ namespace coroutine {
 
 			 typedef typename stack_meta_t::template apply<1024> stack_t;
 
-			 /*typedef typename
-			   details::find_type_template< conf::context,
-			   context::Default, parameters >::type context_meta_t;
-			   */
-
 			 typedef coroutine::Coroutine2<
 				 return_t, feedval_t, func_t
 				 > coro;
 		 };
+*/
+
+	namespace details {
+
+		template <typename B, typename D>
+			struct is_base_of {
+				typedef char yes;
+				struct no { yes _[2]; };
+
+				static yes check(B*);
+				static no check(...);
+
+				static const bool value = sizeof check((D*)0) == sizeof (yes);
+			};
+
+	} // namespace details
+
+	namespace stack {
+		struct size_base {};
+
+		template <size_t V = 0>
+			struct size {
+
+				template <typename = void>
+					struct bytes: size_base {
+						static const size_t value = V;
+					};
+
+				template <typename = void>
+					struct kilo_bytes: size_base {
+						static const size_t value = V * 1024;
+					};
+
+				template <typename = void>
+					struct mega_bytes: size_base {
+						static const size_t value = V * 1024 * 1024;
+					};
+			};
+
+		template <template <typename...> class T>
+			struct is_size {
+				static const bool value
+					= details::is_base_of< size_base, T<> >::value;
+			};
+
+		struct stack_base {};
+
+		template <typename SSIZE = size<16>::mega_bytes<> >
+			struct dynamic: stack_base {};
+
+		template <typename SSIZE = size<16>::mega_bytes<> >
+			struct static_: stack_base {};
+
+		template <template <typename...> class T>
+			struct is {
+				static const bool value
+					= details::is_base_of< stack_base, T<> >::value;
+			};
+	} // namespace stack
+
+	namespace context {
+		struct context_base {};
+
+		template <class STACK = stack::static_<> >
+			struct posix: context_base {};
+
+		template <class STACK = stack::static_<> >
+			struct linux_x86_64: context_base {};
+
+		template <class STACK = stack::static_<> >
+			struct linux: linux_x86_64<STACK> {};
+
+		template <class STACK = stack::static_<> >
+			struct windows: context_base {};
+
+		template <class STACK = stack::static_<> >
+			struct best: linux<STACK> {};
+
+		template <template <typename...> class T>
+			struct is {
+				static const bool value
+					= details::is_base_of< context_base, T<> >::value;
+			};
+
+	} // namespace context
+
+	struct some_coroutine {
+		template <typename F>
+			some_coroutine(F) {};
+	};
+
+	template <typename S, typename F,
+			 template <typename...> class... CONFIGS>
+		struct builder {
+
+			typedef some_coroutine coro;
+		};
+
+	template <typename T>
+	struct default_config;
+
+	template <typename S,
+			 template <typename...> class C0 = default_config,
+			 template <typename...> class C1 = default_config,
+			 template <typename...> class C2 = default_config,
+			 template <typename...> class C3 = default_config,
+			 template <typename...> class C4 = default_config,
+			 template <typename...> class C5 = default_config,
+			 template <typename...> class C6 = default_config,
+			 template <typename...> class C7 = default_config,
+			 template <typename...> class C8 = default_config,
+			 template <typename...> class C9 = default_config,
+			 typename F>
+		 auto build(F f) -> typename
+				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::coro
+		 {
+			 return typename
+				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::coro(f);
+		 }
 
 } // namespace coroutine
 
