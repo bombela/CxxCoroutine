@@ -32,28 +32,31 @@ namespace coroutine {
 		{
 			friend class CoroutineFriendWithyielder;
 
-			public:
+		public:
 			typedef typename details::cb_type<RV, FV>::type cb_t;
 
 			yielder_base(const yielder_base& from):
 				_cb(from._cb), _ptr(from._ptr) {}
 
-			protected:
+		protected:
 			cb_t  _cb;
 			void* _ptr;
 
 			yielder_base(cb_t cb, void* ptr):
 				_cb(cb), _ptr(ptr) { }
 
-			private:
+		private:
 			yielder_base& operator=(const yielder_base& from); // disabled
 		};
 
+	template <typename S = void ()>
+		class yielder;
+
 	// RV f(FV feedValue)
-	template <typename RV = void, typename FV = void>
-		class yielder: public yielder_base<RV, FV>
+	template <typename RV, typename FV>
+		class yielder<RV (FV)>: public yielder_base<RV, FV>
 	{
-		typedef yielder_base<RV, FV>   base_t;
+		typedef yielder_base<RV, FV>  base_t;
 		typedef typename base_t::cb_t cb_t;
 
 		public:
@@ -66,7 +69,7 @@ namespace coroutine {
 
 	// RV f()
 	template <typename RV>
-		class yielder<RV, void>: public yielder_base<RV, void>
+		class yielder<RV ()>: public yielder_base<RV, void>
 		{
 			typedef yielder_base<RV, void> base_t;
 			typedef typename base_t::cb_t cb_t;
@@ -81,7 +84,7 @@ namespace coroutine {
 
 	// void f(FV feedValue)
 	template <typename FV>
-		class yielder<void, FV>: public yielder_base<void, FV>
+		class yielder<void (FV)>: public yielder_base<void, FV>
 		{
 			typedef yielder_base<void, FV> base_t;
 			typedef typename base_t::cb_t cb_t;
@@ -96,7 +99,7 @@ namespace coroutine {
 
 	// void f()
 	template <>
-		class yielder<void, void>: public yielder_base<void, void>
+		class yielder<void ()>: public yielder_base<void, void>
 		{
 			typedef yielder_base<void, void> base_t;
 			typedef typename base_t::cb_t   cb_t;

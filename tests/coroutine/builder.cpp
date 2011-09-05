@@ -12,9 +12,9 @@
 
 using namespace coroutine;
 
-int f(yielder<int>) { return 42; }
+int f(yielder<int ()>) { return 42; }
 void f2(yielder<>) { }
-struct F { int operator()(yielder<int>) const { return 42; } };
+struct F { int operator()(yielder<int ()>) const { return 42; } };
 
 BOOST_AUTO_TEST_CASE(try_to_compile)
 {

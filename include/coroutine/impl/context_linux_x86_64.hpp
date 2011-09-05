@@ -26,12 +26,12 @@ namespace coroutine {
 		struct linux_x86_64: context_tag {
 			typedef stack::static_ default_stack;
 			template <typename STACK>
-				struct default_stack_size: stack::size_in_mb<8> {};
+				struct default_stack_size: stack::size_in_mb<64> {};
 		};
 
 		template <>
 			struct linux_x86_64::default_stack_size<stack::static_>
-			: stack::size_in_mb<4> {};
+			: stack::size_in_mb<32> {};
 
 		template <class STACK>
 			struct context<linux_x86_64, STACK> {
@@ -41,21 +41,55 @@ namespace coroutine {
 				typedef STACK stack_t;
 
 				context(function_t* f, void* arg):
-					_f(f), _arg(arg) { reset(); }
+					_f(f), _arg(arg) { reset();
+					std::cout << "ctr"
+						//<< " - " << (void*)_stack.get_stack_ptr()
+						<< std::endl;
+					}
 
-				context(const context& from) = delete;
+				context(const context& from):
+					_f(from._f),
+					_arg(from._arg)
+				{
+					std::cout << "copy"
+					//	<< " - " << (void*)_stack.get_stack_ptr()
+						<< std::endl;
+					reset();
+				}
+
+				context(context&& from) = delete;
 				context& operator=(const context& from) = delete;
 
-				context(context&& from) {
-					// TODO
-				}
+//                context(context&& from) = default;
 
-				context& operator=(context&& from) {
-					// TODO
-				}
+//                context(context&& from)
+//                    _f(from._f),
+//                    _arg(from._arg),
+//                    _sp(from._sp)
+//                    {
+//                        std::cout << "---->" << std::is_move_constructible<stack_t>::value << std::endl;
+//                        if (std::is_move_constructible<stack_t>::value)
+//                            _stack = std::move(from._stack);
+//                        from._f = 0;
+//                        from._arg = 0;
+//                        from._sp = 0;
+//                        reset();
+//                }
+
+//                context& operator=(context&& from) {
+//                        std::cout << "---->" << std::is_move_constructible<stack_t>::value << std::endl;
+//                    if (std::is_move_constructible<stack_t>::value)
+//                        _stack = std::move(from._stack);
+//                    swap(_f, from._f);
+//                    swap(_arg, from._arg);
+//                    swap(_sp, from._sp);
+//                    reset();
+//                    return *this;
+//                }
 
 				void reset()
 				{
+#if 0
 					_sp = reinterpret_cast<void**>(
 							// 16 bytes aligned
 							reinterpret_cast<uintptr_t>(
@@ -74,10 +108,18 @@ namespace coroutine {
 					_sp -= 2;                    // hack space
 					*--_sp = (void*)&trampoline; // next instruction addr
 					--_sp;                       // rbp
+
+					std::cout << "reset " << (void*)_f
+						<< " - " << (void*)_arg
+						<< " - " << (void*)_sp
+						<< " - " << (void*)_stack.get_stack_ptr()
+						<< std::endl;
+#endif
 				}
 
 				void enter()
 				{
+					std::cout << "enter" << std::endl;
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 					swapcontext<1>();
 #else  // !CORO_LINUX_8664_2SWAPSITE
@@ -87,6 +129,7 @@ namespace coroutine {
 
 				void leave()
 				{
+					std::cout << "leaver" << std::endl;
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 					swapcontext<2>();
 #else  // !CORO_LINUX_8664_2SWAPSITE
@@ -96,11 +139,11 @@ namespace coroutine {
 
 				static const char* getImplName() { return "linux x86_64"; }
 
-				private:
+			private:
 				function_t*      _f;
 				void*            _arg;
 				void**           _sp;
-				stack_t          _stack;
+//                stack_t          _stack;
 
 				static void trampoline(
 						int, int, int, int, int, int, // fill reg passing,

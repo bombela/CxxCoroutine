@@ -15,7 +15,7 @@ project(zia CXX)
 set(Boost_USE_STATIC_LIBS   OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(BOOST_INCLUDEDIR "/usr/local/include")
-set(Boost_ADDITIONAL_VERSIONS 1.44 1.43 1.42 1.41 1.40 1.39 1.38)
+set(Boost_ADDITIONAL_VERSIONS 1.47 1.46 1.44 1.43 1.42 1.41 1.40 1.39)
 add_definitions(-DBOOST_ALL_NO_LIB)
 
 ###############################################################################
@@ -35,10 +35,16 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_COMPILER_IS_GNUCXX)
 	if (NATIVECODE)
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
 	endif()
+
+	set(NOELIDECTOR false CACHE BOOL "Disable elide contructors optimization")
+	if (NOELIDECTOR)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-elide-constructors")
+	endif()
 endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -stdlib=libc++")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 	
 	if (EXTRADEBUG)

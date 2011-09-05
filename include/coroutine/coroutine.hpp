@@ -43,7 +43,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					yielder<RV, FV> yielder(&yield_trampoline, this);
+					yielder<RV (FV)> yielder(&yield_trampoline, this);
 					yield(static_cast<IMPL*>(this)->_func(yielder, *_fv));
 					abort();
 				}
@@ -83,7 +83,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					yielder<RV, void> yielder(&yield_trampoline, this);
+					yielder<RV ()> yielder(&yield_trampoline, this);
 					yield(static_cast<IMPL*>(this)->_func(yielder));
 					abort();
 				}
@@ -120,7 +120,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					yielder<void, FV> yielder(&yield_trampoline, this);
+					yielder<void (FV)> yielder(&yield_trampoline, this);
 					static_cast<IMPL*>(this)->_func(yielder, *_fv);
 					yield();
 					abort();
@@ -156,7 +156,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					yielder<void, void> yielder(&yield_trampoline, this);
+					yielder<void ()> yielder(&yield_trampoline, this);
 					static_cast<IMPL*>(this)->_func(yielder);
 					yield();
 					abort();
@@ -179,13 +179,29 @@ namespace coroutine {
 			typedef CONTEXT context_t;
 			friend base_t;
 
-			public:
+		public:
 			coroutine(func_t f):
 				_context(&base_t::bootstrap_trampoline, this),
 				_func(f)
 			{}
 
-			private:
+			coroutine(const coroutine& from):
+				_context(&base_t::bootstrap_trampoline, this)
+			{
+				std::cout << "cpy coro" << std::endl;
+			}
+//            coroutine& operator=(coroutine from) = delete;
+
+//            coroutine(coroutine&& from):
+//                _context(std::move(from._context)),
+//                _func(std::move(from._func)) {}
+
+//            coroutine& operator=(coroutine&& from) {
+//                _context = std::move(from._context);
+//                _func = std::move(from._func);
+//                return *this;
+//            }
+		private:
 			context_t _context;
 			func_t    _func;
 		};

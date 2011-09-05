@@ -55,7 +55,7 @@ namespace coroutine {
 			struct decay_sign_rm_yielder;
 
 		template <typename R, typename A1, typename... ARGS>
-			struct decay_sign_rm_yielder<R (yielder<R, A1>, ARGS...)> {
+			struct decay_sign_rm_yielder<R (yielder<R (A1)>, ARGS...)> {
 				typedef R type (ARGS...);
 			};
 

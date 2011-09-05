@@ -5,33 +5,29 @@
 */
 
 #include <test.hpp>
-#include <coroutine/builder.hpp>
+//#include <coroutine/builder.hpp>
 #include <iostream>
 
-using namespace coroutine;
+//using namespace coroutine;
 
-int f_ret_feed(yielder<int, float> yield, float v)
-{
-	BOOST_CHECK(v == 2.2f);
-	std::cout << "v=" << v << std::endl;
-	float a = yield(42);
-	BOOST_CHECK(a == 99.f);
-	std::cout << "a=" << a << std::endl;
-	return 84;
-}
+//int f_ret_feed(yielder<int (float)> yield, float v)
+//{
+//    BOOST_CHECK(v == 2.2f);
+//    std::cout << "v=" << v << std::endl;
+//    float a = yield(42);
+//    BOOST_CHECK(a == 99.f);
+//    std::cout << "a=" << a << std::endl;
+//    return 84;
+//}
 
 BOOST_AUTO_TEST_CASE(ret_feed)
 {
-	auto c = corof(&f_ret_feed);
-//    typedef Coroutine<int, float, int (*)(yielder<int, float>, float),
-//        1024*8, stack::Default, context> coro_t;
+//    auto c = corof<stack::dynamic>(&f_ret_feed);
 
-//    coro_t c(&f_ret_feed);
-
-//    int r1 = c(2.2f);
-//    BOOST_CHECK(r1 == 42);
+	int r1 = 2;// = c(2.2f);
+	BOOST_CHECK(r1 == 42);
 //    std::cout << "r1=" << r1 << std::endl;
-//    int r2 = c(99.f);
+//    int r2 = 34;// = c(99.f);
 //    BOOST_CHECK(r2 == 84);
 //    std::cout << "r2=" << r2 << std::endl;
 }
