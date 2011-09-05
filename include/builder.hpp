@@ -169,10 +169,13 @@ namespace coroutine {
 			bool B, typename HEAD, typename... TAIL>
 			struct find_if_iter;
 
+		template <template <typename> class PREDICATE, typename... TAIL>
+			struct find_if;
+
 		template <template <typename> class PREDICATE,
 				 typename HEAD, typename... TAIL>
-			struct find_if: find_if_iter<PREDICATE,
-				PREDICATE<HEAD>::value, HEAD, TAIL...> {};
+			struct find_if<PREDICATE, HEAD, TAIL...>
+			: find_if_iter<PREDICATE, PREDICATE<HEAD>::value, HEAD, TAIL...> {};
 
 		template <template <typename> class PREDICATE,
 			typename HEAD, typename... TAIL>
