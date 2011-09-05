@@ -38,18 +38,44 @@ namespace coroutine {
 			struct find_if_iter<PREDICATE, false, HEAD, TAIL...>
 				: find_if<PREDICATE, TAIL...> {};
 
+		template <typename S>
+			struct decay_sign_rm_ptr;
+
+		template <typename R, typename... ARGS>
+			struct decay_sign_rm_ptr<R (ARGS...)> {
+				typedef R type (ARGS...);
+			};
+
+		template <typename R, typename... ARGS>
+			struct decay_sign_rm_ptr<R (*)(ARGS...)> {
+				typedef R type (ARGS...);
+			};
+
+		template <typename S>
+			struct decay_sign_rm_yielder;
+
+		template <typename R, typename A1, typename... ARGS>
+			struct decay_sign_rm_yielder<R (yielder<R, A1>, ARGS...)> {
+				typedef R type (ARGS...);
+			};
+
+		template <typename R, typename... ARGS>
+			struct decay_sign_rm_yielder<R (ARGS...)> {
+				typedef R type (ARGS...);
+			};
+
+		template <typename S>
+			struct decay_sign {
+				typedef typename decay_sign_rm_ptr<S>::type sign;
+				typedef typename decay_sign_rm_yielder<sign>::type type;
+			};
+
 	} // namespace details
-
-	template <typename T>
-	struct some_coroutine {
-		template <typename F>
-			some_coroutine(F) {};
-
-		int s() { return T(); }
-	};
 
 	template <typename S, typename F, typename... CONFIGS>
 		struct builder {
+			typedef typename details::decay_sign<S>::type sign_t;
+			typedef F func_t;
 
 			typedef typename
 				details::find_if<context::is, CONFIGS..., context::best>::type
@@ -76,7 +102,7 @@ namespace coroutine {
 			typedef stack::stack<stack_tag, stack_size> stack_type;
 			typedef context::context<context_tag, stack_type> context_type;
 
-			typedef some_coroutine< context_type > type;
+			typedef coroutine<sign_t, func_t, context_type> type;
 		};
 
 	template <typename S,
@@ -96,6 +122,27 @@ namespace coroutine {
 		 {
 			 return typename
 				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type(f);
+		 }
+
+	template <
+			 typename C0 = void,
+			 typename C1 = void,
+			 typename C2 = void,
+			 typename C3 = void,
+			 typename C4 = void,
+			 typename C5 = void,
+			 typename C6 = void,
+			 typename C7 = void,
+			 typename C8 = void,
+			 typename C9 = void,
+			 typename F>
+		 auto corof(F f) -> typename
+				 builder<F, F,
+		 C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type
+		 {
+			 return typename
+				 builder<F, F,
+			 C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type(f);
 		 }
 
 } // namespace coroutine

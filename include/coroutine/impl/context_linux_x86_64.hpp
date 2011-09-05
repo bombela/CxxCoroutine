@@ -46,12 +46,20 @@ namespace coroutine {
 				context(const context& from) = delete;
 				context& operator=(const context& from) = delete;
 
+				context(context&& from) {
+					// TODO
+				}
+
+				context& operator=(context&& from) {
+					// TODO
+				}
+
 				void reset()
 				{
 					_sp = reinterpret_cast<void**>(
 							// 16 bytes aligned
 							reinterpret_cast<uintptr_t>(
-								_stack.getStackPointer() + _stack.getSize()
+								_stack.get_stack_ptr() + _stack.get_size()
 								) & static_cast<uintptr_t>(~15)
 							);
 
@@ -184,8 +192,8 @@ namespace coroutine {
 									//   caveat.
 									"rdi", "rsi", "r8", "r9", "r10", "r11",
 									"r12", "r13", "r14", "r15",
-									"%st(1)", "%st(2)", "%st(3)", "%st(4)",
-									"%st(5)", "%st(6)", "%st(7)",
+//                                    "%st(1)", "%st(2)", "%st(3)", "%st(4)",
+//                                    "%st(5)", "%st(6)", "%st(7)"
 									"mm0", "mm1", "mm2", "mm3", "mm4",
 									"mm5", "mm6", "mm7",
 									"xmm0", "xmm1", "xmm2", "xmm3", "xmm4",

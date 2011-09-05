@@ -21,6 +21,12 @@ namespace coroutine {
 					static size_t get_size() { return size; }
 					char*  get_stack_ptr() { return _stack; }
 
+					stack() {}
+					stack(const stack& from) = delete;
+					stack& operator=(const stack& from) = delete;
+					stack(stack&& from) = delete;
+					stack& operator=(stack&& from) = delete;
+
 				private:
 					char _stack[size];
 			};

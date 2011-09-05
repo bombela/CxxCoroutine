@@ -20,9 +20,11 @@ namespace coroutine {
 		};
 
 		namespace posix_api {
-#include <ucontext.h>
-#include <string.h>
-#include <errno.h>
+			extern "C" {
+#				include <ucontext.h>
+#				include <string.h>
+#				include <errno.h>
+			}
 		} // namespace posix_api
 
 		template <class STACK>
@@ -36,6 +38,14 @@ namespace coroutine {
 
 					context(const context& from) = delete;
 					context& operator=(const context& from) = delete;
+
+					context(context&& from) {
+						// TODO
+					}
+
+					context& operator=(context&& from) {
+						// TODO
+					}
 
 					void reset()
 					{
