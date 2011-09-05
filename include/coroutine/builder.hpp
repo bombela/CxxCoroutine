@@ -8,25 +8,10 @@
 #ifndef BUILDER_H
 #define BUILDER_H
 
-#include <coroutine.hpp>
-#include <yielder.hpp>
+#include <coroutine/coroutine.hpp>
+#include <coroutine/best_context.hpp>
 
 namespace coroutine {
-
-	namespace details {
-
-		template <typename B, typename D>
-			struct is_base_of {
-				typedef char yes;
-				struct no { yes _[2]; };
-
-				static yes check(B*);
-				static no check(...);
-
-				static const bool value = sizeof check((D*)0) == sizeof (yes);
-			};
-
-	} // namespace details
 
 	namespace details {
 

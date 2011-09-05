@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <coroutine/stack.hpp>
+#include <coroutine/impl/stack_static.hpp>
 
 /*
  * Enabled, will use a copy paste of the code
@@ -42,8 +43,8 @@ namespace coroutine {
 				context(function_t* f, void* arg):
 					_f(f), _arg(arg) { reset(); }
 
-				context(const Context& from) = delete;
-				context& operator=(const Context& from) = delete;
+				context(const context& from) = delete;
+				context& operator=(const context& from) = delete;
 
 				void reset()
 				{
@@ -70,18 +71,18 @@ namespace coroutine {
 				void enter()
 				{
 #ifdef    CORO_LINUX_8664_2SWAPSITE
-					swapContext<1>();
+					swapcontext<1>();
 #else  // !CORO_LINUX_8664_2SWAPSITE
-					swapContext();
+					swapcontext();
 #endif // CORO_LINUX_8664_2SWAPSITE
 				}
 
 				void leave()
 				{
 #ifdef    CORO_LINUX_8664_2SWAPSITE
-					swapContext<2>();
+					swapcontext<2>();
 #else  // !CORO_LINUX_8664_2SWAPSITE
-					swapContext();
+					swapcontext();
 #endif // CORO_LINUX_8664_2SWAPSITE
 				}
 
@@ -91,12 +92,12 @@ namespace coroutine {
 				function_t*      _f;
 				void*            _arg;
 				void**           _sp;
-				Stack            _stack;
+				stack_t          _stack;
 
 				static void trampoline(
 						int, int, int, int, int, int, // fill reg passing,
 						// so everything else will by passed on stack.
-						Context* context
+						context* context
 						)
 				{
 					context->_f(context->_arg);
@@ -107,7 +108,7 @@ namespace coroutine {
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 				template <int>
 #endif // CORO_LINUX_8664_2SWAPSITE
-					void swapContext()
+					void swapcontext()
 					{
 						/*
 						 * Optimization discussion:

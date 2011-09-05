@@ -22,7 +22,7 @@ namespace coroutine {
 					char*  get_stack_ptr() { return _stack; }
 
 				private:
-					char _stack[STACK_SIZE];
+					char _stack[size];
 			};
 
 	} // namespace stack

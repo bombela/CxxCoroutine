@@ -9,6 +9,22 @@
 #define STACK_H
 
 namespace coroutine {
+	namespace details {
+
+		template <typename B, typename D>
+			struct is_base_of {
+				typedef char yes;
+				struct no { yes _[2]; };
+
+				static yes check(B*);
+				static no check(...);
+
+				static const bool value
+					= sizeof check((D*)0) == sizeof (yes);
+			};
+
+	} // namespace details
+
 	namespace stack {
 
 		struct size_tag {};
@@ -37,7 +53,7 @@ namespace coroutine {
 		struct stack_tag {};
 
 		template <typename TAG, size_t SSIZE>
-			struct stack;
+			class stack;
 
 		template <typename T>
 			struct is {

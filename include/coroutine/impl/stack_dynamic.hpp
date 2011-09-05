@@ -8,22 +8,24 @@
 #ifndef STACK_DYNAMIC_H
 #define STACK_DYNAMIC_H
 
+#include <coroutine/stack.hpp>
+
 namespace coroutine {
 	namespace stack {
 
 		struct dynamic: stack_tag {};
 
 		template <size_t SSIZE>
-			struct stack<dynamic, SSIZE> {
+			class stack<dynamic, SSIZE> {
 				static const size_t size = SSIZE;
 
 				public:
-					Dynamic(): _stack(new char [STACK_SIZE]) {}
-					~Dynamic() { delete[] _stack; }
-					Dynamic(const Dynamic& from) = delete;
-					Dynamic& operator=(const Dynamic& from) = delete;
+					stack(): _stack(new char [size]) {}
+					~stack() { delete[] _stack; }
+					stack(const stack& from) = delete;
+					stack& operator=(const stack& from) = delete;
 
-					static size_t get_size()  { return STACK_SIZE; }
+					static size_t get_size()  { return size; }
 					char*  get_stack_ptr() { return _stack; }
 
 				private:

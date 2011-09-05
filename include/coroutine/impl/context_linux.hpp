@@ -10,7 +10,7 @@
 
 
 #if   __SIZEOF_POINTER__ == 8
-#	include <coroutine/impl/context_oslinux_x86_64.hpp>
+#	include <coroutine/impl/context_linux_x86_64.hpp>
 
 namespace coroutine {
 	namespace context {
@@ -21,7 +21,7 @@ namespace coroutine {
 } // namespace coroutine
 
 #elif __SIZEOF_POINTER__ == 4
-#	include <coroutine/impl/context_oslinux_x86_32.hpp>
+#	include <coroutine/impl/context_linux_x86_32.hpp>
 
 namespace coroutine {
 	namespace context {

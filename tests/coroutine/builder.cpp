@@ -5,14 +5,15 @@
 */
 
 #include <test.hpp>
-#include <builder.hpp>
+#include <coroutine/builder.hpp>
+#include <coroutine/impl/context_posix.hpp>
 
 #include<iostream>
 
 using namespace coroutine;
 
-int f(Yielder<int>) { return 42; }
-void f2(Yielder<>) { }
+int f(yielder<int>) { return 42; }
+void f2(yielder<>) { }
 struct F { int operator()() const { return 42; } };
 
 BOOST_AUTO_TEST_CASE(try_to_compile)
@@ -32,7 +33,7 @@ BOOST_AUTO_TEST_CASE(try_to_compile)
 }
 
 #if 0
-int f_ret_feed(Yielder<int, float> yield, float v)
+int f_ret_feed(yielder<int, float> yield, float v)
 {
 	BOOST_CHECK(v == 2.2f);
 	std::cout << "v=" << v << std::endl;
@@ -44,7 +45,7 @@ int f_ret_feed(Yielder<int, float> yield, float v)
 
 BOOST_AUTO_TEST_CASE(ret_feed)
 {
-	typedef Coroutine<int, float, int (*)(Yielder<int, float>, float),
+	typedef Coroutine<int, float, int (*)(yielder<int, float>, float),
 		1024*8, stack::Default, Context> coro_t;
 
 	coro_t c(&f_ret_feed);
@@ -57,7 +58,7 @@ BOOST_AUTO_TEST_CASE(ret_feed)
 	std::cout << "r2=" << r2 << std::endl;
 }
 
-int f_ret(Yielder<int> yield)
+int f_ret(yielder<int> yield)
 {
 	yield(43);
 	return 85;
@@ -65,7 +66,7 @@ int f_ret(Yielder<int> yield)
 
 BOOST_AUTO_TEST_CASE(ret)
 {
-	typedef Coroutine<int, void, int (*)(Yielder<int>),
+	typedef Coroutine<int, void, int (*)(yielder<int>),
 		1024*8, stack::Default, Context> coro_t;
 
 	coro_t c(&f_ret);
@@ -78,7 +79,7 @@ BOOST_AUTO_TEST_CASE(ret)
 	std::cout << "r2=" << r2 << std::endl;
 }
 
-void f_feed(Yielder<void, float> yield, float v)
+void f_feed(yielder<void, float> yield, float v)
 {
 	BOOST_CHECK(v == 2.1f);
 	std::cout << "v=" << v << std::endl;
@@ -89,7 +90,7 @@ void f_feed(Yielder<void, float> yield, float v)
 
 BOOST_AUTO_TEST_CASE(feed)
 {
-	typedef Coroutine<void, float, void (*)(Yielder<void, float>, float),
+	typedef Coroutine<void, float, void (*)(yielder<void, float>, float),
 		1024*8, stack::Default, Context> coro_t;
 
 	coro_t c(&f_feed);

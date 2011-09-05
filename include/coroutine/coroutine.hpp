@@ -8,8 +8,8 @@
 #ifndef COROUTINE_H
 #define COROUTINE_H
 
-#include <context.hpp>
-#include <yielder.hpp>
+#include <coroutine/context.hpp>
+#include <coroutine/yielder.hpp>
 
 
 #include<iostream>
@@ -40,7 +40,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					Yielder<RV, FV> yielder(&yield_trampoline, this);
+					yielder<RV, FV> yielder(&yield_trampoline, this);
 					yield(static_cast<IMPL*>(this)->_func(yielder, *_fv));
 					abort();
 				}
@@ -79,7 +79,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					Yielder<RV, void> yielder(&yield_trampoline, this);
+					yielder<RV, void> yielder(&yield_trampoline, this);
 					yield(static_cast<IMPL*>(this)->_func(yielder));
 					abort();
 				}
@@ -116,7 +116,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					Yielder<void, FV> yielder(&yield_trampoline, this);
+					yielder<void, FV> yielder(&yield_trampoline, this);
 					static_cast<IMPL*>(this)->_func(yielder, *_fv);
 					yield();
 					abort();
@@ -152,7 +152,7 @@ namespace coroutine {
 
 				void bootstrap()
 				{
-					Yielder<void, void> yielder(&yield_trampoline, this);
+					yielder<void, void> yielder(&yield_trampoline, this);
 					static_cast<IMPL*>(this)->_func(yielder);
 					yield();
 					abort();
@@ -171,10 +171,10 @@ namespace coroutine {
 	namespace details {
 
 		template <typename RV, typename FV>
-			struct func_type { typedef RV (*type)(Yielder<RV, FV>, FV); };
+			struct func_type { typedef RV (*type)(yielder<RV, FV>, FV); };
 
 		template <typename RV>
-			struct func_type<RV, void> { typedef RV (*type)(Yielder<RV, void>); };
+			struct func_type<RV, void> { typedef RV (*type)(yielder<RV, void>); };
 
 	} // namespace details
 
@@ -183,65 +183,65 @@ namespace coroutine {
 	// compute automatically F with the signature.
 	// else, use the fonctor.
 
-	template<
-		typename                RV    = void,
-								typename                FV    = void,
-								typename                F     = typename details::func_type<RV, FV>::type,
-								size_t                  SSIZE = stack::default_size,
-								template <size_t> class S     = stack::Default,
-								template <class>  class C     = Context
-									>
-									class coroutine: public coroutine_base<RV, FV, coroutine<RV, FV, F, SSIZE, S, C> >
-									{
-										friend class coroutine_base<RV, FV, coroutine<RV, FV, F, SSIZE, S, C> >;
+//    template<
+//        typename                RV    = void,
+//                                typename                FV    = void,
+//                                typename                F     = typename details::func_type<RV, FV>::type,
+//                                size_t                  SSIZE = 42,
+//                                template <size_t> class S     = stack::Default,
+//                                template <class>  class C     = Context
+//                                    >
+//                                    class coroutine: public coroutine_base<RV, FV, coroutine<RV, FV, F, SSIZE, S, C> >
+//                                    {
+//                                        friend class coroutine_base<RV, FV, coroutine<RV, FV, F, SSIZE, S, C> >;
 
-										public:
-										typedef RV          return_t;
-										typedef FV          feedval_t;
-										typedef F           func_t;
-										static const size_t ssize = SSIZE;
-										typedef S<ssize>    stack_t;
-										typedef C<stack_t>  context_t;
-										typedef coroutine_base<RV, FV,
-												coroutine<RV, FV, F, ssize, S, C> > parent_t;
+//                                        public:
+//                                        typedef RV          return_t;
+//                                        typedef FV          feedval_t;
+//                                        typedef F           func_t;
+//                                        static const size_t ssize = SSIZE;
+//                                        typedef S<ssize>    stack_t;
+//                                        typedef C<stack_t>  context_t;
+//                                        typedef coroutine_base<RV, FV,
+//                                                coroutine<RV, FV, F, ssize, S, C> > parent_t;
 
-										coroutine(func_t f):
-											_context(&parent_t::bootstrap_trampoline, this),
-											_func(f)
-										{}
+//                                        coroutine(func_t f):
+//                                            _context(&parent_t::bootstrap_trampoline, this),
+//                                            _func(f)
+//                                        {}
 
-										private:
-										context_t _context;
-										func_t    _func;
-									};
+//                                        private:
+//                                        context_t _context;
+//                                        func_t    _func;
+//                                    };
 
-	template<
-		typename RV = void,
-				 typename FV = void,
-				 typename F  = typename details::func_type<RV, FV>::type,
-				 typename C  = Context<>
-					 >
-					 class coroutine2: public coroutine_base<RV, FV, coroutine2<RV, FV, F, C> >
-					 {
-						 friend class coroutine_base<RV, FV, coroutine2<RV, FV, F, C> >;
+//    template<
+//        typename RV = void,
+//                 typename FV = void,
+//                 typename F  = typename details::func_type<RV, FV>::type,
+//                 typename C  = Context<>
+//                     >
+//                     class coroutine2: public coroutine_base<RV, FV, coroutine2<RV, FV, F, C> >
+//                     {
+//                         friend class coroutine_base<RV, FV, coroutine2<RV, FV, F, C> >;
 
-						 public:
-						 typedef RV return_t;
-						 typedef FV feedval_t;
-						 typedef F  func_t;
-						 typedef C  context_t;
-						 typedef coroutine_base<RV, FV,
-								 coroutine2<RV, FV, F, C> > parent_t;
+//                         public:
+//                         typedef RV return_t;
+//                         typedef FV feedval_t;
+//                         typedef F  func_t;
+//                         typedef C  context_t;
+//                         typedef coroutine_base<RV, FV,
+//                                 coroutine2<RV, FV, F, C> > parent_t;
 
-						 coroutine2(func_t f):
-							 _context(&parent_t::bootstrap_trampoline, this),
-							 _func(f)
-						 {}
+//                         coroutine2(func_t f):
+//                             _context(&parent_t::bootstrap_trampoline, this),
+//                             _func(f)
+//                         {}
 
-						 private:
-						 context_t _context;
-						 func_t    _func;
-					 };
+//                         private:
+//                         context_t _context;
+//                         func_t    _func;
+//                     };
 
 } // namespace coroutine
 
