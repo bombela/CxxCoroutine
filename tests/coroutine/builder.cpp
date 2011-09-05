@@ -17,15 +17,42 @@ struct F { int operator()() const { return 42; } };
 
 BOOST_AUTO_TEST_CASE(try_to_compile)
 {
-	auto c1 = build<int ()>(F());
-	auto c2 = build<int (),
-		 stack::size<16>::kilo_bytes
-			 >(F());
-	auto c3 = build<int (),
-		 stack::size<16>::kilo_bytes,
-		 context::posix,
-		 stack::dynamic
-			 >(F());
+	std::cout <<
+		context::resolve_alias<context::linux_x86_64>::type
+		::default_stack_size<stack::static_>::value
+	<< std::endl;
+
+	std::cout <<
+		context::resolve_alias<context::linux>::type
+		::default_stack_size<stack::static_>::value
+	<< std::endl;
+
+	std::cout <<
+		context::resolve_alias<context::linux>::type
+		::default_stack_size<stack::dynamic>::value
+	<< std::endl;
+
+	std::cout <<
+		context::resolve_alias<context::posix>::type
+		::default_stack_size<stack::static_>::value
+	<< std::endl;
+	std::cout <<
+		context::resolve_alias<context::windows>::type
+		::default_stack_size<stack::static_>::value
+	<< std::endl;
+	auto c1 = build<int ()
+//         ,context::windows
+//         ,stack::dynamic
+//         ,stack::size<42>::bytes
+		 >(F());
+//    auto c2 = build<int (),
+//         stack::size<16>::kilo_bytes
+//             >(F());
+//    auto c3 = build<int (),
+//         stack::size<16>::kilo_bytes,
+//         context::posix,
+//         stack::dynamic
+//             >(F());
 
 	std::cout << c1.s() << std::endl;
 
