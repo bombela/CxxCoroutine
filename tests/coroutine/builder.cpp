@@ -12,36 +12,23 @@
 using namespace coroutine;
 
 int f(Yielder<int>) { return 42; }
-//void f2(coro::Yielder<>) { }
+void f2(Yielder<>) { }
 struct F { int operator()() const { return 42; } };
 
 BOOST_AUTO_TEST_CASE(try_to_compile)
 {
-	auto c1 = coro<int ()
-//         ,context::windows
-//         ,stack::static_
-//         ,stack::size_in_kb<42>
+	auto c1 = coro<int ()>(F());
+	auto c2 = coro<int ()
+		 ,context::posix
+		 ,stack::static_
 		 >(F());
-//    auto c2 = build<int (),
-//         stack::size<16>::kilo_bytes
-//             >(F());
-//    auto c3 = build<int (),
-//         stack::size<16>::kilo_bytes,
-//         context::posix,
-//         stack::dynamic
-//             >(F());
+	auto c3 = coro<int (),
+		 stack::size_in_kb<42>
+			 >(&f);
 
-	std::cout << c1.s() << std::endl;
+	typedef builder<int (), F, stack::size_in_b<42> > coro_info_t;
 
-//    typedef builder<
-//        conf::rval<int>
-//        ,conf::ssize_m<1>
-//        ,conf::stack<stack::Dynamic>
-//        >::coro coro_t;
-
-//    coro_t c(&f);
-//    std::cout << coro_t::context_t::stack_t::getSize() << std::endl;
-//    BOOST_CHECK(c() == 42);
+	BOOST_CHECK(coro_info_t::stack_size == 42);
 }
 
 #if 0

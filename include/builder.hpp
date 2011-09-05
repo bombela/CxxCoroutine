@@ -226,7 +226,7 @@ namespace coroutine {
 			typedef stack::stack<stack_tag, stack_size> stack_type;
 			typedef context::context<context_tag, stack_type> context_type;
 
-			typedef some_coroutine< context_type > coro;
+			typedef some_coroutine< context_type > type;
 		};
 
 	template <typename S,
@@ -242,10 +242,10 @@ namespace coroutine {
 			 typename C9 = void,
 			 typename F>
 		 auto coro(F f) -> typename
-				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::coro
+				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type
 		 {
 			 return typename
-				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::coro(f);
+				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type(f);
 		 }
 
 } // namespace coroutine
