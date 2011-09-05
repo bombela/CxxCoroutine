@@ -238,7 +238,7 @@ namespace coroutine {
 			 typename C8 = void,
 			 typename C9 = void,
 			 typename F>
-		 auto build(F f) -> typename
+		 auto coro(F f) -> typename
 				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::coro
 		 {
 			 return typename
