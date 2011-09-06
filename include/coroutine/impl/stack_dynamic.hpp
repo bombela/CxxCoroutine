@@ -10,6 +10,7 @@
 
 #include <algorithm>
 #include <coroutine/stack.hpp>
+#include <cstdlib>
 
 namespace coroutine {
 	namespace stack {
@@ -23,8 +24,8 @@ namespace coroutine {
 				static const size_t size = SSIZE;
 
 				public:
-					stack(): _stack(new char [size]) { }
-					~stack() { delete[] _stack; }
+					stack(): _stack((char*)::malloc(size)) { }
+					~stack() { ::free(_stack); }
 
 					stack(const stack& from) = delete;
 					stack& operator=(const stack& from) = delete;

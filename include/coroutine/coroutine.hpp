@@ -174,10 +174,10 @@ namespace coroutine {
 
 	template <typename S, typename F, typename CONTEXT>
 		class coroutine: public coroutine_base<S, coroutine<S, F, CONTEXT> > {
+			friend class coroutine_base<S, coroutine<S, F, CONTEXT> >;
 			typedef coroutine_base<S, coroutine<S, F, CONTEXT> > base_t;
 			typedef F       func_t;
 			typedef CONTEXT context_t;
-			friend base_t;
 
 		public:
 			coroutine(func_t f):

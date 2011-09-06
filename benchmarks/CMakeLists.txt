@@ -37,12 +37,11 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(BENCH_SRCS
 	virtcall.cpp
 	stack.cpp
-	posixContext.cpp
-	posixContextLoop.cpp
-	oslinuxContext.cpp
-	oslinuxContextLoop.cpp
+	#	posixContext.cpp
+	#	posixContextLoop.cpp
+	#	oslinuxContext.cpp
+	#	oslinuxContextLoop.cpp
 )
-set(BENCH_SRCS )
 
 foreach(f ${BENCH_SRCS})
 	coroutine_add_bench(${f})
