@@ -41,55 +41,34 @@ namespace coroutine {
 				typedef STACK stack_t;
 
 				context(function_t* f, void* arg):
-					_f(f), _arg(arg) { reset();
+					_f(f), _arg(arg) {
 					std::cout << "ctr"
-						//<< " - " << (void*)_stack.get_stack_ptr()
+						<< " - " << (void*)_stack.get_stack_ptr()
 						<< std::endl;
+ reset();
 					}
 
-				context(const context& from):
-					_f(from._f),
-					_arg(from._arg)
-				{
-					std::cout << "copy"
-					//	<< " - " << (void*)_stack.get_stack_ptr()
-						<< std::endl;
-					reset();
-				}
-
-				context(context&& from) = delete;
+				context(const context& from) = delete;
 				context& operator=(const context& from) = delete;
+				context& operator=(context&& from) = delete;
 
 //                context(context&& from) = default;
 
-//                context(context&& from)
-//                    _f(from._f),
-//                    _arg(from._arg),
-//                    _sp(from._sp)
-//                    {
-//                        std::cout << "---->" << std::is_move_constructible<stack_t>::value << std::endl;
-//                        if (std::is_move_constructible<stack_t>::value)
-//                            _stack = std::move(from._stack);
-//                        from._f = 0;
-//                        from._arg = 0;
-//                        from._sp = 0;
-//                        reset();
-//                }
-
-//                context& operator=(context&& from) {
-//                        std::cout << "---->" << std::is_move_constructible<stack_t>::value << std::endl;
-//                    if (std::is_move_constructible<stack_t>::value)
-//                        _stack = std::move(from._stack);
-//                    swap(_f, from._f);
-//                    swap(_arg, from._arg);
-//                    swap(_sp, from._sp);
-//                    reset();
-//                    return *this;
-//                }
+				context(context&& from):
+					_f(from._f),
+					_arg(from._arg),
+					_sp(from._sp),
+					_stack()
+					{
+						std::cout << "---->" << std::is_move_constructible<stack_t>::value << std::endl;
+						from._f = 0;
+						from._arg = 0;
+						from._sp = 0;
+						reset();
+				}
 
 				void reset()
 				{
-#if 0
 					_sp = reinterpret_cast<void**>(
 							// 16 bytes aligned
 							reinterpret_cast<uintptr_t>(
@@ -114,7 +93,6 @@ namespace coroutine {
 						<< " - " << (void*)_sp
 						<< " - " << (void*)_stack.get_stack_ptr()
 						<< std::endl;
-#endif
 				}
 
 				void enter()
@@ -143,7 +121,7 @@ namespace coroutine {
 				function_t*      _f;
 				void*            _arg;
 				void**           _sp;
-//                stack_t          _stack;
+				stack_t          _stack;
 
 				static void trampoline(
 						int, int, int, int, int, int, // fill reg passing,
@@ -236,7 +214,7 @@ namespace coroutine {
 									"rdi", "rsi", "r8", "r9", "r10", "r11",
 									"r12", "r13", "r14", "r15",
 //                                    "%st(1)", "%st(2)", "%st(3)", "%st(4)",
-//                                    "%st(5)", "%st(6)", "%st(7)"
+//                                    "%st(5)", "%st(6)", "%st(7)",
 									"mm0", "mm1", "mm2", "mm3", "mm4",
 									"mm5", "mm6", "mm7",
 									"xmm0", "xmm1", "xmm2", "xmm3", "xmm4",

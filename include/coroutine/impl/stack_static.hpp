@@ -19,13 +19,14 @@ namespace coroutine {
 
 				public:
 					static size_t get_size() { return size; }
-					char*  get_stack_ptr() { return _stack; }
+					char* get_stack_ptr() { return _stack; }
 
 					stack() {}
 					stack(const stack& from) = delete;
 					stack& operator=(const stack& from) = delete;
-					stack(stack&& from) = delete;
 					stack& operator=(stack&& from) = delete;
+
+					stack(stack&&) { }
 
 				private:
 					char _stack[size];

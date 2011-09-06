@@ -50,7 +50,18 @@ namespace coroutine {
 					= details::is_base_of<size_tag, T>::value;
 			};
 
-		struct stack_tag {};
+		struct stack_tag {
+			// Technically, stack object have to be moveable to allow retuning
+			// coroutine from function, using a nice coroutine builder and so
+			// on. However, at soon as the coroutine is started the stack
+			// CANNOT move because some code is using it. An exception will be
+			// threw if you try to move an already running one. However, if a
+			// stack is allocated dynamically, it's possible to move the object
+			// encapsulating it while keeping the same physical stack. For any
+			// stack that can be really moved, set this attribute to true to
+			// access the liberty of free moving running coroutines.
+			static const bool really_moveable = false;
+		};
 
 		template <typename TAG, size_t SSIZE>
 			class stack;
@@ -59,6 +70,24 @@ namespace coroutine {
 			struct is {
 				static const bool value
 					= details::is_base_of<stack_tag, T>::value;
+			};
+
+		namespace details {
+
+			template <typename T>
+				struct get_tag;
+
+			template <typename TAG, size_t SSIZE>
+				struct get_tag< stack<TAG, SSIZE> > {
+					typedef TAG type;
+				};
+
+		} // namespace details
+
+		template <typename T>
+			struct is_really_moveable {
+				static const bool value
+					= details::get_tag<T>::type::really_moveable;
 			};
 
 	} // namespace stack

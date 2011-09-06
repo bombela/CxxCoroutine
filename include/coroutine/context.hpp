@@ -67,6 +67,15 @@ namespace coroutine {
 					type;
 			};
 
+		template <typename T>
+			struct get_args;
+
+		template <typename TAG, size_t STACK>
+			struct get_args< context<TAG, SSIZE> > {
+				typedef TAG   tag_t;
+				typedef STACK stack_t;
+			};
+
 	} // namespace context
 } // namespace coroutine
 

@@ -185,25 +185,27 @@ namespace coroutine {
 				_func(f)
 			{}
 
-			coroutine(const coroutine& from):
-				_context(&base_t::bootstrap_trampoline, this)
-			{
-				std::cout << "cpy coro" << std::endl;
-			}
-//            coroutine& operator=(coroutine from) = delete;
+			coroutine(const coroutine& from) = delete;
+			coroutine& operator=(coroutine& from) = delete;
+			coroutine& operator=(coroutine&& from) = delete;
 
-//            coroutine(coroutine&& from):
-//                _context(std::move(from._context)),
-//                _func(std::move(from._func)) {}
+			coroutine(coroutine&& from):
+				_context(std::move(from._context)),
+				_func(std::move(from._func))
+			{};
 
-//            coroutine& operator=(coroutine&& from) {
-//                _context = std::move(from._context);
-//                _func = std::move(from._func);
-//                return *this;
-//            }
 		private:
 			context_t _context;
 			func_t    _func;
+
+			context_t&& move_context_or_throw(context_t&& c)
+			{
+				if (not stack::is_really_moveable<
+						typename context::get_args<context_t>::stack_t
+						>::value)
+					std::cout << "CACA" << std::endl;
+				return std::move(c);
+			}
 		};
 
 } // namespace coroutine
