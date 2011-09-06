@@ -44,6 +44,7 @@ namespace coroutine {
 						_maincontext(from._maincontext),
 						_corocontext(from._corocontext),
 						_f(from._f),
+						_arg(from._arg),
 						_stack(std::move(from._stack))
 					{
 						from._maincontext.uc_stack.ss_sp = 0;
@@ -75,7 +76,7 @@ namespace coroutine {
 
 					static const char* get_impl_name() { return "posix"; }
 
-				private:
+//                private:
 					posix_api::ucontext _maincontext;
 					posix_api::ucontext _corocontext;
 					function_t* _f;

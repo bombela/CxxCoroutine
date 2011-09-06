@@ -7,12 +7,15 @@
 #include <test.hpp>
 #include <iostream>
 #include <coroutine/impl/stack_dynamic.hpp>
+#include <coroutine/impl/stack_static.hpp>
 
 using namespace coroutine;
 
 static const size_t stack_size = 8 * 1024 * 1024;
 typedef stack::stack<stack::dynamic, stack_size> stack_t;
-typedef context::context<context_tag, stack_t> context_t;
+typedef context::context<
+	context::resolve_alias<context_tag>::type
+	, stack_t> context_t;
 
 void function(void*) {}
 
@@ -113,4 +116,54 @@ BOOST_AUTO_TEST_CASE(move_context_with_dynamic_stack)
 	context_t b = std::move(a.context);
 	b.enter();
 	BOOST_CHECK(a.cnt == 2);
+}
+
+template <typename Context>
+struct TestYieldInfinite2
+{
+	int cnt;
+	Context* volatile used;
+	void operator()()
+	{
+		while (42) {
+			++cnt;
+			used->leave();
+		}
+	}
+	static void dotest(void* te) {
+		(*(TestYieldInfinite2*)(te))();
+	}
+};
+BOOST_AUTO_TEST_CASE(move_context_with_static_stack)
+{
+	typedef stack::stack<stack::static_, 1024 * 4> stack_t;
+	typedef context::context<
+	context::resolve_alias<context_tag>::type
+	, stack_t> context_t;
+
+	typedef TestYieldInfinite2<context_t> tester_t;
+	tester_t tester;
+	context_t a(&tester.dotest, &tester);
+	tester.cnt = 0;
+	tester.used = &a;
+
+	BOOST_CHECK(tester.cnt == 0);
+	a.enter();
+	BOOST_CHECK(tester.cnt == 1);
+	a.reset();
+	a.enter();
+	BOOST_CHECK(tester.cnt == 2);
+	a.enter();
+	a.reset();
+	a.enter();
+	BOOST_CHECK(tester.cnt == 4);
+
+	context_t b = std::move(a);
+	b.reset();
+	tester.used = &b;
+	b.enter();
+	BOOST_CHECK(tester.cnt == 5);
+	b.enter();
+	b.enter();
+	BOOST_CHECK(tester.cnt == 7);
 }

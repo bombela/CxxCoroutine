@@ -5,8 +5,8 @@
 */
 
 #include <test.hpp>
-#include <details/context_oslinux.hpp>
+#include <coroutine/impl/context_linux.hpp>
 
-using coroutine::details::oslinux::Context;
+typedef coroutine::context::linux context_tag;
 
 #include "context.cpp.inc"
