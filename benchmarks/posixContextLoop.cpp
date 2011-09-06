@@ -5,9 +5,9 @@
 */
 
 #include <benchmark.hpp>
-#include <details/context_posix.hpp>
+#include <coroutine/impl/context_posix.hpp>
 
-using namespace coroutine::details::posix;
+typedef coroutine::context::posix context_tag;
 
 #define BENCH_ARCH posix
 #define BENCH_ARCH_POSIX

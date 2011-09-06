@@ -9,6 +9,8 @@
 #define CONTEXT_POSIX_H
 
 #include <stdexcept>
+#include <string.h>
+#include <errno.h>
 #include <coroutine/context.hpp>
 
 namespace coroutine {
@@ -20,11 +22,7 @@ namespace coroutine {
 		};
 
 		namespace posix_api {
-			extern "C" {
 #				include <ucontext.h>
-#				include <string.h>
-#				include <errno.h>
-			}
 		} // namespace posix_api
 
 		template <class STACK>
@@ -47,6 +45,7 @@ namespace coroutine {
 						_arg(from._arg),
 						_stack(std::move(from._stack))
 					{
+						_corocontext.uc_link = &_maincontext;
 						from._maincontext.uc_stack.ss_sp = 0;
 						from._corocontext.uc_stack.ss_sp = 0;
 						from._f = 0;
@@ -57,6 +56,7 @@ namespace coroutine {
 					{
 						if (getcontext(&_corocontext) == -1)
 							error(__PRETTY_FUNCTION__, "getcontext failed");
+						_corocontext.uc_link = &_maincontext;
 						_corocontext.uc_stack.ss_sp = _stack.get_stack_ptr();
 						_corocontext.uc_stack.ss_size = _stack.get_size();
 						makecontext(&_corocontext, (void (*)()) _f, 1, _arg);
@@ -76,7 +76,7 @@ namespace coroutine {
 
 					static const char* get_impl_name() { return "posix"; }
 
-//                private:
+				private:
 					posix_api::ucontext _maincontext;
 					posix_api::ucontext _corocontext;
 					function_t* _f;
@@ -89,7 +89,7 @@ namespace coroutine {
 						std::string errmsg
 							= std::string(fname) + ": " + msg + ", ";
 
-						if (strerror_r(errno, buf, sizeof buf) == 0)
+						if (::strerror_r(errno, buf, sizeof buf) == 0)
 							errmsg += buf;
 						else
 							errmsg += "unknown error";

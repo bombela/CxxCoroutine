@@ -5,9 +5,9 @@
 */
 
 #include <benchmark.hpp>
-#include <details/context_oslinux.hpp>
+#include <coroutine/impl/context_linux.hpp>
 
-using namespace coroutine::details::oslinux;
+typedef coroutine::context::linux context_tag;
 
 #define BENCH_ARCH oslinux
 #include "context.cpp.inc"
