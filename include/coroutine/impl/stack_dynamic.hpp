@@ -11,8 +11,6 @@
 #include <algorithm>
 #include <coroutine/stack.hpp>
 
-#include <iostream>
-
 namespace coroutine {
 	namespace stack {
 

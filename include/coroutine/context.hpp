@@ -70,8 +70,8 @@ namespace coroutine {
 		template <typename T>
 			struct get_args;
 
-		template <typename TAG, size_t STACK>
-			struct get_args< context<TAG, SSIZE> > {
+		template <typename TAG, typename STACK>
+			struct get_args< context<TAG, STACK> > {
 				typedef TAG   tag_t;
 				typedef STACK stack_t;
 			};

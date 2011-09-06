@@ -5,8 +5,8 @@
 */
 
 #include <test.hpp>
-#include <details/context_posix.hpp>
+#include <coroutine/impl/context_posix.hpp>
 
-using coroutine::details::posix::Context;
+typedef coroutine::context::posix context_tag;
 
 #include "context.cpp.inc"

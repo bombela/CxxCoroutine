@@ -6,19 +6,20 @@
 
 #include <test.hpp>
 #include <iostream>
+#include <coroutine/impl/stack_dynamic.hpp>
 
 using namespace coroutine;
 
+static const size_t stack_size = 8 * 1024 * 1024;
+typedef stack::stack<stack::dynamic, stack_size> stack_t;
+typedef context::context<context_tag, stack_t> context_t;
+
 void function(void*) {}
 
-BOOST_AUTO_TEST_CASE(create)
+BOOST_AUTO_TEST_CASE(test_compile)
 {
-	Context<> context(&function, 0);
-}
-
-BOOST_AUTO_TEST_CASE(createWithSpecificStackSize)
-{
-    Context< stack::Default<1024> > context(&function, 0);
+	context_t context(&function, 0);
+	BOOST_CHECK_EQUAL(42, 42);
 }
 
 struct TestExecution
@@ -31,14 +32,6 @@ struct TestExecution
 		(*(TestExecution*)(te))();
 	}
 };
-
-BOOST_AUTO_TEST_CASE(execution)
-{
-	TestExecution f;
-    Context<> context(&TestExecution::dotest, &f);
-	context.enter();
-	BOOST_CHECK(f.executed);
-}
 
 template <typename Context>
 struct TestYield: TestExecution
@@ -53,25 +46,19 @@ struct TestYield: TestExecution
 	}
 };
 
-BOOST_AUTO_TEST_CASE(yield)
+BOOST_AUTO_TEST_CASE(execution_and_yield)
 {
-	TestYield< Context<> > test;
+	TestYield< context_t > test;
 	test.context.enter();
 	BOOST_CHECK(test.executed);
 }
 
-BOOST_AUTO_TEST_CASE(yieldWithDynamicStack)
-{
-	TestYield< Context< stack::Dynamic<1024*8> > > test;
-	test.context.enter();
-	BOOST_CHECK(test.executed);
-}
-
-struct LotOfStack: TestExecution
+template <typename Context>
+struct LotOfStack: TestYield<Context>
 {
 	void operator()() __attribute__ ((noinline))
 	{
-		TestExecution::operator()();
+		TestYield<Context>::operator()();
 		UNUSED char data[1024*40];
 		data[0] = 42;
 	}
@@ -79,30 +66,51 @@ struct LotOfStack: TestExecution
 
 BOOST_AUTO_TEST_CASE(uselotofstack)
 {
-	LotOfStack test;
-    Context< stack::Dynamic< 1024*41> > context(&LotOfStack::dotest, &test);
-	context.enter();
+	LotOfStack<context_t> test;
+	test.context.enter();
 	BOOST_CHECK(test.executed);
 }
 
-BOOST_AUTO_TEST_CASE(copyContext)
+
+template <typename Context>
+struct TestYieldInfinite
 {
-	const size_t ssize = 1024*8;
+    Context context;
+	int cnt;
+	TestYieldInfinite(): context(&TestYieldInfinite::dotest, this), cnt(0) {}
+	void operator()()
+	{
+		while (42) {
+			++cnt;
+			context.leave();
+		}
+	}
+	static void dotest(void* te) {
+		(*(TestYieldInfinite*)(te))();
+	}
+};
 
-	TestExecution tester;
+BOOST_AUTO_TEST_CASE(enter_leave_few_times)
+{
+	TestYieldInfinite<context_t> tester;
 
-	Context< stack::Static<ssize> > a(&TestExecution::dotest, &tester);
-	tester.executed = false;
-	a.enter();
-	BOOST_CHECK(tester.executed);
-	
-	Context< stack::Static<ssize> > b = a;
-	tester.executed = false;
+	for (int i = 0; i < 42; ++i)
+	{
+		BOOST_CHECK_EQUAL(tester.cnt, i);
+        tester.context.enter();
+		BOOST_CHECK_EQUAL(tester.cnt, i + 1);
+	}
+}
+
+BOOST_AUTO_TEST_CASE(move_context_with_dynamic_stack)
+{
+	TestYieldInfinite<context_t> a;
+
+	BOOST_CHECK(a.cnt == 0);
+	a.context.enter();
+	BOOST_CHECK(a.cnt == 1);
+
+	context_t b = std::move(a.context);
 	b.enter();
-	BOOST_CHECK(tester.executed);
-
-	a = b;
-	tester.executed = false;
-	a.enter();
-	BOOST_CHECK(tester.executed);
+	BOOST_CHECK(a.cnt == 2);
 }

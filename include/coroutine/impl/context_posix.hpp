@@ -9,7 +9,7 @@
 #define CONTEXT_POSIX_H
 
 #include <stdexcept>
-#include <coroutine/stack.hpp>
+#include <coroutine/context.hpp>
 
 namespace coroutine {
 	namespace context {
@@ -38,20 +38,24 @@ namespace coroutine {
 
 					context(const context& from) = delete;
 					context& operator=(const context& from) = delete;
+					context& operator=(context&& from) = delete;
 
-					context(context&& from) {
-						// TODO
-					}
-
-					context& operator=(context&& from) {
-						// TODO
+					context(context&& from):
+						_maincontext(from._maincontext),
+						_corocontext(from._corocontext),
+						_f(from._f),
+						_stack(std::move(from._stack))
+					{
+						from._maincontext.uc_stack.ss_sp = 0;
+						from._corocontext.uc_stack.ss_sp = 0;
+						from._f = 0;
+						from._arg = 0;
 					}
 
 					void reset()
 					{
 						if (getcontext(&_corocontext) == -1)
 							error(__PRETTY_FUNCTION__, "getcontext failed");
-						_corocontext.uc_link = &_maincontext;
 						_corocontext.uc_stack.ss_sp = _stack.get_stack_ptr();
 						_corocontext.uc_stack.ss_size = _stack.get_size();
 						makecontext(&_corocontext, (void (*)()) _f, 1, _arg);
