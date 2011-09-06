@@ -105,19 +105,6 @@ BOOST_AUTO_TEST_CASE(enter_leave_few_times)
 	}
 }
 
-BOOST_AUTO_TEST_CASE(move_context_with_dynamic_stack)
-{
-	TestYieldInfinite<context_t> a;
-
-	BOOST_CHECK(a.cnt == 0);
-	a.context.enter();
-	BOOST_CHECK(a.cnt == 1);
-
-	context_t b = std::move(a.context);
-	b.enter();
-	BOOST_CHECK(a.cnt == 2);
-}
-
 template <typename Context>
 struct TestYieldInfinite2
 {
@@ -134,6 +121,25 @@ struct TestYieldInfinite2
 		(*(TestYieldInfinite2*)(te))();
 	}
 };
+
+BOOST_AUTO_TEST_CASE(move_context_with_dynamic_stack)
+{
+	typedef TestYieldInfinite2<context_t> tester_t;
+	tester_t tester;
+	context_t a(&tester.dotest, &tester);
+	tester.cnt = 0;
+	tester.used = &a;
+
+	BOOST_CHECK(tester.cnt == 0);
+	a.enter();
+	BOOST_CHECK(tester.cnt == 1);
+
+	context_t b = std::move(a);
+	tester.used = &b;
+	b.enter();
+	BOOST_CHECK(tester.cnt == 2);
+}
+
 BOOST_AUTO_TEST_CASE(move_context_with_static_stack)
 {
 	typedef stack::stack<stack::static_, 1024 * 4> stack_t;

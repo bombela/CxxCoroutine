@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <coroutine/stack.hpp>
+#include <coroutine/context.hpp>
 #include <coroutine/impl/stack_static.hpp>
 
 /*
@@ -41,31 +42,22 @@ namespace coroutine {
 				typedef STACK stack_t;
 
 				context(function_t* f, void* arg):
-					_f(f), _arg(arg) {
-					std::cout << "ctr"
-						<< " - " << (void*)_stack.get_stack_ptr()
-						<< std::endl;
- reset();
-					}
+					_f(f), _arg(arg) { reset(); }
 
 				context(const context& from) = delete;
 				context& operator=(const context& from) = delete;
 				context& operator=(context&& from) = delete;
 
-//                context(context&& from) = default;
-
 				context(context&& from):
 					_f(from._f),
 					_arg(from._arg),
 					_sp(from._sp),
-					_stack()
+					_stack(std::move(from._stack))
 					{
-						std::cout << "---->" << std::is_move_constructible<stack_t>::value << std::endl;
 						from._f = 0;
 						from._arg = 0;
 						from._sp = 0;
-						reset();
-				}
+					}
 
 				void reset()
 				{
@@ -87,17 +79,10 @@ namespace coroutine {
 					_sp -= 2;                    // hack space
 					*--_sp = (void*)&trampoline; // next instruction addr
 					--_sp;                       // rbp
-
-					std::cout << "reset " << (void*)_f
-						<< " - " << (void*)_arg
-						<< " - " << (void*)_sp
-						<< " - " << (void*)_stack.get_stack_ptr()
-						<< std::endl;
 				}
 
 				void enter()
 				{
-					std::cout << "enter" << std::endl;
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 					swapcontext<1>();
 #else  // !CORO_LINUX_8664_2SWAPSITE
@@ -107,7 +92,6 @@ namespace coroutine {
 
 				void leave()
 				{
-					std::cout << "leaver" << std::endl;
 #ifdef    CORO_LINUX_8664_2SWAPSITE
 					swapcontext<2>();
 #else  // !CORO_LINUX_8664_2SWAPSITE
