@@ -5,10 +5,15 @@
 */
 
 #include <test.hpp>
-#include <details/context_oslinux.hpp>
+#include <coroutine/impl/context_linux.hpp>
 
-using namespace coroutine::details::oslinux;
-using namespace coroutine::details;
+using namespace coroutine;
+
+static const size_t stack_size = 8 * 1024 * 1024;
+typedef stack::stack<stack::dynamic, stack_size> stack_t;
+typedef context::context<
+	context::resolve_alias<context::linux>::type
+	, stack_t> context_t;
 
 template <size_t ARCH_SIZE>
 struct ABIConsistencyCheck;
@@ -76,7 +81,7 @@ struct TestExecution
 	bool executed;
 	TestExecution(): executed(false) { }
 	virtual void operator()() { executed = true; }
-	
+
 	static void dotest(void* te) {
 		(*(TestExecution*)(te))();
 	}
@@ -100,7 +105,7 @@ BOOST_AUTO_TEST_CASE(checkABIconsistency)
 {
 	for (int i = 0; i < 500; ++i)
 	{
-		TestYield<Context<> > test;
+		TestYield<context_t> test;
 		test.context.enter();
 		BOOST_CHECK(test.executed);
 	}

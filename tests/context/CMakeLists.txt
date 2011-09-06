@@ -7,8 +7,7 @@
 set(TEST_SRCS
 	posixContext.cpp
 	oslinuxContext.cpp
-	#oslinuxABIcheck.cpp
-	#defaultContext.cpp
+	oslinuxABIcheck.cpp
 )
 
 foreach(f ${TEST_SRCS})
