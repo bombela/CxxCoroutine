@@ -124,6 +124,22 @@ namespace coroutine {
 				 builder<S, F, C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type(f);
 		 }
 
+	namespace details {
+		template <typename S>
+			struct extract_signature;
+
+		template <typename Y, typename R>
+			struct extract_signature<R (*)(Y)> {
+				typedef R (type) ();
+			};
+
+		template <typename Y, typename R, typename FV>
+			struct extract_signature<R (*)(Y, FV)> {
+				typedef R (type) (FV);
+			};
+
+	} // namespace details
+
 	template <
 			 typename C0 = void,
 			 typename C1 = void,
@@ -137,11 +153,11 @@ namespace coroutine {
 			 typename C9 = void,
 			 typename F>
 		 auto corof(F f) -> typename
-				 builder<F, F,
+				 builder<typename details::extract_signature<F>::type, F,
 		 C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type
 		 {
 			 return typename
-				 builder<F, F,
+				 builder<typename details::extract_signature<F>::type, F,
 			 C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>::type(f);
 		 }
 

@@ -44,19 +44,15 @@ namespace coroutine {
 				}
 
 			protected:
-				static void bootstrap_trampoline(void* self) {
+//                static void bootstrap_trampoline(void* self) {
 //                    std::cout << "bootstrap_trampoline this " << (void*)self << std::endl;
 //                    std::cout << "bootstrap_trampoline fv" << (void*)
 //                        reinterpret_cast<coroutine_base*>(self)->_fv
 //                        << std::endl;
-					IMPL* impl = static_cast<IMPL*>(self);
+//                    IMPL* impl = static_cast<IMPL*>(self);
 //                    std::cout << "bootstrap func " << (void*)impl->_func << std::endl;
-					reinterpret_cast<coroutine_base*>(self)->bootstrap();
-				}
-
-			private:
-				RV* _rv;
-				FV* _fv;
+//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
+//                }
 
 				void bootstrap()
 				{
@@ -75,6 +71,11 @@ namespace coroutine {
 //                    std::cout << "abort!" << std::endl;
 					abort();
 				}
+
+
+			private:
+				RV* _rv;
+				FV* _fv;
 
 				static FV yield_trampoline(void* self, RV value) {
 					return reinterpret_cast<coroutine_base*>(self)
@@ -105,12 +106,9 @@ namespace coroutine {
 				}
 
 			protected:
-				static void bootstrap_trampoline(void* self) {
-					reinterpret_cast<coroutine_base*>(self)->bootstrap();
-				}
-
-			private:
-				RV* _rv;
+//                static void bootstrap_trampoline(void* self) {
+//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
+//                }
 
 				void bootstrap()
 				{
@@ -118,6 +116,9 @@ namespace coroutine {
 					yield(static_cast<IMPL*>(this)->_func(yielder));
 					abort();
 				}
+
+			private:
+				RV* _rv;
 
 				static void yield_trampoline(void* self, RV value) {
 					reinterpret_cast<coroutine_base*>(self)->yield(value);
@@ -142,12 +143,9 @@ namespace coroutine {
 				}
 
 			protected:
-				static void bootstrap_trampoline(void* self) {
-					reinterpret_cast<coroutine_base*>(self)->bootstrap();
-				}
-
-			private:
-				FV* _fv;
+//                static void bootstrap_trampoline(void* self) {
+//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
+//                }
 
 				void bootstrap()
 				{
@@ -156,6 +154,9 @@ namespace coroutine {
 					yield();
 					abort();
 				}
+
+			private:
+				FV* _fv;
 
 				static FV yield_trampoline(void* self) {
 					return reinterpret_cast<coroutine_base*>(self)->yield();
@@ -179,11 +180,9 @@ namespace coroutine {
 				}
 
 			protected:
-				static void bootstrap_trampoline(void* self) {
-					reinterpret_cast<coroutine_base*>(self)->bootstrap();
-				}
-
-			private:
+//                static void bootstrap_trampoline(void* self) {
+//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
+//                }
 
 				void bootstrap()
 				{
@@ -192,6 +191,8 @@ namespace coroutine {
 					yield();
 					abort();
 				}
+
+			private:
 
 				static void yield_trampoline(void* self) {
 					reinterpret_cast<coroutine_base*>(self)->yield();
@@ -212,7 +213,7 @@ namespace coroutine {
 
 		public:
 			coroutine(func_t f):
-				_context(&base_t::bootstrap_trampoline, this),
+				_context(&bootstrap_trampoline, this),
 				_func(f)
 			{}
 
@@ -228,6 +229,10 @@ namespace coroutine {
 		private:
 			context_t _context;
 			func_t    _func;
+
+			static void bootstrap_trampoline(void* self) {
+				reinterpret_cast<coroutine*>(self)->bootstrap();
+			}
 
 			context_t&& move_context_or_throw(context_t&& c)
 			{

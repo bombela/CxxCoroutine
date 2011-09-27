@@ -5,9 +5,10 @@
 #
 
 set(TEST_SRCS
-	#	yielder.cpp
-	coroutine.cpp
+	yielder.cpp
 	builder.cpp
+	coroutine.cpp
+	exception.cpp
 )
 
 foreach(f ${TEST_SRCS})
