@@ -173,3 +173,45 @@ BOOST_AUTO_TEST_CASE(move_context_with_static_stack)
 	b.enter();
 	BOOST_CHECK(tester.cnt == 7);
 }
+
+void somefunc(int v) {
+//    std::cout << "hey some func! " << v << std::endl;
+	if (v)
+		somefunc(v - 1);
+}
+
+template <typename Context>
+struct TestSubCall
+{
+	int cnt;
+	Context* volatile used;
+	void (*f)(int);
+
+	void operator()()
+	{
+		while (42) {
+			++cnt;
+			this->f(42);
+			used->leave();
+		}
+	}
+	static void dotest(void* te) {
+		(*(TestSubCall*)(te))();
+	}
+};
+
+BOOST_AUTO_TEST_CASE(test_with_subfunc_call)
+{
+	typedef stack::stack<stack::dynamic, 1024 * 32> stack_t;
+	typedef context::context<
+	context::resolve_alias<context_tag>::type
+	, stack_t> context_t;
+
+	typedef TestSubCall<context_t> tester_t;
+	tester_t tester;
+	context_t a(&tester.dotest, &tester);
+	tester.cnt = 0;
+	tester.used = &a;
+	tester.f = &somefunc;
+	a.enter();
+}

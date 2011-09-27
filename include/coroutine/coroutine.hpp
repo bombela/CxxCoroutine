@@ -27,13 +27,30 @@ namespace coroutine {
 				RV operator ()(FV fval)
 				{
 					_fv = &fval;
+//                    std::cout << "() fv " << (void*)_fv << std::endl;
+//                    std::cout << "() rv " << (void*)_rv << std::endl;
 					IMPL* impl = static_cast<IMPL*>(this);
+//                    std::cout << "() fv " << (void*)_fv << std::endl;
+//                    std::cout << "() rv " << (void*)_rv << std::endl;
+//                    std::cout << "enter" << std::endl;
 					impl->_context.enter();
+//                    std::cout << "leave" << std::endl;
+//                    std::cout << "() fv " << (void*)_fv << std::endl;
+//                    std::cout << "() rv " << (void*)_rv << std::endl;
+					FV* lol = _fv;
+//                    std::cout << "() fv " << (void*)_fv << std::endl;
+//                    std::cout << "() rv " << (void*)_rv << std::endl;
 					return *_rv;
 				}
 
 			protected:
 				static void bootstrap_trampoline(void* self) {
+//                    std::cout << "bootstrap_trampoline this " << (void*)self << std::endl;
+//                    std::cout << "bootstrap_trampoline fv" << (void*)
+//                        reinterpret_cast<coroutine_base*>(self)->_fv
+//                        << std::endl;
+					IMPL* impl = static_cast<IMPL*>(self);
+//                    std::cout << "bootstrap func " << (void*)impl->_func << std::endl;
 					reinterpret_cast<coroutine_base*>(self)->bootstrap();
 				}
 
@@ -45,6 +62,17 @@ namespace coroutine {
 				{
 					yielder<RV (FV)> yielder(&yield_trampoline, this);
 					yield(static_cast<IMPL*>(this)->_func(yielder, *_fv));
+
+//                    std::cout << "bootstrap this " << (void*)this << std::endl;
+//                    yielder<RV (FV)> yielder(&yield_trampoline, this);
+//                    std::cout << "bootstrap " << (void*)_fv << std::endl;
+//                    IMPL* impl = static_cast<IMPL*>(this);
+//                    std::cout << "bootstrap impl this " << (void*)impl << std::endl;
+//                    std::cout << "bootstrap func " << (void*)impl->_func << std::endl;
+//                    impl->_func(yielder, 23);
+//                    std::cout << "yield" << std::endl;
+//                    yield(42);
+//                    std::cout << "abort!" << std::endl;
 					abort();
 				}
 
@@ -57,7 +85,10 @@ namespace coroutine {
 				{
 					_rv = &value;
 					IMPL* impl = static_cast<IMPL*>(this);
+//                    std::cout << "yield() " << (void*)impl << std::endl;
+//                    std::cout << "suspens" << std::endl;
 					impl->_context.leave();
+//                    std::cout << "passed!!!!" << std::endl;
 					return *_fv;
 				}
 		};

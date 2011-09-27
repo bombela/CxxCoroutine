@@ -7,9 +7,12 @@
 #include <test.hpp>
 #include <coroutine/builder.hpp>
 #include <iostream>
+#include <coroutine/impl/context_posix.hpp>
+#include <coroutine/stack.hpp>
 
 using namespace coroutine;
 
+#if 0
 int f_ret_feed(yielder<int (float)> yield, float v)
 {
 	BOOST_CHECK(v == 2.2f);
@@ -22,15 +25,58 @@ int f_ret_feed(yielder<int (float)> yield, float v)
 
 BOOST_AUTO_TEST_CASE(ret_feed)
 {
-	auto c = corof<stack::dynamic>(&f_ret_feed);
+	auto c = corof<stack::dynamic, context::posix>(&f_ret_feed);
 
 	int r1 = c(2.2f);
 	BOOST_CHECK_EQUAL(r1, 42);
 	std::cout << "r1=" << r1 << std::endl;
-	int r2 = 34;// = c(99.f);
+	int r2 = c(99.f);
 	BOOST_CHECK(r2 == 84);
 	std::cout << "r2=" << r2 << std::endl;
 }
+#endif
+
+struct Speaker {
+	const char* _msg;
+	Speaker(const char* msg): _msg(msg) {}
+	Speaker(const Speaker& from): _msg(from._msg) {
+		std::cout << "copy: " << msg() << std::endl;
+	}
+	Speaker(Speaker&& from): _msg(from._msg) {
+		from._msg = "wiped";
+		std::cout << "move: " << msg() << std::endl;
+	}
+	const char* msg() const { return _msg; }
+};
+
+int f_elide_cpy(yielder<int (int)> yield, int v)
+{
+	std::cout << "f_elide_cpy " << v << std::endl;
+	return 10;
+}
+
+Speaker f_elide_cpyu(yielder<Speaker (int)> yield, int)
+{
+//    yield(Speaker("yielded 1"));
+//    yield(Speaker("yielded 2"));
+	return Speaker("returned");
+}
+
+BOOST_AUTO_TEST_CASE(elide_cpy)
+{
+	auto c = corof<stack::dynamic, context::posix, stack::size_in_mb<64> >(&f_elide_cpy);
+
+//    yielder<int (float)> a(( float (*)(void*, int) )reinterpret_cast<void*>(42), reinterpret_cast<void*>(21));
+//    auto b = a;
+
+	auto a = c(42);
+//    std::cout << a.msg() << std::endl;
+//    auto b = c(42);
+//    std::cout << b.msg() << std::endl;
+//    auto d = c(42);
+//    std::cout << d.msg() << std::endl;
+}
+
 
 #if 0
 int f_ret(yielder<int> yield)

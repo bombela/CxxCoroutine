@@ -8,6 +8,8 @@
 #ifndef YIELDER_H
 #define YIELDER_H
 
+#include <iostream>
+
 namespace coroutine {
 
 	/*
@@ -35,15 +37,29 @@ namespace coroutine {
 		public:
 			typedef typename details::cb_type<RV, FV>::type cb_t;
 
+			~yielder_base() {
+//                std::cout << "yielder_base destructor "
+//                        << (void*)_cb << ' ' << _ptr
+//                        << std::endl;
+			}
+
 			yielder_base(const yielder_base& from):
-				_cb(from._cb), _ptr(from._ptr) {}
+				_cb(from._cb), _ptr(from._ptr) {
+//                    std::cout << "yielder cpy "
+//                        << (void*)_cb << ' ' << _ptr
+//                        << std::endl;
+				}
 
 		protected:
 			cb_t  _cb;
 			void* _ptr;
 
 			yielder_base(cb_t cb, void* ptr):
-				_cb(cb), _ptr(ptr) { }
+				_cb(cb), _ptr(ptr) {
+//                    std::cout << "yielder_base constructor "
+//                        << (void*)_cb << ' ' << _ptr
+//                        << std::endl;
+				}
 
 		private:
 			yielder_base& operator=(const yielder_base& from); // disabled
@@ -64,7 +80,13 @@ namespace coroutine {
 			return this->_cb(this->_ptr, value);
 		}
 
-		yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
+		~yielder() {
+//            std::cout << "yielder RV F(FV) destructor" << std::endl;
+		}
+
+		yielder(cb_t cb, void* ptr): base_t(cb, ptr) {
+//            std::cout << "yielder RV F(FV) constructor" << std::endl;
+		}
 	};
 
 	// RV f()
