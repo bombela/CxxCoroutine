@@ -12,7 +12,7 @@
 
 using namespace coroutine;
 
-void f_trow_int(yielder<void ()> yield)
+void f_trow_int(yielder<void ()>)
 {
 	std::cout << "I am gonna throw an int!!!" << std::endl;
 	throw 42;
@@ -37,7 +37,7 @@ BOOST_AUTO_TEST_CASE(throw_already_terminated_with_throw)
 	BOOST_REQUIRE_THROW( c(), std::runtime_error );
 }
 
-void f_nothing(yielder<void ()> yield)
+void f_nothing(yielder<void ()>)
 {
 	std::cout << "Hi from a coroutine" << std::endl;
 }
@@ -79,6 +79,19 @@ BOOST_AUTO_TEST_CASE(check_terminated_status)
 	int i = 0;
 	while (c)
 		BOOST_CHECK(c() == i++);
+	BOOST_REQUIRE_THROW( c(), std::runtime_error );
+}
+
+BOOST_AUTO_TEST_CASE(check_closure)
+{
+	int v = 21;
+	auto c = CORO(int) (
+			yield(v - 11);
+			return v * 2;
+			);
+
+	BOOST_CHECK( c() == 10 );
+	BOOST_CHECK( c() == 42 );
 	BOOST_REQUIRE_THROW( c(), std::runtime_error );
 }
 
