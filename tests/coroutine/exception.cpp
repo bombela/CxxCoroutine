@@ -10,6 +10,8 @@
 #include <coroutine/impl/context_posix.hpp>
 #include <coroutine/stack.hpp>
 
+#include <typeinfo>
+
 using namespace coroutine;
 
 void f_trow_int(yielder<void ()>)
@@ -87,11 +89,20 @@ BOOST_AUTO_TEST_CASE(check_closure)
 	int v = 21;
 	auto c = coro<int ()>([=] (yielder<int ()> yield) {
 			yield(v - 11);
-			1 + 1;
 			return v * 2;
 			});
 
 	BOOST_CHECK( c() == 10 );
 	BOOST_CHECK( c() == 42 );
 	BOOST_REQUIRE_THROW( c(), std::runtime_error );
+}
+
+struct Toto {};
+
+BOOST_AUTO_TEST_CASE(check_type)
+{
+	const std::type_info& t = typeid(int (Toto));
+	std::cout << (
+			typeid(int (Toto)) == t
+			)	<< std::endl;
 }
