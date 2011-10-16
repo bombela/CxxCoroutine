@@ -27,48 +27,16 @@ namespace coroutine {
 				RV operator ()(FV fval)
 				{
 					_fv = &fval;
-//                    std::cout << "() fv " << (void*)_fv << std::endl;
-//                    std::cout << "() rv " << (void*)_rv << std::endl;
-					IMPL* impl = static_cast<IMPL*>(this);
-//                    std::cout << "() fv " << (void*)_fv << std::endl;
-//                    std::cout << "() rv " << (void*)_rv << std::endl;
-//                    std::cout << "enter" << std::endl;
-					impl->_context.enter();
-//                    std::cout << "leave" << std::endl;
-//                    std::cout << "() fv " << (void*)_fv << std::endl;
-//                    std::cout << "() rv " << (void*)_rv << std::endl;
-					FV* lol = _fv;
-//                    std::cout << "() fv " << (void*)_fv << std::endl;
-//                    std::cout << "() rv " << (void*)_rv << std::endl;
+					static_cast<IMPL*>(this)->enter();
 					return *_rv;
 				}
 
 			protected:
-//                static void bootstrap_trampoline(void* self) {
-//                    std::cout << "bootstrap_trampoline this " << (void*)self << std::endl;
-//                    std::cout << "bootstrap_trampoline fv" << (void*)
-//                        reinterpret_cast<coroutine_base*>(self)->_fv
-//                        << std::endl;
-//                    IMPL* impl = static_cast<IMPL*>(self);
-//                    std::cout << "bootstrap func " << (void*)impl->_func << std::endl;
-//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
-//                }
-
 				void bootstrap()
 				{
-					yielder<RV (FV)> yielder(&yield_trampoline, this);
-					yield(static_cast<IMPL*>(this)->_func(yielder, *_fv));
-
-//                    std::cout << "bootstrap this " << (void*)this << std::endl;
-//                    yielder<RV (FV)> yielder(&yield_trampoline, this);
-//                    std::cout << "bootstrap " << (void*)_fv << std::endl;
-//                    IMPL* impl = static_cast<IMPL*>(this);
-//                    std::cout << "bootstrap impl this " << (void*)impl << std::endl;
-//                    std::cout << "bootstrap func " << (void*)impl->_func << std::endl;
-//                    impl->_func(yielder, 23);
-//                    std::cout << "yield" << std::endl;
-//                    yield(42);
-//                    std::cout << "abort!" << std::endl;
+					yield(static_cast<IMPL*>(this)->_func(
+								(yielder<RV (FV)>)(&yield_trampoline, this),
+								*_fv));
 					abort();
 				}
 
@@ -85,11 +53,7 @@ namespace coroutine {
 				FV yield(RV value)
 				{
 					_rv = &value;
-					IMPL* impl = static_cast<IMPL*>(this);
-//                    std::cout << "yield() " << (void*)impl << std::endl;
-//                    std::cout << "suspens" << std::endl;
-					impl->_context.leave();
-//                    std::cout << "passed!!!!" << std::endl;
+					static_cast<IMPL*>(this)->leave();
 					return *_fv;
 				}
 		};
@@ -101,19 +65,16 @@ namespace coroutine {
 			public:
 				RV operator ()()
 				{
-					static_cast<IMPL*>(this)->_context.enter();
+					static_cast<IMPL*>(this)->enter();
 					return *_rv;
 				}
 
 			protected:
-//                static void bootstrap_trampoline(void* self) {
-//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
-//                }
-
 				void bootstrap()
 				{
-					yielder<RV ()> yielder(&yield_trampoline, this);
-					yield(static_cast<IMPL*>(this)->_func(yielder));
+					yield(static_cast<IMPL*>(this)->_func(
+								(yielder<RV ()>)(&yield_trampoline, this)
+								));
 					abort();
 				}
 
@@ -127,7 +88,7 @@ namespace coroutine {
 				void yield(RV value)
 				{
 					_rv = &value;
-					static_cast<IMPL*>(this)->_context.leave();
+					static_cast<IMPL*>(this)->leave();
 				}
 		};
 
@@ -139,14 +100,10 @@ namespace coroutine {
 				void operator ()(FV fval)
 				{
 					_fv = &fval;
-					static_cast<IMPL*>(this)->_context.enter();
+					static_cast<IMPL*>(this)->enter();
 				}
 
 			protected:
-//                static void bootstrap_trampoline(void* self) {
-//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
-//                }
-
 				void bootstrap()
 				{
 					yielder<void (FV)> yielder(&yield_trampoline, this);
@@ -164,7 +121,7 @@ namespace coroutine {
 
 				FV yield()
 				{
-					static_cast<IMPL*>(this)->_context.leave();
+					static_cast<IMPL*>(this)->leave();
 					return *_fv;
 				}
 		};
@@ -176,14 +133,10 @@ namespace coroutine {
 			public:
 				void operator ()()
 				{
-					static_cast<IMPL*>(this)->_context.enter();
+					static_cast<IMPL*>(this)->enter();
 				}
 
 			protected:
-//                static void bootstrap_trampoline(void* self) {
-//                    reinterpret_cast<coroutine_base*>(self)->bootstrap();
-//                }
-
 				void bootstrap()
 				{
 					yielder<void ()> yielder(&yield_trampoline, this);
@@ -200,7 +153,7 @@ namespace coroutine {
 
 				void yield()
 				{
-					static_cast<IMPL*>(this)->_context.leave();
+					static_cast<IMPL*>(this)->leave();
 				}
 		};
 
@@ -214,7 +167,8 @@ namespace coroutine {
 		public:
 			coroutine(func_t f):
 				_context(&bootstrap_trampoline, this),
-				_func(f)
+				_func(f),
+				_exception(nullptr)
 			{}
 
 			coroutine(const coroutine& from) = delete;
@@ -223,17 +177,45 @@ namespace coroutine {
 
 			coroutine(coroutine&& from):
 				_context(std::move(from._context)),
-				_func(std::move(from._func))
+				_func(std::move(from._func)),
+				_exception(nullptr)
 			{};
 
 		private:
-			context_t _context;
-			func_t    _func;
+			context_t          _context;
+			func_t             _func;
+			std::exception_ptr _exception;
 
 			static void bootstrap_trampoline(void* self) {
-				reinterpret_cast<coroutine*>(self)->bootstrap();
+					reinterpret_cast<coroutine*>(self)
+						->bootstrap();
 			}
 
+			void bootstrap() {
+				try {
+					this->base_t::bootstrap();
+				} catch(...) {
+					_exception = std::current_exception();
+					this->leave();
+				}
+			}
+
+			void enter() {
+				if (_exception)
+					// TODO choose better exception
+					throw std::runtime_error("terminated coroutine");
+				_context.enter();
+				// throw if caught any exception inside the coroutine.
+				if (_exception)
+					std::rethrow_exception(_exception);
+			}
+			void leave() {
+				_context.leave();
+			}
+
+			// TODO integrate some similar check
+			// to prevent moving if context
+			// is not moveable after being started.
 			context_t&& move_context_or_throw(context_t&& c)
 			{
 				if (not stack::is_really_moveable<
