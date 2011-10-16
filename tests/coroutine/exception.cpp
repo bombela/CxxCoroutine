@@ -85,13 +85,13 @@ BOOST_AUTO_TEST_CASE(check_terminated_status)
 BOOST_AUTO_TEST_CASE(check_closure)
 {
 	int v = 21;
-	auto c = CORO(int) (
+	auto c = coro<int ()>([=] (yielder<int ()> yield) {
 			yield(v - 11);
+			1 + 1;
 			return v * 2;
-			);
+			});
 
 	BOOST_CHECK( c() == 10 );
 	BOOST_CHECK( c() == 42 );
 	BOOST_REQUIRE_THROW( c(), std::runtime_error );
 }
-

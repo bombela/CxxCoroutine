@@ -164,13 +164,13 @@ namespace coroutine {
 } // namespace coroutine
 
 
-#define CORO_DEF(...) \
-	__VA_ARGS__ })
+#define COROL_DEF(...) \
+	__VA_ARGS__ )
 
-#define CORO(sign, ...) \
+#define COROL(sign, ...) \
 	::coroutine::coro<sign (__VA_ARGS__)>(\
 			[=] (::coroutine::yielder<sign (__VA_ARGS__)> yield, ##__VA_ARGS__)\
-			{ CORO_DEF
+			COROL_DEF
 
 
 #endif /* BUILDER_H */
