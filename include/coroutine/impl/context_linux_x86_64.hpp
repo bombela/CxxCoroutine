@@ -25,14 +25,13 @@ namespace coroutine {
 	namespace context {
 
 		struct linux_x86_64: context_tag {
-			typedef stack::static_ default_stack;
 			template <typename STACK>
 				struct default_stack_size: stack::size_in_mb<64> {};
 		};
 
 		template <>
 			struct linux_x86_64::default_stack_size<stack::static_>
-			: stack::size_in_mb<32> {};
+			: stack::size_in_mb<8> {};
 
 		template <class STACK>
 			struct context<linux_x86_64, STACK> {

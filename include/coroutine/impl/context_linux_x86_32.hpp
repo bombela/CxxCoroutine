@@ -22,14 +22,13 @@ namespace coroutine {
 	namespace context {
 
 		struct linux_x86_32: context_tag {
-			typedef stack::static_ default_stack;
 			template <typename STACK>
-				struct default_stack_size: stack::size_in_mb<4> {};
+				struct default_stack_size: stack::size_in_mb<32> {};
 		};
 
 		template <>
 			struct linux_x86_32::default_stack_size<stack::static_>
-			: stack::size_in_mb<2> {};
+			: stack::size_in_mb<4> {};
 
 		template <class STACK>
 			struct context<linux_x86_32, STACK> {

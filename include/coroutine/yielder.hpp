@@ -10,6 +10,23 @@
 
 #include <iostream>
 
+/*
+ * TODO
+ *
+ * yield of type yielder is used like that:
+ *
+ * feed_val = yield(ret_val);
+ *
+ * It's should possible to provide overload with move semantic.
+ * It's maybe overkill because: each side (main code/coroutine code)
+ * need to know if the value was yield/feed from an RVALUE
+ * to be able to pass it on the other side as an RVALUE too.
+ * Adding a simple boolean and a if could do the trick, but I feel
+ * it will be slower than simply allowing only copy semantic.
+ * After all, if you need to pass value without duplicating it (thats
+ * the main purpose of move semantic), simply yield/feed a pointer.
+ */
+
 namespace coroutine {
 
 	/*
@@ -32,22 +49,11 @@ namespace coroutine {
 	template <typename RV, typename FV>
 		class yielder_base
 		{
-			friend class CoroutineFriendWithyielder;
-
 		public:
 			typedef typename details::cb_type<RV, FV>::type cb_t;
 
-			~yielder_base() {
-//                std::cout << "yielder_base destructor "
-//                        << (void*)_cb << ' ' << _ptr
-//                        << std::endl;
-			}
-
 			yielder_base(const yielder_base& from):
 				_cb(from._cb), _ptr(from._ptr) {
-//                    std::cout << "yielder cpy "
-//                        << (void*)_cb << ' ' << _ptr
-//                        << std::endl;
 				}
 
 		protected:
@@ -56,9 +62,6 @@ namespace coroutine {
 
 			yielder_base(cb_t cb, void* ptr):
 				_cb(cb), _ptr(ptr) {
-//                    std::cout << "yielder_base constructor "
-//                        << (void*)_cb << ' ' << _ptr
-//                        << std::endl;
 				}
 
 		private:
@@ -80,13 +83,7 @@ namespace coroutine {
 			return this->_cb(this->_ptr, value);
 		}
 
-		~yielder() {
-//            std::cout << "yielder RV F(FV) destructor" << std::endl;
-		}
-
-		yielder(cb_t cb, void* ptr): base_t(cb, ptr) {
-//            std::cout << "yielder RV F(FV) constructor" << std::endl;
-		}
+		yielder(cb_t cb, void* ptr): base_t(cb, ptr) { }
 	};
 
 	// RV f()

@@ -34,8 +34,8 @@ namespace coroutine {
 			protected:
 				void bootstrap()
 				{
-					yield(static_cast<IMPL*>(this)->_func(
-								(yielder<RV (FV)>)(&yield_trampoline, this),
+					yield_final(static_cast<IMPL*>(this)->_func(
+								yielder<RV (FV)>(&yield_trampoline, this),
 								*_fv));
 					abort();
 				}
@@ -56,6 +56,12 @@ namespace coroutine {
 					static_cast<IMPL*>(this)->leave();
 					return *_fv;
 				}
+
+				void yield_final(RV value)
+				{
+					_rv = &value;
+					static_cast<IMPL*>(this)->leave_final();
+				}
 		};
 
 	// RV f()
@@ -72,10 +78,9 @@ namespace coroutine {
 			protected:
 				void bootstrap()
 				{
-					yield(static_cast<IMPL*>(this)->_func(
-								(yielder<RV ()>)(&yield_trampoline, this)
+					yield_final(static_cast<IMPL*>(this)->_func(
+								yielder<RV ()>(&yield_trampoline, this)
 								));
-					abort();
 				}
 
 			private:
@@ -89,6 +94,12 @@ namespace coroutine {
 				{
 					_rv = &value;
 					static_cast<IMPL*>(this)->leave();
+				}
+
+				void yield_final(RV value)
+				{
+					_rv = &value;
+					static_cast<IMPL*>(this)->leave_final();
 				}
 		};
 
@@ -106,10 +117,10 @@ namespace coroutine {
 			protected:
 				void bootstrap()
 				{
-					yielder<void (FV)> yielder(&yield_trampoline, this);
-					static_cast<IMPL*>(this)->_func(yielder, *_fv);
-					yield();
-					abort();
+					static_cast<IMPL*>(this)->_func(
+							yielder<void (FV)>(&yield_trampoline, this),
+							*_fv);
+					yield_final();
 				}
 
 			private:
@@ -123,6 +134,11 @@ namespace coroutine {
 				{
 					static_cast<IMPL*>(this)->leave();
 					return *_fv;
+				}
+
+				void yield_final()
+				{
+					static_cast<IMPL*>(this)->leave_final();
 				}
 		};
 
@@ -139,10 +155,9 @@ namespace coroutine {
 			protected:
 				void bootstrap()
 				{
-					yielder<void ()> yielder(&yield_trampoline, this);
-					static_cast<IMPL*>(this)->_func(yielder);
-					yield();
-					abort();
+					static_cast<IMPL*>(this)->_func(
+							yielder<void ()>(&yield_trampoline, this));
+					yield_final();
 				}
 
 			private:
@@ -155,6 +170,11 @@ namespace coroutine {
 				{
 					static_cast<IMPL*>(this)->leave();
 				}
+
+				void yield_final()
+				{
+					static_cast<IMPL*>(this)->leave_final();
+				}
 		};
 
 	template <typename S, typename F, typename CONTEXT>
@@ -165,26 +185,43 @@ namespace coroutine {
 			typedef CONTEXT context_t;
 
 		public:
+			enum state_t { INITIALIZED, RUNNING, TERMINATED };
+
 			coroutine(func_t f):
 				_context(&bootstrap_trampoline, this),
 				_func(f),
-				_exception(nullptr)
+				_exception(nullptr),
+				_state(INITIALIZED)
 			{}
 
 			coroutine(const coroutine& from) = delete;
 			coroutine& operator=(coroutine& from) = delete;
 			coroutine& operator=(coroutine&& from) = delete;
 
+			// TODO handle correctly move semantic
+			// only if the coroutine can be moved
+			// without any trouble.
 			coroutine(coroutine&& from):
 				_context(std::move(from._context)),
 				_func(std::move(from._func)),
-				_exception(nullptr)
-			{};
+				_exception(nullptr),
+				_state(INITIALIZED)
+			{
+				if (from._state == RUNNING)
+					// TODO in fact you can if the stack do not move.
+					// lets find a way to handle this edge case.
+					throw std::runtime_error("cannot move running coroutine");
+			};
+
+			operator bool() const {
+				return _state != TERMINATED;
+			}
 
 		private:
 			context_t          _context;
 			func_t             _func;
 			std::exception_ptr _exception;
+			state_t            _state;
 
 			static void bootstrap_trampoline(void* self) {
 					reinterpret_cast<coroutine*>(self)
@@ -192,17 +229,17 @@ namespace coroutine {
 			}
 
 			void bootstrap() {
+				_state = RUNNING;
 				try {
 					this->base_t::bootstrap();
 				} catch(...) {
 					_exception = std::current_exception();
-					this->leave();
+					this->leave_final();
 				}
 			}
 
 			void enter() {
-				if (_exception)
-					// TODO choose better exception
+				if (_state == TERMINATED)
 					throw std::runtime_error("terminated coroutine");
 				_context.enter();
 				// throw if caught any exception inside the coroutine.
@@ -210,6 +247,10 @@ namespace coroutine {
 					std::rethrow_exception(_exception);
 			}
 			void leave() {
+				_context.leave();
+			}
+			void leave_final() {
+				_state = TERMINATED;
 				_context.leave();
 			}
 

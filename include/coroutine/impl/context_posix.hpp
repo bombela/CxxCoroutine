@@ -18,8 +18,12 @@ namespace coroutine {
 
 		struct posix: context_tag {
 			template <typename STACK>
-				struct default_stack_size: stack::size_in_mb<24> {};
+				struct default_stack_size: stack::size_in_mb<64> {};
 		};
+
+		template <>
+			struct posix::default_stack_size<stack::static_>
+			: stack::size_in_mb<8> {};
 
 		namespace posix_api {
 #				include <ucontext.h>
