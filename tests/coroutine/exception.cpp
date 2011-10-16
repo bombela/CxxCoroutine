@@ -20,8 +20,7 @@ void f_trow_int(yielder<void ()> yield)
 
 BOOST_AUTO_TEST_CASE(throw_int)
 {
-	auto c = corof<stack::dynamic, context::posix,
-		 stack::size_in_mb<8> >(&f_trow_int);
+	auto c = corof(&f_trow_int);
 
 	std::cout << "before call" << std::endl;
 	BOOST_REQUIRE_THROW( c(), int );
@@ -30,8 +29,7 @@ BOOST_AUTO_TEST_CASE(throw_int)
 
 BOOST_AUTO_TEST_CASE(throw_already_terminated_with_throw)
 {
-	auto c = corof<stack::dynamic, context::posix,
-		 stack::size_in_mb<8> >(&f_trow_int);
+	auto c = corof(&f_trow_int);
 
 	std::cout << "before call" << std::endl;
 	BOOST_REQUIRE_THROW( c(), int );
@@ -46,7 +44,7 @@ void f_nothing(yielder<void ()> yield)
 
 BOOST_AUTO_TEST_CASE(throw_already_terminated)
 {
-	auto c = corof<stack::size_in_mb<8>>(&f_nothing);
+	auto c = corof(&f_nothing);
 
 	c();
 	BOOST_REQUIRE_THROW( c(), std::runtime_error );
@@ -54,12 +52,12 @@ BOOST_AUTO_TEST_CASE(throw_already_terminated)
 
 int f_little_loop(yielder<int ()> yield)
 {
-	int i = 0;
+	int next = 0;
 	int end = 25;
-	while (i != end) {
-		auto v = i;
-		++i;
-		if (i == end)
+	while (true) {
+		auto v = next;
+		++next;
+		if (next == end)
 			return v;
 		yield(v);
 	}
@@ -67,7 +65,7 @@ int f_little_loop(yielder<int ()> yield)
 
 BOOST_AUTO_TEST_CASE(check_loop_and_stop)
 {
-	auto c = corof<stack::size_in_mb<8>>(&f_little_loop);
+	auto c = corof(&f_little_loop);
 
 	for (int i = 0; i < 25; ++i)
 		BOOST_CHECK(c() == i);
@@ -76,7 +74,7 @@ BOOST_AUTO_TEST_CASE(check_loop_and_stop)
 
 BOOST_AUTO_TEST_CASE(check_terminated_status)
 {
-	auto c = corof<stack::size_in_mb<8>>(&f_little_loop);
+	auto c = corof(&f_little_loop);
 
 	int i = 0;
 	while (c)
