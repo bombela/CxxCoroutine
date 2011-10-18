@@ -41,6 +41,7 @@ set(BENCH_SRCS
 	posixContextLoop.cpp
 	oslinuxContext.cpp
 	oslinuxContextLoop.cpp
+	coroutine.cpp
 )
 
 foreach(f ${BENCH_SRCS})
