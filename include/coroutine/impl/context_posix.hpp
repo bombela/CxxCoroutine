@@ -12,6 +12,7 @@
 #include <string.h>
 #include <errno.h>
 #include <coroutine/context.hpp>
+#include <coroutine/impl/stack_static.hpp>
 
 namespace coroutine {
 	namespace context {
